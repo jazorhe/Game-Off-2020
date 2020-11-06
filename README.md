@@ -16,7 +16,7 @@ Our team initially consists of 4 members:
 The player is sent to the Moon and is in charge of the latest space project: ***The International Moon Base***, funded by the ***International Space association*** (transient name). The player is also secretly employed by a giant science/technology company ***Tesla***, which secretly demanded the player to construct a hidden secondary moon base, and its final attempt is to steal the moon for unknown reason.
 
 
-<img src="Concepts/Moon Heist.png" width="700">
+<img src="Concepts/img/Moon Heist.png" width="700">
 
 
 
@@ -32,6 +32,11 @@ The player is sent to the Moon and is in charge of the latest space project: ***
 -   背景图设计
 -   UI设计
     -   UI网格化
+
+
+## Dev Log:
+<img src="Concepts/img/yellow-numbered.png" width="700">
+<img src="Concepts/img/purple-numbered.png" width="700">
 
 
 ## Special Thanks To:

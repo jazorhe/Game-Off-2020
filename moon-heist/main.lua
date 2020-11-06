@@ -1,4 +1,3 @@
-
 function love.load()
     love.window.setTitle('Poke50')
     love.graphics.setDefaultFilter('nearest', 'nearest')
@@ -10,11 +9,6 @@ function love.load()
         vsync = true,
         resizable = true
     })
-
-    -- this time, we are using a stack for all of our states, where the field state is the
-    -- foundational state; it will have its behavior preserved between state changes because
-    -- it is essentially being placed "behind" other running states as needed (like the battle
-    -- state)
 
     gStateStack = StateStack()
     gStateStack:push(StartState())
@@ -38,11 +32,29 @@ function love.keyboard.wasPressed(key)
     return love.keyboard.keysPressed[key]
 end
 
+function love.mousepressed(x, y, key)
+    love.mouse.keysPressed[key] = true
+end
+
+function love.mousereleased(x, y, key)
+    love.mouse.keysReleased[key] = true
+end
+
+function love.mouse.wasPressed(key)
+    return love.mouse.keysPressed[key]
+end
+
+function love.mouse.wasReleased(key)
+    return love.mouse.keysReleased[key]
+end
+
 function love.update(dt)
     Timer.update(dt)
     gStateStack:update(dt)
 
     love.keyboard.keysPressed = {}
+    love.mouse.keysPressed = {}
+    love.mouse.keysReleased = {}
 end
 
 function love.draw()
