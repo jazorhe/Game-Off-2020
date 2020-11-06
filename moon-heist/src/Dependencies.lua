@@ -11,7 +11,6 @@ require 'src/Util'
 require 'src/Animation'
 
 require 'src/constants'
-require 'src/facilities_defs'
 
 require 'src/gui/Menu'
 require 'src/gui/Panel'
@@ -34,44 +33,32 @@ require 'src/states/game/BattleMessageState'
 require 'src/states/game/DialogueState'
 require 'src/states/game/TakeTurnState'
 
-require 'src/world/Level'
-require 'src/world/tile_ids'
-require 'src/world/Tile'
-require 'src/world/TileMap'
+-- require 'src/world/Level'
+-- require 'src/world/tile_ids'
+-- require 'src/world/Tile'
+-- require 'src/world/TileMap'
 
 require 'src/facility/Facility'
 require 'src/facility/facility_defs'
-require 'src/states/entity/' -- TODO
-require 'src/states/entity/' -- TODO
-require 'src/states/entity/' -- TODO
+-- require 'src/states/facility/' -- TODO
+-- require 'src/states/facility/' -- TODO
+-- require 'src/states/facility/' -- TODO
 
-require 'src/entity/Entity'
-require 'src/entity/entity_defs'
-require 'src/states/entity/EntityBaseState'
-require 'src/states/entity/EntityIdleState'
-require 'src/states/entity/EntityWalkState'
+-- require 'src/entity/Entity'
+-- require 'src/entity/entity_defs'
+-- require 'src/states/entity/EntityBaseState'
+-- require 'src/states/entity/EntityIdleState'
+-- require 'src/states/entity/EntityWalkState'
 
 
 gTextures = {
-    ['tiles'] = love.graphics.newImage('graphics/sheet.png'),
-    ['entities'] = love.graphics.newImage('graphics/entities.png'),
-    ['cursor'] = love.graphics.newImage('graphics/cursor.png'),
-
-    ['aardart-back'] = love.graphics.newImage('graphics/pokemon/aardart-back.png'),
-    ['aardart-front'] = love.graphics.newImage('graphics/pokemon/aardart-front.png'),
-    ['agnite-back'] = love.graphics.newImage('graphics/pokemon/agnite-back.png'),
-    ['agnite-front'] = love.graphics.newImage('graphics/pokemon/agnite-front.png'),
-    ['anoleaf-back'] = love.graphics.newImage('graphics/pokemon/anoleaf-back.png'),
-    ['anoleaf-front'] = love.graphics.newImage('graphics/pokemon/anoleaf-front.png'),
-    ['bamboon-back'] = love.graphics.newImage('graphics/pokemon/bamboon-back.png'),
-    ['bamboon-front'] = love.graphics.newImage('graphics/pokemon/bamboon-front.png'),
-    ['cardiwing-back'] = love.graphics.newImage('graphics/pokemon/cardiwing-back.png'),
-    ['cardiwing-front'] = love.graphics.newImage('graphics/pokemon/cardiwing-front.png'),
+    ['yellow'] = love.graphics.newImage('graphics/yellow.png'),
+    ['purple'] = love.graphics.newImage('graphics/purple.png')
 }
 
 gFrames = {
-    ['tiles'] = GenerateQuads(gTextures['tiles'], 16, 16),
-    ['entities'] = GenerateQuads(gTextures['entities'], 16, 16)
+    ['yellow'] = GenerateQuads(gTextures['yellow'], 48, 48),
+    ['purple'] = GenerateQuads(gTextures['purple'], 48, 48)
 }
 
 gFonts = {
@@ -91,6 +78,19 @@ gSounds = {
     ['exp'] = love.audio.newSource('sounds/exp.wav', 'static'),
     ['levelup'] = love.audio.newSource('sounds/levelup.wav', 'static'),
     ['victory-music'] = love.audio.newSource('sounds/victory.wav', 'static'),
-    ['intro-music'] = love.audio.newSource('sounds/intro.mp3', 'static')
+    ['main-theme'] = love.audio.newSource('sounds/intro.mp3', 'static')
 }
-love.audio.setVolume(0.3)
+love.audio.setVolume(0.1)
+
+-- ['main-theme'] = love.audio.newSource('sounds/main-theme.wav', 'static'),
+-- ['yellow-theme'] = love.audio.newSource('sounds/yellow-theme.wav', 'static'),
+-- ['purple-theme'] = love.audio.newSource('sounds/purple-theme.wav', 'static'),
+-- gSounds['yellow-theme']:setLooping(true)
+-- gSounds['purple-theme']:setLooping(true)
+--
+-- gSounds['yellow-theme']:setVolume(1)
+-- gSounds['purple-theme']:setVolume(0)
+--
+-- gSounds['yellow-theme']:play(1)
+-- gSounds['purple-theme']:play(0)
+--

@@ -1,9 +1,14 @@
 StartState = Class{__includes = BaseState}
 
 function StartState:init()
-    gSounds['intro-music']:play()
+    gSounds['main-theme']:play()
 
-    self.sprite = POKEMON_DEFS[POKEMON_IDS[math.random(#POKEMON_IDS)]].battleSpriteFront
+    self.sprites = {'yellow', 'purple'}
+    self.sprite = self.sprites[math.random(2)]
+    self.frame = math.random(126)
+    while self.frame % 7 ~= 1 do
+        self.frame = math.random(126)
+    end
     self.spriteX = VIRTUAL_WIDTH / 2 - 32
     self.spriteY = VIRTUAL_HEIGHT / 2 - 16
 
@@ -12,7 +17,11 @@ function StartState:init()
             [self] = {spriteX = -64}
         })
         :finish(function()
-            self.sprite = POKEMON_DEFS[POKEMON_IDS[math.random(#POKEMON_IDS)]].battleSpriteFront
+            self.sprite = self.sprites[math.random(2)]
+            self.frame = math.random(126)
+            while self.frame % 7 ~= 1 do
+                self.frame = math.random(126)
+            end
             self.spriteX = VIRTUAL_WIDTH
             self.spriteY = VIRTUAL_HEIGHT / 2 - 16
 
@@ -21,6 +30,7 @@ function StartState:init()
             })
         end)
     end)
+
 end
 
 function StartState:update(dt)
@@ -29,16 +39,14 @@ function StartState:update(dt)
             r = 255, g = 255, b = 255
         }, 1,
         function()
-            gSounds['intro-music']:stop()
+            gSounds['main-theme']:stop()
             self.tween:remove()
 
             gStateStack:pop()
 
             gStateStack:push(PlayState())
             gStateStack:push(DialogueState("" ..
-                "Welcome to the world of 50Mon! To start fighting monsters with your own randomly assigned" ..
-                " monster, just walk in the tall grass! If you need to heal, just press 'P' in the field! " ..
-                "Good luck! (Press Enter to dismiss dialogues)"
+                "Welcome to the world of Moon Heist! There is meant to be an introduction here but I am going to skip for now! (Press Enter to dismiss dialogues)"
             ))
             gStateStack:push(FadeOutState({
                 r = 255, g = 255, b = 255
@@ -49,18 +57,18 @@ function StartState:update(dt)
 end
 
 function StartState:render()
-    love.graphics.clear(rgba(188, 188, 188, 255))
+    love.graphics.clear(rgb(102, 52, 43))
 
-    love.graphics.setColor(rgba(24, 24, 24, 255))
+    love.graphics.setColor(rgb(190, 163, 165))
     love.graphics.setFont(gFonts['large'])
-    love.graphics.printf('50-Mon!', 0, VIRTUAL_HEIGHT / 2 - 72, VIRTUAL_WIDTH, 'center')
+    love.graphics.printf('Moon Heist!', 0, VIRTUAL_HEIGHT / 2 - 72, VIRTUAL_WIDTH, 'center')
     love.graphics.setFont(gFonts['medium'])
     love.graphics.printf('Press Enter', 0, VIRTUAL_HEIGHT / 2 + 68, VIRTUAL_WIDTH, 'center')
     love.graphics.setFont(gFonts['small'])
 
-    love.graphics.setColor(rgba(45, 184, 45, 124))
+    love.graphics.setColor(rgb(81, 71, 88))
     love.graphics.ellipse('fill', VIRTUAL_WIDTH / 2, VIRTUAL_HEIGHT / 2 + 32, 72, 24)
 
     love.graphics.setColor(rgba(255, 255, 255, 255))
-    love.graphics.draw(gTextures[self.sprite], self.spriteX, self.spriteY)
+    love.graphics.draw(gTextures[self.sprite], gFrames['yellow'][self.frame], self.spriteX, self.spriteY)
 end
