@@ -5,10 +5,12 @@ function StartState:init()
 
     self.sprites = {'yellow', 'purple'}
     self.sprite = self.sprites[math.random(2)]
+
     self.frame = math.random(126)
     while self.frame % 7 ~= 1 do
         self.frame = math.random(126)
     end
+
     self.spriteX = VIRTUAL_WIDTH / 2 - 32
     self.spriteY = VIRTUAL_HEIGHT / 2 - 16
 
@@ -22,6 +24,7 @@ function StartState:init()
             while self.frame % 7 ~= 1 do
                 self.frame = math.random(126)
             end
+            
             self.spriteX = VIRTUAL_WIDTH
             self.spriteY = VIRTUAL_HEIGHT / 2 - 16
 

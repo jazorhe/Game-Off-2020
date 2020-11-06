@@ -38,6 +38,7 @@ require 'src/states/game/TakeTurnState'
 -- require 'src/world/Tile'
 -- require 'src/world/TileMap'
 
+require 'src/Side'
 require 'src/facility/Facility'
 require 'src/facility/facility_defs'
 -- require 'src/states/facility/' -- TODO
