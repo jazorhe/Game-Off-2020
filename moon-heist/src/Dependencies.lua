@@ -81,7 +81,7 @@ gSounds = {
     ['victory-music'] = love.audio.newSource('sounds/victory.wav', 'static'),
     ['main-theme'] = love.audio.newSource('sounds/intro.mp3', 'static')
 }
-love.audio.setVolume(0.1)
+love.audio.setVolume(0.3)
 
 -- ['main-theme'] = love.audio.newSource('sounds/main-theme.wav', 'static'),
 -- ['yellow-theme'] = love.audio.newSource('sounds/yellow-theme.wav', 'static'),

@@ -17,7 +17,6 @@ function Side:createAnimations(animations)
 
     for k, animationDef in pairs(animations) do
         animationsReturned[k] = Animation {
-            texture = animationDef.texture or 'facilities',
             texture = animationDef.texture,
             frames = animationDef.frames,
             interval = animationDef.interval
@@ -41,12 +40,11 @@ function Side:update(dt)
     end
 end
 
-function Side:render()
 function Side:render(resources)
     -- self.stateMachine:render()
-    table.sort(self.facilities, function (k1, k2) return k1.renderLayer < k2.renderLayer end )
+    table.sort(self.facilities, function (k1, k2) return k1.renderLayer > k2.renderLayer end )
     for k, facility in pairs(self.facilities) do
-        facility:render()
+        facility:render(self.baseX)
     end
 
     love.graphics.setColor(unpack(self.colour))

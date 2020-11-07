@@ -52,6 +52,9 @@ function love.update(dt)
     Timer.update(dt)
     gStateStack:update(dt)
 
+    mouseX, mouseY = push:toGame(love.mouse.getPosition())
+    if not mouseX or not mouseY then mouseX, mouseY = 0, 0 end
+
     love.keyboard.keysPressed = {}
     love.mouse.keysPressed = {}
     love.mouse.keysReleased = {}
@@ -76,4 +79,8 @@ end
 
 function rgb(r, g, b)
     return rgba(r, g, b)
+end
+
+function table.pack(...)
+    return {n = select("#", ...), ...}
 end

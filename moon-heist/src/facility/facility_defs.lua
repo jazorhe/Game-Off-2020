@@ -7,6 +7,8 @@ FACILITY_DEFS = {
             mapX = 3,
             mapY = 1,
             renderLayer = 4,
+            offsetX = nil,
+            offsetY = nil,
 
             buildCost = {
                 [0] = {
@@ -119,6 +121,9 @@ FACILITY_DEFS = {
             mapX = 2,
             mapY = 1,
             renderLayer = 5,
+            offsetX = nil,
+            offsetY = nil,
+
             buildCost = {
                 [0] = {
                     ['money'] = 0,
@@ -230,6 +235,9 @@ FACILITY_DEFS = {
             mapX = 1,
             mapY = 1,
             renderLayer = 6,
+            offsetX = nil,
+            offsetY = nil,
+
             buildCost = {
                 [0] = {
                     ['money'] = 0,
@@ -341,6 +349,9 @@ FACILITY_DEFS = {
             mapX = 3,
             mapY = 2,
             renderLayer = 1,
+            offsetX = nil,
+            offsetY = nil,
+
             buildCost = {
                 [0] = {
                     ['money'] = 0,
@@ -452,6 +463,9 @@ FACILITY_DEFS = {
             mapX = 2,
             mapY = 2,
             renderLayer = 2,
+            offsetX = nil,
+            offsetY = nil,
+
             buildCost = {
                 [0] = {
                     ['money'] = 0,
@@ -563,6 +577,9 @@ FACILITY_DEFS = {
             mapX = 1,
             mapY = 2,
             renderLayer = 3,
+            offsetX = nil,
+            offsetY = nil,
+
             buildCost = {
                 [0] = {
                     ['money'] = 0,
@@ -676,6 +693,9 @@ FACILITY_DEFS = {
             mapX = 1,
             mapY = 1,
             renderLayer = 4,
+            offsetX = nil,
+            offsetY = nil,
+
             buildCost = {
                 [0] = {
                     ['money'] = 0,
@@ -787,6 +807,9 @@ FACILITY_DEFS = {
             mapX = 2,
             mapY = 1,
             renderLayer = 5,
+            offsetX = nil,
+            offsetY = nil,
+
             buildCost = {
                 [0] = {
                     ['money'] = 0,
@@ -898,6 +921,9 @@ FACILITY_DEFS = {
             mapX = 3,
             mapY = 1,
             renderLayer = 6,
+            offsetX = nil,
+            offsetY = nil,
+
             buildCost = {
                 [0] = {
                     ['money'] = 0,
@@ -1009,6 +1035,9 @@ FACILITY_DEFS = {
             mapX = 1,
             mapY = 2,
             renderLayer = 1,
+            offsetX = nil,
+            offsetY = nil,
+
             buildCost = {
                 [0] = {
                     ['money'] = 0,
@@ -1120,6 +1149,9 @@ FACILITY_DEFS = {
             mapX = 2,
             mapY = 2,
             renderLayer = 2,
+            offsetX = nil,
+            offsetY = nil,
+
             buildCost = {
                 [0] = {
                     ['money'] = 0,
@@ -1231,6 +1263,9 @@ FACILITY_DEFS = {
             mapX = 3,
             mapY = 2,
             renderLayer = 3,
+            offsetX = nil,
+            offsetY = nil,
+
             buildCost = {
                 [0] = {
                     ['money'] = 0,

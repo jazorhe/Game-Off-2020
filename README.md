@@ -41,3 +41,19 @@ The player is sent to the Moon and is in charge of the latest space project: ***
 
 ## Special Thanks To:
 -   Olivia Chuyi Deng
+
+
+## Useful Links:
+-   [LÖVE2d](https://love2d.org/wiki/love)
+-   [Lua Knife](https://github.com/airstruck/knife)
+-   [Push Module for Lua](https://github.com/Ulydev/push)
+-   [Fonts: Dafont.com](https://www.dafont.com/)
+-   [Freely Available Game Assets: Open Game Art](https://opengameart.org/)
+-   [Sound Effects: Bfxr Sound Effect Generator](https://www.bfxr.net/)
+-   [Shader](https://www.shadertoy.com/)
+-   Markdown Guides:
+    -   [Embed youtube to markdown, GitLab, GitHub](http://embedyoutube.org/)
+    -   [GitHub: Mastering Markdown](https://guides.github.com/features/mastering-markdown/)
+    -   [Markdown Emoji Cheatsheet](https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md)
+-   Books and Materials:
+    -   [How to Make an RPG](https://howtomakeanrpg.com/)
