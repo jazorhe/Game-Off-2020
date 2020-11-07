@@ -5,7 +5,6 @@ function PlayState:init()
     gSounds['field-music']:setLooping(true)
     gSounds['field-music']:play()
 
-    self.currentSide = 'yellow'
     self.resources = {
         ['money'] = 2000,
         ['food'] = 2000,
@@ -13,29 +12,36 @@ function PlayState:init()
         ['perception'] = 2000
     }
 
-    self.sides = {Side({
+    self.yellowSide = Side({
         name = 'yellow',
+        colour = table.pack(rgb(217, 186, 22)),
         background = 'yellow-ground',
         facilities = FACILITY_DEFS['yellow'],
-    })}
+        baseX = 0
+    })
 
-    -- self.sides = {Side({
-    --     name = 'yellow',
-    --     background = 'yellow-ground',
-    --     facilities = FACILITY_DEFS['yellow'],
-    -- }), Side({
-    --     name = 'purple',
-    --     background = 'purple-ground',
-    --     facilities = FACILITY_DEFS['purple']
-    -- })}
-    
-    -- Event.on('shift-left', function(params)
-    --     self:beginShifting(-VIRTUAL_WIDTH, 0, params)
-    -- end)
-    --
-    -- Event.on('shift-right', function(params)
-    --     self:beginShifting(VIRTUAL_WIDTH, 0, params)
-    -- end)
+    self.PurpleSide = Side({
+        name = 'purple',
+        colour = table.pack(rgb(171, 42, 232)),
+        background = 'purple-ground',
+        facilities = FACILITY_DEFS['purple'],
+        baseX = VIRTUAL_WIDTH
+    })
+
+    self.sides = {self.yellowSide, self.PurpleSide}
+    self.currentSide = self.yellowSide
+
+    self.cameraX = 0
+    self.cameraY = 0
+    self.shifting = false
+
+    Event.on('shift-right', function(params)
+        self:beginShifting(self.PurpleSide, VIRTUAL_WIDTH, 0, params)
+    end)
+
+    Event.on('shift-left', function(params)
+        self:beginShifting(self.yellowSide, -VIRTUAL_WIDTH, 0, params)
+    end)
 
 end
 
