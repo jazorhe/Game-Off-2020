@@ -8,7 +8,9 @@ function Side:init(def)
     self.baseX = def.baseX
 
     for i = 1, 6 do
-        table.insert(self.facilities, Facility(def.facilities[i]))
+        table.insert(self.facilities, Facility(def.facilities[i], {
+            colour = self.colour
+        }))
     end
 end
 

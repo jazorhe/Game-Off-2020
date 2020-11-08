@@ -1,9 +1,11 @@
 Facility = Class{}
 
-function Facility:init(def)
+function Facility:init(def, params)
     self.type = def.type
     self.side = def.side
+    self.colour = params.colour
     self.buildCost = def.buildCost
+    self.downGradeEarn = def.downGradeEarn
     self.regCost = def.regCost
     self.regEarn = def.regEarn
     self.animations = self:createAnimations(def.animations)
@@ -69,10 +71,11 @@ end
 function Facility:update(dt)
     self.currentAnimation:update(dt)
     -- self.stateMachine:update(dt)
-
-    if mouseX > self.x + self.offsetX and mouseX < self.x + self.offsetX + FACILITY_SIZE then
-        if mouseY > self.y + self.offsetY and mouseY < self.y + self.offsetY + FACILITY_SIZE then
-            self.hover = true
+    if self:isHovered() then
+        if love.mouse.keysPressed[1] then
+            self:levelUp(1)
+        elseif love.mouse.keysPressed[2] then
+            self:levelUp(-1)
         end
     end
 
@@ -89,6 +92,12 @@ function Facility:render(baseX)
     love.graphics.draw(gTextures[anim.texture], gFrames[anim.texture][anim:getCurrentFrame()], self.x + self.offsetX + baseX , self.y + self.offsetY + (self:isHovered() and -10 or 0))
 
     love.graphics.setShader()
+
+    love.graphics.setColor(unpack(self.colour))
+    love.graphics.print("Level " .. tostring(self.currentLevel), self.x + self.offsetX + baseX + 5, self.y + self.offsetY + (self:isHovered() and -10 or 0) + 3)
+
+    love.graphics.setColor(rgb(255, 255, 255))
+
 end
 
 function Facility:isHovered()
@@ -98,4 +107,21 @@ function Facility:isHovered()
         end
     end
     return false
+end
+
+function Facility:levelUp(n)
+    if n > 0 then
+        Event.dispatch('resource-management', {
+            resourceTable = self.buildCost[(self.currentLevel == 3 and 0 or self.currentLevel + 1)]
+        })
+    else
+        Event.dispatch('resource-management', {
+            resourceTable = self.downGradeEarn[(self.currentLevel == 0 and 3 or self.currentLevel - 1)]
+        })
+    end
+
+    self.currentLevel = self.currentLevel + n
+    if self.currentLevel > 3 then self.currentLevel = 3 end
+    if self.currentLevel < 0 then self.currentLevel = 0 end
+    self:changeAnimation('idle-' .. tostring(self.currentLevel))
 end

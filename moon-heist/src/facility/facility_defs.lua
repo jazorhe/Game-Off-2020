@@ -37,6 +37,33 @@ FACILITY_DEFS = {
                 }
             },
 
+            downGradeEarn = {
+                [0] = {
+                    ['money'] = -100,
+                    ['food'] = -100,
+                    ['energy'] = -100,
+                    ['perception'] = -100
+                },
+                [1] = {
+                    ['money'] = -100,
+                    ['food'] = -100,
+                    ['energy'] = -100,
+                    ['perception'] = -100
+                },
+                [2] = {
+                    ['money'] = -100,
+                    ['food'] = -100,
+                    ['energy'] = -100,
+                    ['perception'] = -100
+                },
+                [3] = {
+                    ['money'] = 0,
+                    ['food'] = 0,
+                    ['energy'] = 0,
+                    ['perception'] = 0
+                }
+            },
+
             regCost = {
                 [0] = {
                     ['money'] = 0,
@@ -114,6 +141,7 @@ FACILITY_DEFS = {
                 }
             }
         },
+
         [2] = {
             type = 'farm',
             side = 'yellow',
@@ -148,6 +176,33 @@ FACILITY_DEFS = {
                     ['food'] = 100,
                     ['energy'] = 100,
                     ['perception'] = 100
+                }
+            },
+
+            downGradeEarn = {
+                [0] = {
+                    ['money'] = -100,
+                    ['food'] = -100,
+                    ['energy'] = -100,
+                    ['perception'] = -100
+                },
+                [1] = {
+                    ['money'] = -100,
+                    ['food'] = -100,
+                    ['energy'] = -100,
+                    ['perception'] = -100
+                },
+                [2] = {
+                    ['money'] = -100,
+                    ['food'] = -100,
+                    ['energy'] = -100,
+                    ['perception'] = -100
+                },
+                [3] = {
+                    ['money'] = 0,
+                    ['food'] = 0,
+                    ['energy'] = 0,
+                    ['perception'] = 0
                 }
             },
 
@@ -228,6 +283,7 @@ FACILITY_DEFS = {
                 }
             }
         },
+
         [3] = {
             type = 'weather-station',
             side = 'yellow',
@@ -262,6 +318,33 @@ FACILITY_DEFS = {
                     ['food'] = 100,
                     ['energy'] = 100,
                     ['perception'] = 100
+                }
+            },
+
+            downGradeEarn = {
+                [0] = {
+                    ['money'] = -100,
+                    ['food'] = -100,
+                    ['energy'] = -100,
+                    ['perception'] = -100
+                },
+                [1] = {
+                    ['money'] = -100,
+                    ['food'] = -100,
+                    ['energy'] = -100,
+                    ['perception'] = -100
+                },
+                [2] = {
+                    ['money'] = -100,
+                    ['food'] = -100,
+                    ['energy'] = -100,
+                    ['perception'] = -100
+                },
+                [3] = {
+                    ['money'] = 0,
+                    ['food'] = 0,
+                    ['energy'] = 0,
+                    ['perception'] = 0
                 }
             },
 
@@ -342,6 +425,7 @@ FACILITY_DEFS = {
                 }
             }
         },
+
         [4] = {
             type = 'tunnel',
             side = 'yellow',
@@ -376,6 +460,33 @@ FACILITY_DEFS = {
                     ['food'] = 100,
                     ['energy'] = 100,
                     ['perception'] = 100
+                }
+            },
+
+            downGradeEarn = {
+                [0] = {
+                    ['money'] = -100,
+                    ['food'] = -100,
+                    ['energy'] = -100,
+                    ['perception'] = -100
+                },
+                [1] = {
+                    ['money'] = -100,
+                    ['food'] = -100,
+                    ['energy'] = -100,
+                    ['perception'] = -100
+                },
+                [2] = {
+                    ['money'] = -100,
+                    ['food'] = -100,
+                    ['energy'] = -100,
+                    ['perception'] = -100
+                },
+                [3] = {
+                    ['money'] = 0,
+                    ['food'] = 0,
+                    ['energy'] = 0,
+                    ['perception'] = 0
                 }
             },
 
@@ -456,6 +567,7 @@ FACILITY_DEFS = {
                 }
             }
         },
+
         [5] = {
             type = 'apartment',
             side = 'yellow',
@@ -490,6 +602,33 @@ FACILITY_DEFS = {
                     ['food'] = 100,
                     ['energy'] = 100,
                     ['perception'] = 100
+                }
+            },
+
+            downGradeEarn = {
+                [0] = {
+                    ['money'] = -100,
+                    ['food'] = -100,
+                    ['energy'] = -100,
+                    ['perception'] = -100
+                },
+                [1] = {
+                    ['money'] = -100,
+                    ['food'] = -100,
+                    ['energy'] = -100,
+                    ['perception'] = -100
+                },
+                [2] = {
+                    ['money'] = -100,
+                    ['food'] = -100,
+                    ['energy'] = -100,
+                    ['perception'] = -100
+                },
+                [3] = {
+                    ['money'] = 0,
+                    ['food'] = 0,
+                    ['energy'] = 0,
+                    ['perception'] = 0
                 }
             },
 
@@ -570,6 +709,7 @@ FACILITY_DEFS = {
                 }
             }
         },
+
         [6] = {
             type = 'habour',
             side = 'yellow',
@@ -604,6 +744,33 @@ FACILITY_DEFS = {
                     ['food'] = 100,
                     ['energy'] = 100,
                     ['perception'] = 100
+                }
+            },
+
+            downGradeEarn = {
+                [0] = {
+                    ['money'] = -100,
+                    ['food'] = -100,
+                    ['energy'] = -100,
+                    ['perception'] = -100
+                },
+                [1] = {
+                    ['money'] = -100,
+                    ['food'] = -100,
+                    ['energy'] = -100,
+                    ['perception'] = -100
+                },
+                [2] = {
+                    ['money'] = -100,
+                    ['food'] = -100,
+                    ['energy'] = -100,
+                    ['perception'] = -100
+                },
+                [3] = {
+                    ['money'] = 0,
+                    ['food'] = 0,
+                    ['energy'] = 0,
+                    ['perception'] = 0
                 }
             },
 
@@ -723,6 +890,33 @@ FACILITY_DEFS = {
                 }
             },
 
+            downGradeEarn = {
+                [0] = {
+                    ['money'] = -100,
+                    ['food'] = -100,
+                    ['energy'] = -100,
+                    ['perception'] = -100
+                },
+                [1] = {
+                    ['money'] = -100,
+                    ['food'] = -100,
+                    ['energy'] = -100,
+                    ['perception'] = -100
+                },
+                [2] = {
+                    ['money'] = -100,
+                    ['food'] = -100,
+                    ['energy'] = -100,
+                    ['perception'] = -100
+                },
+                [3] = {
+                    ['money'] = 0,
+                    ['food'] = 0,
+                    ['energy'] = 0,
+                    ['perception'] = 0
+                }
+            },
+
             regCost = {
                 [0] = {
                     ['money'] = 0,
@@ -800,6 +994,7 @@ FACILITY_DEFS = {
                 }
             }
         },
+
         [2] = {
             type = 'mine',
             side = 'purple',
@@ -834,6 +1029,33 @@ FACILITY_DEFS = {
                     ['food'] = 100,
                     ['energy'] = 100,
                     ['perception'] = 100
+                }
+            },
+
+            downGradeEarn = {
+                [0] = {
+                    ['money'] = -100,
+                    ['food'] = -100,
+                    ['energy'] = -100,
+                    ['perception'] = -100
+                },
+                [1] = {
+                    ['money'] = -100,
+                    ['food'] = -100,
+                    ['energy'] = -100,
+                    ['perception'] = -100
+                },
+                [2] = {
+                    ['money'] = -100,
+                    ['food'] = -100,
+                    ['energy'] = -100,
+                    ['perception'] = -100
+                },
+                [3] = {
+                    ['money'] = 0,
+                    ['food'] = 0,
+                    ['energy'] = 0,
+                    ['perception'] = 0
                 }
             },
 
@@ -914,6 +1136,7 @@ FACILITY_DEFS = {
                 }
             }
         },
+
         [3] = {
             type = 'recycle-station',
             side = 'purple',
@@ -948,6 +1171,33 @@ FACILITY_DEFS = {
                     ['food'] = 100,
                     ['energy'] = 100,
                     ['perception'] = 100
+                }
+            },
+
+            downGradeEarn = {
+                [0] = {
+                    ['money'] = -100,
+                    ['food'] = -100,
+                    ['energy'] = -100,
+                    ['perception'] = -100
+                },
+                [1] = {
+                    ['money'] = -100,
+                    ['food'] = -100,
+                    ['energy'] = -100,
+                    ['perception'] = -100
+                },
+                [2] = {
+                    ['money'] = -100,
+                    ['food'] = -100,
+                    ['energy'] = -100,
+                    ['perception'] = -100
+                },
+                [3] = {
+                    ['money'] = 0,
+                    ['food'] = 0,
+                    ['energy'] = 0,
+                    ['perception'] = 0
                 }
             },
 
@@ -1028,6 +1278,7 @@ FACILITY_DEFS = {
                 }
             }
         },
+
         [4] = {
             type = 'dark-matter',
             side = 'purple',
@@ -1062,6 +1313,33 @@ FACILITY_DEFS = {
                     ['food'] = 100,
                     ['energy'] = 100,
                     ['perception'] = 100
+                }
+            },
+
+            downGradeEarn = {
+                [0] = {
+                    ['money'] = -100,
+                    ['food'] = -100,
+                    ['energy'] = -100,
+                    ['perception'] = -100
+                },
+                [1] = {
+                    ['money'] = -100,
+                    ['food'] = -100,
+                    ['energy'] = -100,
+                    ['perception'] = -100
+                },
+                [2] = {
+                    ['money'] = -100,
+                    ['food'] = -100,
+                    ['energy'] = -100,
+                    ['perception'] = -100
+                },
+                [3] = {
+                    ['money'] = 0,
+                    ['food'] = 0,
+                    ['energy'] = 0,
+                    ['perception'] = 0
                 }
             },
 
@@ -1142,6 +1420,7 @@ FACILITY_DEFS = {
                 }
             }
         },
+
         [5] = {
             type = 'worm-hole',
             side = 'purple',
@@ -1176,6 +1455,33 @@ FACILITY_DEFS = {
                     ['food'] = 100,
                     ['energy'] = 100,
                     ['perception'] = 100
+                }
+            },
+
+            downGradeEarn = {
+                [0] = {
+                    ['money'] = -100,
+                    ['food'] = -100,
+                    ['energy'] = -100,
+                    ['perception'] = -100
+                },
+                [1] = {
+                    ['money'] = -100,
+                    ['food'] = -100,
+                    ['energy'] = -100,
+                    ['perception'] = -100
+                },
+                [2] = {
+                    ['money'] = -100,
+                    ['food'] = -100,
+                    ['energy'] = -100,
+                    ['perception'] = -100
+                },
+                [3] = {
+                    ['money'] = 0,
+                    ['food'] = 0,
+                    ['energy'] = 0,
+                    ['perception'] = 0
                 }
             },
 
@@ -1256,6 +1562,7 @@ FACILITY_DEFS = {
                 }
             }
         },
+
         [6] = {
             type = 'engine',
             side = 'purple',
@@ -1290,6 +1597,33 @@ FACILITY_DEFS = {
                     ['food'] = 100,
                     ['energy'] = 100,
                     ['perception'] = 100
+                }
+            },
+
+            downGradeEarn = {
+                [0] = {
+                    ['money'] = -100,
+                    ['food'] = -100,
+                    ['energy'] = -100,
+                    ['perception'] = -100
+                },
+                [1] = {
+                    ['money'] = -100,
+                    ['food'] = -100,
+                    ['energy'] = -100,
+                    ['perception'] = -100
+                },
+                [2] = {
+                    ['money'] = -100,
+                    ['food'] = -100,
+                    ['energy'] = -100,
+                    ['perception'] = -100
+                },
+                [3] = {
+                    ['money'] = 0,
+                    ['food'] = 0,
+                    ['energy'] = 0,
+                    ['perception'] = 0
                 }
             },
 
