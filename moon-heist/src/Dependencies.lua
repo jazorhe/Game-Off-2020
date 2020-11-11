@@ -77,21 +77,13 @@ gSounds = {
     ['run'] = love.audio.newSource('sounds/run.wav', 'static'),
     ['heal'] = love.audio.newSource('sounds/heal.wav', 'static'),
     ['exp'] = love.audio.newSource('sounds/exp.wav', 'static'),
+    ['error'] = love.audio.newSource('sounds/error.wav', 'static'),
     ['levelup'] = love.audio.newSource('sounds/levelup.wav', 'static'),
     ['victory-music'] = love.audio.newSource('sounds/victory.wav', 'static'),
+    ['yellow-theme'] = love.audio.newSource('sounds/yellow-theme.mp3', 'static'),
+    ['purple-theme'] = love.audio.newSource('sounds/purple-theme.mp3', 'static'),
     ['main-theme'] = love.audio.newSource('sounds/intro.mp3', 'static')
 }
 love.audio.setVolume(0.3)
 
 -- ['main-theme'] = love.audio.newSource('sounds/main-theme.wav', 'static'),
--- ['yellow-theme'] = love.audio.newSource('sounds/yellow-theme.wav', 'static'),
--- ['purple-theme'] = love.audio.newSource('sounds/purple-theme.wav', 'static'),
--- gSounds['yellow-theme']:setLooping(true)
--- gSounds['purple-theme']:setLooping(true)
---
--- gSounds['yellow-theme']:setVolume(1)
--- gSounds['purple-theme']:setVolume(0)
---
--- gSounds['yellow-theme']:play(1)
--- gSounds['purple-theme']:play(0)
---

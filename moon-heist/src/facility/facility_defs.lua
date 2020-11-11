@@ -1,3 +1,20 @@
+ROW_ONE_BASE_COST = {0, -200, -400, -600}
+ROW_TWO_BASE_COST = {0, -350, -600, -800}
+NO_SIX_BASE_COSTa = {0, -1000, -1600, -2400}
+NO_SIX_BASE_COSTb = {0, -1000, -1600, -2400}
+
+ROW_ONE_REG_COST = {0, -50, -75, -100}
+ROW_TWO_REG_COSTa = {0, -350, -600, -800}
+ROW_TWO_REG_COSTb = {0, -50, -75, -100}
+NO_SIX_REG_COSTa = {0, -350, -600, -800}
+NO_SIX_REG_COSTb = {0, -50, -75, -100}
+
+ROW_ONE_REG_EARN = {0, 200, 450, 600}
+ROW_TWO_REG_EARN = {0, 300, 550, 800}
+NO_SIX_REG_EARN = {0, 300, 650, 1000}
+
+SPECIAL_EARN = {0, 300, 500, 800}
+
 FACILITY_DEFS = {
     ['yellow'] = {
         [1] = {
@@ -12,49 +29,49 @@ FACILITY_DEFS = {
 
             buildCost = {
                 [0] = {
+                    ['money'] = ROW_ONE_BASE_COST[1],
+                    ['food'] = 0,
+                    ['energy'] = 0,
+                    ['perception'] = 0
+                },
+                [1] = {
+                    ['money'] = ROW_ONE_BASE_COST[2],
+                    ['food'] = 0,
+                    ['energy'] = 0,
+                    ['perception'] = 0
+                },
+                [2] = {
+                    ['money'] = ROW_ONE_BASE_COST[3],
+                    ['food'] = 0,
+                    ['energy'] = 0,
+                    ['perception'] = 0
+                },
+                [3] = {
+                    ['money'] = ROW_ONE_BASE_COST[4],
+                    ['food'] = 0,
+                    ['energy'] = 0,
+                    ['perception'] = 0
+                }
+            },
+
+            downGradeEarn = {
+                [0] = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = 0,
                     ['perception'] = 0
                 },
                 [1] = {
-                    ['money'] = 100,
-                    ['food'] = 100,
-                    ['energy'] = 100,
-                    ['perception'] = 100
+                    ['money'] = 0,
+                    ['food'] = 0,
+                    ['energy'] = 0,
+                    ['perception'] = 0
                 },
                 [2] = {
-                    ['money'] = 100,
-                    ['food'] = 100,
-                    ['energy'] = 100,
-                    ['perception'] = 100
-                },
-                [3] = {
-                    ['money'] = 100,
-                    ['food'] = 100,
-                    ['energy'] = 100,
-                    ['perception'] = 100
-                }
-            },
-
-            downGradeEarn = {
-                [0] = {
-                    ['money'] = -100,
-                    ['food'] = -100,
-                    ['energy'] = -100,
-                    ['perception'] = -100
-                },
-                [1] = {
-                    ['money'] = -100,
-                    ['food'] = -100,
-                    ['energy'] = -100,
-                    ['perception'] = -100
-                },
-                [2] = {
-                    ['money'] = -100,
-                    ['food'] = -100,
-                    ['energy'] = -100,
-                    ['perception'] = -100
+                    ['money'] = 0,
+                    ['food'] = 0,
+                    ['energy'] = 0,
+                    ['perception'] = 0
                 },
                 [3] = {
                     ['money'] = 0,
@@ -67,26 +84,26 @@ FACILITY_DEFS = {
             regCost = {
                 [0] = {
                     ['money'] = 0,
-                    ['food'] = 0,
+                    ['food'] = ROW_ONE_REG_COST[1],
                     ['energy'] = 0,
                     ['perception'] = 0
                 },
                 [1] = {
                     ['money'] = 0,
-                    ['food'] = 50,
-                    ['energy'] = 100,
+                    ['food'] = ROW_ONE_REG_COST[2],
+                    ['energy'] = 0,
                     ['perception'] = 0
                 },
                 [2] = {
                     ['money'] = 0,
-                    ['food'] = 75,
-                    ['energy'] = 120,
+                    ['food'] = ROW_ONE_REG_COST[3],
+                    ['energy'] = 0,
                     ['perception'] = 0
                 },
                 [3] = {
                     ['money'] = 0,
-                    ['food'] = 100,
-                    ['energy'] = 150,
+                    ['food'] = ROW_ONE_REG_COST[4],
+                    ['energy'] = 0,
                     ['perception'] = 0
                 }
             },
@@ -95,26 +112,26 @@ FACILITY_DEFS = {
                 [0] = {
                     ['money'] = 0,
                     ['food'] = 0,
-                    ['energy'] = 0,
+                    ['energy'] = SPECIAL_EARN[1],
                     ['perception'] = 0
                 },
                 [1] = {
-                    ['money'] = 100,
-                    ['food'] = 100,
-                    ['energy'] = 100,
-                    ['perception'] = 100
+                    ['money'] = 0,
+                    ['food'] = 0,
+                    ['energy'] = SPECIAL_EARN[2],
+                    ['perception'] = 0
                 },
                 [2] = {
-                    ['money'] = 100,
-                    ['food'] = 100,
-                    ['energy'] = 100,
-                    ['perception'] = 100
+                    ['money'] = 0,
+                    ['food'] = 0,
+                    ['energy'] = SPECIAL_EARN[3],
+                    ['perception'] = 0
                 },
                 [3] = {
-                    ['money'] = 100,
-                    ['food'] = 100,
-                    ['energy'] = 100,
-                    ['perception'] = 100
+                    ['money'] = 0,
+                    ['food'] = 0,
+                    ['energy'] = SPECIAL_EARN[4],
+                    ['perception'] = 0
                 }
             },
 
@@ -157,46 +174,46 @@ FACILITY_DEFS = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['perception'] = ROW_ONE_BASE_COST[1]
                 },
                 [1] = {
-                    ['money'] = 100,
-                    ['food'] = 100,
-                    ['energy'] = 100,
-                    ['perception'] = 100
+                    ['money'] =0,
+                    ['food'] = 0,
+                    ['energy'] = 0,
+                    ['perception'] = ROW_ONE_BASE_COST[2]
                 },
                 [2] = {
-                    ['money'] = 100,
-                    ['food'] = 100,
-                    ['energy'] = 100,
-                    ['perception'] = 100
+                    ['money'] = 0,
+                    ['food'] = 0,
+                    ['energy'] = 0,
+                    ['perception'] = ROW_ONE_BASE_COST[3]
                 },
                 [3] = {
-                    ['money'] = 100,
-                    ['food'] = 100,
-                    ['energy'] = 100,
-                    ['perception'] = 100
+                    ['money'] = 0,
+                    ['food'] = 0,
+                    ['energy'] = 0,
+                    ['perception'] = ROW_ONE_BASE_COST[4]
                 }
             },
 
             downGradeEarn = {
                 [0] = {
-                    ['money'] = -100,
-                    ['food'] = -100,
-                    ['energy'] = -100,
-                    ['perception'] = -100
+                    ['money'] = 0,
+                    ['food'] = 0,
+                    ['energy'] = 0,
+                    ['perception'] = 0
                 },
                 [1] = {
-                    ['money'] = -100,
-                    ['food'] = -100,
-                    ['energy'] = -100,
-                    ['perception'] = -100
+                    ['money'] = 0,
+                    ['food'] = 0,
+                    ['energy'] = 0,
+                    ['perception'] = 0
                 },
                 [2] = {
-                    ['money'] = -100,
-                    ['food'] = -100,
-                    ['energy'] = -100,
-                    ['perception'] = -100
+                    ['money'] = 0,
+                    ['food'] = 0,
+                    ['energy'] = 0,
+                    ['perception'] = 0
                 },
                 [3] = {
                     ['money'] = 0,
@@ -210,25 +227,25 @@ FACILITY_DEFS = {
                 [0] = {
                     ['money'] = 0,
                     ['food'] = 0,
-                    ['energy'] = 0,
+                    ['energy'] = ROW_ONE_REG_COST[1],
                     ['perception'] = 0
                 },
                 [1] = {
                     ['money'] = 0,
-                    ['food'] = 50,
-                    ['energy'] = 100,
+                    ['food'] = 0,
+                    ['energy'] = ROW_ONE_REG_COST[2],
                     ['perception'] = 0
                 },
                 [2] = {
                     ['money'] = 0,
-                    ['food'] = 75,
-                    ['energy'] = 120,
+                    ['food'] = 0,
+                    ['energy'] = ROW_ONE_REG_COST[3],
                     ['perception'] = 0
                 },
                 [3] = {
                     ['money'] = 0,
-                    ['food'] = 100,
-                    ['energy'] = 150,
+                    ['food'] = 0,
+                    ['energy'] = ROW_ONE_REG_COST[4],
                     ['perception'] = 0
                 }
             },
@@ -236,27 +253,27 @@ FACILITY_DEFS = {
             regEarn = {
                 [0] = {
                     ['money'] = 0,
-                    ['food'] = 0,
+                    ['food'] = SPECIAL_EARN[1],
                     ['energy'] = 0,
                     ['perception'] = 0
                 },
                 [1] = {
-                    ['money'] = 100,
-                    ['food'] = 100,
-                    ['energy'] = 100,
-                    ['perception'] = 100
+                    ['money'] = 0,
+                    ['food'] = SPECIAL_EARN[2],
+                    ['energy'] = 0,
+                    ['perception'] = 0
                 },
                 [2] = {
-                    ['money'] = 100,
-                    ['food'] = 100,
-                    ['energy'] = 100,
-                    ['perception'] = 100
+                    ['money'] = 0,
+                    ['food'] = SPECIAL_EARN[3],
+                    ['energy'] = 0,
+                    ['perception'] = 0
                 },
                 [3] = {
-                    ['money'] = 100,
-                    ['food'] = 100,
-                    ['energy'] = 100,
-                    ['perception'] = 100
+                    ['money'] = 0,
+                    ['food'] = SPECIAL_EARN[4],
+                    ['energy'] = 0,
+                    ['perception'] = 0
                 }
             },
 
@@ -296,49 +313,49 @@ FACILITY_DEFS = {
 
             buildCost = {
                 [0] = {
+                    ['money'] = ROW_ONE_BASE_COST[1],
+                    ['food'] = 0,
+                    ['energy'] = 0,
+                    ['perception'] = 0
+                },
+                [1] = {
+                    ['money'] = ROW_ONE_BASE_COST[2],
+                    ['food'] = 0,
+                    ['energy'] = 0,
+                    ['perception'] = 0
+                },
+                [2] = {
+                    ['money'] = ROW_ONE_BASE_COST[3],
+                    ['food'] = 0,
+                    ['energy'] = 0,
+                    ['perception'] = 0
+                },
+                [3] = {
+                    ['money'] = ROW_ONE_BASE_COST[4],
+                    ['food'] = 0,
+                    ['energy'] = 0,
+                    ['perception'] = 0
+                }
+            },
+
+            downGradeEarn = {
+                [0] = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = 0,
                     ['perception'] = 0
                 },
                 [1] = {
-                    ['money'] = 100,
-                    ['food'] = 100,
-                    ['energy'] = 100,
-                    ['perception'] = 100
+                    ['money'] = 0,
+                    ['food'] = 0,
+                    ['energy'] = 0,
+                    ['perception'] = 0
                 },
                 [2] = {
-                    ['money'] = 100,
-                    ['food'] = 100,
-                    ['energy'] = 100,
-                    ['perception'] = 100
-                },
-                [3] = {
-                    ['money'] = 100,
-                    ['food'] = 100,
-                    ['energy'] = 100,
-                    ['perception'] = 100
-                }
-            },
-
-            downGradeEarn = {
-                [0] = {
-                    ['money'] = -100,
-                    ['food'] = -100,
-                    ['energy'] = -100,
-                    ['perception'] = -100
-                },
-                [1] = {
-                    ['money'] = -100,
-                    ['food'] = -100,
-                    ['energy'] = -100,
-                    ['perception'] = -100
-                },
-                [2] = {
-                    ['money'] = -100,
-                    ['food'] = -100,
-                    ['energy'] = -100,
-                    ['perception'] = -100
+                    ['money'] = 0,
+                    ['food'] = 0,
+                    ['energy'] = 0,
+                    ['perception'] = 0
                 },
                 [3] = {
                     ['money'] = 0,
@@ -351,26 +368,26 @@ FACILITY_DEFS = {
             regCost = {
                 [0] = {
                     ['money'] = 0,
-                    ['food'] = 0,
-                    ['energy'] = 0,
+                    ['food'] = ROW_ONE_REG_COST[1],
+                    ['energy'] = ROW_ONE_REG_COST[1],
                     ['perception'] = 0
                 },
                 [1] = {
                     ['money'] = 0,
-                    ['food'] = 50,
-                    ['energy'] = 100,
+                    ['food'] = ROW_ONE_REG_COST[2],
+                    ['energy'] = ROW_ONE_REG_COST[2],
                     ['perception'] = 0
                 },
                 [2] = {
                     ['money'] = 0,
-                    ['food'] = 75,
-                    ['energy'] = 120,
+                    ['food'] = ROW_ONE_REG_COST[3],
+                    ['energy'] = ROW_ONE_REG_COST[3],
                     ['perception'] = 0
                 },
                 [3] = {
                     ['money'] = 0,
-                    ['food'] = 100,
-                    ['energy'] = 150,
+                    ['food'] = ROW_ONE_REG_COST[4],
+                    ['energy'] = ROW_ONE_REG_COST[4],
                     ['perception'] = 0
                 }
             },
@@ -380,25 +397,25 @@ FACILITY_DEFS = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['perception'] = ROW_ONE_REG_EARN[1]
                 },
                 [1] = {
-                    ['money'] = 100,
-                    ['food'] = 100,
-                    ['energy'] = 100,
-                    ['perception'] = 100
+                    ['money'] = 0,
+                    ['food'] = 0,
+                    ['energy'] = 0,
+                    ['perception'] = ROW_ONE_REG_EARN[2]
                 },
                 [2] = {
-                    ['money'] = 100,
-                    ['food'] = 100,
-                    ['energy'] = 100,
-                    ['perception'] = 100
+                    ['money'] = 0,
+                    ['food'] = 0,
+                    ['energy'] = 0,
+                    ['perception'] = ROW_ONE_REG_EARN[3]
                 },
                 [3] = {
-                    ['money'] = 100,
-                    ['food'] = 100,
-                    ['energy'] = 100,
-                    ['perception'] = 100
+                    ['money'] = 0,
+                    ['food'] = 0,
+                    ['energy'] = 0,
+                    ['perception'] = ROW_ONE_REG_EARN[4]
                 }
             },
 
@@ -439,48 +456,48 @@ FACILITY_DEFS = {
             buildCost = {
                 [0] = {
                     ['money'] = 0,
-                    ['food'] = 0,
+                    ['food'] = ROW_TWO_REG_COSTa[1],
                     ['energy'] = 0,
                     ['perception'] = 0
                 },
                 [1] = {
-                    ['money'] = 100,
-                    ['food'] = 100,
-                    ['energy'] = 100,
-                    ['perception'] = 100
+                    ['money'] = 0,
+                    ['food'] = ROW_TWO_REG_COSTa[2],
+                    ['energy'] = 0,
+                    ['perception'] = 0
                 },
                 [2] = {
-                    ['money'] = 100,
-                    ['food'] = 100,
-                    ['energy'] = 100,
-                    ['perception'] = 100
+                    ['money'] = 0,
+                    ['food'] = ROW_TWO_REG_COSTa[3],
+                    ['energy'] = 0,
+                    ['perception'] = 0
                 },
                 [3] = {
-                    ['money'] = 100,
-                    ['food'] = 100,
-                    ['energy'] = 100,
-                    ['perception'] = 100
+                    ['money'] = 0,
+                    ['food'] = ROW_TWO_REG_COSTa[4],
+                    ['energy'] = 0,
+                    ['perception'] = 0
                 }
             },
 
             downGradeEarn = {
                 [0] = {
-                    ['money'] = -100,
-                    ['food'] = -100,
-                    ['energy'] = -100,
-                    ['perception'] = -100
+                    ['money'] = 0,
+                    ['food'] = 0,
+                    ['energy'] = 0,
+                    ['perception'] = 0
                 },
                 [1] = {
-                    ['money'] = -100,
-                    ['food'] = -100,
-                    ['energy'] = -100,
-                    ['perception'] = -100
+                    ['money'] = 0,
+                    ['food'] = 0,
+                    ['energy'] = 0,
+                    ['perception'] = 0
                 },
                 [2] = {
-                    ['money'] = -100,
-                    ['food'] = -100,
-                    ['energy'] = -100,
-                    ['perception'] = -100
+                    ['money'] = 0,
+                    ['food'] = 0,
+                    ['energy'] = 0,
+                    ['perception'] = 0
                 },
                 [3] = {
                     ['money'] = 0,
@@ -494,25 +511,25 @@ FACILITY_DEFS = {
                 [0] = {
                     ['money'] = 0,
                     ['food'] = 0,
-                    ['energy'] = 0,
+                    ['energy'] = ROW_ONE_REG_COST[1],
                     ['perception'] = 0
                 },
                 [1] = {
                     ['money'] = 0,
-                    ['food'] = 50,
-                    ['energy'] = 100,
+                    ['food'] = 0,
+                    ['energy'] = ROW_ONE_REG_COST[2],
                     ['perception'] = 0
                 },
                 [2] = {
                     ['money'] = 0,
-                    ['food'] = 75,
-                    ['energy'] = 120,
+                    ['food'] = 0,
+                    ['energy'] = ROW_ONE_REG_COST[3],
                     ['perception'] = 0
                 },
                 [3] = {
                     ['money'] = 0,
-                    ['food'] = 100,
-                    ['energy'] = 150,
+                    ['food'] = 00,
+                    ['energy'] = ROW_ONE_REG_COST[4],
                     ['perception'] = 0
                 }
             },
@@ -521,26 +538,26 @@ FACILITY_DEFS = {
                 [0] = {
                     ['money'] = 0,
                     ['food'] = 0,
-                    ['energy'] = 0,
+                    ['energy'] = SPECIAL_EARN[1],
                     ['perception'] = 0
                 },
                 [1] = {
-                    ['money'] = 100,
-                    ['food'] = 100,
-                    ['energy'] = 100,
-                    ['perception'] = 100
+                    ['money'] = 0,
+                    ['food'] = 0,
+                    ['energy'] = SPECIAL_EARN[2],
+                    ['perception'] = 0
                 },
                 [2] = {
-                    ['money'] = 100,
-                    ['food'] = 100,
-                    ['energy'] = 100,
-                    ['perception'] = 100
+                    ['money'] = 0,
+                    ['food'] = 0,
+                    ['energy'] = SPECIAL_EARN[3],
+                    ['perception'] = 0
                 },
                 [3] = {
-                    ['money'] = 100,
-                    ['food'] = 100,
-                    ['energy'] = 100,
-                    ['perception'] = 100
+                    ['money'] = 0,
+                    ['food'] = 0,
+                    ['energy'] = SPECIAL_EARN[4],
+                    ['perception'] = 0
                 }
             },
 
@@ -580,49 +597,49 @@ FACILITY_DEFS = {
 
             buildCost = {
                 [0] = {
+                    ['money'] = ROW_TWO_BASE_COST[1],
+                    ['food'] = 0,
+                    ['energy'] = 0,
+                    ['perception'] = 0
+                },
+                [1] = {
+                    ['money'] = ROW_TWO_BASE_COST[2],
+                    ['food'] = 0,
+                    ['energy'] = 0,
+                    ['perception'] = 0
+                },
+                [2] = {
+                    ['money'] = ROW_TWO_BASE_COST[3],
+                    ['food'] = 0,
+                    ['energy'] = 0,
+                    ['perception'] = 0
+                },
+                [3] = {
+                    ['money'] = ROW_TWO_BASE_COST[4],
+                    ['food'] = 0,
+                    ['energy'] = 0,
+                    ['perception'] = 0
+                }
+            },
+
+            downGradeEarn = {
+                [0] = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = 0,
                     ['perception'] = 0
                 },
                 [1] = {
-                    ['money'] = 100,
-                    ['food'] = 100,
-                    ['energy'] = 100,
-                    ['perception'] = 100
+                    ['money'] = 0,
+                    ['food'] = 0,
+                    ['energy'] = 0,
+                    ['perception'] = 0
                 },
                 [2] = {
-                    ['money'] = 100,
-                    ['food'] = 100,
-                    ['energy'] = 100,
-                    ['perception'] = 100
-                },
-                [3] = {
-                    ['money'] = 100,
-                    ['food'] = 100,
-                    ['energy'] = 100,
-                    ['perception'] = 100
-                }
-            },
-
-            downGradeEarn = {
-                [0] = {
-                    ['money'] = -100,
-                    ['food'] = -100,
-                    ['energy'] = -100,
-                    ['perception'] = -100
-                },
-                [1] = {
-                    ['money'] = -100,
-                    ['food'] = -100,
-                    ['energy'] = -100,
-                    ['perception'] = -100
-                },
-                [2] = {
-                    ['money'] = -100,
-                    ['food'] = -100,
-                    ['energy'] = -100,
-                    ['perception'] = -100
+                    ['money'] = 0,
+                    ['food'] = 0,
+                    ['energy'] = 0,
+                    ['perception'] = 0
                 },
                 [3] = {
                     ['money'] = 0,
@@ -635,26 +652,26 @@ FACILITY_DEFS = {
             regCost = {
                 [0] = {
                     ['money'] = 0,
-                    ['food'] = 0,
-                    ['energy'] = 0,
+                    ['food'] = ROW_TWO_REG_COSTa[1],
+                    ['energy'] = ROW_TWO_REG_COSTb[1],
                     ['perception'] = 0
                 },
                 [1] = {
                     ['money'] = 0,
-                    ['food'] = 50,
-                    ['energy'] = 100,
+                    ['food'] = ROW_TWO_REG_COSTa[2],
+                    ['energy'] = ROW_TWO_REG_COSTb[2],
                     ['perception'] = 0
                 },
                 [2] = {
                     ['money'] = 0,
-                    ['food'] = 75,
-                    ['energy'] = 120,
+                    ['food'] = ROW_TWO_REG_COSTa[3],
+                    ['energy'] = ROW_TWO_REG_COSTb[3],
                     ['perception'] = 0
                 },
                 [3] = {
                     ['money'] = 0,
-                    ['food'] = 100,
-                    ['energy'] = 150,
+                    ['food'] = ROW_TWO_REG_COSTa[4],
+                    ['energy'] = ROW_TWO_REG_COSTb[4],
                     ['perception'] = 0
                 }
             },
@@ -664,25 +681,25 @@ FACILITY_DEFS = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['perception'] = ROW_TWO_REG_EARN[1]
                 },
                 [1] = {
-                    ['money'] = 100,
-                    ['food'] = 100,
-                    ['energy'] = 100,
-                    ['perception'] = 100
+                    ['money'] = 0,
+                    ['food'] = 0,
+                    ['energy'] = 0,
+                    ['perception'] = ROW_TWO_REG_EARN[2]
                 },
                 [2] = {
-                    ['money'] = 100,
-                    ['food'] = 100,
-                    ['energy'] = 100,
-                    ['perception'] = 100
+                    ['money'] = 0,
+                    ['food'] = 0,
+                    ['energy'] = 0,
+                    ['perception'] = ROW_TWO_REG_EARN[3]
                 },
                 [3] = {
-                    ['money'] = 100,
-                    ['food'] = 100,
-                    ['energy'] = 100,
-                    ['perception'] = 100
+                    ['money'] = 0,
+                    ['food'] = 0,
+                    ['energy'] = 0,
+                    ['perception'] = ROW_TWO_REG_EARN[4]
                 }
             },
 
@@ -722,49 +739,49 @@ FACILITY_DEFS = {
 
             buildCost = {
                 [0] = {
+                    ['money'] = NO_SIX_BASE_COSTa[1],
+                    ['food'] = NO_SIX_BASE_COSTb[1],
+                    ['energy'] = 0,
+                    ['perception'] = 0
+                },
+                [1] = {
+                    ['money'] = NO_SIX_BASE_COSTa[2],
+                    ['food'] = NO_SIX_BASE_COSTb[2],
+                    ['energy'] = 0,
+                    ['perception'] = 0
+                },
+                [2] = {
+                    ['money'] = NO_SIX_BASE_COSTa[3],
+                    ['food'] = NO_SIX_BASE_COSTb[3],
+                    ['energy'] = 0,
+                    ['perception'] = 0
+                },
+                [3] = {
+                    ['money'] = NO_SIX_BASE_COSTa[4],
+                    ['food'] = NO_SIX_BASE_COSTb[4],
+                    ['energy'] = 0,
+                    ['perception'] = 0
+                }
+            },
+
+            downGradeEarn = {
+                [0] = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = 0,
                     ['perception'] = 0
                 },
                 [1] = {
-                    ['money'] = 100,
-                    ['food'] = 100,
-                    ['energy'] = 100,
-                    ['perception'] = 100
+                    ['money'] = 0,
+                    ['food'] = 0,
+                    ['energy'] = 0,
+                    ['perception'] = 0
                 },
                 [2] = {
-                    ['money'] = 100,
-                    ['food'] = 100,
-                    ['energy'] = 100,
-                    ['perception'] = 100
-                },
-                [3] = {
-                    ['money'] = 100,
-                    ['food'] = 100,
-                    ['energy'] = 100,
-                    ['perception'] = 100
-                }
-            },
-
-            downGradeEarn = {
-                [0] = {
-                    ['money'] = -100,
-                    ['food'] = -100,
-                    ['energy'] = -100,
-                    ['perception'] = -100
-                },
-                [1] = {
-                    ['money'] = -100,
-                    ['food'] = -100,
-                    ['energy'] = -100,
-                    ['perception'] = -100
-                },
-                [2] = {
-                    ['money'] = -100,
-                    ['food'] = -100,
-                    ['energy'] = -100,
-                    ['perception'] = -100
+                    ['money'] = 0,
+                    ['food'] = 0,
+                    ['energy'] = 0,
+                    ['perception'] = 0
                 },
                 [3] = {
                     ['money'] = 0,
@@ -777,54 +794,54 @@ FACILITY_DEFS = {
             regCost = {
                 [0] = {
                     ['money'] = 0,
-                    ['food'] = 0,
-                    ['energy'] = 0,
+                    ['food'] = NO_SIX_REG_COSTa[1],
+                    ['energy'] = NO_SIX_REG_COSTb[1],
                     ['perception'] = 0
                 },
                 [1] = {
                     ['money'] = 0,
-                    ['food'] = 50,
-                    ['energy'] = 100,
+                    ['food'] = NO_SIX_REG_COSTa[2],
+                    ['energy'] = NO_SIX_REG_COSTb[2],
                     ['perception'] = 0
                 },
                 [2] = {
                     ['money'] = 0,
-                    ['food'] = 75,
-                    ['energy'] = 120,
+                    ['food'] = NO_SIX_REG_COSTa[3],
+                    ['energy'] = NO_SIX_REG_COSTb[3],
                     ['perception'] = 0
                 },
                 [3] = {
                     ['money'] = 0,
-                    ['food'] = 100,
-                    ['energy'] = 150,
+                    ['food'] = NO_SIX_REG_COSTa[4],
+                    ['energy'] = NO_SIX_REG_COSTb[4],
                     ['perception'] = 0
                 }
             },
 
             regEarn = {
                 [0] = {
-                    ['money'] = 0,
+                    ['money'] = NO_SIX_REG_EARN[1],
                     ['food'] = 0,
                     ['energy'] = 0,
                     ['perception'] = 0
                 },
                 [1] = {
-                    ['money'] = 100,
-                    ['food'] = 100,
-                    ['energy'] = 100,
-                    ['perception'] = 100
+                    ['money'] = NO_SIX_REG_EARN[2],
+                    ['food'] = 0,
+                    ['energy'] = 0,
+                    ['perception'] = 0
                 },
                 [2] = {
-                    ['money'] = 100,
-                    ['food'] = 100,
-                    ['energy'] = 100,
-                    ['perception'] = 100
+                    ['money'] = NO_SIX_REG_EARN[3],
+                    ['food'] = 0,
+                    ['energy'] = 0,
+                    ['perception'] = 0
                 },
                 [3] = {
-                    ['money'] = 100,
-                    ['food'] = 100,
-                    ['energy'] = 100,
-                    ['perception'] = 100
+                    ['money'] = NO_SIX_REG_EARN[4],
+                    ['food'] = 0,
+                    ['energy'] = 0,
+                    ['perception'] = 0
                 }
             },
 
@@ -867,47 +884,47 @@ FACILITY_DEFS = {
                 [0] = {
                     ['money'] = 0,
                     ['food'] = 0,
-                    ['energy'] = 0,
+                    ['energy'] = ROW_ONE_BASE_COST[1],
                     ['perception'] = 0
                 },
                 [1] = {
-                    ['money'] = 100,
-                    ['food'] = 100,
-                    ['energy'] = 100,
-                    ['perception'] = 100
+                    ['money'] = 0,
+                    ['food'] = 0,
+                    ['energy'] = ROW_ONE_BASE_COST[2],
+                    ['perception'] = 0
                 },
                 [2] = {
-                    ['money'] = 100,
-                    ['food'] = 100,
-                    ['energy'] = 100,
-                    ['perception'] = 100
+                    ['money'] = 0,
+                    ['food'] = 0,
+                    ['energy'] = ROW_ONE_BASE_COST[3],
+                    ['perception'] = 0
                 },
                 [3] = {
-                    ['money'] = 100,
-                    ['food'] = 100,
-                    ['energy'] = 100,
-                    ['perception'] = 100
+                    ['money'] = 0,
+                    ['food'] = 0,
+                    ['energy'] = ROW_ONE_BASE_COST[4],
+                    ['perception'] = 0
                 }
             },
 
             downGradeEarn = {
                 [0] = {
-                    ['money'] = -100,
-                    ['food'] = -100,
-                    ['energy'] = -100,
-                    ['perception'] = -100
+                    ['money'] = 0,
+                    ['food'] = 0,
+                    ['energy'] = 0,
+                    ['perception'] = 0
                 },
                 [1] = {
-                    ['money'] = -100,
-                    ['food'] = -100,
-                    ['energy'] = -100,
-                    ['perception'] = -100
+                    ['money'] = 0,
+                    ['food'] = 0,
+                    ['energy'] = 0,
+                    ['perception'] = 0
                 },
                 [2] = {
-                    ['money'] = -100,
-                    ['food'] = -100,
-                    ['energy'] = -100,
-                    ['perception'] = -100
+                    ['money'] = 0,
+                    ['food'] = 0,
+                    ['energy'] = 0,
+                    ['perception'] = 0
                 },
                 [3] = {
                     ['money'] = 0,
@@ -920,26 +937,26 @@ FACILITY_DEFS = {
             regCost = {
                 [0] = {
                     ['money'] = 0,
-                    ['food'] = 0,
-                    ['energy'] = 0,
+                    ['food'] = ROW_ONE_REG_COST[1],
+                    ['energy'] = ROW_ONE_REG_COST[1],
                     ['perception'] = 0
                 },
                 [1] = {
                     ['money'] = 0,
-                    ['food'] = 50,
-                    ['energy'] = 100,
+                    ['food'] = ROW_ONE_REG_COST[2],
+                    ['energy'] = ROW_ONE_REG_COST[2],
                     ['perception'] = 0
                 },
                 [2] = {
                     ['money'] = 0,
-                    ['food'] = 75,
-                    ['energy'] = 120,
+                    ['food'] = ROW_ONE_REG_COST[3],
+                    ['energy'] = ROW_ONE_REG_COST[3],
                     ['perception'] = 0
                 },
                 [3] = {
                     ['money'] = 0,
-                    ['food'] = 100,
-                    ['energy'] = 150,
+                    ['food'] = ROW_ONE_REG_COST[4],
+                    ['energy'] = ROW_ONE_REG_COST[4],
                     ['perception'] = 0
                 }
             },
@@ -949,25 +966,25 @@ FACILITY_DEFS = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['perception'] = ROW_ONE_REG_EARN[1]
                 },
                 [1] = {
-                    ['money'] = 100,
-                    ['food'] = 100,
-                    ['energy'] = 100,
-                    ['perception'] = 100
+                    ['money'] = 0,
+                    ['food'] = 0,
+                    ['energy'] = 0,
+                    ['perception'] = ROW_ONE_REG_EARN[2]
                 },
                 [2] = {
-                    ['money'] = 100,
-                    ['food'] = 100,
-                    ['energy'] = 100,
-                    ['perception'] = 100
+                    ['money'] = 0,
+                    ['food'] = 0,
+                    ['energy'] = 0,
+                    ['perception'] = ROW_ONE_REG_EARN[3]
                 },
                 [3] = {
-                    ['money'] = 100,
-                    ['food'] = 100,
-                    ['energy'] = 100,
-                    ['perception'] = 100
+                    ['money'] = 0,
+                    ['food'] = 0,
+                    ['energy'] = 0,
+                    ['perception'] = ROW_ONE_REG_EARN[4]
                 }
             },
 
@@ -1007,49 +1024,49 @@ FACILITY_DEFS = {
 
             buildCost = {
                 [0] = {
+                    ['money'] = ROW_ONE_BASE_COST[1],
+                    ['food'] = 0,
+                    ['energy'] = 0,
+                    ['perception'] = 0
+                },
+                [1] = {
+                    ['money'] = ROW_ONE_BASE_COST[2],
+                    ['food'] = 0,
+                    ['energy'] = 0,
+                    ['perception'] = 0
+                },
+                [2] = {
+                    ['money'] = ROW_ONE_BASE_COST[3],
+                    ['food'] = 0,
+                    ['energy'] = 0,
+                    ['perception'] = 0
+                },
+                [3] = {
+                    ['money'] = ROW_ONE_BASE_COST[4],
+                    ['food'] = 0,
+                    ['energy'] = 0,
+                    ['perception'] = 0
+                }
+            },
+
+            downGradeEarn = {
+                [0] = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = 0,
                     ['perception'] = 0
                 },
                 [1] = {
-                    ['money'] = 100,
-                    ['food'] = 100,
-                    ['energy'] = 100,
-                    ['perception'] = 100
+                    ['money'] = 0,
+                    ['food'] = 0,
+                    ['energy'] = 0,
+                    ['perception'] = 0
                 },
                 [2] = {
-                    ['money'] = 100,
-                    ['food'] = 100,
-                    ['energy'] = 100,
-                    ['perception'] = 100
-                },
-                [3] = {
-                    ['money'] = 100,
-                    ['food'] = 100,
-                    ['energy'] = 100,
-                    ['perception'] = 100
-                }
-            },
-
-            downGradeEarn = {
-                [0] = {
-                    ['money'] = -100,
-                    ['food'] = -100,
-                    ['energy'] = -100,
-                    ['perception'] = -100
-                },
-                [1] = {
-                    ['money'] = -100,
-                    ['food'] = -100,
-                    ['energy'] = -100,
-                    ['perception'] = -100
-                },
-                [2] = {
-                    ['money'] = -100,
-                    ['food'] = -100,
-                    ['energy'] = -100,
-                    ['perception'] = -100
+                    ['money'] = 0,
+                    ['food'] = 0,
+                    ['energy'] = 0,
+                    ['perception'] = 0
                 },
                 [3] = {
                     ['money'] = 0,
@@ -1062,54 +1079,54 @@ FACILITY_DEFS = {
             regCost = {
                 [0] = {
                     ['money'] = 0,
-                    ['food'] = 0,
-                    ['energy'] = 0,
+                    ['food'] = ROW_ONE_REG_COST[1],
+                    ['energy'] = ROW_ONE_REG_COST[1],
                     ['perception'] = 0
                 },
                 [1] = {
                     ['money'] = 0,
-                    ['food'] = 50,
-                    ['energy'] = 100,
+                    ['food'] = ROW_ONE_REG_COST[2],
+                    ['energy'] = ROW_ONE_REG_COST[2],
                     ['perception'] = 0
                 },
                 [2] = {
                     ['money'] = 0,
-                    ['food'] = 75,
-                    ['energy'] = 120,
+                    ['food'] = ROW_ONE_REG_COST[3],
+                    ['energy'] = ROW_ONE_REG_COST[3],
                     ['perception'] = 0
                 },
                 [3] = {
                     ['money'] = 0,
-                    ['food'] = 100,
-                    ['energy'] = 150,
+                    ['food'] = ROW_ONE_REG_COST[4],
+                    ['energy'] = ROW_ONE_REG_COST[4],
                     ['perception'] = 0
                 }
             },
 
             regEarn = {
                 [0] = {
-                    ['money'] = 0,
+                    ['money'] = ROW_ONE_REG_EARN[1],
                     ['food'] = 0,
                     ['energy'] = 0,
                     ['perception'] = 0
                 },
                 [1] = {
-                    ['money'] = 100,
-                    ['food'] = 100,
-                    ['energy'] = 100,
-                    ['perception'] = 100
+                    ['money'] = ROW_ONE_REG_EARN[2],
+                    ['food'] = 0,
+                    ['energy'] = 0,
+                    ['perception'] = 0
                 },
                 [2] = {
-                    ['money'] = 100,
-                    ['food'] = 100,
-                    ['energy'] = 100,
-                    ['perception'] = 100
+                    ['money'] = ROW_ONE_REG_EARN[3],
+                    ['food'] = 0,
+                    ['energy'] = 0,
+                    ['perception'] = 0
                 },
                 [3] = {
-                    ['money'] = 100,
-                    ['food'] = 100,
-                    ['energy'] = 100,
-                    ['perception'] = 100
+                    ['money'] = ROW_ONE_REG_EARN[4],
+                    ['food'] = 0,
+                    ['energy'] = 0,
+                    ['perception'] = 0
                 }
             },
 
@@ -1149,49 +1166,49 @@ FACILITY_DEFS = {
 
             buildCost = {
                 [0] = {
+                    ['money'] = ROW_ONE_BASE_COST[1],
+                    ['food'] = 0,
+                    ['energy'] = 0,
+                    ['perception'] = 0
+                },
+                [1] = {
+                    ['money'] = ROW_ONE_BASE_COST[2],
+                    ['food'] = 0,
+                    ['energy'] = 0,
+                    ['perception'] = 0
+                },
+                [2] = {
+                    ['money'] = ROW_ONE_BASE_COST[3],
+                    ['food'] = 0,
+                    ['energy'] = 0,
+                    ['perception'] = 0
+                },
+                [3] = {
+                    ['money'] = ROW_ONE_BASE_COST[4],
+                    ['food'] = 0,
+                    ['energy'] = 0,
+                    ['perception'] = 0
+                }
+            },
+
+            downGradeEarn = {
+                [0] = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = 0,
                     ['perception'] = 0
                 },
                 [1] = {
-                    ['money'] = 100,
-                    ['food'] = 100,
-                    ['energy'] = 100,
-                    ['perception'] = 100
+                    ['money'] = 0,
+                    ['food'] = 0,
+                    ['energy'] = 0,
+                    ['perception'] = 0
                 },
                 [2] = {
-                    ['money'] = 100,
-                    ['food'] = 100,
-                    ['energy'] = 100,
-                    ['perception'] = 100
-                },
-                [3] = {
-                    ['money'] = 100,
-                    ['food'] = 100,
-                    ['energy'] = 100,
-                    ['perception'] = 100
-                }
-            },
-
-            downGradeEarn = {
-                [0] = {
-                    ['money'] = -100,
-                    ['food'] = -100,
-                    ['energy'] = -100,
-                    ['perception'] = -100
-                },
-                [1] = {
-                    ['money'] = -100,
-                    ['food'] = -100,
-                    ['energy'] = -100,
-                    ['perception'] = -100
-                },
-                [2] = {
-                    ['money'] = -100,
-                    ['food'] = -100,
-                    ['energy'] = -100,
-                    ['perception'] = -100
+                    ['money'] = 0,
+                    ['food'] = 0,
+                    ['energy'] = 0,
+                    ['perception'] = 0
                 },
                 [3] = {
                     ['money'] = 0,
@@ -1205,25 +1222,25 @@ FACILITY_DEFS = {
                 [0] = {
                     ['money'] = 0,
                     ['food'] = 0,
-                    ['energy'] = 0,
+                    ['energy'] = ROW_ONE_REG_COST[1],
                     ['perception'] = 0
                 },
                 [1] = {
                     ['money'] = 0,
-                    ['food'] = 50,
-                    ['energy'] = 100,
+                    ['food'] = 0,
+                    ['energy'] = ROW_ONE_REG_COST[2],
                     ['perception'] = 0
                 },
                 [2] = {
                     ['money'] = 0,
-                    ['food'] = 75,
-                    ['energy'] = 120,
+                    ['food'] = 0,
+                    ['energy'] = ROW_ONE_REG_COST[3],
                     ['perception'] = 0
                 },
                 [3] = {
                     ['money'] = 0,
-                    ['food'] = 100,
-                    ['energy'] = 150,
+                    ['food'] = 0,
+                    ['energy'] = ROW_ONE_REG_COST[4],
                     ['perception'] = 0
                 }
             },
@@ -1231,27 +1248,27 @@ FACILITY_DEFS = {
             regEarn = {
                 [0] = {
                     ['money'] = 0,
-                    ['food'] = 0,
+                    ['food'] = SPECIAL_EARN[1],
                     ['energy'] = 0,
                     ['perception'] = 0
                 },
                 [1] = {
-                    ['money'] = 100,
-                    ['food'] = 100,
-                    ['energy'] = 100,
-                    ['perception'] = 100
+                    ['money'] = 0,
+                    ['food'] = SPECIAL_EARN[2],
+                    ['energy'] = 0,
+                    ['perception'] = 0
                 },
                 [2] = {
-                    ['money'] = 100,
-                    ['food'] = 100,
-                    ['energy'] = 100,
-                    ['perception'] = 100
+                    ['money'] = 0,
+                    ['food'] = SPECIAL_EARN[3],
+                    ['energy'] = 0,
+                    ['perception'] = 0
                 },
                 [3] = {
-                    ['money'] = 100,
-                    ['food'] = 100,
-                    ['energy'] = 100,
-                    ['perception'] = 100
+                    ['money'] = 0,
+                    ['food'] = SPECIAL_EARN[4],
+                    ['energy'] = 0,
+                    ['perception'] = 0
                 }
             },
 
@@ -1291,49 +1308,49 @@ FACILITY_DEFS = {
 
             buildCost = {
                 [0] = {
+                    ['money'] = ROW_TWO_BASE_COST[1],
+                    ['food'] = 0,
+                    ['energy'] = 0,
+                    ['perception'] = 0
+                },
+                [1] = {
+                    ['money'] = ROW_TWO_BASE_COST[2],
+                    ['food'] = 0,
+                    ['energy'] = 0,
+                    ['perception'] = 0
+                },
+                [2] = {
+                    ['money'] = ROW_TWO_BASE_COST[3],
+                    ['food'] = 0,
+                    ['energy'] = 0,
+                    ['perception'] = 0
+                },
+                [3] = {
+                    ['money'] = ROW_TWO_BASE_COST[4],
+                    ['food'] = 0,
+                    ['energy'] = 0,
+                    ['perception'] = 0
+                }
+            },
+
+            downGradeEarn = {
+                [0] = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = 0,
                     ['perception'] = 0
                 },
                 [1] = {
-                    ['money'] = 100,
-                    ['food'] = 100,
-                    ['energy'] = 100,
-                    ['perception'] = 100
+                    ['money'] = 0,
+                    ['food'] = 0,
+                    ['energy'] = 0,
+                    ['perception'] = 0
                 },
                 [2] = {
-                    ['money'] = 100,
-                    ['food'] = 100,
-                    ['energy'] = 100,
-                    ['perception'] = 100
-                },
-                [3] = {
-                    ['money'] = 100,
-                    ['food'] = 100,
-                    ['energy'] = 100,
-                    ['perception'] = 100
-                }
-            },
-
-            downGradeEarn = {
-                [0] = {
-                    ['money'] = -100,
-                    ['food'] = -100,
-                    ['energy'] = -100,
-                    ['perception'] = -100
-                },
-                [1] = {
-                    ['money'] = -100,
-                    ['food'] = -100,
-                    ['energy'] = -100,
-                    ['perception'] = -100
-                },
-                [2] = {
-                    ['money'] = -100,
-                    ['food'] = -100,
-                    ['energy'] = -100,
-                    ['perception'] = -100
+                    ['money'] = 0,
+                    ['food'] = 0,
+                    ['energy'] = 0,
+                    ['perception'] = 0
                 },
                 [3] = {
                     ['money'] = 0,
@@ -1347,25 +1364,25 @@ FACILITY_DEFS = {
                 [0] = {
                     ['money'] = 0,
                     ['food'] = 0,
-                    ['energy'] = 0,
+                    ['energy'] = ROW_TWO_REG_COSTa[1],
                     ['perception'] = 0
                 },
                 [1] = {
                     ['money'] = 0,
-                    ['food'] = 50,
-                    ['energy'] = 100,
+                    ['food'] = 0,
+                    ['energy'] = ROW_TWO_REG_COSTa[2],
                     ['perception'] = 0
                 },
                 [2] = {
                     ['money'] = 0,
-                    ['food'] = 75,
-                    ['energy'] = 120,
+                    ['food'] = 0,
+                    ['energy'] = ROW_TWO_REG_COSTa[3],
                     ['perception'] = 0
                 },
                 [3] = {
                     ['money'] = 0,
-                    ['food'] = 100,
-                    ['energy'] = 150,
+                    ['food'] = 0,
+                    ['energy'] = ROW_TWO_REG_COSTa[4],
                     ['perception'] = 0
                 }
             },
@@ -1373,27 +1390,27 @@ FACILITY_DEFS = {
             regEarn = {
                 [0] = {
                     ['money'] = 0,
-                    ['food'] = 0,
+                    ['food'] = ROW_TWO_REG_EARN[1],
                     ['energy'] = 0,
                     ['perception'] = 0
                 },
                 [1] = {
-                    ['money'] = 100,
-                    ['food'] = 100,
-                    ['energy'] = 100,
-                    ['perception'] = 100
+                    ['money'] = 0,
+                    ['food'] = ROW_TWO_REG_EARN[2],
+                    ['energy'] = 0,
+                    ['perception'] = 0
                 },
                 [2] = {
-                    ['money'] = 100,
-                    ['food'] = 100,
-                    ['energy'] = 100,
-                    ['perception'] = 100
+                    ['money'] = 0,
+                    ['food'] = ROW_TWO_REG_EARN[3],
+                    ['energy'] = 0,
+                    ['perception'] = 0
                 },
                 [3] = {
-                    ['money'] = 100,
-                    ['food'] = 100,
-                    ['energy'] = 100,
-                    ['perception'] = 100
+                    ['money'] = 0,
+                    ['food'] = ROW_TWO_REG_EARN[4],
+                    ['energy'] = 0,
+                    ['perception'] = 0
                 }
             },
 
@@ -1435,47 +1452,47 @@ FACILITY_DEFS = {
                 [0] = {
                     ['money'] = 0,
                     ['food'] = 0,
-                    ['energy'] = 0,
+                    ['energy'] = ROW_TWO_BASE_COST[1],
                     ['perception'] = 0
                 },
                 [1] = {
-                    ['money'] = 100,
-                    ['food'] = 100,
-                    ['energy'] = 100,
-                    ['perception'] = 100
+                    ['money'] = 0,
+                    ['food'] = 0,
+                    ['energy'] = ROW_TWO_BASE_COST[2],
+                    ['perception'] = 0
                 },
                 [2] = {
-                    ['money'] = 100,
-                    ['food'] = 100,
-                    ['energy'] = 100,
-                    ['perception'] = 100
+                    ['money'] = 0,
+                    ['food'] = 0,
+                    ['energy'] = ROW_TWO_BASE_COST[3],
+                    ['perception'] = 0
                 },
                 [3] = {
-                    ['money'] = 100,
-                    ['food'] = 100,
-                    ['energy'] = 100,
-                    ['perception'] = 100
+                    ['money'] = 0,
+                    ['food'] = 0,
+                    ['energy'] = ROW_TWO_BASE_COST[4],
+                    ['perception'] = 0
                 }
             },
 
             downGradeEarn = {
                 [0] = {
-                    ['money'] = -100,
-                    ['food'] = -100,
-                    ['energy'] = -100,
-                    ['perception'] = -100
+                    ['money'] = 0,
+                    ['food'] = 0,
+                    ['energy'] = 0,
+                    ['perception'] = 0
                 },
                 [1] = {
-                    ['money'] = -100,
-                    ['food'] = -100,
-                    ['energy'] = -100,
-                    ['perception'] = -100
+                    ['money'] = 0,
+                    ['food'] = 0,
+                    ['energy'] = 0,
+                    ['perception'] = 0
                 },
                 [2] = {
-                    ['money'] = -100,
-                    ['food'] = -100,
-                    ['energy'] = -100,
-                    ['perception'] = -100
+                    ['money'] = 0,
+                    ['food'] = 0,
+                    ['energy'] = 0,
+                    ['perception'] = 0
                 },
                 [3] = {
                     ['money'] = 0,
@@ -1488,54 +1505,54 @@ FACILITY_DEFS = {
             regCost = {
                 [0] = {
                     ['money'] = 0,
-                    ['food'] = 0,
-                    ['energy'] = 0,
+                    ['food'] = ROW_TWO_REG_COSTb[1],
+                    ['energy'] = ROW_TWO_REG_COSTa[1],
                     ['perception'] = 0
                 },
                 [1] = {
                     ['money'] = 0,
-                    ['food'] = 50,
-                    ['energy'] = 100,
+                    ['food'] = ROW_TWO_REG_COSTb[2],
+                    ['energy'] = ROW_TWO_REG_COSTa[2],
                     ['perception'] = 0
                 },
                 [2] = {
                     ['money'] = 0,
-                    ['food'] = 75,
-                    ['energy'] = 120,
+                    ['food'] = ROW_TWO_REG_COSTb[3],
+                    ['energy'] = ROW_TWO_REG_COSTa[3],
                     ['perception'] = 0
                 },
                 [3] = {
                     ['money'] = 0,
-                    ['food'] = 100,
-                    ['energy'] = 150,
+                    ['food'] = ROW_TWO_REG_COSTb[4],
+                    ['energy'] = ROW_TWO_REG_COSTa[4],
                     ['perception'] = 0
                 }
             },
 
             regEarn = {
                 [0] = {
-                    ['money'] = 0,
+                    ['money'] = ROW_TWO_REG_EARN[1],
                     ['food'] = 0,
                     ['energy'] = 0,
                     ['perception'] = 0
                 },
                 [1] = {
-                    ['money'] = 100,
-                    ['food'] = 100,
-                    ['energy'] = 100,
-                    ['perception'] = 100
+                    ['money'] = ROW_TWO_REG_EARN[2],
+                    ['food'] = 0,
+                    ['energy'] = 0,
+                    ['perception'] = 0
                 },
                 [2] = {
-                    ['money'] = 100,
-                    ['food'] = 100,
-                    ['energy'] = 100,
-                    ['perception'] = 100
+                    ['money'] = ROW_TWO_REG_EARN[3],
+                    ['food'] = 0,
+                    ['energy'] = 0,
+                    ['perception'] = 0
                 },
                 [3] = {
-                    ['money'] = 100,
-                    ['food'] = 100,
-                    ['energy'] = 100,
-                    ['perception'] = 100
+                    ['money'] = ROW_TWO_REG_EARN[4],
+                    ['food'] = 0,
+                    ['energy'] = 0,
+                    ['perception'] = 0
                 }
             },
 
@@ -1577,47 +1594,47 @@ FACILITY_DEFS = {
                 [0] = {
                     ['money'] = 0,
                     ['food'] = 0,
-                    ['energy'] = 0,
-                    ['perception'] = 0
+                    ['energy'] = NO_SIX_BASE_COSTb[1],
+                    ['perception'] = NO_SIX_BASE_COSTa[1]
                 },
                 [1] = {
-                    ['money'] = 100,
-                    ['food'] = 100,
-                    ['energy'] = 100,
-                    ['perception'] = 100
+                    ['money'] = 0,
+                    ['food'] = 0,
+                    ['energy'] = NO_SIX_BASE_COSTb[2],
+                    ['perception'] = NO_SIX_BASE_COSTa[2]
                 },
                 [2] = {
-                    ['money'] = 100,
-                    ['food'] = 100,
-                    ['energy'] = 100,
-                    ['perception'] = 100
+                    ['money'] = 0,
+                    ['food'] = 0,
+                    ['energy'] = NO_SIX_BASE_COSTb[3],
+                    ['perception'] = NO_SIX_BASE_COSTa[3]
                 },
                 [3] = {
-                    ['money'] = 100,
-                    ['food'] = 100,
-                    ['energy'] = 100,
-                    ['perception'] = 100
+                    ['money'] = 0,
+                    ['food'] = 0,
+                    ['energy'] = NO_SIX_BASE_COSTb[4],
+                    ['perception'] = NO_SIX_BASE_COSTa[4]
                 }
             },
 
             downGradeEarn = {
                 [0] = {
-                    ['money'] = -100,
-                    ['food'] = -100,
-                    ['energy'] = -100,
-                    ['perception'] = -100
+                    ['money'] = 0,
+                    ['food'] = 0,
+                    ['energy'] = 0,
+                    ['perception'] = 0
                 },
                 [1] = {
-                    ['money'] = -100,
-                    ['food'] = -100,
-                    ['energy'] = -100,
-                    ['perception'] = -100
+                    ['money'] = 0,
+                    ['food'] = 0,
+                    ['energy'] = 0,
+                    ['perception'] = 0
                 },
                 [2] = {
-                    ['money'] = -100,
-                    ['food'] = -100,
-                    ['energy'] = -100,
-                    ['perception'] = -100
+                    ['money'] = 0,
+                    ['food'] = 0,
+                    ['energy'] = 0,
+                    ['perception'] = 0
                 },
                 [3] = {
                     ['money'] = 0,
@@ -1630,26 +1647,26 @@ FACILITY_DEFS = {
             regCost = {
                 [0] = {
                     ['money'] = 0,
-                    ['food'] = 0,
-                    ['energy'] = 0,
+                    ['food'] = NO_SIX_REG_COSTb[1],
+                    ['energy'] = NO_SIX_REG_COSTa[1],
                     ['perception'] = 0
                 },
                 [1] = {
                     ['money'] = 0,
-                    ['food'] = 50,
-                    ['energy'] = 100,
+                    ['food'] = NO_SIX_REG_COSTb[2],
+                    ['energy'] = NO_SIX_REG_COSTa[2],
                     ['perception'] = 0
                 },
                 [2] = {
                     ['money'] = 0,
-                    ['food'] = 75,
-                    ['energy'] = 120,
+                    ['food'] = NO_SIX_REG_COSTb[3],
+                    ['energy'] = NO_SIX_REG_COSTa[3],
                     ['perception'] = 0
                 },
                 [3] = {
                     ['money'] = 0,
-                    ['food'] = 100,
-                    ['energy'] = 150,
+                    ['food'] = NO_SIX_REG_COSTb[4],
+                    ['energy'] = NO_SIX_REG_COSTa[4],
                     ['perception'] = 0
                 }
             },
@@ -1659,25 +1676,25 @@ FACILITY_DEFS = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['perception'] = NO_SIX_REG_EARN[1]
                 },
                 [1] = {
-                    ['money'] = 100,
-                    ['food'] = 100,
-                    ['energy'] = 100,
-                    ['perception'] = 100
+                    ['money'] = 0,
+                    ['food'] = 0,
+                    ['energy'] = 0,
+                    ['perception'] = NO_SIX_REG_EARN[2]
                 },
                 [2] = {
-                    ['money'] = 100,
-                    ['food'] = 100,
-                    ['energy'] = 100,
-                    ['perception'] = 100
+                    ['money'] = 0,
+                    ['food'] = 0,
+                    ['energy'] = 0,
+                    ['perception'] = NO_SIX_REG_EARN[3]
                 },
                 [3] = {
-                    ['money'] = 100,
-                    ['food'] = 100,
-                    ['energy'] = 100,
-                    ['perception'] = 100
+                    ['money'] = 0,
+                    ['food'] = 0,
+                    ['energy'] = 0,
+                    ['perception'] = NO_SIX_REG_EARN[4]
                 }
             },
 

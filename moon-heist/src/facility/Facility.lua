@@ -93,10 +93,10 @@ function Facility:render(baseX)
 
     love.graphics.setShader()
 
-    love.graphics.setColor(unpack(self.colour))
+    love.graphics.setColor(self.colour)
     love.graphics.print("Level " .. tostring(self.currentLevel), self.x + self.offsetX + baseX + 5, self.y + self.offsetY + (self:isHovered() and -10 or 0) + 3)
 
-    love.graphics.setColor(rgb(255, 255, 255))
+    love.graphics.setColor(WHITE)
 
 end
 
@@ -111,9 +111,21 @@ end
 
 function Facility:levelUp(n)
     if n > 0 then
-        Event.dispatch('resource-management', {
+        local hasEnough = self:checkResource({
             resourceTable = self.buildCost[(self.currentLevel == 3 and 0 or self.currentLevel + 1)]
         })
+
+        if hasEnough and self.currentLevel < 3 then
+            Event.dispatch('resource-management', {
+                resourceTable = self.buildCost[(self.currentLevel == 3 and 0 or self.currentLevel + 1)]
+            })
+            gSounds['levelup']:stop()
+            gSounds['levelup']:play()
+        else
+            gSounds['error']:stop()
+            gSounds['error']:play()
+            return false
+        end
     else
         Event.dispatch('resource-management', {
             resourceTable = self.downGradeEarn[(self.currentLevel == 0 and 3 or self.currentLevel - 1)]
@@ -124,4 +136,11 @@ function Facility:levelUp(n)
     if self.currentLevel > 3 then self.currentLevel = 3 end
     if self.currentLevel < 0 then self.currentLevel = 0 end
     self:changeAnimation('idle-' .. tostring(self.currentLevel))
+end
+
+function Facility:checkResource(params)
+    if self.resources['money'] + params.resourceTable['money'] < 0 or self.resources['food'] + params.resourceTable['food'] < 0 or self.resources['energy'] + params.resourceTable['energy'] < 0 or self.resources['perception'] + params.resourceTable['perception'] < 0 then
+        return false
+    end
+    return true
 end

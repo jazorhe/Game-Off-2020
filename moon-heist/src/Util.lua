@@ -59,3 +59,23 @@ function print_r ( t )
     end
     print()
 end
+
+
+function rgba(r, g, b, a)
+    -- a = a > 1 and a / 255 or a
+    if not a then
+        a = 1
+    else
+        a = a / 255
+    end
+
+    return r / 255, g / 255, b / 255, a
+end
+
+function rgb(r, g, b)
+    return rgba(r, g, b)
+end
+
+function table.pack(...)
+    return {n = select("#", ...), ...}
+end
