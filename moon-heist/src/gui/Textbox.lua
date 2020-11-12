@@ -1,6 +1,6 @@
 Textbox = Class{}
 
-function Textbox:init(x, y, width, height, text, font)
+function Textbox:init(x, y, width, height, text, font, type)
     self.panel = Panel(x, y, width, height)
     self.x = x
     self.y = y
@@ -10,6 +10,7 @@ function Textbox:init(x, y, width, height, text, font)
     self.text = text
     self.font = font or gFonts['small']
     _, self.textChunks = self.font:getWrap(self.text, self.width - 12)
+    self.type = type
 
     self.chunkCounter = 1
     self.endOfText = false
@@ -50,7 +51,8 @@ function Textbox:next()
 end
 
 function Textbox:update(dt)
-    if love.keyboard.wasPressed('space') or love.keyboard.wasPressed('enter') or love.keyboard.wasPressed('return') then
+
+    if self.type == 'dialogue' and (love.keyboard.wasPressed('space') or love.keyboard.wasPressed('enter') or love.keyboard.wasPressed('return')) then
         self:next()
     end
 end

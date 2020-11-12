@@ -11,8 +11,8 @@ function StartState:init()
         self.frame = math.random(126)
     end
 
-    self.spriteX = VIRTUAL_WIDTH / 2 - 32
-    self.spriteY = VIRTUAL_HEIGHT / 2 - 16
+    self.spriteX = VIRTUAL_WIDTH / 2 - 24
+    self.spriteY = VIRTUAL_HEIGHT / 2 - 24
 
     self.tween = Timer.every(3, function()
         Timer.tween(0.2, {
@@ -24,12 +24,12 @@ function StartState:init()
             while self.frame % 7 ~= 1 do
                 self.frame = math.random(126)
             end
-            
+
             self.spriteX = VIRTUAL_WIDTH
-            self.spriteY = VIRTUAL_HEIGHT / 2 - 16
+            self.spriteY = VIRTUAL_HEIGHT / 2 - 24
 
             Timer.tween(0.2, {
-                [self] = {spriteX = VIRTUAL_WIDTH / 2 - 32}
+                [self] = {spriteX = VIRTUAL_WIDTH / 2 - 24}
             })
         end)
     end)
@@ -60,7 +60,7 @@ function StartState:update(dt)
 end
 
 function StartState:render()
-    love.graphics.clear(rgb(102, 52, 43))
+    love.graphics.clear(rgb(78, 75, 83))
 
     love.graphics.setColor(rgb(190, 163, 165))
     love.graphics.setFont(gFonts['large'])
@@ -69,8 +69,8 @@ function StartState:render()
     love.graphics.printf('Press Enter', 0, VIRTUAL_HEIGHT / 2 + 68, VIRTUAL_WIDTH, 'center')
     love.graphics.setFont(gFonts['small'])
 
-    love.graphics.setColor(rgb(81, 71, 88))
-    love.graphics.ellipse('fill', VIRTUAL_WIDTH / 2, VIRTUAL_HEIGHT / 2 + 32, 72, 24)
+    love.graphics.setColor(rgb(136, 134, 138))
+    love.graphics.circle('fill', VIRTUAL_WIDTH / 2, VIRTUAL_HEIGHT / 2, 45)
 
     love.graphics.setColor(rgba(255, 255, 255, 255))
     love.graphics.draw(gTextures[self.sprite], gFrames['yellow'][self.frame], self.spriteX, self.spriteY)

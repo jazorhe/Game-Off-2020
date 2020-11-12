@@ -15,6 +15,15 @@ INITIAL_RESOURCES = {
     ['perception'] = 2000
 }
 
+ZERO_RESOURCES = {
+    ['money'] = 0,
+    ['food'] = 0,
+    ['energy'] = 0,
+    ['perception'] = 0
+}
+
 WHITE = table.pack(rgb(255, 255, 255))
 YELLOW = table.pack(rgb(217, 186, 22))
 PURPLE = table.pack(rgb(171, 42, 232))
+
+CHEAT_MODE = false
