@@ -9,7 +9,12 @@ function PlayState:init()
     gSounds['purple-theme']:play()
 
     self.currentTurn = 0
-    self.resources = INITIAL_RESOURCES
+    self.resources = {
+        ['money'] = 2000,
+        ['food'] = 2000,
+        ['energy'] = 2000,
+        ['perception'] = 2000
+    }
 
     self.yellowSide = Side({
         name = 'yellow',
@@ -55,6 +60,7 @@ function PlayState:init()
 end
 
 function PlayState:update(dt)
+
     if love.keyboard.wasPressed('d') and not self.shifting and self.currentSide.name == 'yellow' then
         Event.dispatch('shift-right', {})
     end
@@ -62,6 +68,10 @@ function PlayState:update(dt)
     if love.keyboard.wasPressed('a') and not self.shifting and self.currentSide.name == 'purple' then
         Event.dispatch('shift-left', {})
     end
+
+    -- if love.keyboard.wasPressed('r') then
+    --     self:gameOver()
+    -- end
 
     if love.keyboard.wasPressed('enter') or love.keyboard.wasPressed('return') then
         if self.currentTurn < MAX_TURN then
@@ -159,6 +169,7 @@ end
 
 function PlayState:startNewTurn()
     self.currentTurn = self.currentTurn + 1
+
     if self.currentTurn ~= 1 then
         for k, side in pairs(self.sides) do
             for m, facility in pairs(side.facilities) do

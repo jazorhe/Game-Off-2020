@@ -30,7 +30,7 @@ function Facility:init(def, params)
     end
 
     self.renderLayer = def.renderLayer
-    
+
     -- https://love2d.org/forums/viewtopic.php?t=79617
     -- white shader that will turn a sprite completely white when used; allows us
     -- to brightly blink the sprite when it's acting
@@ -121,8 +121,29 @@ function Facility:render(baseX)
 end
 
 function Facility:isHovered()
-    if mouseX > self.x + self.offsetX and mouseX < self.x + self.offsetX + FACILITY_SIZE * 1.5 then
-        if mouseY > self.y + self.offsetY and mouseY < self.y + self.offsetY + FACILITY_SIZE * 1.5 then
+    if mouseX > self.x + self.offsetX and mouseX < self.x + self.offsetX + FACILITY_SIZE * 2 then
+        if mouseY > self.y + self.offsetY and mouseY < self.y + self.offsetY + FACILITY_SIZE * 2 then
+
+            -- exclude top left corner
+            if (mouseY - self.y - self.offsetY) < - math.sqrt(3) * (mouseX - self.x - self.offsetX) + math.sqrt(3) / (math.sqrt(3) + 1) * 96 + 10 then
+                return false
+            end
+
+            -- exclude top right corner
+            if (mouseY - self.y - self.offsetY) < 1 / math.sqrt(3) * (mouseX - self.x - self.offsetX) - 1 / (math.sqrt(3) + 3) * 96 + 10 then
+                return false
+            end
+
+            -- exclude bottom left corner
+            if (mouseY - self.y - self.offsetY) > 1 / math.sqrt(3) * (mouseX - self.x - self.offsetX) + math.sqrt(3) / (math.sqrt(3) + 1) * 96 - 10 then
+                return false
+            end
+
+            -- exclude bottom right corner
+            if (mouseY - self.y - self.offsetY) > - math.sqrt(3) * (mouseX - self.x - self.offsetX) + (math.sqrt(3) + 4) / (math.sqrt(3) + 1) * 96 - 10 then
+                return false
+            end
+
             return true
         end
     end
