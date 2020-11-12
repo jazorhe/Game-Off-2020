@@ -2,14 +2,14 @@ import math
 from PIL import Image, ImageDraw, ImageFont
 import os
 
-SUFIX = '840'
+SUFIX = 'px'
 CONVERTED_SIZE = (48, 48)
-SCALE = 14
+SCALE = 16
 
 def main():
     for filename in os.listdir('yellow/'):
         if filename.endswith(SUFIX + ".png"):
-            print('Processing:' + os.path.join(filename) + '...\n')
+            print('Processing:' + os.path.join(filename) + '...')
             shrink(filename, CONVERTED_SIZE, SCALE)
         else:
             continue
@@ -28,8 +28,9 @@ def shrink(filename, converted_size, scale):
             a = rgb.getpixel((i * scale + 1, j * scale + 1))
             draw.point((i, j), fill= a)
 
-    filename = filename.replace('840', '48')
+    filename = filename.replace(' px', '-48')
     new_image.save('yellow/converted/' + filename)
+    print('Saving:' + os.path.join(filename) + '...')
     new_image.close()
     image.close()
 
