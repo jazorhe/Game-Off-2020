@@ -105,6 +105,24 @@ function PlayState:beginShifting(nextSide, shiftX, shiftY, params)
     self.shifting = true
     self.nextSide = nextSide
 
+    if self.currentSide.name == 'yellow' then
+        local startwith = 1
+        Timer.every(0.1, function()
+            startwith = startwith - 0.1
+            gSounds['yellow-theme']:setVolume(startwith)
+            gSounds['purple-theme']:setVolume(1 - startwith)
+        end)
+        :limit(10)
+    else
+        local startwith = 1
+        Timer.every(0.1, function()
+            startwith = startwith - 0.1
+            gSounds['yellow-theme']:setVolume(1 - startwith)
+            gSounds['purple-theme']:setVolume(startwith)
+        end)
+        :limit(10)
+    end
+
     Timer.tween(1, {
         [self] = {cameraX = shiftX, cameraY = shiftY},
     }):finish(function()
@@ -120,13 +138,6 @@ function PlayState:finishShifting(nextSide)
     self.currentSide = nextSide
     self.currentSide.baseX = 0
     self.nextSide = nil
-    if self.currentSide.name == 'yellow' then
-        gSounds['yellow-theme']:setVolume(1)
-        gSounds['purple-theme']:setVolume(0)
-    else
-        gSounds['yellow-theme']:setVolume(0)
-        gSounds['purple-theme']:setVolume(1)
-    end
 end
 
 
