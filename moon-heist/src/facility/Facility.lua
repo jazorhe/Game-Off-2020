@@ -22,14 +22,15 @@ function Facility:init(def, params)
     self.y = (self.mapY - 1) * FACILITY_SIZE - self.height / 2
 
     if self.side == 'yellow' then
-        self.offsetX = def.offsetX or VIRTUAL_WIDTH / 2
-        self.offsetY = def.offsetY or VIRTUAL_HEIGHT / 2
+        self.offsetX = def.offsetX or VIRTUAL_WIDTH - 4 * FACILITY_SIZE
+        self.offsetY = def.offsetY or VIRTUAL_HEIGHT / 5 * 3
     elseif self.side == 'purple' then
-        self.offsetX = def.offsetX or VIRTUAL_WIDTH / 2 - 3 * FACILITY_SIZE
-        self.offsetY = def.offsetY or VIRTUAL_HEIGHT / 2
+        self.offsetX = def.offsetX or 1 * FACILITY_SIZE
+        self.offsetY = def.offsetY or VIRTUAL_HEIGHT / 5 * 3
     end
 
     self.renderLayer = def.renderLayer
+    
     -- https://love2d.org/forums/viewtopic.php?t=79617
     -- white shader that will turn a sprite completely white when used; allows us
     -- to brightly blink the sprite when it's acting
@@ -68,7 +69,8 @@ function Facility:createAnimations(animations)
     return animationsReturned
 end
 
-function Facility:update(dt)
+function Facility:update(dt, params)
+    self.resources = params.resources
     self.currentAnimation:update(dt)
     -- self.stateMachine:update(dt)
     if self:isHovered() then
@@ -79,6 +81,24 @@ function Facility:update(dt)
         end
     end
 
+    if self.currentLevel == 3 then
+        if self.type == 'harbour' then
+            Event.dispatch('win-game', {side = self.side})
+        end
+        if self.type == 'engine' then
+            Event.dispatch('win-game', {side = self.side})
+        end
+    end
+
+    -- if love.keyboard.wasPressed('left') and self.mapY == 2 then
+    --     self.x = self.x - 1
+    -- elseif love.keyboard.wasPressed('right') and self.mapY == 2 then
+    --     self.x = self.x + 1
+    -- elseif love.keyboard.wasPressed('up') and self.mapY == 2 then
+    --     self.y = self.y - 1
+    -- elseif love.keyboard.wasPressed('down') and self.mapY == 2 then
+    --     self.y = self.y + 1
+    -- end
 
 end
 
@@ -87,9 +107,9 @@ function Facility:render(baseX)
     local anim = self.currentAnimation
 
     love.graphics.setShader(self.whiteShader)
-    self.whiteShader:send('WhiteFactor', self:isHovered() and 0.5 or 0)
+    self.whiteShader:send('WhiteFactor', self:isHovered() and 0.1 or 0)
 
-    love.graphics.draw(gTextures[anim.texture], gFrames[anim.texture][anim:getCurrentFrame()], self.x + self.offsetX + baseX , self.y + self.offsetY + (self:isHovered() and -10 or 0))
+    love.graphics.draw(gTextures[anim.texture], gFrames[anim.texture][anim:getCurrentFrame()], self.x + self.offsetX + baseX , self.y + self.offsetY + (self:isHovered() and -10 or 0), 0, 2, 2)
 
     love.graphics.setShader()
 
@@ -101,8 +121,8 @@ function Facility:render(baseX)
 end
 
 function Facility:isHovered()
-    if mouseX > self.x + self.offsetX and mouseX < self.x + self.offsetX + FACILITY_SIZE then
-        if mouseY > self.y + self.offsetY and mouseY < self.y + self.offsetY + FACILITY_SIZE then
+    if mouseX > self.x + self.offsetX and mouseX < self.x + self.offsetX + FACILITY_SIZE * 1.5 then
+        if mouseY > self.y + self.offsetY and mouseY < self.y + self.offsetY + FACILITY_SIZE * 1.5 then
             return true
         end
     end
@@ -139,6 +159,10 @@ function Facility:levelUp(n)
 end
 
 function Facility:checkResource(params)
+    if CHEAT_MODE then
+        return true
+    end
+
     if self.resources['money'] + params.resourceTable['money'] < 0 or self.resources['food'] + params.resourceTable['food'] < 0 or self.resources['energy'] + params.resourceTable['energy'] < 0 or self.resources['perception'] + params.resourceTable['perception'] < 0 then
         return false
     end

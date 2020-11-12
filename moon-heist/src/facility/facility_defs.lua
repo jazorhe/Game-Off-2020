@@ -24,8 +24,8 @@ FACILITY_DEFS = {
             mapX = 3,
             mapY = 1,
             renderLayer = 4,
-            offsetX = nil,
-            offsetY = nil,
+            offsetX = VIRTUAL_WIDTH - 4.5 * FACILITY_SIZE,
+            offsetY = VIRTUAL_HEIGHT / 5 * 3,
 
             buildCost = {
                 [0] = {
@@ -166,8 +166,8 @@ FACILITY_DEFS = {
             mapX = 2,
             mapY = 1,
             renderLayer = 5,
-            offsetX = nil,
-            offsetY = nil,
+            offsetX = VIRTUAL_WIDTH - 4.5 * FACILITY_SIZE - 20,
+            offsetY = VIRTUAL_HEIGHT / 5 * 3,
 
             buildCost = {
                 [0] = {
@@ -308,8 +308,8 @@ FACILITY_DEFS = {
             mapX = 1,
             mapY = 1,
             renderLayer = 6,
-            offsetX = nil,
-            offsetY = nil,
+            offsetX = VIRTUAL_WIDTH - 4.5 * FACILITY_SIZE - 40,
+            offsetY = VIRTUAL_HEIGHT / 5 * 3,
 
             buildCost = {
                 [0] = {
@@ -450,8 +450,8 @@ FACILITY_DEFS = {
             mapX = 3,
             mapY = 2,
             renderLayer = 1,
-            offsetX = nil,
-            offsetY = nil,
+            offsetX = VIRTUAL_WIDTH - 4.5 * FACILITY_SIZE - 30,
+            offsetY = VIRTUAL_HEIGHT / 5 * 3 + 4,
 
             buildCost = {
                 [0] = {
@@ -563,7 +563,7 @@ FACILITY_DEFS = {
 
             animations = {
                 ['idle-0'] = {
-                    frames = {7},
+                    frames = {14},
                     interval = 0.2,
                     texture = 'yellow'
                 },
@@ -592,8 +592,8 @@ FACILITY_DEFS = {
             mapX = 2,
             mapY = 2,
             renderLayer = 2,
-            offsetX = nil,
-            offsetY = nil,
+            offsetX = VIRTUAL_WIDTH - 4.5 * FACILITY_SIZE - 50,
+            offsetY = VIRTUAL_HEIGHT / 5 * 3 + 4,
 
             buildCost = {
                 [0] = {
@@ -705,7 +705,7 @@ FACILITY_DEFS = {
 
             animations = {
                 ['idle-0'] = {
-                    frames = {7},
+                    frames = {14},
                     interval = 0.2,
                     texture = 'yellow'
                 },
@@ -728,14 +728,14 @@ FACILITY_DEFS = {
         },
 
         [6] = {
-            type = 'habour',
+            type = 'harbour',
             side = 'yellow',
             initLevel = 0,
             mapX = 1,
             mapY = 2,
             renderLayer = 3,
-            offsetX = nil,
-            offsetY = nil,
+            offsetX = VIRTUAL_WIDTH - 4.5 * FACILITY_SIZE - 70,
+            offsetY = VIRTUAL_HEIGHT / 5 * 3 + 4,
 
             buildCost = {
                 [0] = {
@@ -847,7 +847,7 @@ FACILITY_DEFS = {
 
             animations = {
                 ['idle-0'] = {
-                    frames = {7},
+                    frames = {14},
                     interval = 0.2,
                     texture = 'yellow'
                 },
