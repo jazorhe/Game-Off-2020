@@ -1,5 +1,5 @@
 function love.load()
-    love.window.setTitle('Poke50')
+    love.window.setTitle('Moon Heist')
     love.graphics.setDefaultFilter('nearest', 'nearest')
     require 'src/Dependencies'
     math.randomseed(os.time())

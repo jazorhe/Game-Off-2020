@@ -1,7 +1,6 @@
 PlayState = Class{__includes = BaseState}
 
 function PlayState:init()
-
     gSounds['yellow-theme']:setLooping(true)
     gSounds['purple-theme']:setLooping(true)
     gSounds['yellow-theme']:setVolume(1)
@@ -49,10 +48,13 @@ function PlayState:init()
         self:modifyResource(params)
     end)
 
+    Event.on('win-game', function(params)
+        self:winGame(params)
+    end)
+
 end
 
 function PlayState:update(dt)
-
     if love.keyboard.wasPressed('d') and not self.shifting and self.currentSide.name == 'yellow' then
         Event.dispatch('shift-right', {})
     end
@@ -169,14 +171,23 @@ function PlayState:startNewTurn()
             end
         end
     end
+
+    self:evaluateStartTurn()
 end
 
 function PlayState:endCurrentTurn()
     self:evaluateEndTurn()
 end
 
+
+function PlayState:evaluateStartTurn()
+    if not self:checkResource({resourceTable = ZERO_RESOURCES}) then
+        self:gameOver()
+    end
+end
+
 function PlayState:evaluateEndTurn()
-    if false then
+    if self.currentTurn >= MAX_TURN then
         self:gameOver()
     end
 end
@@ -189,6 +200,28 @@ function PlayState:gameOver()
         gStateStack:pop()
 
         gStateStack:push(GameOverState())
+        gStateStack:push(FadeOutState({
+            r = 255, g = 255, b = 255
+        }, 1,
+        function() end))
+    end))
+end
+
+function PlayState:winGame(params)
+
+    if params.side == 'yellow' then
+        winGameState = YellowEndingState()
+    elseif params.side == 'purple' then
+        winGameState = PurpleEndingState()
+    end
+
+    gStateStack:push(FadeInState({
+        r = 255, g = 255, b = 255
+    }, 1,
+    function()
+        gStateStack:pop()
+
+        gStateStack:push(winGameState)
         gStateStack:push(FadeOutState({
             r = 255, g = 255, b = 255
         }, 1,
