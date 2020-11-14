@@ -32,6 +32,8 @@ function PlayState:init()
         baseX = VIRTUAL_WIDTH
     })
 
+    self.currentEvents = {}
+
     self.sides = {self.yellowSide, self.PurpleSide}
     self.currentSide = self.yellowSide
 
