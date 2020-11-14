@@ -49,7 +49,7 @@ function StartState:update(dt)
 
             gStateStack:push(PlayState())
             gStateStack:push(DialogueState("" ..
-                "Welcome to the world of Moon Heist! There is meant to be an introduction here but I am going to skip for now! (Press Enter to dismiss dialogues)"
+                "Welcome to the world of Moon Heist! There is meant to be an introduction here but I am going to skip for now! (Press Enter to dismiss dialogues)", YELLOW_UI_BG
             ))
             gStateStack:push(FadeOutState({
                 r = 255, g = 255, b = 255
@@ -61,19 +61,19 @@ end
 
 function StartState:render()
     love.graphics.push()
-    love.graphics.clear(rgb(78, 75, 83))
+    love.graphics.clear(GREY_UI_BG)
 
-    love.graphics.setColor(rgb(190, 163, 165))
+    love.graphics.setColor(GREY_UI_TEXT)
     love.graphics.setFont(gFonts['large'])
     love.graphics.printf('Moon Heist!', 0, VIRTUAL_HEIGHT / 2 - 72, VIRTUAL_WIDTH, 'center')
     love.graphics.setFont(gFonts['medium'])
     love.graphics.printf('Press Enter', 0, VIRTUAL_HEIGHT / 2 + 68, VIRTUAL_WIDTH, 'center')
     love.graphics.setFont(gFonts['small'])
 
-    love.graphics.setColor(rgb(136, 134, 138))
+    love.graphics.setColor(GREY)
     love.graphics.circle('fill', VIRTUAL_WIDTH / 2, VIRTUAL_HEIGHT / 2, 45)
 
-    love.graphics.setColor(rgba(255, 255, 255, 255))
+    love.graphics.setColor(WHITE)
     love.graphics.draw(gTextures[self.sprite], gFrames[self.sprite][self.frame], self.spriteX, self.spriteY)
     love.graphics.pop()
 end

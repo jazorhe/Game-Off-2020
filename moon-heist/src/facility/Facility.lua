@@ -3,7 +3,9 @@ Facility = Class{}
 function Facility:init(def, params)
     self.type = def.type
     self.side = def.side
-    self.colour = params.colour
+    self.colour = gColours[self.side].main
+    self.uiBgColour = gColours[self.side].ui_bg
+    self.uiTextColour = gColours[self.side].ui_text
     self.buildCost = def.buildCost
     self.downGradeEarn = def.downGradeEarn
     self.regCost = def.regCost
@@ -12,6 +14,7 @@ function Facility:init(def, params)
 
     self.width = def.width or 48
     self.height = def.height or 48
+    self.scale = def.scale or 1
 
     self.currentLevel = def.initLevel or 0
     self:changeAnimation('idle-' .. tostring(self.currentLevel))
@@ -79,6 +82,9 @@ function Facility:update(dt, params)
         elseif love.mouse.keysPressed[2] then
             self:levelUp(-1)
         end
+
+        self.infoPanel = Panel(x, y, width, height, colour)
+
     end
 
     if self.currentLevel == 3 then
@@ -109,12 +115,12 @@ function Facility:render(baseX)
     love.graphics.setShader(self.whiteShader)
     self.whiteShader:send('WhiteFactor', self:isHovered() and 0.1 or 0)
 
-    love.graphics.draw(gTextures[anim.texture], gFrames[anim.texture][anim:getCurrentFrame()], self.x + self.offsetX + baseX , self.y + self.offsetY + (self:isHovered() and -10 or 0), 0, 2, 2)
+    love.graphics.draw(gTextures[anim.texture], gFrames[anim.texture][anim:getCurrentFrame()], self.x + self.offsetX + baseX , self.y + self.offsetY + (self:isHovered() and -0 or 0), 0, self.scale, self.scale)
 
     love.graphics.setShader()
 
     love.graphics.setColor(self.colour)
-    love.graphics.print("Level " .. tostring(self.currentLevel), self.x + self.offsetX + baseX + 5, self.y + self.offsetY + (self:isHovered() and -10 or 0) + 3)
+    love.graphics.print("Level " .. tostring(self.currentLevel), self.x + self.offsetX + baseX + 5, self.y + self.offsetY + (self:isHovered() and -0 or 0) + 3)
 
     love.graphics.setColor(WHITE)
 
@@ -126,22 +132,22 @@ function Facility:isHovered()
         if mouseY > self.y + self.offsetY and mouseY < self.y + self.offsetY + FACILITY_SIZE * 2 then
 
             -- exclude top left corner
-            if (mouseY - self.y - self.offsetY) < - math.sqrt(3) * (mouseX - self.x - self.offsetX) + math.sqrt(3) / (math.sqrt(3) + 1) * 96 + 10 then
+            if (mouseY - self.y - self.offsetY) < - math.sqrt(3) * (mouseX - self.x - self.offsetX) + math.sqrt(3) / (math.sqrt(3) + 1) * self.width * self.scale + 12 then
                 return false
             end
 
             -- exclude top right corner
-            if (mouseY - self.y - self.offsetY) < 1 / math.sqrt(3) * (mouseX - self.x - self.offsetX) - 1 / (math.sqrt(3) + 3) * 96 + 10 then
+            if (mouseY - self.y - self.offsetY) < 1 / math.sqrt(3) * (mouseX - self.x - self.offsetX) - 1 / (math.sqrt(3) + 3) * self.width * self.scale + 12 then
                 return false
             end
 
             -- exclude bottom left corner
-            if (mouseY - self.y - self.offsetY) > 1 / math.sqrt(3) * (mouseX - self.x - self.offsetX) + math.sqrt(3) / (math.sqrt(3) + 1) * 96 - 10 then
+            if (mouseY - self.y - self.offsetY) > 1 / math.sqrt(3) * (mouseX - self.x - self.offsetX) + math.sqrt(3) / (math.sqrt(3) + 1) * self.width * self.scale - 12 then
                 return false
             end
 
             -- exclude bottom right corner
-            if (mouseY - self.y - self.offsetY) > - math.sqrt(3) * (mouseX - self.x - self.offsetX) + (math.sqrt(3) + 4) / (math.sqrt(3) + 1) * 96 - 10 then
+            if (mouseY - self.y - self.offsetY) > - math.sqrt(3) * (mouseX - self.x - self.offsetX) + (math.sqrt(3) + 4) / (math.sqrt(3) + 1) * self.width * self.scale - 12 then
                 return false
             end
 

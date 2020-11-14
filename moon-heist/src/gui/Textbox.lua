@@ -1,7 +1,7 @@
 Textbox = Class{}
 
-function Textbox:init(x, y, width, height, text, font, type)
-    self.panel = Panel(x, y, width, height)
+function Textbox:init(x, y, width, height, text, font, type, colour)
+    self.panel = Panel(x, y, width, height, colour)
     self.x = x
     self.y = y
     self.width = width
@@ -11,6 +11,7 @@ function Textbox:init(x, y, width, height, text, font, type)
     self.font = font or gFonts['small']
     _, self.textChunks = self.font:getWrap(self.text, self.width - 12)
     self.type = type
+    self.colour = colour
 
     self.chunkCounter = 1
     self.endOfText = false
