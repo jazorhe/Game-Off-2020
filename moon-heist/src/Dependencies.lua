@@ -1,7 +1,3 @@
---
--- libraries
---
-
 Class = require 'lib/class'
 Event = require 'lib/knife.event'
 push = require 'lib/push'
@@ -30,6 +26,13 @@ require 'src/states/game/GameOverState'
 require 'src/states/game/YellowEndingState'
 require 'src/states/game/PurpleEndingState'
 require 'src/states/game/CreditsState'
+
+require 'src/states/game-event/GameEventBaseState'
+require 'src/states/game-event/GameEventPlannedState'
+require 'src/states/game-event/GameEventEncounterState'
+require 'src/states/game-event/GameEventProgressingState'
+require 'src/states/game-event/GameEventResolveState'
+require 'src/states/game-event/GameEventPassedState'
 
 require 'src/states/game/BattleState'
 require 'src/states/game/BattleMenuState'
@@ -73,8 +76,8 @@ gFonts = {
 }
 
 gSounds = {
-    ['field-music'] = love.audio.newSource('sounds/field_music.wav', 'static'),
-    ['battle-music'] = love.audio.newSource('sounds/battle_music.mp3', 'static'),
+    ['field-music'] = love.audio.newSource('sounds/field_music.wav', 'stream'),
+    ['battle-music'] = love.audio.newSource('sounds/battle_music.mp3', 'stream'),
     ['blip'] = love.audio.newSource('sounds/blip.wav', 'static'),
     ['powerup'] = love.audio.newSource('sounds/powerup.wav', 'static'),
     ['hit'] = love.audio.newSource('sounds/hit.wav', 'static'),
@@ -83,11 +86,11 @@ gSounds = {
     ['exp'] = love.audio.newSource('sounds/exp.wav', 'static'),
     ['error'] = love.audio.newSource('sounds/error.wav', 'static'),
     ['levelup'] = love.audio.newSource('sounds/levelup.wav', 'static'),
-    ['victory-music'] = love.audio.newSource('sounds/victory.wav', 'static'),
-    ['yellow-theme'] = love.audio.newSource('sounds/yellow-theme.mp3', 'static'),
-    ['purple-theme'] = love.audio.newSource('sounds/purple-theme.mp3', 'static'),
-    ['main-theme'] = love.audio.newSource('sounds/intro.mp3', 'static')
+    ['victory-music'] = love.audio.newSource('sounds/victory.wav', 'stream'),
+    ['yellow-theme'] = love.audio.newSource('sounds/moon-gate.wav', 'stream'),
+    ['purple-theme'] = love.audio.newSource('sounds/moon-gate.wav', 'stream'),
+    ['main-theme'] = love.audio.newSource('sounds/intro.mp3', 'stream')
 }
-love.audio.setVolume(0.3)
+love.audio.setVolume(0.5)
 
 -- ['main-theme'] = love.audio.newSource('sounds/main-theme.wav', 'static'),

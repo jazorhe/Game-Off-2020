@@ -1,0 +1,7 @@
+REGULAR_EVENTS = {
+
+}
+
+RANDOM_EVENTS = {
+
+}
