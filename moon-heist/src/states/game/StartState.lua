@@ -60,6 +60,7 @@ function StartState:update(dt)
 end
 
 function StartState:render()
+    love.graphics.push()
     love.graphics.clear(rgb(78, 75, 83))
 
     love.graphics.setColor(rgb(190, 163, 165))
@@ -73,5 +74,6 @@ function StartState:render()
     love.graphics.circle('fill', VIRTUAL_WIDTH / 2, VIRTUAL_HEIGHT / 2, 45)
 
     love.graphics.setColor(rgba(255, 255, 255, 255))
-    love.graphics.draw(gTextures[self.sprite], gFrames['yellow'][self.frame], self.spriteX, self.spriteY)
+    love.graphics.draw(gTextures[self.sprite], gFrames[self.sprite][self.frame], self.spriteX, self.spriteY)
+    love.graphics.pop()
 end

@@ -877,8 +877,8 @@ FACILITY_DEFS = {
             mapX = 1,
             mapY = 1,
             renderLayer = 4,
-            offsetX = nil,
-            offsetY = nil,
+            offsetX = 1 * FACILITY_SIZE,
+            offsetY = VIRTUAL_HEIGHT / 5 * 3 - 30,
 
             buildCost = {
                 [0] = {
@@ -1019,8 +1019,8 @@ FACILITY_DEFS = {
             mapX = 2,
             mapY = 1,
             renderLayer = 5,
-            offsetX = nil,
-            offsetY = nil,
+            offsetX = 1 * FACILITY_SIZE + 48,
+            offsetY = VIRTUAL_HEIGHT / 5 * 3 - 30,
 
             buildCost = {
                 [0] = {
@@ -1161,8 +1161,8 @@ FACILITY_DEFS = {
             mapX = 3,
             mapY = 1,
             renderLayer = 6,
-            offsetX = nil,
-            offsetY = nil,
+            offsetX = 1 * FACILITY_SIZE + 96,
+            offsetY = VIRTUAL_HEIGHT / 5 * 3 - 30,
 
             buildCost = {
                 [0] = {
@@ -1303,8 +1303,8 @@ FACILITY_DEFS = {
             mapX = 1,
             mapY = 2,
             renderLayer = 1,
-            offsetX = nil,
-            offsetY = nil,
+            offsetX = 1 * FACILITY_SIZE,
+            offsetY = VIRTUAL_HEIGHT / 5 * 3 + 18,
 
             buildCost = {
                 [0] = {
@@ -1445,8 +1445,8 @@ FACILITY_DEFS = {
             mapX = 2,
             mapY = 2,
             renderLayer = 2,
-            offsetX = nil,
-            offsetY = nil,
+            offsetX = 1 * FACILITY_SIZE + 48,
+            offsetY = VIRTUAL_HEIGHT / 5 * 3 + 18,
 
             buildCost = {
                 [0] = {
@@ -1587,8 +1587,8 @@ FACILITY_DEFS = {
             mapX = 3,
             mapY = 2,
             renderLayer = 3,
-            offsetX = nil,
-            offsetY = nil,
+            offsetX = 1 * FACILITY_SIZE + 96,
+            offsetY = VIRTUAL_HEIGHT / 5 * 3 + 18,
 
             buildCost = {
                 [0] = {
