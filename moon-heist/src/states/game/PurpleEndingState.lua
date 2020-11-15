@@ -6,7 +6,7 @@ function PurpleEndingState:init()
 end
 
 function PurpleEndingState:update()
-    if love.keyboard.wasPressed('enter') or love.keyboard.wasPressed('return') then
+    if love.keyboard.wasPressed('enter') or love.keyboard.wasPressed('return') or love.mouse.wasPressed(1) then
         self:startOver()
     end
 end

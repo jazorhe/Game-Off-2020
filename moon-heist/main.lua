@@ -14,6 +14,7 @@ function love.load()
     gStateStack:push(StartState())
 
     love.keyboard.keysPressed = {}
+    love.mouse.keysPressed = {}
 end
 
 function love.update(dt)

@@ -37,7 +37,7 @@ function StartState:init()
 end
 
 function StartState:update(dt)
-    if love.keyboard.wasPressed('enter') or love.keyboard.wasPressed('return') then
+    if love.keyboard.wasPressed('enter') or love.keyboard.wasPressed('return') or love.mouse.wasPressed(1) then
         gStateStack:push(FadeInState({
             r = 255, g = 255, b = 255
         }, 1,
@@ -48,8 +48,9 @@ function StartState:update(dt)
             gStateStack:pop()
 
             gStateStack:push(PlayState())
-            gStateStack:push(DialogueState("" ..
-                "Welcome to the world of Moon Heist! There is meant to be an introduction here but I am going to skip for now! (Press Enter to dismiss dialogues)", YELLOW_UI_BG
+            gStateStack:push(DialogueState(
+                180, VIRTUAL_HEIGHT / 2 - 30, VIRTUAL_WIDTH - 360, 60, "" ..
+                "Welcome to the world of Moon Heist! There is meant to be an introduction here but I am going to skip for now! (Press Enter or Click the screen to dismiss dialogues)", 12, YELLOW_UI_BG
             ))
             gStateStack:push(FadeOutState({
                 r = 255, g = 255, b = 255
