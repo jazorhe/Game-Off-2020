@@ -136,7 +136,7 @@ Thus, When resolving or encountering events, random events always come before re
 
 
 ## Known Issues
--   [ ]Love2d on Windows misbehaving
+-   [x]Love2d on Windows misbehaving
 -   [x] Shifting error
 
 

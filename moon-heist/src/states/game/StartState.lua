@@ -11,8 +11,8 @@ function StartState:init()
         self.frame = math.random(126)
     end
 
-    self.spriteX = VIRTUAL_WIDTH / 2 - 24
-    self.spriteY = VIRTUAL_HEIGHT / 2 - 24
+    self.spriteX = math.floor(VIRTUAL_WIDTH / 2 - 24)
+    self.spriteY = math.floor(VIRTUAL_HEIGHT / 2 - 24)
 
     self.tween = Timer.every(3, function()
         Timer.tween(0.2, {
@@ -26,10 +26,10 @@ function StartState:init()
             end
 
             self.spriteX = VIRTUAL_WIDTH
-            self.spriteY = VIRTUAL_HEIGHT / 2 - 24
+            self.spriteY = math.floor(VIRTUAL_HEIGHT / 2 - 24)
 
             Timer.tween(0.2, {
-                [self] = {spriteX = VIRTUAL_WIDTH / 2 - 24}
+                [self] = {spriteX = math.floor(VIRTUAL_WIDTH / 2 - 24)}
             })
         end)
     end)
