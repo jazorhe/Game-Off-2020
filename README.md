@@ -30,8 +30,9 @@ The player is sent to the Moon and is in charge of the latest space project: ***
 
 ## Todo List
 -   背景图设计
--   UI设计
-    -   UI网格化
+-   UI
+    -
+    -   
 
 
 ## Dev Log:
@@ -135,6 +136,7 @@ Thus, When resolving or encountering events, random events always come before re
 
 ## Known Issues
 -   Love2d on Windows misbehaving
+-   Shifting error
 
 
 ## Special Thanks To:

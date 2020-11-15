@@ -88,7 +88,7 @@ gSounds = {
     ['levelup'] = love.audio.newSource('sounds/levelup.wav', 'static'),
     ['victory-music'] = love.audio.newSource('sounds/victory.wav', 'stream'),
     ['yellow-theme'] = love.audio.newSource('sounds/moon-gate.wav', 'stream'),
-    ['purple-theme'] = love.audio.newSource('sounds/moon-gate.wav', 'stream'),
+    ['purple-theme'] = love.audio.newSource('sounds/moon-gate-dark.mp3', 'stream'),
     ['main-theme'] = love.audio.newSource('sounds/intro.mp3', 'stream')
 }
 love.audio.setVolume(0.5)

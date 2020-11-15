@@ -65,6 +65,8 @@ function rgba(r, g, b, a)
     -- a = a > 1 and a / 255 or a
     if not a then
         a = 1
+    elseif a <= 1 then
+        a = a
     else
         a = a / 255
     end
@@ -73,7 +75,7 @@ function rgba(r, g, b, a)
 end
 
 function rgb(r, g, b)
-    return rgba(r, g, b)
+    return rgba(r, g, b, 1)
 end
 
 function table.pack(...)

@@ -19,14 +19,15 @@ FACILITY_DEFS = {
     ['yellow'] = {
         [1] = {
             type = 'generator',
+            name = 'Nuclear Power Plant',
             side = 'yellow',
             scale = 2,
             initLevel = 1,
             mapX = 3,
             mapY = 1,
             renderLayer = 4,
-            offsetX = VIRTUAL_WIDTH - 4.5 * FACILITY_SIZE,
-            offsetY = VIRTUAL_HEIGHT / 5 * 3,
+            -- offsetX = VIRTUAL_WIDTH - 4.5 * FACILITY_SIZE,
+            -- offsetY = VIRTUAL_HEIGHT / 5 * 3,
 
             buildCost = {
                 [0] = {
@@ -162,14 +163,15 @@ FACILITY_DEFS = {
 
         [2] = {
             type = 'farm',
+            name = 'Lunar Farm',
             side = 'yellow',
             scale = 2,
             initLevel = 0,
             mapX = 2,
             mapY = 1,
             renderLayer = 5,
-            offsetX = VIRTUAL_WIDTH - 4.5 * FACILITY_SIZE - 20,
-            offsetY = VIRTUAL_HEIGHT / 5 * 3,
+            -- offsetX = VIRTUAL_WIDTH - 4.5 * FACILITY_SIZE - 20,
+            -- offsetY = VIRTUAL_HEIGHT / 5 * 3,
 
             buildCost = {
                 [0] = {
@@ -286,17 +288,20 @@ FACILITY_DEFS = {
                     texture = 'yellow'
                 },
                 ['idle-1'] = {
-                    frames = {22, 23, 24, 25, 26, 27},
+                    frames = {22, 22, 23, 23, 24, 24,
+                              25, 25, 26, 26, 27, 27},
                     interval = 0.2,
                     texture = 'yellow'
                 },
                 ['idle-2'] = {
-                    frames = {29, 30, 31, 32, 33, 34},
+                    frames = {29, 29, 30, 30, 31, 31,
+                              32, 32, 33, 33, 34, 34},
                     interval = 0.2,
                     texture = 'yellow'
                 },
                 ['idle-3'] = {
-                    frames = {36, 37, 38, 39, 40, 41},
+                    frames = {36, 36, 37, 37, 38, 38,
+                              39, 39, 40, 40, 41, 41},
                     interval = 0.2,
                     texture = 'yellow'
                 }
@@ -305,14 +310,15 @@ FACILITY_DEFS = {
 
         [3] = {
             type = 'weather-station',
+            name = 'Weather Station',
             side = 'yellow',
             scale = 2,
             initLevel = 0,
             mapX = 1,
             mapY = 1,
             renderLayer = 6,
-            offsetX = VIRTUAL_WIDTH - 4.5 * FACILITY_SIZE - 40,
-            offsetY = VIRTUAL_HEIGHT / 5 * 3,
+            -- offsetX = VIRTUAL_WIDTH - 4.5 * FACILITY_SIZE - 40,
+            -- offsetY = VIRTUAL_HEIGHT / 5 * 3,
 
             buildCost = {
                 [0] = {
@@ -448,14 +454,15 @@ FACILITY_DEFS = {
 
         [4] = {
             type = 'tunnel',
+            name = 'Express Tunnel',
             side = 'yellow',
             scale = 2,
             initLevel = 0,
             mapX = 3,
             mapY = 2,
             renderLayer = 1,
-            offsetX = VIRTUAL_WIDTH - 4.5 * FACILITY_SIZE - 30,
-            offsetY = VIRTUAL_HEIGHT / 5 * 3 + 4,
+            -- offsetX = VIRTUAL_WIDTH - 4.5 * FACILITY_SIZE - 30,
+            -- offsetY = VIRTUAL_HEIGHT / 5 * 3 + 4,
 
             buildCost = {
                 [0] = {
@@ -591,14 +598,15 @@ FACILITY_DEFS = {
 
         [5] = {
             type = 'apartment',
+            name = 'Lunar Apartment',
             side = 'yellow',
             scale = 2,
             initLevel = 0,
             mapX = 2,
             mapY = 2,
             renderLayer = 2,
-            offsetX = VIRTUAL_WIDTH - 4.5 * FACILITY_SIZE - 50,
-            offsetY = VIRTUAL_HEIGHT / 5 * 3 + 4,
+            -- offsetX = VIRTUAL_WIDTH - 4.5 * FACILITY_SIZE - 50,
+            -- offsetY = VIRTUAL_HEIGHT / 5 * 3 + 4,
 
             buildCost = {
                 [0] = {
@@ -734,14 +742,15 @@ FACILITY_DEFS = {
 
         [6] = {
             type = 'harbour',
+            name = 'Space Harbour',
             side = 'yellow',
             scale = 2,
             initLevel = 0,
             mapX = 1,
             mapY = 2,
             renderLayer = 3,
-            offsetX = VIRTUAL_WIDTH - 4.5 * FACILITY_SIZE - 70,
-            offsetY = VIRTUAL_HEIGHT / 5 * 3 + 4,
+            -- offsetX = VIRTUAL_WIDTH - 4.5 * FACILITY_SIZE - 70,
+            -- offsetY = VIRTUAL_HEIGHT / 5 * 3 + 4,
 
             buildCost = {
                 [0] = {
@@ -878,14 +887,15 @@ FACILITY_DEFS = {
     ['purple'] = {
         [1] = {
             type = 'lab',
+            name = 'Moon Lab',
             side = 'purple',
             scale = 1.5,
             initLevel = 1,
             mapX = 1,
             mapY = 1,
             renderLayer = 4,
-            offsetX = 1 * FACILITY_SIZE,
-            offsetY = VIRTUAL_HEIGHT / 5 * 3 - 30,
+            -- offsetX = 1 * FACILITY_SIZE,
+            -- offsetY = VIRTUAL_HEIGHT / 5 * 3 - 30,
 
             buildCost = {
                 [0] = {
@@ -1023,14 +1033,15 @@ FACILITY_DEFS = {
 
         [2] = {
             type = 'mine',
+            name = 'Lunar Mine',
             side = 'purple',
             scale = 1.5,
             initLevel = 0,
             mapX = 2,
             mapY = 1,
             renderLayer = 5,
-            offsetX = 1 * FACILITY_SIZE + 48,
-            offsetY = VIRTUAL_HEIGHT / 5 * 3 - 30,
+            -- offsetX = 1 * FACILITY_SIZE + 48,
+            -- offsetY = VIRTUAL_HEIGHT / 5 * 3 - 30,
 
             buildCost = {
                 [0] = {
@@ -1166,14 +1177,15 @@ FACILITY_DEFS = {
 
         [3] = {
             type = 'recycle-station',
+            name = 'Recycle Station',
             side = 'purple',
             scale = 1.5,
             initLevel = 0,
             mapX = 3,
             mapY = 1,
             renderLayer = 6,
-            offsetX = 1 * FACILITY_SIZE + 96,
-            offsetY = VIRTUAL_HEIGHT / 5 * 3 - 30,
+            -- offsetX = 1 * FACILITY_SIZE + 96,
+            -- offsetY = VIRTUAL_HEIGHT / 5 * 3 - 30,
 
             buildCost = {
                 [0] = {
@@ -1309,14 +1321,15 @@ FACILITY_DEFS = {
 
         [4] = {
             type = 'dark-matter',
+            name = 'Dark Matter Detector',
             side = 'purple',
             scale = 1.5,
             initLevel = 0,
             mapX = 1,
             mapY = 2,
             renderLayer = 1,
-            offsetX = 1 * FACILITY_SIZE,
-            offsetY = VIRTUAL_HEIGHT / 5 * 3 + 18,
+            -- offsetX = 1 * FACILITY_SIZE,
+            -- offsetY = VIRTUAL_HEIGHT / 5 * 3 + 18,
 
             buildCost = {
                 [0] = {
@@ -1452,14 +1465,15 @@ FACILITY_DEFS = {
 
         [5] = {
             type = 'worm-hole',
+            name = 'Worm Hole Machine',
             side = 'purple',
             scale = 1.5,
             initLevel = 0,
             mapX = 2,
             mapY = 2,
             renderLayer = 2,
-            offsetX = 1 * FACILITY_SIZE + 48,
-            offsetY = VIRTUAL_HEIGHT / 5 * 3 + 18,
+            -- offsetX = 1 * FACILITY_SIZE + 48,
+            -- offsetY = VIRTUAL_HEIGHT / 5 * 3 + 18,
 
             buildCost = {
                 [0] = {
@@ -1595,14 +1609,15 @@ FACILITY_DEFS = {
 
         [6] = {
             type = 'engine',
+            name = 'Moon Engine',
             side = 'purple',
             scale = 1.5,
             initLevel = 0,
             mapX = 3,
             mapY = 2,
             renderLayer = 3,
-            offsetX = 1 * FACILITY_SIZE + 96,
-            offsetY = VIRTUAL_HEIGHT / 5 * 3 + 18,
+            -- offsetX = 1 * FACILITY_SIZE + 96,
+            -- offsetY = VIRTUAL_HEIGHT / 5 * 3 + 18,
 
             buildCost = {
                 [0] = {

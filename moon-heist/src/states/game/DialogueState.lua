@@ -1,7 +1,7 @@
 DialogueState = Class{__includes = BaseState}
 
-function DialogueState:init(text, colour, callback)
-    self.textbox = Textbox(6, VIRTUAL_HEIGHT - 75, VIRTUAL_WIDTH - 12, 60, text, gFonts['small'], 'dialogue', colour)
+function DialogueState:init(x, y, width, height, text, wrap, colour, callback)
+    self.textbox = Textbox(x, y, width, height, text, wrap, gFonts['small'], 'dialogue', colour, 16, 3)
     self.callback = callback or function() end
 end
 

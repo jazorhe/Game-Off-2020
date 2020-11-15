@@ -71,9 +71,11 @@ function PlayState:update(dt)
         Event.dispatch('shift-left', {})
     end
 
-    -- if love.keyboard.wasPressed('r') then
-    --     self:gameOver()
-    -- end
+    if DEBUG then
+        if love.keyboard.wasPressed('r') then
+            self:gameOver()
+        end
+    end
 
     if love.keyboard.wasPressed('enter') or love.keyboard.wasPressed('return') then
         if self.currentTurn < MAX_TURN then
@@ -86,10 +88,12 @@ function PlayState:update(dt)
 
     self.currentSide:update(dt, {
         resources = self.resources,
+        currentTurn = self.currentTurn
     })
     if self.nextSide then
         self.nextSide:update(dt, {
             resources = self.resources,
+            currentTurn = self.currentTurn
             })
     end
 
@@ -105,12 +109,11 @@ function PlayState:render()
     if self.nextSide then
         self.nextSide:render(self.resources)
     end
-    love.graphics.pop()
 
-    love.graphics.setColor(rgb(196, 131, 131))
-    love.graphics.rectangle('fill', VIRTUAL_WIDTH / 2 - 40, 0, 80, 30)
+    -- love.graphics.print(tostring(self.currentEvents[1].state), 0, 0)
+
+    love.graphics.pop()
     love.graphics.setColor(rgb(255, 255, 255))
-    love.graphics.printf('Month ' .. tostring(self.currentTurn), VIRTUAL_WIDTH / 2 - 40, 10, 80, 'center')
 end
 
 function PlayState:beginShifting(nextSide, shiftX, shiftY, params)
@@ -139,6 +142,7 @@ function PlayState:beginShifting(nextSide, shiftX, shiftY, params)
 
     Timer.tween(1, {
         [self] = {cameraX = shiftX, cameraY = shiftY},
+        -- [self.currentSide] = {baseX = -shiftX}
     }):finish(function()
         self.currentSide.baseX = -shiftX
         self:finishShifting(nextSide)
@@ -206,6 +210,8 @@ function PlayState:evaluateEndTurn()
 end
 
 function PlayState:gameOver()
+    gSounds['yellow-theme']:stop()
+    gSounds['purple-theme']:stop()
     gStateStack:push(FadeInState({
         r = 255, g = 255, b = 255
     }, 1,
@@ -221,6 +227,9 @@ function PlayState:gameOver()
 end
 
 function PlayState:winGame(params)
+
+    gSounds['yellow-theme']:stop()
+    gSounds['purple-theme']:stop()
 
     if params.side == 'yellow' then
         winGameState = YellowEndingState()

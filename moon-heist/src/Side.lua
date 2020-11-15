@@ -2,11 +2,18 @@ Side = Class{}
 
 function Side:init(def)
     self.name = def.name
-    self.colour = def.colour
     self.background = def.background
     self.facilities = {}
     self.baseX = def.baseX
     self.trust = 80
+
+    self.colour = gColours[self.name].main
+    self.bg = gColours[self.name].bg
+    self.uiBgColour = gColours[self.name].ui_bg
+    self.uiTextColour = gColours[self.name].ui_text
+
+    self.resources = INITIAL_RESOURCES
+    self.currentTurn = 1
 
     for i = 1, 6 do
         table.insert(self.facilities, Facility(def.facilities[i]))
@@ -36,6 +43,9 @@ function Side:update(dt, params)
     -- self.currentAnimation:update(dt)
     -- self.stateMachine:update(dt)
 
+    self.resources = params.resources
+    self.currentTurn = params.currentTurn
+
     for k, facility in pairs(self.facilities) do
         facility:update(dt, params)
     end
@@ -43,13 +53,13 @@ end
 
 function Side:render(resources)
     -- self.stateMachine:render()
+
     table.sort(self.facilities, function (k1, k2) return k1.renderLayer > k2.renderLayer end )
     for k, facility in pairs(self.facilities) do
         facility:render(self.baseX)
     end
 
     love.graphics.setColor(self.colour)
-    love.graphics.setFont(gFonts['small'])
 
     local alignment = 'left'
     local offset = 20
@@ -61,10 +71,17 @@ function Side:render(resources)
         offset = - 20
     end
 
-    love.graphics.printf('Money: ' .. tostring(resources['money']), self.baseX + offset, VIRTUAL_HEIGHT - 48, self.baseX + VIRTUAL_WIDTH, alignment)
-    love.graphics.printf('Food: ' .. tostring(resources['food']), self.baseX + offset, VIRTUAL_HEIGHT - 36, self.baseX + VIRTUAL_WIDTH, alignment)
-    love.graphics.printf('Energy: ' .. tostring(resources['energy']), self.baseX + offset, VIRTUAL_HEIGHT - 24, self.baseX + VIRTUAL_WIDTH, alignment)
-    love.graphics.printf('Perception: ' .. tostring(resources['perception']), self.baseX + offset, VIRTUAL_HEIGHT - 12, self.baseX + VIRTUAL_WIDTH, alignment)
+    love.graphics.setFont(gFonts['medium'])
+    love.graphics.printf('Month ' .. tostring(self.currentTurn), self.baseX + offset, VIRTUAL_HEIGHT - 84, self.baseX + VIRTUAL_WIDTH, alignment)
+
+
+    love.graphics.setFont(gFonts['small'])
+    love.graphics.printf('Trust: ' .. tostring(self.trust) .. " %", self.baseX + offset, VIRTUAL_HEIGHT - 60, self.baseX + VIRTUAL_WIDTH, alignment)
+
+    love.graphics.printf('Money: ' .. tostring(self.resources['money']), self.baseX + offset, VIRTUAL_HEIGHT - 48, self.baseX + VIRTUAL_WIDTH, alignment)
+    love.graphics.printf('Food: ' .. tostring(self.resources['food']), self.baseX + offset, VIRTUAL_HEIGHT - 36, self.baseX + VIRTUAL_WIDTH, alignment)
+    love.graphics.printf('Energy: ' .. tostring(self.resources['energy']), self.baseX + offset, VIRTUAL_HEIGHT - 24, self.baseX + VIRTUAL_WIDTH, alignment)
+    love.graphics.printf('Perception: ' .. tostring(self.resources['perception']), self.baseX + offset, VIRTUAL_HEIGHT - 12, self.baseX + VIRTUAL_WIDTH, alignment)
 
     love.graphics.setColor(rgb(255, 255, 255))
 end
