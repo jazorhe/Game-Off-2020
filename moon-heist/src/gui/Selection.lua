@@ -14,7 +14,7 @@ function Selection:init(def)
     self.currentSelection = 1
 end
 
-function Selection:update(dt, gameEvent)
+function Selection:update(dt, gameEvent, callback)
     if love.keyboard.wasPressed('up') then
         if self.currentSelection == 1 then
             self.currentSelection = #self.items
@@ -39,9 +39,7 @@ function Selection:update(dt, gameEvent)
         gSounds['blip']:play()
 
         if gameEvent then
-            gameEvent.selected = self.items[self.currentSelection].onSelect()
-            gameEvent:changeState('progressing')
-            gStateStack:pop()
+            callback(self.currentSelection)
         end
 
     end

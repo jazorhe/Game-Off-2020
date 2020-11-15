@@ -72,10 +72,10 @@ RANDOM_EVENTS = {
                     "There is going to be a story here. Manythings have happened. Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah."
                 },
                 [1] = {
-                    "You have Selected Option 1 in this Event."
+                    "You have Selected Option 1 in this Event. Here is the result."
                 },
                 [2] = {
-                    "You have Selected Option 2 in this Event."
+                    "You have Selected Option 2 in this Event. Here is the result."
                 },
                 [3] = {
                     "Now please continue with your duty."
@@ -85,16 +85,18 @@ RANDOM_EVENTS = {
                 ['seleciton-prompt'] = "This is an event. Choose one of the followings: ",
                 [1] = {
                     text = "Well...",
+                    closing = "So you choose to do this? I will see you again.",
                     onSelect = function()
                         return 1
                     end
                 },
                 [2] = {
                     text = "Ha!",
+                    closing = "I am glad that you did this.",
                     onSelect = function()
                         return 2
                     end
-                }
+                },
             },
             outcomes = {
                 [1] = {

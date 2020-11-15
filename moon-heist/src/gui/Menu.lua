@@ -12,8 +12,8 @@ function Menu:init(def)
     }
 end
 
-function Menu:update(dt, gameEvent)
-    self.selection:update(dt, gameEvent)
+function Menu:update(dt, gameEvent, callback)
+    self.selection:update(dt, gameEvent, callback)
 end
 
 function Menu:render()

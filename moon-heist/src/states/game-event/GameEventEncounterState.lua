@@ -18,7 +18,7 @@ function GameEventEncounterState:enter()
         self.gameEvent.selections['seleciton-prompt'],
         12, gFonts['small'], 'dialogue', YELLOW, 12, 3)
 
-    self.selections = Menu({
+    self.selectionMenu = Menu({
         x = 160,
         y = VIRTUAL_HEIGHT / 2 - 30,
         width = VIRTUAL_WIDTH - 320,
@@ -35,9 +35,28 @@ end
 
 function GameEventEncounterState:update(dt)
     if self.encounterDialogue:isClosed() then
-        self.selecting = true
-        -- self.selectionPrompt:update(dt)
-        self.selections:update(dt, self.gameEvent)
+
+        if self.closingDialogue then
+            self.selecting = false
+            self.closingDialogue:update(dt)
+            if self.closingDialogue:isClosed() then
+                self.gameEvent:changeState('progressing')
+                gStateStack:pop()
+            end
+        end
+
+        if not self.gameEvent.selected then
+            self.selecting = true
+            self.selectionMenu:update(dt, self.gameEvent, function(selection)
+                    self.gameEvent.selected = selection
+                    self.closingDialogue = Textbox(
+                        160, VIRTUAL_HEIGHT / 2 - 80, VIRTUAL_WIDTH - 320, 100,
+                        self.gameEvent.selections[self.gameEvent.selected].closing,
+                        12, gFonts['small'], 'dialogue', YELLOW, 12, 7)
+                    self.selecting = false
+                end)
+        end
+
     else
         self.encounterDialogue:update(dt)
     end
@@ -53,8 +72,14 @@ function GameEventEncounterState:render()
     love.graphics.printf("New Event!", 0, 60, VIRTUAL_WIDTH, 'center')
 
     self.encounterDialogue:render()
+
     if self.selecting then
         self.selectionPrompt:render()
-        self.selections:render()
+        self.selectionMenu:render()
     end
+
+    if self.closingDialogue then
+        self.closingDialogue:render()
+    end
+
 end

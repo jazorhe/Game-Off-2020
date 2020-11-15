@@ -61,6 +61,8 @@ end
 function Textbox:update(dt, params)
 
     if self.type == 'dialogue' and (love.keyboard.wasPressed('space') or love.keyboard.wasPressed('enter') or love.keyboard.wasPressed('return')) or love.mouse.wasPressed(1) then
+        gSounds['blip']:stop()
+        gSounds['blip']:play()
         self:next()
     end
 
