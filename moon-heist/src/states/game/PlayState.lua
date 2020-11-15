@@ -117,7 +117,8 @@ function PlayState:render()
         self.nextSide:render(self.resources)
     end
 
-    -- love.graphics.print(tostring(self.currentEvents[1].state), 0, 0)
+    love.graphics.print(tostring(self.currentEvents[1].state), 0, 0)
+    love.graphics.print(tostring(self.currentEvents[1].selected), 0, 10)
 
     love.graphics.pop()
     love.graphics.setColor(rgb(255, 255, 255))
@@ -273,7 +274,7 @@ function PlayState:gameEventUpdateLoop(dt)
 
     for k, gameEvent in pairs(self.currentEvents) do
         if gameEvent.state == 'resolve' then
-            gStateStack.push(GameEventDisplayState(gameEvent))
+            gStateStack:push(GameEventDisplayState(gameEvent))
         end
     end
 

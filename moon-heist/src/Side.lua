@@ -18,6 +18,11 @@ function Side:init(def)
     for i = 1, 6 do
         table.insert(self.facilities, Facility(def.facilities[i]))
     end
+
+    Event.on('trust-management', function(params)
+        self:modifyTrust(params)
+    end)
+
 end
 
 function Side:createAnimations(animations)
@@ -84,4 +89,16 @@ function Side:render(resources)
     love.graphics.printf('Perception: ' .. tostring(self.resources['perception']), self.baseX + offset, VIRTUAL_HEIGHT - 12, self.baseX + VIRTUAL_WIDTH, alignment)
 
     love.graphics.setColor(rgb(255, 255, 255))
+end
+
+
+function Side:checkTrust(params)
+    if self.trust < 0 then
+        return false
+    end
+    return true
+end
+
+function Side:modifyTrust(params)
+    self.trust = self.trust+ params.trust
 end

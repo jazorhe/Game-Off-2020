@@ -20,6 +20,7 @@ function GameEvent:init(def)
         ['passed'] = function() return GameEventPassedState(self) end
     }
 
+    self.selected = nil
     self:changeState('planned')
 end
 

@@ -64,8 +64,10 @@ require 'src/states/game-event/GameEventPassedState'
 
 gTextures = {
     ['yellow'] = love.graphics.newImage('graphics/yellow.png'),
-    ['purple'] = love.graphics.newImage('graphics/purple.png')
+    ['purple'] = love.graphics.newImage('graphics/purple.png'),
+    ['cursor'] = love.graphics.newImage('graphics/cursor.png')
 }
+
 
 gFrames = {
     ['yellow'] = GenerateQuads(gTextures['yellow'], 48, 48),

@@ -28,12 +28,6 @@ The player is sent to the Moon and is in charge of the latest space project: ***
 
 
 
-## Todo List
--   背景图设计
--   UI
-    -
-    -   
-
 
 ## Dev Log:
 ### Sprite Structure:
@@ -132,6 +126,15 @@ I have decided to generate all events at start of turn 1, rather than at each tu
 -   Regular Events Purple Side
 
 Thus, When resolving or encountering events, random events always come before regular ones.
+
+
+
+## Todo List
+-   背景图设计
+-   UI
+    -
+    -   
+-   Events
 
 
 ## Known Issues

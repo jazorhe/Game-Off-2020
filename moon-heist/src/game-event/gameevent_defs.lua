@@ -69,51 +69,51 @@ RANDOM_EVENTS = {
             resolve = 6,
             dialogues = {
                 [0] = {
-                    "There is going to be a story here. Manythings have happened. Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah.",
-                    ""
+                    "There is going to be a story here. Manythings have happened. Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah."
                 },
                 [1] = {
-                    "",
-                    ""
+                    "You have Selected Option 1 in this Event."
                 },
                 [2] = {
-                    "",
-                    ""
+                    "You have Selected Option 2 in this Event."
                 },
                 [3] = {
-                    "",
-                    ""
+                    "Now please continue with your duty."
                 }
             },
             selections = {
                 ['seleciton-prompt'] = "This is an event. Choose one of the followings: ",
                 [1] = {
-                    text = "",
-                    onSelection = function() end
+                    text = "Well...",
+                    onSelect = function()
+                        return 1
+                    end
                 },
                 [2] = {
-                    text = "",
-                    onSelection = function() end
+                    text = "Ha!",
+                    onSelect = function()
+                        return 2
+                    end
                 }
             },
             outcomes = {
                 [1] = {
                     resources = {
-                        ['money'] = 0,
-                        ['food'] = 0,
-                        ['energy'] = 0,
-                        ['perception'] = 0
+                        ['money'] = 1,
+                        ['food'] = 1,
+                        ['energy'] = 1,
+                        ['perception'] = 1
                     },
-                    trust = 0
+                    trust = 1
                 },
                 [2] = {
                     resources = {
-                        ['money'] = 0,
-                        ['food'] = 0,
-                        ['energy'] = 0,
-                        ['perception'] = 0
+                        ['money'] = -1,
+                        ['food'] = -1,
+                        ['energy'] = -1,
+                        ['perception'] = -1
                     },
-                    trust = 0
+                    trust = -1
                 }
             },
             sprites = {

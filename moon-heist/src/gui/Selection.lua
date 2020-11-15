@@ -14,7 +14,7 @@ function Selection:init(def)
     self.currentSelection = 1
 end
 
-function Selection:update(dt)
+function Selection:update(dt, gameEvent)
     if love.keyboard.wasPressed('up') then
         if self.currentSelection == 1 then
             self.currentSelection = #self.items
@@ -35,9 +35,15 @@ function Selection:update(dt)
         gSounds['blip']:play()
     elseif love.keyboard.wasPressed('return') or love.keyboard.wasPressed('enter') then
         self.items[self.currentSelection].onSelect()
-
         gSounds['blip']:stop()
         gSounds['blip']:play()
+
+        if gameEvent then
+            gameEvent.selected = self.items[self.currentSelection].onSelect()
+            gameEvent:changeState('progressing')
+            gStateStack:pop()
+        end
+
     end
 end
 
@@ -45,14 +51,16 @@ function Selection:render()
     local currentY = self.y
 
     for i = 1, #self.items do
+        love.graphics.setColor(WHITE)
         local paddedY = currentY + (self.gapHeight / 2) - self.font:getHeight() / 2
 
         -- draw selection marker if we're at the right index
         if i == self.currentSelection then
+            -- love.graphics.setColor(PURPLE)
             love.graphics.draw(gTextures['cursor'], self.x - 8, paddedY)
         end
 
-        love.graphics.printf(self.items[i].text, self.x, paddedY, self.width, 'center')
+        love.graphics.printf(self.items[i].text, self.x + 5, paddedY, self.width, 'left')
 
         currentY = currentY + self.gapHeight
     end

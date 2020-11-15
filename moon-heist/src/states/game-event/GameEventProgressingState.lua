@@ -1,18 +1,18 @@
-GameEventPrograssingState = Class{}
+GameEventProgressingState = Class{}
 
-function GameEventPrograssingState:init(gameEvent)
+function GameEventProgressingState:init(gameEvent)
     self.gameEvent = gameEvent
 end
 
-function GameEventPrograssingState:update(dt)
+function GameEventProgressingState:update(dt)
 end
 
-function GameEventPrograssingState:enter()
+function GameEventProgressingState:enter()
     self.gameEvent.state = 'progressing'
 end
 
-function GameEventPrograssingState:exit()
+function GameEventProgressingState:exit()
 end
 
-function GameEventPrograssingState:render()
+function GameEventProgressingState:render()
 end
