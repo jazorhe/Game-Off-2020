@@ -132,14 +132,12 @@ Thus, When resolving or encountering events, random events always come before re
 ## Todo List
 -   背景图设计
 -   UI
-    -
-    -   
--   Events
+-   Event Generation
 
 
 ## Known Issues
--   Love2d on Windows misbehaving
--   Shifting error
+-   [ ]Love2d on Windows misbehaving
+-   [x] Shifting error
 
 
 ## Special Thanks To:

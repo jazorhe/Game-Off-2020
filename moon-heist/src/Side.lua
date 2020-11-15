@@ -100,5 +100,7 @@ function Side:checkTrust(params)
 end
 
 function Side:modifyTrust(params)
-    self.trust = self.trust+ params.trust
+    if self.name == params.side then
+        self.trust = self.trust+ params.trust
+    end
 end

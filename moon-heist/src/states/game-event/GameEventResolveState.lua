@@ -23,7 +23,8 @@ function GameEventResolveState:update(dt)
     if self.resolveDialogue:isClosed() then
         if not self.resolved then
             Event.dispatch('trust-management', {
-                trust = self.gameEvent.outcomes[self.gameEvent.selected].trust
+                trust = self.gameEvent.outcomes[self.gameEvent.selected].trust,
+                side = self.gameEvent.side
             })
             Event.dispatch('resource-management', {
                 resourceTable = self.gameEvent.outcomes[self.gameEvent.selected].resources

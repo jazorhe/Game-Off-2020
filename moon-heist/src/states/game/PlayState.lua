@@ -124,37 +124,48 @@ function PlayState:render()
     love.graphics.setColor(rgb(255, 255, 255))
 end
 
-function PlayState:beginShifting(nextSide, shiftX, shiftY, params)
-    gSounds['blip']:play()
-
-    self.shifting = true
-    self.nextSide = nextSide
-
+function PlayState:shiftSide()
     if self.currentSide.name == 'yellow' then
-        local startwith = 1
-        Timer.every(0.1, function()
-            startwith = startwith - 0.1
-            gSounds['yellow-theme']:setVolume(startwith)
-            gSounds['purple-theme']:setVolume(1 - startwith)
-        end)
-        :limit(10)
-    else
-        local startwith = 1
-        Timer.every(0.1, function()
-            startwith = startwith - 0.1
-            gSounds['yellow-theme']:setVolume(1 - startwith)
-            gSounds['purple-theme']:setVolume(startwith)
-        end)
-        :limit(10)
-    end
+        self:beginShifting(self.PurpleSide, VIRTUAL_WIDTH, 0, params)
+    elseif self.currentSide.name == 'purple' then
+        self:beginShifting(self.yellowSide, -VIRTUAL_WIDTH, 0, params)
+end
+end
 
-    Timer.tween(1, {
-        [self] = {cameraX = shiftX, cameraY = shiftY},
-        -- [self.currentSide] = {baseX = -shiftX}
-    }):finish(function()
-        self.currentSide.baseX = -shiftX
-        self:finishShifting(nextSide)
-    end)
+
+function PlayState:beginShifting(nextSide, shiftX, shiftY, params)
+    if not self.shifting then
+        gSounds['blip']:play()
+
+        self.shifting = true
+        self.nextSide = nextSide
+
+        if self.currentSide.name == 'yellow' then
+            local startwith = 1
+            Timer.every(0.1, function()
+                startwith = startwith - 0.1
+                gSounds['yellow-theme']:setVolume(startwith)
+                gSounds['purple-theme']:setVolume(1 - startwith)
+            end)
+            :limit(10)
+        else
+            local startwith = 1
+            Timer.every(0.1, function()
+                startwith = startwith - 0.1
+                gSounds['yellow-theme']:setVolume(1 - startwith)
+                gSounds['purple-theme']:setVolume(startwith)
+            end)
+            :limit(10)
+        end
+
+        Timer.tween(1, {
+            [self] = {cameraX = shiftX, cameraY = shiftY},
+            -- [self.currentSide] = {baseX = -shiftX}
+        }):finish(function()
+            self.currentSide.baseX = -shiftX
+            self:finishShifting(nextSide)
+        end)
+    end
 end
 
 function PlayState:finishShifting(nextSide)
@@ -260,6 +271,7 @@ function PlayState:winGame(params)
 end
 
 function PlayState:generateGameEvents()
+    -- TODO
     table.insert(self.currentEvents, GameEvent(RANDOM_EVENTS['yellow'][1]))
 end
 
@@ -274,7 +286,12 @@ function PlayState:gameEventUpdateLoop(dt)
 
     for k, gameEvent in pairs(self.currentEvents) do
         if gameEvent.state == 'resolve' then
-            gStateStack:push(GameEventDisplayState(gameEvent))
+            if self.currentSide.name ~= gameEvent.side then
+                self:shiftSide()
+            end
+            if not self.shifting then
+                gStateStack:push(GameEventDisplayState(gameEvent))
+            end
         end
     end
 
@@ -288,7 +305,12 @@ function PlayState:gameEventUpdateLoop(dt)
 
     for k, gameEvent in pairs(self.currentEvents) do
         if gameEvent.state == 'encounter' then
-            gStateStack:push(GameEventDisplayState(gameEvent))
+            if self.currentSide.name ~= gameEvent.side then
+                self:shiftSide()
+            end
+            if not self.shifting then
+                gStateStack:push(GameEventDisplayState(gameEvent))
+            end
         end
     end
 end
