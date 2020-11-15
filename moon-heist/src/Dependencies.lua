@@ -20,30 +20,14 @@ require 'src/states/StateStack'
 
 require 'src/states/game/StartState'
 require 'src/states/game/PlayState'
+require 'src/states/game/GameEventDisplayState'
 require 'src/states/game/FadeInState'
 require 'src/states/game/FadeOutState'
 require 'src/states/game/GameOverState'
 require 'src/states/game/YellowEndingState'
 require 'src/states/game/PurpleEndingState'
 require 'src/states/game/CreditsState'
-
-require 'src/states/game-event/GameEventBaseState'
-require 'src/states/game-event/GameEventPlannedState'
-require 'src/states/game-event/GameEventEncounterState'
-require 'src/states/game-event/GameEventProgressingState'
-require 'src/states/game-event/GameEventResolveState'
-require 'src/states/game-event/GameEventPassedState'
-
-require 'src/states/game/BattleState'
-require 'src/states/game/BattleMenuState'
-require 'src/states/game/BattleMessageState'
 require 'src/states/game/DialogueState'
-require 'src/states/game/TakeTurnState'
-
--- require 'src/world/Level'
--- require 'src/world/tile_ids'
--- require 'src/world/Tile'
--- require 'src/world/TileMap'
 
 require 'src/Side'
 require 'src/facility/Facility'
@@ -51,6 +35,25 @@ require 'src/facility/facility_defs'
 -- require 'src/states/facility/' -- TODO
 -- require 'src/states/facility/' -- TODO
 -- require 'src/states/facility/' -- TODO
+
+require 'src/game-event/GameEvent'
+require 'src/game-event/gameevent_defs'
+require 'src/states/game-event/GameEventBaseState'
+require 'src/states/game-event/GameEventPlannedState'
+require 'src/states/game-event/GameEventEncounterState'
+require 'src/states/game-event/GameEventProgressingState'
+require 'src/states/game-event/GameEventResolveState'
+require 'src/states/game-event/GameEventPassedState'
+
+-- require 'src/states/game/BattleState'
+-- require 'src/states/game/BattleMenuState'
+-- require 'src/states/game/BattleMessageState'
+-- require 'src/states/game/TakeTurnState'
+
+-- require 'src/world/Level'
+-- require 'src/world/tile_ids'
+-- require 'src/world/Tile'
+-- require 'src/world/TileMap'
 
 -- require 'src/entity/Entity'
 -- require 'src/entity/entity_defs'
@@ -71,6 +74,7 @@ gFrames = {
 
 gFonts = {
     ['small'] = love.graphics.newFont('fonts/font.ttf', 8),
+    ['dialogue'] = love.graphics.newFont('fonts/font.ttf', 12),
     ['medium'] = love.graphics.newFont('fonts/font.ttf', 16),
     ['large'] = love.graphics.newFont('fonts/font.ttf', 32)
 }

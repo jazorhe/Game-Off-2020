@@ -32,7 +32,6 @@ function PlayState:init()
         baseX = VIRTUAL_WIDTH
     })
 
-    self.currentEvents = {}
 
     self.sides = {self.yellowSide, self.PurpleSide}
     self.currentSide = self.yellowSide
@@ -40,6 +39,11 @@ function PlayState:init()
     self.cameraX = 0
     self.cameraY = 0
     self.shifting = false
+
+    self.currentEvents = {}
+    if EVENTS_MODE then
+        self:generateGameEvents()
+    end
 
     self:startNewTurn()
 
@@ -62,6 +66,8 @@ function PlayState:init()
 end
 
 function PlayState:update(dt)
+
+    self:gameEventUpdateLoop(dt)
 
     if love.keyboard.wasPressed('d') and not self.shifting and self.currentSide.name == 'yellow' then
         Event.dispatch('shift-right', {})
@@ -101,6 +107,7 @@ end
 
 function PlayState:render()
     love.graphics.push()
+
     if self.shifting then
         love.graphics.translate(-math.floor(self.cameraX), -math.floor(self.cameraY))
     end
@@ -249,4 +256,38 @@ function PlayState:winGame(params)
         }, 1,
         function() end))
     end))
+end
+
+function PlayState:generateGameEvents()
+    table.insert(self.currentEvents, GameEvent(RANDOM_EVENTS['yellow'][1]))
+end
+
+function PlayState:gameEventUpdateLoop(dt)
+    for k, gameEvent in pairs(self.currentEvents) do
+        if gameEvent.state == 'progressing' then
+            if gameEvent.resolveTurn == self.currentTurn then
+                gameEvent:changeState('resolve')
+            end
+        end
+    end
+
+    for k, gameEvent in pairs(self.currentEvents) do
+        if gameEvent.state == 'resolve' then
+            gStateStack.push(GameEventDisplayState(gameEvent))
+        end
+    end
+
+    for k, gameEvent in pairs(self.currentEvents) do
+        if gameEvent.state == 'planned' then
+            if gameEvent.encounterTurn == self.currentTurn then
+                gameEvent:changeState('encounter')
+            end
+        end
+    end
+
+    for k, gameEvent in pairs(self.currentEvents) do
+        if gameEvent.state == 'encounter' then
+            gStateStack:push(GameEventDisplayState(gameEvent))
+        end
+    end
 end

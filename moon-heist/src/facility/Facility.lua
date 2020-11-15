@@ -161,22 +161,22 @@ function Facility:isHovered()
         if mouseY > self.y + self.offsetY and mouseY < self.y + self.offsetY + FACILITY_SIZE * 2 then
 
             -- exclude top left corner
-            if (mouseY - self.y - self.offsetY) < - math.sqrt(3) * (mouseX - self.x - self.offsetX) + math.sqrt(3) / (math.sqrt(3) + 1) * self.width * self.scale + 12 then
+            if (mouseY - self.actualY) < - math.sqrt(3) * (mouseX - self.actualX) + math.sqrt(3) / (math.sqrt(3) + 1) * self.width * self.scale + 12 then
                 return false
             end
 
             -- exclude top right corner
-            if (mouseY - self.y - self.offsetY) < 1 / math.sqrt(3) * (mouseX - self.x - self.offsetX) - 1 / (math.sqrt(3) + 3) * self.width * self.scale + 12 then
+            if (mouseY - self.actualY) < 1 / math.sqrt(3) * (mouseX - self.actualX) - 1 / (math.sqrt(3) + 3) * self.width * self.scale + 12 then
                 return false
             end
 
             -- exclude bottom left corner
-            if (mouseY - self.y - self.offsetY) > 1 / math.sqrt(3) * (mouseX - self.x - self.offsetX) + math.sqrt(3) / (math.sqrt(3) + 1) * self.width * self.scale - 12 then
+            if (mouseY - self.actualY) > 1 / math.sqrt(3) * (mouseX - self.actualX) + math.sqrt(3) / (math.sqrt(3) + 1) * self.width * self.scale - 12 then
                 return false
             end
 
             -- exclude bottom right corner
-            if (mouseY - self.y - self.offsetY) > - math.sqrt(3) * (mouseX - self.x - self.offsetX) + (math.sqrt(3) + 4) / (math.sqrt(3) + 1) * self.width * self.scale - 12 then
+            if (mouseY - self.actualY) > - math.sqrt(3) * (mouseX - self.actualX) + (math.sqrt(3) + 4) / (math.sqrt(3) + 1) * self.width * self.scale - 12 then
                 return false
             end
 
