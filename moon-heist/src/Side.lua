@@ -58,6 +58,7 @@ end
 
 function Side:render(resources)
     -- self.stateMachine:render()
+    love.graphics.draw(self.background, self.baseX + (self.name == 'purple' and - 100 or 0), 0, 0, 0.5)
 
     table.sort(self.facilities, function (k1, k2) return k1.renderLayer > k2.renderLayer end )
     for k, facility in pairs(self.facilities) do

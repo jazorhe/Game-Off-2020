@@ -19,7 +19,7 @@ function PlayState:init()
     self.yellowSide = Side({
         name = 'yellow',
         colour = YELLOW,
-        background = 'yellow-ground',
+        background = gTextures['yellowbg'],
         facilities = FACILITY_DEFS['yellow'],
         baseX = 0
     })
@@ -27,9 +27,9 @@ function PlayState:init()
     self.PurpleSide = Side({
         name = 'purple',
         colour = PURPLE,
-        background = 'purple-ground',
+        background = gTextures['purplebg'],
         facilities = FACILITY_DEFS['purple'],
-        baseX = VIRTUAL_WIDTH
+        baseX = SHIFTING_WIDTH
     })
 
 
@@ -48,11 +48,11 @@ function PlayState:init()
     self:startNewTurn()
 
     Event.on('shift-right', function(params)
-        self:beginShifting(self.PurpleSide, VIRTUAL_WIDTH, 0, params)
+        self:beginShifting(self.PurpleSide, SHIFTING_WIDTH, 0, params)
     end)
 
     Event.on('shift-left', function(params)
-        self:beginShifting(self.yellowSide, -VIRTUAL_WIDTH, 0, params)
+        self:beginShifting(self.yellowSide, -SHIFTING_WIDTH, 0, params)
     end)
 
     Event.on('resource-management', function(params)

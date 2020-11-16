@@ -24,11 +24,15 @@ function Facility:init(def, params)
     self.y = (self.mapY - 1) * FACILITY_SIZE - self.height / 2
 
     if self.side == 'yellow' then
-        self.offsetX = def.offsetX or VIRTUAL_WIDTH - 4.5 * FACILITY_SIZE - (3 - self.mapX) * 20 - (self.mapY - 1) * 30
-        self.offsetY = def.offsetY or VIRTUAL_HEIGHT / 5 * 3 + (self.mapY - 1) * 4
+        self.offsetX = def.offsetX
+        or VIRTUAL_WIDTH - 4.5 * FACILITY_SIZE - (3 - self.mapX) * 20 - (self.mapY - 1) * 30
+        self.offsetY = def.offsetY
+        or VIRTUAL_HEIGHT / 5 * 3 + (self.mapY - 1) * 4 - 20
     elseif self.side == 'purple' then
-        self.offsetX = def.offsetX or 1 * FACILITY_SIZE + (self.mapX - 1) * 30 + (self.mapY - 1) * 25
-        self.offsetY = def.offsetY or VIRTUAL_HEIGHT / 5 * 3 + (self.mapY - 1) * 18
+        self.offsetX = def.offsetX
+        or 1 * FACILITY_SIZE + (self.mapX - 1) * 30 + (self.mapY - 1) * 25
+        self.offsetY = def.offsetY
+        or VIRTUAL_HEIGHT / 5 * 3 + (self.mapY - 1) * 18
     end
 
     self.actualX = self.x + self.offsetX
