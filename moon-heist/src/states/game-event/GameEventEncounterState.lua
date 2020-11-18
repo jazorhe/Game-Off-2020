@@ -11,12 +11,12 @@ function GameEventEncounterState:enter()
     self.encounterDialogue = Textbox(
         160, VIRTUAL_HEIGHT / 2 - 80, VIRTUAL_WIDTH - 320, 100,
         self.gameEvent.dialogues[0],
-        12, gFonts['small'], 'dialogue', YELLOW, 12, 7)
+        12, gFonts['small'], 'dialogue', gColours[self.gameEvent.side].ui_bg, gColours[self.gameEvent.side].ui_text, 12, 7)
 
     self.selectionPrompt = Textbox(
         160, VIRTUAL_HEIGHT / 2 - 80, VIRTUAL_WIDTH - 320, 40,
         self.gameEvent.selections['seleciton-prompt'],
-        12, gFonts['small'], 'dialogue', YELLOW, 12, 3)
+        12, gFonts['small'], 'dialogue', gColours[self.gameEvent.side].ui_bg, gColours[self.gameEvent.side].ui_text, 12, 3)
 
     self.selectionMenu = Menu({
         x = 160,
@@ -27,7 +27,8 @@ function GameEventEncounterState:enter()
             self.gameEvent.selections[1],
             self.gameEvent.selections[2]
         },
-        colour = YELLOW
+        bgcolour = gColours[self.gameEvent.side].ui_bg,
+        textcolour = gColours[self.gameEvent.side].ui_text
     })
 
     self.selecting = false
@@ -52,7 +53,8 @@ function GameEventEncounterState:update(dt)
                     self.closingDialogue = Textbox(
                         160, VIRTUAL_HEIGHT / 2 - 80, VIRTUAL_WIDTH - 320, 100,
                         self.gameEvent.selections[self.gameEvent.selected].closing,
-                        12, gFonts['small'], 'dialogue', YELLOW, 12, 7)
+                        12, gFonts['small'], 'dialogue', gColours[self.gameEvent.side].ui_bg,
+                        gColours[self.gameEvent.side].ui_text, 12, 7)
                     self.selecting = false
                 end)
         end
@@ -68,7 +70,7 @@ end
 
 function GameEventEncounterState:render()
     love.graphics.setFont(gFonts['medium'])
-    love.graphics.setColor(YELLOW)
+    love.graphics.setColor(gColours[self.gameEvent.side].main)
     love.graphics.printf("New Event!", 0, 60, VIRTUAL_WIDTH, 'center')
 
     self.encounterDialogue:render()

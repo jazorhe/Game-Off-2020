@@ -4,17 +4,10 @@ function Entity:init(def)
     self.direction = 'down'
 
     self.animations = self:createAnimations(def.animations)
-
-    self.mapX = def.mapX
-    self.mapY = def.mapY
-
+    self.x = def.x
+    self.y = def.y
     self.width = def.width
     self.height = def.height
-
-    self.x = (self.mapX - 1) * TILE_SIZE
-
-    -- halfway raised on the tile just to simulate height/perspective
-    self.y = (self.mapY - 1) * TILE_SIZE - self.height / 2
 end
 
 function Entity:changeState(name)
@@ -55,6 +48,6 @@ function Entity:update(dt)
     self.stateMachine:update(dt)
 end
 
-function Entity:render()
-    self.stateMachine:render()
+function Entity:render(baseX)
+    self.stateMachine:render({baseX = baseX})
 end

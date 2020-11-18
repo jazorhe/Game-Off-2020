@@ -50,7 +50,7 @@ function StartState:update(dt)
             gStateStack:push(PlayState())
             gStateStack:push(DialogueState(
                 180, VIRTUAL_HEIGHT / 2 - 30, VIRTUAL_WIDTH - 360, 60, "" ..
-                "Welcome to the world of Moon Heist! There is meant to be an introduction here but I am going to skip for now! (Press Enter or Click the screen to dismiss dialogues)", 12, YELLOW_UI_BG
+                "Welcome to the world of Moon Heist! There is meant to be an introduction here but I am going to skip for now! (Press Enter or Click the screen to dismiss dialogues)", 12, YELLOW_UI_BG, YELLOW_TEXT
             ))
             gStateStack:push(FadeOutState({
                 r = 255, g = 255, b = 255

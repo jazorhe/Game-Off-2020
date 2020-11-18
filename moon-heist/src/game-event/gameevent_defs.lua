@@ -63,59 +63,80 @@ REGULAR_EVENTS =
 RANDOM_EVENTS = {
     ['yellow'] = {
         [1] = {
-            side = 'yellow',
-            type = 'regular',
+            side = 'general',
+            type = 'random',
+            group = 'early',
             encounter = 3,
-            resolve = 6,
+            resolve = 3,
             dialogues = {
                 [0] = {
-                    "There is going to be a story here. Manythings have happened. Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah, Blah."
+                    "There were two pills on your lunch plate today. \nYou were puzzled, and asked around if anyone knew where they might come from. \n\nNo one seemed to have any idea."
                 },
                 [1] = {
-                    "You have Selected Option 1 in this Event. Here is the result."
+                    "You felt that the Red Pill is burning inside your stomach. You could not help but to stop your work and head to bed. You woke up the next day, your bird was dead."
                 },
                 [2] = {
-                    "You have Selected Option 2 in this Event. Here is the result."
+                    "There seemed to be a moment of peace. The Blue Pill might afterall have no effect at all. You smiled wildly."
                 },
                 [3] = {
-                    "Now please continue with your duty."
+                    "Now, please continue with your duty."
                 }
             },
             selections = {
-                ['seleciton-prompt'] = "This is an event. Choose one of the followings: ",
+                ['seleciton-prompt'] = "CHOOSE YOUR FATE:",
                 [1] = {
-                    text = "Well...",
-                    closing = "So you choose to do this? I will see you again.",
+                    text = "Red Pill...",
+                    closing = "As you swallowed the Red Pill, you felt a presence haunting right behind you. You quickly turned around, but there was No ONE.",
                     onSelect = function()
                         return 1
                     end
                 },
                 [2] = {
-                    text = "Ha!",
-                    closing = "I am glad that you did this.",
+                    text = "Blue Pill!",
+                    closing = "You stared at the Blue Pill for a while. And suddenly, you reached out for it and took it down your throat, so quickly that you questioned yourself if it was your own decidsion.",
                     onSelect = function()
                         return 2
                     end
                 },
             },
             outcomes = {
-                [1] = {
+                [1] = math.random(100) <= 33 and {
+                    resources = {
+                        ['money'] = 0,
+                        ['food'] = 0,
+                        ['energy'] = 200,
+                        ['perception'] = 400
+                    },
+                    trust = 0,
+                    side = 'yellow'
+                } or {
+                    resources = {
+                        ['money'] = 0,
+                        ['food'] = 0,
+                        ['energy'] = -200,
+                        ['perception'] = -400
+                    },
+                    trust = 0,
+                    side = 'yellow'
+                },
+                [2] = math.random(100) <= 80 and {
                     resources = {
                         ['money'] = 1,
                         ['food'] = 1,
                         ['energy'] = 1,
                         ['perception'] = 1
                     },
-                    trust = 1
-                },
-                [2] = {
+                    trust = 0,
+                    side = 'yellow'
+                } or {
                     resources = {
-                        ['money'] = -1,
-                        ['food'] = -1,
-                        ['energy'] = -1,
-                        ['perception'] = -1
+                        ['money'] = 0,
+                        ['food'] = 0,
+                        ['energy'] = 200,
+                        ['perception'] = 400
                     },
-                    trust = -1
+                    trust = 0,
+                    side = 'yellow'
                 }
             },
             sprites = {

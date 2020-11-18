@@ -35,6 +35,9 @@ function Facility:init(def, params)
         or VIRTUAL_HEIGHT / 5 * 3 + (self.mapY - 1) * 18
     end
 
+    self.offsetX = math.floor(self.offsetX)
+    self.offsetY = math.floor(self.offsetY)
+
     self.actualX = self.x + self.offsetX
     self.actualY = self.y + self.offsetY
 
@@ -45,11 +48,40 @@ function Facility:init(def, params)
     self.renderLayer = def.renderLayer
     self.infoTextbox = Textbox(
         self.actualX - 10, self.actualY - 80, self.width * 2 + 20, 80,
-        tostring(self.name) .. "\n Not Built",
-        12, gFonts['small'], 'info', self.uiBgColour, 12)
+        "", 12, gFonts['small'], 'info', self.uiBgColour,
+        self.uiTextColour, 12)
+
+    self.upgradeConfirm = Menu({
+        items = {
+            [1] = {
+                text = "Upgrade",
+                onSelect = function()
+                    self:levelUp(1)
+                end
+            },
+            [2] = {
+                text = "Cancle",
+                onSelect = function()
+                    self.displayUpgradeConfirm = false
+                    self.displayInfo = true
+                end
+            }
+        },
+        x = self.actualX + 10,
+        y = self.actualY - 15,
+        width = self.width * 2 - 20,
+        height = 24,
+        bgcolour = self.uiBgColour,
+        textcolour = self.uiTextColour
+    })
+
+    self.upgradeInfo = Textbox(
+        self.actualX + 10, self.actualY - 85, self.width * 2 - 20, 65,
+        "", 12, gFonts['small'], 'info', self.uiBgColour,
+        self.uiTextColour, 12)
 
     self.displayInfo = false
-
+    self.displayUpgradeConfirm = false
 
     -- https://love2d.org/forums/viewtopic.php?t=79617
     -- white shader that will turn a sprite completely white when used; allows us
@@ -92,27 +124,52 @@ end
 function Facility:update(dt, params)
     self.resources = params.resources
     self.currentAnimation:update(dt)
+
+    if self.displayUpgradeConfirm then
+        self.upgradeConfirm:update()
+        self.upgradeInfo:update(dt, {
+            text = (self.currentLevel < 3 and "Upgrade Cost\n" ..
+            "M: " .. tostring(self.buildCost[self.currentLevel + 1]['money']) .. "\n" ..
+            "F: " .. tostring(self.buildCost[self.currentLevel + 1]['food']) .. "\n" ..
+            "E: " .. tostring(self.buildCost[self.currentLevel + 1]['energy']) .. "\n" ..
+            "P: " .. tostring(self.buildCost[self.currentLevel + 1]['perception']) .. "\n"
+        or "")
+        })
+    end
+
     -- self.stateMachine:update(dt)
     if self:isHovered() then
-        if love.mouse.keysPressed[1] then
+        if love.mouse.keysPressed[1] and self.currentLevel < 3 then
             -- self.displayInfo = true
-            self:levelUp(1)
+            -- self:levelUp(1)
+            self.displayUpgradeConfirm  = true
         elseif love.mouse.keysPressed[2] then
-            self:levelUp(-1)
+            -- self:levelUp(-1)
         end
 
         self.displayInfo = true
         self.infoTextbox:update(dt, {
-            text = tostring(self.name) .. "\nLevel: " .. tostring(self.currentLevel) .. "\n"
-            .. "M: " .. tostring(self.regEarn[self.currentLevel]['money'] + self.regCost[self.currentLevel]['money']) .. " e.a.\n"
-            .. "F: " .. tostring(self.regEarn[self.currentLevel]['food'] + self.regCost[self.currentLevel]['food']) .. " e.a.\n"
-            .. "E: " .. tostring(self.regEarn[self.currentLevel]['energy'] + self.regCost[self.currentLevel]['energy']) .. " e.a.\n"
-            .. "P: " .. tostring(self.regEarn[self.currentLevel]['perception'] + self.regCost[self.currentLevel]['perception']) .. " e.a.\n"
+            text = tostring(self.name) .. "\n" ..
+            "Level: " .. tostring(self.currentLevel) ..
+            (self.currentLevel < 3 and "  ->  Level: " .. tostring(self.currentLevel + 1) or "") .."\n" ..
+
+            "M: " .. tostring(self.regEarn[self.currentLevel]['money'] + self.regCost[self.currentLevel]['money']) .. " e.a." ..
+            (self.currentLevel < 3 and "  ->  " .. tostring(self.regEarn[self.currentLevel + 1]['money'] + self.regCost[self.currentLevel + 1]['money']) .. " e.a." or "") .."\n" ..
+
+            "F: " .. tostring(self.regEarn[self.currentLevel]['food'] + self.regCost[self.currentLevel]['food']) .. " e.a." ..
+            (self.currentLevel < 3 and "  ->  " .. tostring(self.regEarn[self.currentLevel + 1]['food'] + self.regCost[self.currentLevel + 1]['food']) .. " e.a." or "") .."\n" ..
+
+            "E: " .. tostring(self.regEarn[self.currentLevel]['energy'] + self.regCost[self.currentLevel]['energy']) .. " e.a." ..
+            (self.currentLevel < 3 and "  ->  " .. tostring(self.regEarn[self.currentLevel + 1]['energy'] + self.regCost[self.currentLevel + 1]['energy']) .. " e.a." or "") .."\n" ..
+            
+            "P: " .. tostring(self.regEarn[self.currentLevel]['perception'] + self.regCost[self.currentLevel]['perception']) .. " e.a." ..
+            (self.currentLevel < 3 and "  ->  " .. tostring(self.regEarn[self.currentLevel + 1]['perception'] + self.regCost[self.currentLevel + 1]['perception']) .. " e.a." or "")
         })
     else
         self.displayInfo = false
         if love.mouse.keysPressed[1] then
-            self.displayInfo = false
+            self.displayUpgradeConfirm  = false
+            -- self.displayInfo = false
         end
     end
 
@@ -153,9 +210,14 @@ function Facility:render(baseX)
 
     love.graphics.setColor(WHITE)
 
-    if self.displayInfo then
+    if self.displayUpgradeConfirm then
+        self.upgradeConfirm:render()
+        self.upgradeInfo:render()
+    elseif self.displayInfo then
         self.infoTextbox:render()
     end
+
+
 
 end
 

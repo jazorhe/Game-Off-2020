@@ -1,17 +1,9 @@
---[[
-    GD50
-    Pokemon
-
-    Author: Colton Ogden
-    cogden@cs50.harvard.edu
-]]
-
 EntityWalkState = Class{__includes = EntityBaseState}
 
 function EntityWalkState:init(entity, level)
     self.entity = entity
     self.level = level
-    
+
     self.canWalk = false
 end
 
@@ -63,4 +55,8 @@ function EntityWalkState:attemptMove()
             self.entity:changeState('idle')
         end
     end)
+end
+
+function EntityWalkState:render(baseX)
+
 end

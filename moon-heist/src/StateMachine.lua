@@ -23,8 +23,8 @@ function StateMachine:update(dt)
 	self.current:update(dt)
 end
 
-function StateMachine:render()
-	self.current:render()
+function StateMachine:render(params)
+	self.current:render(params)
 end
 
 --[[

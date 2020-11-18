@@ -1,7 +1,7 @@
 Textbox = Class{}
 
-function Textbox:init(x, y, width, height, text, wrap, font, type, colour, spacing, linenum)
-    self.panel = Panel(x, y, width, height, colour)
+function Textbox:init(x, y, width, height, text, wrap, font, type, bgcolour, textcolour, spacing, linenum)
+    self.panel = Panel(x, y, width, height, bgcolour)
     self.x = x
     self.y = y
     self.width = width
@@ -14,7 +14,8 @@ function Textbox:init(x, y, width, height, text, wrap, font, type, colour, spaci
     self.font = font or gFonts['small']
     _, self.textChunks = self.font:getWrap(self.text, self.width - self.wrap)
     self.type = type
-    self.colour = colour
+    self.bgcolour = bgcolour
+    self.textcolour = textcolour
 
     self.chunkCounter = 1
     self.endOfText = false
@@ -59,7 +60,6 @@ function Textbox:next()
 end
 
 function Textbox:update(dt, params)
-
     if self.type == 'dialogue' and (love.keyboard.wasPressed('space') or love.keyboard.wasPressed('enter') or love.keyboard.wasPressed('return')) or love.mouse.wasPressed(1) then
         gSounds['blip']:stop()
         gSounds['blip']:play()
@@ -71,7 +71,6 @@ function Textbox:update(dt, params)
         _, self.textChunks = self.font:getWrap(self.text, self.width - self.wrap)
         self.displayingChunks = self:nextChunks()
     end
-
 end
 
 function Textbox:isClosed()
@@ -81,6 +80,7 @@ end
 function Textbox:render()
     self.panel:render()
 
+    love.graphics.setColor(self.textcolour)
     if self.type == 'dialogue' then
         love.graphics.setFont(self.font)
         for i = 1, #self.displayingChunks do
@@ -91,7 +91,9 @@ function Textbox:render()
     if self.type == 'info' then
         love.graphics.setFont(self.font)
         for i = 1, #self.displayingChunks do
-                love.graphics.print(self.displayingChunks[i], self.x + 5, self.y + 5 + (i - 1) * self.spacing)
+                -- love.graphics.print(self.displayingChunks[i], self.x + 5, self.y + 5 + (i - 1) * self.spacing)
+                love.graphics.printf(self.displayingChunks[i], self.x + 5, self.y + 5 + (i - 1) * self.spacing, self.width - self.wrap, 'center')
         end
     end
+    love.graphics.setColor(WHITE)
 end

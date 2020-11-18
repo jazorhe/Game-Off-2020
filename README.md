@@ -130,10 +130,15 @@ Thus, When resolving or encountering events, random events always come before re
 
 
 ## Todo List
--   背景图设计
--   UI
--   Event Generation
+-   [x] 背景图设计
+-   [ ] UI
+    -   [ ] 状态显示
+    -   [ ] 升级按钮及花费
+    -   [ ] 转场按钮
+    -   [ ] 回合按钮
 
+-   [ ] 事件生成
+-   [ ] 事件概率
 
 ## Known Issues
 -   [x]Love2d on Windows misbehaving

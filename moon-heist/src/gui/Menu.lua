@@ -1,14 +1,15 @@
 Menu = Class{}
 
 function Menu:init(def)
-    self.panel = Panel(def.x, def.y, def.width, def.height, def.colour)
+    self.panel = Panel(def.x, def.y, def.width, def.height, def.bgcolour)
 
     self.selection = Selection {
         items = def.items,
         x = def.x,
         y = def.y,
         width = def.width,
-        height = def.height
+        height = def.height,
+        textcolour = def.textcolour
     }
 end
 

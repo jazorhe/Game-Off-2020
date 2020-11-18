@@ -20,6 +20,7 @@ function PlayState:init()
         name = 'yellow',
         colour = YELLOW,
         background = gTextures['yellowbg'],
+        entities = ENTITY_DEFS['yellow'],
         facilities = FACILITY_DEFS['yellow'],
         baseX = 0
     })
@@ -28,6 +29,7 @@ function PlayState:init()
         name = 'purple',
         colour = PURPLE,
         background = gTextures['purplebg'],
+        entities = ENTITY_DEFS['purple'],
         facilities = FACILITY_DEFS['purple'],
         baseX = SHIFTING_WIDTH
     })
@@ -63,6 +65,13 @@ function PlayState:init()
         self:winGame(params)
     end)
 
+    Event.on('next-turn', function(params)
+        gSounds['blip']:stop()
+        gSounds['blip']:play()
+        self:endCurrentTurn()
+        self:startNewTurn()
+    end)
+
 end
 
 function PlayState:update(dt)
@@ -84,12 +93,7 @@ function PlayState:update(dt)
     end
 
     if love.keyboard.wasPressed('enter') or love.keyboard.wasPressed('return') then
-        if self.currentTurn < MAX_TURN then
-            self:endCurrentTurn()
-            self:startNewTurn()
-        else
-            self:endCurrentTurn()
-        end
+        Event.dispatch('next-turn')
     end
 
     self.currentSide:update(dt, {
@@ -117,8 +121,8 @@ function PlayState:render()
         self.nextSide:render(self.resources)
     end
 
-    love.graphics.print(tostring(self.currentEvents[1].state), 0, 0)
-    love.graphics.print(tostring(self.currentEvents[1].selected), 0, 10)
+    -- love.graphics.print(tostring(self.currentEvents[1].state), 0, 0)
+    -- love.graphics.print(tostring(self.currentEvents[1].selected), 0, 10)
 
     love.graphics.pop()
     love.graphics.setColor(rgb(255, 255, 255))
@@ -172,9 +176,9 @@ function PlayState:finishShifting(nextSide)
     self.cameraX = 0
     self.cameraY = 0
     self.shifting = false
+    self.nextSide = currentSide
     self.currentSide = nextSide
     self.currentSide.baseX = 0
-    self.nextSide = nil
 end
 
 
@@ -190,22 +194,36 @@ function PlayState:modifyResource(params)
     self.resources['food'] = self.resources['food'] + params.resourceTable['food']
     self.resources['energy'] = self.resources['energy'] + params.resourceTable['energy']
     self.resources['perception'] = self.resources['perception'] + params.resourceTable['perception']
+    for k, side in pairs(self.sides) do
+        side:showResourcesChange(params)
+    end
 end
 
 function PlayState:startNewTurn()
     self.currentTurn = self.currentTurn + 1
 
+    local modifyTable = {
+        ['money'] = 0,
+        ['food'] = 0,
+        ['energy'] = 0,
+        ['perception'] = 0
+    }
+
     if self.currentTurn ~= 1 then
         for k, side in pairs(self.sides) do
             for m, facility in pairs(side.facilities) do
-                self:modifyResource({
-                    resourceTable = facility.regCost[facility.currentLevel]
-                })
-                self:modifyResource({
-                    resourceTable = facility.regEarn[facility.currentLevel]
-                })
+                modifyTable['money'] = modifyTable['money'] + facility.regCost[facility.currentLevel]['money'] + facility.regEarn[facility.currentLevel]['money']
+
+                modifyTable['food'] = modifyTable['food'] + facility.regCost[facility.currentLevel]['food'] + facility.regEarn[facility.currentLevel]['food']
+
+                modifyTable['energy'] = modifyTable['energy'] + facility.regCost[facility.currentLevel]['energy'] + facility.regEarn[facility.currentLevel]['energy']
+
+                modifyTable['perception'] = modifyTable['perception'] + facility.regCost[facility.currentLevel]['perception'] + facility.regEarn[facility.currentLevel]['perception']
             end
         end
+        self:modifyResource({
+            resourceTable = modifyTable
+        })
     end
 
     self:evaluateStartTurn()
@@ -286,7 +304,7 @@ function PlayState:gameEventUpdateLoop(dt)
 
     for k, gameEvent in pairs(self.currentEvents) do
         if gameEvent.state == 'resolve' then
-            if self.currentSide.name ~= gameEvent.side then
+            if gameEvent.side ~= 'general' and self.currentSide.name ~= gameEvent.side then
                 self:shiftSide()
             end
             if not self.shifting then
@@ -305,7 +323,7 @@ function PlayState:gameEventUpdateLoop(dt)
 
     for k, gameEvent in pairs(self.currentEvents) do
         if gameEvent.state == 'encounter' then
-            if self.currentSide.name ~= gameEvent.side then
+            if gameEvent.side ~= 'general' and self.currentSide.name ~= gameEvent.side then
                 self:shiftSide()
             end
             if not self.shifting then

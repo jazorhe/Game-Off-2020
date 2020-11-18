@@ -10,9 +10,11 @@ require 'src/constants'
 
 require 'src/gui/Menu'
 require 'src/gui/Panel'
+require 'src/gui/DisplayPanel'
 require 'src/gui/ProgressBar'
 require 'src/gui/Selection'
 require 'src/gui/Textbox'
+require 'src/gui/Button'
 
 require 'src/StateMachine'
 require 'src/states/BaseState'
@@ -36,6 +38,12 @@ require 'src/facility/facility_defs'
 -- require 'src/states/facility/' -- TODO
 -- require 'src/states/facility/' -- TODO
 
+require 'src/entity/Entity'
+require 'src/entity/entity_defs'
+require 'src/states/entity/EntityBaseState'
+require 'src/states/entity/EntityIdleState'
+require 'src/states/entity/EntityWalkState'
+
 require 'src/game-event/GameEvent'
 require 'src/game-event/gameevent_defs'
 require 'src/states/game-event/GameEventBaseState'
@@ -45,21 +53,10 @@ require 'src/states/game-event/GameEventProgressingState'
 require 'src/states/game-event/GameEventResolveState'
 require 'src/states/game-event/GameEventPassedState'
 
--- require 'src/states/game/BattleState'
--- require 'src/states/game/BattleMenuState'
--- require 'src/states/game/BattleMessageState'
--- require 'src/states/game/TakeTurnState'
-
 -- require 'src/world/Level'
 -- require 'src/world/tile_ids'
 -- require 'src/world/Tile'
 -- require 'src/world/TileMap'
-
--- require 'src/entity/Entity'
--- require 'src/entity/entity_defs'
--- require 'src/states/entity/EntityBaseState'
--- require 'src/states/entity/EntityIdleState'
--- require 'src/states/entity/EntityWalkState'
 
 
 gTextures = {
@@ -86,8 +83,6 @@ gFonts = {
 }
 
 gSounds = {
-    ['field-music'] = love.audio.newSource('sounds/field_music.wav', 'stream'),
-    ['battle-music'] = love.audio.newSource('sounds/battle_music.mp3', 'stream'),
     ['blip'] = love.audio.newSource('sounds/blip.wav', 'static'),
     ['powerup'] = love.audio.newSource('sounds/powerup.wav', 'static'),
     ['hit'] = love.audio.newSource('sounds/hit.wav', 'static'),
