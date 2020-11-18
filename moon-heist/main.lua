@@ -5,7 +5,7 @@ function love.load()
     math.randomseed(os.time())
 
     push:setupScreen(VIRTUAL_WIDTH, VIRTUAL_HEIGHT, WINDOW_WIDTH, WINDOW_HEIGHT, {
-        fullscreen = true,
+        fullscreen = false,
         vsync = true,
         resizable = true
     })
@@ -23,6 +23,10 @@ function love.update(dt)
 
     mouseX, mouseY = push:toGame(love.mouse.getPosition())
     if not mouseX or not mouseY then mouseX, mouseY = 0, 0 end
+
+    if love.keyboard.wasPressed('f') then
+        push:switchFullscreen(WINDOW_WIDTH, WINDOW_HEIGHT)
+    end
 
     love.keyboard.keysPressed = {}
     love.mouse.keysPressed = {}

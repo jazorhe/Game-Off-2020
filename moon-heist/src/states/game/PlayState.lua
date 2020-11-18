@@ -47,7 +47,7 @@ function PlayState:init()
         self:generateGameEvents()
     end
 
-    self:startNewTurn()
+    -- self:startNewTurn()
 
     Event.on('shift-right', function(params)
         self:beginShifting(self.PurpleSide, SHIFTING_WIDTH, 0, params)
@@ -162,7 +162,7 @@ function PlayState:beginShifting(nextSide, shiftX, shiftY, params)
             :limit(10)
         end
 
-        Timer.tween(1, {
+        Timer.tween(1.5, {
             [self] = {cameraX = shiftX, cameraY = shiftY},
             -- [self.currentSide] = {baseX = -shiftX}
         }):finish(function()
@@ -200,7 +200,15 @@ function PlayState:modifyResource(params)
 end
 
 function PlayState:startNewTurn()
+
     self.currentTurn = self.currentTurn + 1
+
+    gStateStack:push(NewTurnTransitionState({
+        turn = self.currentTurn,
+        bgcolour = self.currentSide.uiBgColour,
+        textcolour = self.currentSide.uiTextColour,
+        darkcolour = self.currentSide.darkcolour
+    }))
 
     local modifyTable = {
         ['money'] = 0,

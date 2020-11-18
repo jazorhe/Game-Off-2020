@@ -65,6 +65,12 @@ function DisplayPanel:render()
     love.graphics.printf('Perception: ' .. tostring(self.resources['perception']),
         self.baseX + offsetX, VIRTUAL_HEIGHT - bottomY - 1 * paddingY, self.baseX + VIRTUAL_WIDTH, alignment)
 
+    local changeoffsetX = 84
+    if self.side == 'yellow' then
+        changeoffsetX = 84
+    elseif self.side == 'purple' then
+        changeoffsetX = -84
+    end
 
     if self.showingTrustChange then
 
@@ -75,7 +81,7 @@ function DisplayPanel:render()
         end
 
         love.graphics.printf(tostring(self.trustChange) .. " %",
-            self.baseX + offsetX + 84, VIRTUAL_HEIGHT - bottomY - 5 * paddingY, self.baseX + VIRTUAL_WIDTH, alignment)
+            self.baseX + offsetX + changeoffsetX, VIRTUAL_HEIGHT - bottomY - 5 * paddingY, self.baseX + VIRTUAL_WIDTH, alignment)
 
         love.graphics.setColor(WHITE)
     end
@@ -85,22 +91,22 @@ function DisplayPanel:render()
         love.graphics.setColor((self.resourceChange['money'] >= 0 and GREEN or RED))
         love.graphics.printf(tostring((self.resourceChange['money'] > 0 and "+" or "")) ..
             tostring((self.resourceChange['money'] == 0 and "" or self.resourceChange['money'])),
-            self.baseX + offsetX + 84, VIRTUAL_HEIGHT - bottomY - 4 * paddingY, self.baseX + VIRTUAL_WIDTH, alignment)
+            self.baseX + offsetX + changeoffsetX, VIRTUAL_HEIGHT - bottomY - 4 * paddingY, self.baseX + VIRTUAL_WIDTH, alignment)
 
         love.graphics.setColor((self.resourceChange['food'] >= 0 and GREEN or RED))
         love.graphics.printf(tostring((self.resourceChange['food'] > 0 and "+" or "")) ..
             tostring((self.resourceChange['food'] == 0 and "" or self.resourceChange['food'])),
-            self.baseX + offsetX + 84, VIRTUAL_HEIGHT - bottomY - 3 * paddingY, self.baseX + VIRTUAL_WIDTH, alignment)
+            self.baseX + offsetX + changeoffsetX, VIRTUAL_HEIGHT - bottomY - 3 * paddingY, self.baseX + VIRTUAL_WIDTH, alignment)
 
         love.graphics.setColor((self.resourceChange['energy'] >= 0 and GREEN or RED))
         love.graphics.printf(tostring((self.resourceChange['energy'] > 0 and "+" or "")) ..
             tostring((self.resourceChange['energy'] == 0 and "" or self.resourceChange['energy'])),
-            self.baseX + offsetX + 84, VIRTUAL_HEIGHT - bottomY - 2 * paddingY, self.baseX + VIRTUAL_WIDTH, alignment)
+            self.baseX + offsetX + changeoffsetX, VIRTUAL_HEIGHT - bottomY - 2 * paddingY, self.baseX + VIRTUAL_WIDTH, alignment)
 
         love.graphics.setColor((self.resourceChange['perception'] >= 0 and GREEN or RED))
         love.graphics.printf(tostring((self.resourceChange['perception'] > 0 and "+" or "")) ..
             tostring((self.resourceChange['perception'] == 0 and "" or self.resourceChange['perception'])),
-            self.baseX + offsetX + 84, VIRTUAL_HEIGHT - bottomY - 1 * paddingY, self.baseX + VIRTUAL_WIDTH, alignment)
+            self.baseX + offsetX + changeoffsetX, VIRTUAL_HEIGHT - bottomY - 1 * paddingY, self.baseX + VIRTUAL_WIDTH, alignment)
 
     end
 

@@ -30,18 +30,21 @@ WHITE = table.pack(rgb(255, 255, 255))
 
 YELLOW = table.pack(rgb(255, 216, 0))
 YELLOW_BG = table.pack(rgb(195, 180, 126))
-YELLOW_UI_BG = table.pack(rgba(255, 216, 0, 0.9))
+YELLOW_UI_BG = table.pack(rgba(255, 216, 0, 0.8))
 YELLOW_TEXT = table.pack(rgb(252, 255, 197))
+YELLOW_DARK = table.pack(rgb(71, 60, 10))
 
 PURPLE = table.pack(rgb(168, 0, 255))
 PURPLE_BG = table.pack(rgb(185, 126, 195))
-PURPLE_UI_BG = table.pack(rgba(168, 0, 255, 0.9))
+PURPLE_UI_BG = table.pack(rgba(168, 0, 255, 0.8))
 PURPLE_TEXT = table.pack(rgb(213, 186, 218))
+PURPLE_DARK = table.pack(rgb(34, 7, 40))
 
 GENERAL = table.pack(rgb(255, 255, 255))
 GENERAL_BG = table.pack(rgb(136, 134, 138))
-GENERAL_UI_BG = table.pack(rgba(78, 75, 83, 0.9))
+GENERAL_UI_BG = table.pack(rgba(78, 75, 83, 0.8))
 GENERAL_TEXT = table.pack(rgb(213, 213, 213))
+GENERAL_DARK = table.pack(rgb(36, 31, 31))
 
 GREEN = table.pack(rgb(67, 167, 67))
 RED = table.pack(rgb(182, 36, 36))
@@ -51,19 +54,22 @@ gColours = {
         main = YELLOW,
         bg = YELLOW_BG,
         ui_bg = YELLOW_UI_BG,
-        ui_text = YELLOW_TEXT
+        ui_text = YELLOW_TEXT,
+        dark = YELLOW_DARK
     },
     ['purple'] = {
         main = PURPLE,
         bg = PURPLE_BG,
         ui_bg = PURPLE_UI_BG,
-        ui_text = PURPLE_TEXT
+        ui_text = PURPLE_TEXT,
+        dark = PURPLE_DARK
     },
     ['general'] = {
         main = GENERAL,
         bg = GENERAL_BG,
         ui_bg = GENERAL_UI_BG,
-        ui_text = GENERAL_TEXT
+        ui_text = GENERAL_TEXT,
+        dark = GENERAL_DARK
     }
 }
 

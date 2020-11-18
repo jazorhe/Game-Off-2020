@@ -11,6 +11,7 @@ function Side:init(def)
     self.bg = gColours[self.name].bg
     self.uiBgColour = gColours[self.name].ui_bg
     self.uiTextColour = gColours[self.name].ui_text
+    self.darkcolour = gColours[self.name].dark
 
     self.trust = 80
     self.resources = INITIAL_RESOURCES
@@ -136,7 +137,7 @@ end
 
 function Side:render(resources)
     -- self.stateMachine:render()
-    love.graphics.draw(self.background, self.baseX + (self.name == 'purple' and - 100 or 0), 0, 0, 0.5)
+    love.graphics.draw(self.background, self.baseX + (self.name == 'purple' and - 100 or 0))
 
     for k, entity in pairs(self.entities) do
         entity:render(self.baseX)
