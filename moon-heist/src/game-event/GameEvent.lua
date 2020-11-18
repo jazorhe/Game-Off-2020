@@ -2,8 +2,11 @@ GameEvent = Class{}
 
 function GameEvent:init(def)
     self.settings = def
+    self.name = def.name
     self.side = def.side
     self.typpe = def.type
+    self.group = def.group
+    self.eventID = def.eventID
     self.encounterTurn = def.encounter
     self.resolveTurn = def.resolve
     self.dialogues = def.dialogues

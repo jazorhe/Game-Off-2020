@@ -30,12 +30,12 @@ end
 
 function NewTurnTransitionState:render()
     love.graphics.setColor(self.darkcolour)
-    love.graphics.rectangle('fill', self.x + 15, self.y + 10, VIRTUAL_WIDTH - 200, 40)
-    love.graphics.polygon('fill', self.x + 15, self.y + 10, self.x + 15, self.y + 50, self.x - 5, self.y + 30)
+    love.graphics.rectangle('fill', self.x + 15, self.y, VIRTUAL_WIDTH - 200, 40)
+    love.graphics.polygon('fill', self.x + 15, self.y, self.x + 15, self.y + 40, self.x - 5, self.y + 20)
 
     love.graphics.setColor(self.bgcolour)
-    love.graphics.rectangle('fill', self.x, self.y, VIRTUAL_WIDTH - 200, 40)
-    love.graphics.polygon('fill', self.x, self.y, self.x, self.y + 40, self.x - 20, self.y + 20)
+    love.graphics.rectangle('fill', self.x, self.y - 10, VIRTUAL_WIDTH - 200, 40)
+    love.graphics.polygon('fill', self.x, self.y - 10, self.x, self.y + 30, self.x - 20, self.y + 10)
 
     -- love.graphics.setColor(self.darkcolour)
     -- love.graphics.polygon('fill', self.x + 10, self.y + 10, )
@@ -49,6 +49,6 @@ function NewTurnTransitionState:render()
 
     love.graphics.setFont(gFonts['large'])
     love.graphics.setColor(self.textcolour)
-    love.graphics.printf('Month ' .. tostring(self.turn), self.x, VIRTUAL_HEIGHT / 2 - gFonts['large']:getHeight() / 2, VIRTUAL_WIDTH - 200, 'center')
+    love.graphics.printf('Month ' .. tostring(self.turn), self.x, VIRTUAL_HEIGHT / 2 - gFonts['large']:getHeight() / 2 - 10, VIRTUAL_WIDTH - 200, 'center')
     love.graphics.setColor(WHITE)
 end

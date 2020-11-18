@@ -18,15 +18,15 @@ function love.load()
 end
 
 function love.update(dt)
-    Timer.update(dt)
-    gStateStack:update(dt)
-
     mouseX, mouseY = push:toGame(love.mouse.getPosition())
     if not mouseX or not mouseY then mouseX, mouseY = 0, 0 end
 
     if love.keyboard.wasPressed('f') then
         push:switchFullscreen(WINDOW_WIDTH, WINDOW_HEIGHT)
     end
+
+    Timer.update(dt)
+    gStateStack:update(dt)
 
     love.keyboard.keysPressed = {}
     love.mouse.keysPressed = {}
@@ -44,10 +44,9 @@ function love.resize(w, h)
 end
 
 function love.keypressed(key)
-    if key == 'escape' then
-        love.event.quit()
-    end
-
+    -- if key == 'escape' then
+    --     love.event.quit()
+    -- end
     love.keyboard.keysPressed[key] = true
 end
 

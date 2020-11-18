@@ -107,7 +107,7 @@ for game event is table
         change state to progressing
 
 
-Game Events data structure desing:
+Game Events data structure design:
 -   encounter: turn number for encountering this event
 -   resolve: turn number for resolving this event
 -   `dialogues[0]`: Encountering event dialogues
@@ -131,18 +131,19 @@ Thus, When resolving or encountering events, random events always come before re
 
 ## Todo List
 -   [x] 背景图设计
--   [ ] UI
-    -   [ ] 状态显示
-    -   [ ] 升级按钮及花费
-    -   [ ] 转场按钮
-    -   [ ] 回合按钮
+-   [x] UI
+    -   [x] 状态显示
+    -   [x] 升级按钮及花费
+    -   [x] 转场按钮
+    -   [x] 回合按钮
 
 -   [ ] 事件生成
--   [ ] 事件概率
+-   [x] 事件概率
 
 ## Known Issues
--   [x]Love2d on Windows misbehaving
+-   [x] Love2d on Windows misbehaving
 -   [x] Shifting error
+-   [ ] Still need work on only allowing one facility to be hovered at a time
 
 
 ## Special Thanks To:

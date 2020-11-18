@@ -16,6 +16,11 @@ function Selection:init(def)
 end
 
 function Selection:update(dt, gameEvent, callback)
+
+    if love.keyboard.wasPressed('return') or love.keyboard.wasPressed('enter') then
+        self:selectionEvent(gameEvent, callback)
+    end
+
     if love.keyboard.wasPressed('up') then
         if self.currentSelection == 1 then
             self.currentSelection = #self.items
@@ -25,6 +30,7 @@ function Selection:update(dt, gameEvent, callback)
 
         gSounds['blip']:stop()
         gSounds['blip']:play()
+
     elseif love.keyboard.wasPressed('down') then
         if self.currentSelection == #self.items then
             self.currentSelection = 1
@@ -37,31 +43,20 @@ function Selection:update(dt, gameEvent, callback)
 
     elseif mouseX > self.x and mouseX < self.x + self.width then
 
-        if mouseY > self.y + self.height / 8 * 1 and mouseY < self.y + self.height / 8 * 3 then
-            if self.currentSelection == 2 then
-                gSounds['blip']:stop()
-                gSounds['blip']:play()
-                self.currentSelection = 1
-            end
+        for k, item in pairs(self.items) do
+            if mouseY > self.y + (self.height / #self.items) * (k - 1) and mouseY < self.y + (self.height / #self.items) * (k) then
 
-            if love.mouse.wasPressed(1) then
-                self:selectionEvent(gameEvent, callback)
-            end
+                if self.currentSelection ~= k then
+                    gSounds['blip']:stop()
+                    gSounds['blip']:play()
+                    self.currentSelection = k
+                end
 
-        elseif mouseY > self.y + self.height / 8 * 5 and mouseY < self.y + self.height / 8 * 7 then
-            if self.currentSelection == 1 then
-                gSounds['blip']:stop()
-                gSounds['blip']:play()
-                self.currentSelection = 2
-            end
-
-            if love.mouse.wasPressed(1) then
-                self:selectionEvent(gameEvent, callback)
+                if love.mouse.wasPressed(1) then
+                    self:selectionEvent(gameEvent, callback)
+                end
             end
         end
-
-    elseif love.keyboard.wasPressed('return') or love.keyboard.wasPressed('enter') then
-        self:selectionEvent(gameEvent, callback)
     end
 end
 
@@ -70,6 +65,8 @@ function Selection:render()
 
     for i = 1, #self.items do
         love.graphics.setColor(self.colour)
+        love.graphics.setFont(gFonts['small'])
+
         local paddedY = currentY + (self.gapHeight / 2) - self.font:getHeight() / 2
 
         -- draw selection marker if we're at the right index

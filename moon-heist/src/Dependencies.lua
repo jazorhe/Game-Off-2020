@@ -21,6 +21,7 @@ require 'src/states/BaseState'
 require 'src/states/StateStack'
 
 require 'src/states/game/StartState'
+require 'src/states/game/PauseState'
 require 'src/states/game/FadeInState'
 require 'src/states/game/FadeOutState'
 require 'src/states/game/PlayState'

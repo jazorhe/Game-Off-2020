@@ -126,6 +126,7 @@ function Side:update(dt, params)
     end
 
     for k, facility in pairs(self.facilities) do
+        self:singleHover()
         facility:update(dt, params)
     end
 
@@ -154,6 +155,36 @@ function Side:render(resources)
 
     love.graphics.setColor(rgb(255, 255, 255))
 end
+
+function Side:singleHover()
+    local canHover = true
+    local displayCount = 0
+
+    for k, facility in pairs(self.facilities) do
+
+        if facility.displayUpgradeConfirm then
+            displayCount = displayCount + 1
+        end
+
+        if displayCount > 0 then
+            canHover = false
+        else
+            canHover = true
+        end
+
+        if not canHover then
+            for j, nestedFacility in pairs(self.facilities) do
+                nestedFacility:hoverHandle()
+            end
+        else
+            for j, nestedFacility in pairs(self.facilities) do
+                nestedFacility:hoverHandle(1)
+            end
+        end
+
+    end
+end
+
 
 
 function Side:checkTrust(params)

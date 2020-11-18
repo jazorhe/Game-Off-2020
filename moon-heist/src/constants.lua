@@ -73,7 +73,7 @@ gColours = {
     }
 }
 
-DEBUG = false
-
-CHEAT_MODE = false
+DEBUG = true
+DEBUG_EVENTS = true
+CHEAT_MODE = true
 EVENTS_MODE = true

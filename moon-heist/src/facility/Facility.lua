@@ -46,8 +46,10 @@ function Facility:init(def, params)
     self.uiTextColour = gColours[self.side].ui_text
 
     self.renderLayer = def.renderLayer
+    self.canHover = true
+
     self.infoTextbox = Textbox(
-        self.actualX - 10, self.actualY - 80, self.width * 2 + 20, 80,
+        self.actualX - 15, self.actualY - 80, self.width * 2 + 30, 80,
         "", 12, gFonts['small'], 'info', self.uiBgColour,
         self.uiTextColour, 12)
 
@@ -70,7 +72,7 @@ function Facility:init(def, params)
         x = self.actualX + 10,
         y = self.actualY - 15,
         width = self.width * 2 - 20,
-        height = 24,
+        height = 30,
         bgcolour = self.uiBgColour,
         textcolour = self.uiTextColour
     })
@@ -161,7 +163,7 @@ function Facility:update(dt, params)
 
             "E: " .. tostring(self.regEarn[self.currentLevel]['energy'] + self.regCost[self.currentLevel]['energy']) .. " e.a." ..
             (self.currentLevel < 3 and "  ->  " .. tostring(self.regEarn[self.currentLevel + 1]['energy'] + self.regCost[self.currentLevel + 1]['energy']) .. " e.a." or "") .."\n" ..
-            
+
             "P: " .. tostring(self.regEarn[self.currentLevel]['perception'] + self.regCost[self.currentLevel]['perception']) .. " e.a." ..
             (self.currentLevel < 3 and "  ->  " .. tostring(self.regEarn[self.currentLevel + 1]['perception'] + self.regCost[self.currentLevel + 1]['perception']) .. " e.a." or "")
         })
@@ -216,12 +218,14 @@ function Facility:render(baseX)
     elseif self.displayInfo then
         self.infoTextbox:render()
     end
-
-
-
 end
 
 function Facility:isHovered()
+
+    if not self.canHover then
+        return false
+    end
+
     -- This function has been achieved using very specific trigonometry for our prites. Our sprites are 30-60 degrees and when handling hover actions, because of the transparent space around the sprite, multiple sprites are thought to be selected. The hover action has been handled within the Facility class for decomposition purposes, thus I would not want to handle hovering in higher level classes with layering functions just to for this puposes. Thus I went with a more complex approach. Might not be the best to do.
     if mouseX > self.x + self.offsetX and mouseX < self.x + self.offsetX + FACILITY_SIZE * 2 then
         if mouseY > self.y + self.offsetY and mouseY < self.y + self.offsetY + FACILITY_SIZE * 2 then
@@ -290,4 +294,12 @@ function Facility:checkResource(params)
         return false
     end
     return true
+end
+
+function Facility:hoverHandle(canHover)
+    if canHover then
+        self.canHover = true
+    else
+        self.canHover = false
+    end
 end

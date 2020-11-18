@@ -71,7 +71,17 @@ end
 function GameEventEncounterState:render()
     love.graphics.setFont(gFonts['medium'])
     love.graphics.setColor(gColours[self.gameEvent.side].main)
-    love.graphics.printf("New Event!", 0, 60, VIRTUAL_WIDTH, 'center')
+
+    local text = 'General Event!'
+    if self.gameEvent.side == 'general' then
+        text = 'General Event!'
+    elseif self.gameEvent.side == 'yellow' then
+        text = 'Yellow Event!'
+    elseif self.gameEvent.sidd == 'purple' then
+        text = 'Purple Event!'
+    end
+
+    love.graphics.printf(text, 0, 60, VIRTUAL_WIDTH, 'center')
 
     self.encounterDialogue:render()
 
