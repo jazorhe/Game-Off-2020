@@ -21,15 +21,16 @@ require 'src/states/BaseState'
 require 'src/states/StateStack'
 
 require 'src/states/game/StartState'
-require 'src/states/game/PlayState'
-require 'src/states/game/GameEventDisplayState'
 require 'src/states/game/FadeInState'
 require 'src/states/game/FadeOutState'
+require 'src/states/game/PlayState'
+require 'src/states/game/DialogueState'
+require 'src/states/game/GameEventDisplayState'
+require 'src/states/game/NewTurnTransitionState'
 require 'src/states/game/GameOverState'
 require 'src/states/game/YellowEndingState'
 require 'src/states/game/PurpleEndingState'
 require 'src/states/game/CreditsState'
-require 'src/states/game/DialogueState'
 
 require 'src/Side'
 require 'src/facility/Facility'
@@ -65,21 +66,24 @@ gTextures = {
     ['cursor'] = love.graphics.newImage('graphics/cursor.png'),
     ['yellowbg'] = love.graphics.newImage('graphics/yellow-background.png'),
     ['purplebg'] = love.graphics.newImage('graphics/purple-background.png'),
-    ['earth'] = love.graphics.newImage('graphics/earth.png')
+    ['earth'] = love.graphics.newImage('graphics/earth.png'),
+    ['galaxy'] = love.graphics.newImage('graphics/galaxy.png')
 }
 
 
 gFrames = {
     ['yellow'] = GenerateQuads(gTextures['yellow'], 48, 48),
     ['purple'] = GenerateQuads(gTextures['purple'], 48, 48),
-    ['earth'] = GenerateQuads(gTextures['earth'], 240, 240)
+    ['earth'] = GenerateQuads(gTextures['earth'], 120, 120),
+    ['galaxy'] = GenerateQuads(gTextures['galaxy'], 120, 120)
 }
 
 gFonts = {
     ['small'] = love.graphics.newFont('fonts/font.ttf', 8),
     ['dialogue'] = love.graphics.newFont('fonts/font.ttf', 12),
     ['medium'] = love.graphics.newFont('fonts/font.ttf', 16),
-    ['large'] = love.graphics.newFont('fonts/font.ttf', 32)
+    ['large'] = love.graphics.newFont('fonts/font.ttf', 32),
+    ['huge'] = love.graphics.newFont('fonts/font.ttf', 64)
 }
 
 gSounds = {

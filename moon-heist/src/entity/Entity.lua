@@ -6,6 +6,7 @@ function Entity:init(def)
     self.animations = self:createAnimations(def.animations)
     self.x = def.x
     self.y = def.y
+    self.scale = def.scale or 1
     self.width = def.width
     self.height = def.height
 end
