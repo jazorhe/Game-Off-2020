@@ -81,3 +81,20 @@ end
 function table.pack(...)
     return {n = select("#", ...), ...}
 end
+
+function gFuncExitToStart()
+    gSounds['yellow-theme']:stop()
+    gSounds['purple-theme']:stop()
+    gStateStack.states = {}
+    Event.handlers = {}
+    gStateStack:push(FadeInState({
+        r = 255, g = 255, b = 255
+    }, 1,
+    function()
+        gStateStack:push(StartState())
+        gStateStack:push(FadeOutState({
+            r = 255, g = 255, b = 255
+        }, 1,
+        function() end))
+    end))
+end
