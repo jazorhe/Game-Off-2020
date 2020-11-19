@@ -137,13 +137,24 @@ Thus, When resolving or encountering events, random events always come before re
     -   [x] 转场按钮
     -   [x] 回合按钮
 
--   [ ] 事件生成
+-   [x] 事件生成
 -   [x] 事件概率
+-   [ ] Stars
 
 ## Known Issues
 -   [x] Love2d on Windows misbehaving
+Sub-pixel rendering issue
+
 -   [x] Shifting error
+-   [x] Mouse + keyboard
+-   [x] hovering is triggering other side
+-   [x] Restart Game does not restart PlayState
+issue fixed: current turn confusion
+
+starting a new game multiple times will cause consusion to turns, reason being event 'next turn' has been duplicated when a new game has been started. And when event is dispatched, multiple duplicants will be called.
+
 -   [ ] Still need work on only allowing one facility to be hovered at a time
+-   [ ] Sometimes event resolve does not have indication
 
 
 ## Special Thanks To:

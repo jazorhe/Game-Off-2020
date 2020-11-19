@@ -41,19 +41,19 @@ function Selection:update(dt, gameEvent, callback)
         gSounds['blip']:play()
 
 
-    elseif mouseX > self.x and mouseX < self.x + self.width then
+    elseif mouseX > self.x and mouseX < self.x + self.width and mouseY > self.y and mouseY < self.y + self.height then
+
+        if love.mouse.wasPressed(1) then
+            self:selectionEvent(gameEvent, callback)
+        end
 
         for k, item in pairs(self.items) do
-            if mouseY > self.y + (self.height / #self.items) * (k - 1) and mouseY < self.y + (self.height / #self.items) * (k) then
+            if mouseY > self.y + (self.height / #self.items) * (k - 1) and mouseY < self.y + (self.height / #self.items) * (k) and mouseMoved then
 
                 if self.currentSelection ~= k then
                     gSounds['blip']:stop()
                     gSounds['blip']:play()
                     self.currentSelection = k
-                end
-
-                if love.mouse.wasPressed(1) then
-                    self:selectionEvent(gameEvent, callback)
                 end
             end
         end

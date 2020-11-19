@@ -74,6 +74,7 @@ gColours = {
 }
 
 DEBUG = true
-DEBUG_EVENTS = true
+DEBUG_EVENTS = false
+DEBUG_STATES = true
 CHEAT_MODE = true
 EVENTS_MODE = true

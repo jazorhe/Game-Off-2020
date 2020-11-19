@@ -286,11 +286,11 @@ function Facility:levelUp(n)
 end
 
 function Facility:checkResource(params)
-    if CHEAT_MODE then
-        return true
-    end
-
-    if self.resources['money'] + params.resourceTable['money'] < 0 or self.resources['food'] + params.resourceTable['food'] < 0 or self.resources['energy'] + params.resourceTable['energy'] < 0 or self.resources['perception'] + params.resourceTable['perception'] < 0 then
+    
+    if self.resources['money'] + params.resourceTable['money'] < 0
+    or self.resources['food'] + params.resourceTable['food'] < 0
+    or self.resources['energy'] + params.resourceTable['energy'] < 0
+    or self.resources['perception'] + params.resourceTable['perception'] < 0 then
         return false
     end
     return true

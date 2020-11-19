@@ -136,9 +136,12 @@ function Side:update(dt, params)
     self.shiftSideButton:update(dt)
 end
 
-function Side:render(resources)
+function Side:render()
     -- self.stateMachine:render()
     love.graphics.draw(self.background, self.baseX + (self.name == 'purple' and - 100 or 0))
+    love.graphics.setColor(0, 0, 0, 0.2)
+    love.graphics.rectangle('fill', self.baseX, 0, VIRTUAL_WIDTH + 200, VIRTUAL_HEIGHT)
+    love.graphics.setColor(WHITE)
 
     for k, entity in pairs(self.entities) do
         entity:render(self.baseX)

@@ -101,6 +101,8 @@ gSounds = {
     ['purple-theme'] = love.audio.newSource('sounds/moon-gate-dark.mp3', 'stream'),
     ['main-theme'] = love.audio.newSource('sounds/intro.mp3', 'stream')
 }
-love.audio.setVolume(0.5)
+gVolume = 0.8
+gMute = false
+love.audio.setVolume(gVolume)
 
 -- ['main-theme'] = love.audio.newSource('sounds/main-theme.wav', 'static'),
