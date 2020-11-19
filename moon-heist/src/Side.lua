@@ -125,8 +125,8 @@ function Side:update(dt, params)
         entity:update(dt)
     end
 
+    self:facilitiesPanelsHandle(params.shifting)
     for k, facility in pairs(self.facilities) do
-        self:singleHover()
         facility:update(dt, params)
     end
 
@@ -159,36 +159,36 @@ function Side:render()
     love.graphics.setColor(rgb(255, 255, 255))
 end
 
-function Side:singleHover()
+function Side:facilitiesPanelsHandle(shifting)
+
+    if shifting then
+        return
+    end
+
+    local singleHover = nil
     local canHover = true
-    local displayCount = 0
+    for k, facility in pairs(self.facilities) do
+        if facility.displayUpgradeConfirm then
+            singleHover = k
+            canHover = false
+        end
+    end
 
     for k, facility in pairs(self.facilities) do
-
-        if facility.displayUpgradeConfirm then
-            displayCount = displayCount + 1
-        end
-
-        if displayCount > 0 then
-            canHover = false
-        else
-            canHover = true
-        end
-
-        if not canHover then
-            for j, nestedFacility in pairs(self.facilities) do
-                nestedFacility:hoverHandle()
+        if facility:isHovered() and canHover then
+            facility:showInfoPanel()
+            if love.mouse.wasPressed(1) then
+                facility:toggleUpgradePanel()
             end
         else
-            for j, nestedFacility in pairs(self.facilities) do
-                nestedFacility:hoverHandle(1)
+            facility.displayInfo = false
+            if love.mouse.wasPressed(1) then
+                facility.displayUpgradeConfirm = false
             end
         end
-
     end
+
 end
-
-
 
 function Side:checkTrust(params)
     if self.trust < 0 then

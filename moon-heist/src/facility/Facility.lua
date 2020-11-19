@@ -98,6 +98,17 @@ function Facility:init(def, params)
             return outputcolor;
         }
     ]]
+
+    Event.on('shift-right', function(params)
+        self.displayInfo = false
+        self.displayUpgradeConfirm = false
+    end)
+
+    Event.on('shift-left', function(params)
+        self.displayInfo = false
+        self.displayUpgradeConfirm = false
+    end)
+
 end
 
 function Facility:changeAnimation(name)
@@ -137,42 +148,6 @@ function Facility:update(dt, params)
             "P: " .. tostring(self.buildCost[self.currentLevel + 1]['perception']) .. "\n"
         or "")
         })
-    end
-
-    -- self.stateMachine:update(dt)
-    if self:isHovered() then
-        if love.mouse.keysPressed[1] and self.currentLevel < 3 then
-            -- self.displayInfo = true
-            -- self:levelUp(1)
-            self.displayUpgradeConfirm  = true
-        elseif love.mouse.keysPressed[2] then
-            -- self:levelUp(-1)
-        end
-
-        self.displayInfo = true
-        self.infoTextbox:update(dt, {
-            text = tostring(self.name) .. "\n" ..
-            "Level: " .. tostring(self.currentLevel) ..
-            (self.currentLevel < 3 and "  ->  Level: " .. tostring(self.currentLevel + 1) or "") .."\n" ..
-
-            "M: " .. tostring(self.regEarn[self.currentLevel]['money'] + self.regCost[self.currentLevel]['money']) .. " e.a." ..
-            (self.currentLevel < 3 and "  ->  " .. tostring(self.regEarn[self.currentLevel + 1]['money'] + self.regCost[self.currentLevel + 1]['money']) .. " e.a." or "") .."\n" ..
-
-            "F: " .. tostring(self.regEarn[self.currentLevel]['food'] + self.regCost[self.currentLevel]['food']) .. " e.a." ..
-            (self.currentLevel < 3 and "  ->  " .. tostring(self.regEarn[self.currentLevel + 1]['food'] + self.regCost[self.currentLevel + 1]['food']) .. " e.a." or "") .."\n" ..
-
-            "E: " .. tostring(self.regEarn[self.currentLevel]['energy'] + self.regCost[self.currentLevel]['energy']) .. " e.a." ..
-            (self.currentLevel < 3 and "  ->  " .. tostring(self.regEarn[self.currentLevel + 1]['energy'] + self.regCost[self.currentLevel + 1]['energy']) .. " e.a." or "") .."\n" ..
-
-            "P: " .. tostring(self.regEarn[self.currentLevel]['perception'] + self.regCost[self.currentLevel]['perception']) .. " e.a." ..
-            (self.currentLevel < 3 and "  ->  " .. tostring(self.regEarn[self.currentLevel + 1]['perception'] + self.regCost[self.currentLevel + 1]['perception']) .. " e.a." or "")
-        })
-    else
-        self.displayInfo = false
-        if love.mouse.keysPressed[1] then
-            self.displayUpgradeConfirm  = false
-            -- self.displayInfo = false
-        end
     end
 
     if self.currentLevel == 3 then
@@ -222,10 +197,6 @@ end
 
 function Facility:isHovered()
 
-    if not self.canHover then
-        return false
-    end
-
     -- This function has been achieved using very specific trigonometry for our prites. Our sprites are 30-60 degrees and when handling hover actions, because of the transparent space around the sprite, multiple sprites are thought to be selected. The hover action has been handled within the Facility class for decomposition purposes, thus I would not want to handle hovering in higher level classes with layering functions just to for this puposes. Thus I went with a more complex approach. Might not be the best to do.
     if mouseX > self.x + self.offsetX and mouseX < self.x + self.offsetX + FACILITY_SIZE * 2 then
         if mouseY > self.y + self.offsetY and mouseY < self.y + self.offsetY + FACILITY_SIZE * 2 then
@@ -254,6 +225,35 @@ function Facility:isHovered()
         end
     end
     return false
+end
+
+function Facility:showInfoPanel()
+    self.displayInfo = true
+    self.infoTextbox:update(dt, {
+        text = tostring(self.name) .. "\n" ..
+        "Level: " .. tostring(self.currentLevel) ..
+        (self.currentLevel < 3 and "  ->  Level: " .. tostring(self.currentLevel + 1) or "") .."\n" ..
+
+        "M: " .. tostring(self.regEarn[self.currentLevel]['money'] + self.regCost[self.currentLevel]['money']) .. " e.a." ..
+        (self.currentLevel < 3 and "  ->  " .. tostring(self.regEarn[self.currentLevel + 1]['money'] + self.regCost[self.currentLevel + 1]['money']) .. " e.a." or "") .."\n" ..
+
+        "F: " .. tostring(self.regEarn[self.currentLevel]['food'] + self.regCost[self.currentLevel]['food']) .. " e.a." ..
+        (self.currentLevel < 3 and "  ->  " .. tostring(self.regEarn[self.currentLevel + 1]['food'] + self.regCost[self.currentLevel + 1]['food']) .. " e.a." or "") .."\n" ..
+
+        "E: " .. tostring(self.regEarn[self.currentLevel]['energy'] + self.regCost[self.currentLevel]['energy']) .. " e.a." ..
+        (self.currentLevel < 3 and "  ->  " .. tostring(self.regEarn[self.currentLevel + 1]['energy'] + self.regCost[self.currentLevel + 1]['energy']) .. " e.a." or "") .."\n" ..
+
+        "P: " .. tostring(self.regEarn[self.currentLevel]['perception'] + self.regCost[self.currentLevel]['perception']) .. " e.a." ..
+        (self.currentLevel < 3 and "  ->  " .. tostring(self.regEarn[self.currentLevel + 1]['perception'] + self.regCost[self.currentLevel + 1]['perception']) .. " e.a." or "")
+    })
+end
+
+
+function Facility:toggleUpgradePanel()
+    self.displayUpgradeConfirm = not displayUpgradeConfirm
+    if self.displayUpgradeConfirm then
+        self.displayInfo = false
+    end
 end
 
 function Facility:levelUp(n)
@@ -286,7 +286,7 @@ function Facility:levelUp(n)
 end
 
 function Facility:checkResource(params)
-    
+
     if self.resources['money'] + params.resourceTable['money'] < 0
     or self.resources['food'] + params.resourceTable['food'] < 0
     or self.resources['energy'] + params.resourceTable['energy'] < 0
@@ -294,12 +294,4 @@ function Facility:checkResource(params)
         return false
     end
     return true
-end
-
-function Facility:hoverHandle(canHover)
-    if canHover then
-        self.canHover = true
-    else
-        self.canHover = false
-    end
 end

@@ -105,12 +105,14 @@ function PlayState:update(dt)
 
         self.currentSide:update(dt, {
             resources = self.resources,
-            currentTurn = self.currentTurn
+            currentTurn = self.currentTurn,
+            shifting = self.shifting
         })
         if self.nextSide then
             self.nextSide:update(dt, {
                 resources = self.resources,
-                currentTurn = self.currentTurn
+                currentTurn = self.currentTurn,
+                shifting = self.shifting
             })
         end
     end
