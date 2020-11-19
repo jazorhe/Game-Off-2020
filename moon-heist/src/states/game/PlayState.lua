@@ -8,6 +8,7 @@ function PlayState:init()
     gSounds['yellow-theme']:play()
     gSounds['purple-theme']:play()
 
+    self.statename = 'PlayState'
     self.currentTurn = 0
     self.resources = {
         ['money'] = 2000,
@@ -70,7 +71,9 @@ function PlayState:init()
         gSounds['blip']:stop()
         gSounds['blip']:play()
         self:endCurrentTurn()
-        self:startNewTurn()
+        if self.currentTurn < MAX_TURN then
+            self:startNewTurn()
+        end
     end)
 
 end
@@ -120,12 +123,10 @@ function PlayState:render()
         love.graphics.translate(-math.floor(self.cameraX), -math.floor(self.cameraY))
     end
 
-    self.currentSide:render(self.resources)
+    self.currentSide:render()
     if self.nextSide then
-        self.nextSide:render(self.resources)
+        self.nextSide:render()
     end
-
-
 
     love.graphics.pop()
     love.graphics.setColor(rgb(255, 255, 255))
@@ -156,9 +157,9 @@ end
 
 function PlayState:beginShifting(nextSide, shiftX, shiftY, params)
     if not self.shifting then
+        self.nextSide = nextSide
         gSounds['blip']:play()
         self.shifting = true
-        self.nextSide = nextSide
 
         if self.currentSide.name == 'yellow' then
             local startwith = 1
@@ -191,8 +192,9 @@ end
 function PlayState:finishShifting(nextSide)
     self.cameraX = 0
     self.cameraY = 0
-    self.nextSide = self.currentSide
-    self.nextSide.baseX = self.nextSide.name == 'yellow' and - SHIFTING_WIDTH or SHIFTING_WIDTH
+    self.currentSide.baseX = self.currentSide.name == 'yellow' and - SHIFTING_WIDTH or SHIFTING_WIDTH
+    self.nextSide = nil
+
     self.currentSide = nextSide
     self.currentSide.baseX = 0
     self.shifting = false
@@ -248,7 +250,8 @@ function PlayState:startNewTurn()
         turn = self.currentTurn,
         bgcolour = self.currentSide.uiBgColour,
         textcolour = self.currentSide.uiTextColour,
-        darkcolour = self.currentSide.darkcolour
+        darkcolour = self.currentSide.darkcolour,
+        resources = self.resources
     }))
 
     if not self:evaluateStartTurn() then
@@ -275,6 +278,10 @@ function PlayState:evaluateEndTurn()
 end
 
 function PlayState:gameOver()
+    if DEBUG and CHEAT_MODE then
+        return
+    end
+
     gSounds['yellow-theme']:stop()
     gSounds['purple-theme']:stop()
     gStateStack:push(FadeInState({

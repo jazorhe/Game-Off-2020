@@ -3,6 +3,7 @@ StartState = Class{__includes = BaseState}
 function StartState:init()
     gSounds['main-theme']:play()
 
+    self.statename = 'StartState'
     self.sprites = {'yellow', 'purple'}
     self.sprite = self.sprites[math.random(2)]
 

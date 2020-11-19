@@ -22,6 +22,10 @@ function GameEventResolveState:enter()
 end
 
 function GameEventResolveState:update(dt)
+    if love.keyboard.wasPressed('escape') or love.mouse.wasPressed(2) then
+        gStateStack:push(PauseState())
+    end
+    
     if self.resolveDialogue:isClosed() then
         if not self.resolved then
             Event.dispatch('trust-management', {

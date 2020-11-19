@@ -1,6 +1,7 @@
 GameEventDisplayState = Class{__includes = BaseState}
 
 function GameEventDisplayState:init(gameEvent)
+    self.statename = 'GameEventDisplayState'
     self.gameEvent = gameEvent
 end
 

@@ -2,10 +2,11 @@ PauseState = Class{__includes = BaseState}
 
 function PauseState:init()
 
+self.statename = 'PauseState'
 self.pauseMenu = Menu({
-    x = 160,
+    x = 240,
     y = VIRTUAL_HEIGHT / 2 - 30,
-    width = VIRTUAL_WIDTH - 320,
+    width = VIRTUAL_WIDTH - 480,
     height = 100,
     items = {
         [1] = {
@@ -13,25 +14,13 @@ self.pauseMenu = Menu({
             onSelect = function() gStateStack:pop() end
         },
         [2] = {
-            text = "Exit to Start Screen",
+            text = "Exit to Start Menu",
             onSelect = function()
-                gStateStack = StateStack()
-                gSounds['yellow-theme']:stop()
-                gSounds['purple-theme']:stop()
-                gStateStack:push(FadeInState({
-                    r = 255, g = 255, b = 255
-                }, 1,
-                function()
-                    gStateStack:push(StartState())
-                    gStateStack:push(FadeOutState({
-                        r = 255, g = 255, b = 255
-                    }, 1,
-                    function() end))
-                end))
+                gFuncExitToStart()
             end
         },
         [3] = {
-            text = "Exit Game",
+            text = "Quit Game",
             onSelect = function() love.event.quit() end
         }
     },
@@ -49,8 +38,10 @@ function PauseState:update(dt)
 end
 
 function PauseState:render()
-    love.graphics.setFont(gFonts['medium'])
+    love.graphics.setColor(0, 0, 0, 0.7)
+    love.graphics.rectangle('fill', 0, 0, VIRTUAL_WIDTH, VIRTUAL_HEIGHT)
+    love.graphics.setFont(gFonts['large'])
     love.graphics.setColor(gColours['general'].ui_text)
-    love.graphics.printf('Game Paused', 0, 50, VIRTUAL_WIDTH, 'center')
+    love.graphics.printf('Game Paused', 0, 100, VIRTUAL_WIDTH, 'center')
     self.pauseMenu:render()
 end

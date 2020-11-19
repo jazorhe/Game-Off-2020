@@ -35,6 +35,10 @@ function GameEventEncounterState:enter()
 end
 
 function GameEventEncounterState:update(dt)
+    if love.keyboard.wasPressed('escape') or love.mouse.wasPressed(2) then
+        gStateStack:push(PauseState())
+    end
+    
     if self.encounterDialogue:isClosed() then
 
         if self.closingDialogue then
@@ -77,7 +81,7 @@ function GameEventEncounterState:render()
         text = 'General Event!'
     elseif self.gameEvent.side == 'yellow' then
         text = 'Yellow Event!'
-    elseif self.gameEvent.sidd == 'purple' then
+    elseif self.gameEvent.side == 'purple' then
         text = 'Purple Event!'
     end
 

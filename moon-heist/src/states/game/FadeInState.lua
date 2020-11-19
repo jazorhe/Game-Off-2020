@@ -1,6 +1,7 @@
 FadeInState = Class{__includes = BaseState}
 
 function FadeInState:init(color, time, onFadeComplete)
+    self.statename = 'FadeInState'
     self.r = color.r
     self.g = color.g
     self.b = color.b
