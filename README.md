@@ -152,8 +152,7 @@ Sub-pixel rendering issue
 issue fixed: current turn confusion
 
 starting a new game multiple times will cause consusion to turns, reason being event 'next turn' has been duplicated when a new game has been started. And when event is dispatched, multiple duplicants will be called.
-
--   [ ] Still need work on only allowing one facility to be hovered at a time
+-   [x] Still need work on only allowing one facility to be hovered at a time
 -   [ ] Sometimes event resolve does not have indication
 
 

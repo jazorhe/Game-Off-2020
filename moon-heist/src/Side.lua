@@ -125,10 +125,10 @@ function Side:update(dt, params)
         entity:update(dt)
     end
 
-    self:facilitiesPanelsHandle(params.shifting)
     for k, facility in pairs(self.facilities) do
         facility:update(dt, params)
     end
+    self:facilitiesPanelsHandle(params.shifting)
 
     self.endTurnButton.x = self.baseX + VIRTUAL_WIDTH / 2 - 20
     self.endTurnButton:update(dt)
@@ -206,17 +206,11 @@ end
 
 function Side:showResourcesChange(params)
     self.showingResourceChange = true
-    self.resourceOpacity = 1
+    -- self.resourceOpacity = 1
     self.resourceChange = params.resourceTable
 
-    Timer.after(3, function()
-        Timer.tween(1, {
-            [self] = {resourceOpacity = 0}
-        }):finish(function()
-            self.showingResourceChange = false
-        end)
-    end)
-
+    if self.showResourceTimer then self.showResourceTimer:remove() end
+    self.showResourceTimer = Timer.after(3, function () self.showingResourceChange = false end)
 end
 
 function Side:showTrustChange(params)
@@ -224,14 +218,9 @@ function Side:showTrustChange(params)
         return
     end
     self.showingTrustChange = true
-    self.trustOpacity = 1
+    -- self.trustOpacity = 1
     self.trustChange = params.trust
 
-    Timer.after(2, function()
-        Timer.tween(1, {
-            [self] = {trustOpacity = 0}
-        }):finish(function()
-            self.showingTrustChange = false
-        end)
-    end)
+    if self.showTrustTimer then self.showTrustTimer:remove() end
+    self.showTrustTimer = Timer.after(3, function () self.showingTrustChange = false end)
 end
