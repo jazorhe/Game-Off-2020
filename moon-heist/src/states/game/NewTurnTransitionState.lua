@@ -32,6 +32,10 @@ function NewTurnTransitionState:init(def)
     end)
 end
 
+function NewTurnTransitionState:update(dt)
+
+end
+
 function NewTurnTransitionState:render()
     love.graphics.setColor(self.darkcolour)
     love.graphics.rectangle('fill', self.x + 15, self.y, VIRTUAL_WIDTH - 200, 40)

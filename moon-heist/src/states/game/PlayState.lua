@@ -48,6 +48,7 @@ function PlayState:init()
     self.cameraX = 0
     self.cameraY = 0
     self.shifting = false
+    self.allowInput = false
 
     self.currentEvents = {}
 
@@ -89,7 +90,7 @@ function PlayState:update(dt)
         gStateStack:push(PauseState())
     end
 
-    if not self.shifting then
+    if not self.shifting and self.allowInput then
         if love.keyboard.wasPressed('d') and not self.shifting and self.currentSide.name == 'yellow' then
             Event.dispatch('shift-right', {})
         end
@@ -137,9 +138,6 @@ function PlayState:update(dt)
     else
         self:gameEventUpdateLoop(dt)
     end
-
-
-
 end
 
 function PlayState:render()
@@ -287,10 +285,17 @@ function PlayState:startNewTurn()
         resources = self.resources
     })
 
+    self.allowInput = false
     gStateStack:push(self.newTurnTransition)
 
     if not self:evaluateStartTurn() then
         self.lost = true
+    end
+
+    if self.currentTurn >= 1 then
+        Timer.after(2.5, function()
+            self.allowInput = true
+        end)
     end
 end
 

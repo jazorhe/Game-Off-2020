@@ -77,9 +77,9 @@ gColours = {
     }
 }
 
-DEBUG = true
+DEBUG = false
 DEBUG_FACILITY = false
-DEBUG_MOUSE = true
+DEBUG_MOUSE = false
 DEBUG_EVENTS = false
 DEBUG_STATES = false
 CHEAT_MODE = false
