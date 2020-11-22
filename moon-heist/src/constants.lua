@@ -85,4 +85,4 @@ DEBUG_STATES = false
 CHEAT_MODE = false
 
 EVENTS_MODE = true
-TUTORIAL = true
+TUTORIAL = false

@@ -82,6 +82,7 @@ function StartState:render()
     love.graphics.draw(gTextures[self.sprite], gFrames[self.sprite][self.frame], self.spriteX, self.spriteY)
 
     self.startMenu:render()
+
     love.graphics.pop()
 end
 
@@ -96,13 +97,23 @@ function StartState:startGame()
         gStateStack:pop()
         local play = PlayState()
         gStateStack:push(play)
-        gStateStack:push(DialogueState(
-            180, VIRTUAL_HEIGHT / 2 - 30, VIRTUAL_WIDTH - 360, 60, "" ..
-            "Welcome to the world of Moon Heist! There is meant to be an introduction here but I am going to skip for now! (Press Enter or Click the screen to dismiss dialogues)", 12, YELLOW_UI_BG, YELLOW_TEXT,
+
+        if not TUTORIAL then
+            gStateStack:push(TutorialState(
+            TUTORIAL_DEFS[0].dialogueParams,
+            TUTORIAL_DEFS[0].stencilParams,
             function()
                 play:startNewTurn()
             end
-        ))
+            ))
+        else
+            gStateStack:push(TutorialState(
+                TUTORIAL_DEFS[1].dialogueParams,
+                TUTORIAL_DEFS[1].stencilParams,
+                TUTORIAL_DEFS[1].callback
+            ))
+        end
+
         gStateStack:push(FadeOutState({
             r = 255, g = 255, b = 255
         }, 1,

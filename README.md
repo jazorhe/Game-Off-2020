@@ -6,9 +6,9 @@ The theme for this year’s Game Off is **MOONSHOT**.
 
 Our team initially consists of 4 members:
 -   **Adam Shi Chen**: Music Composing
--   **Cypress Bolan Li**: Art Design
--   **Jazor Jiehao He**: Game Development
 -   **Rhoda Honglin Du**: Art Design
+-   **Jazor Jiehao He**: Game Development
+-   **Cypress Bolan Li**: Art Design
 
 
 ## Concept: Moon Heist
@@ -19,14 +19,11 @@ The player is sent to the Moon and is in charge of the latest space project: ***
 <img src="Concepts/img/Moon Heist.png" width="700">
 
 
-
 ## Art Style
 
 ## Data Structure
 
 ## Balancing
-
-
 
 
 ## Dev Log:
@@ -154,6 +151,7 @@ issue fixed: current turn confusion
 starting a new game multiple times will cause consusion to turns, reason being event 'next turn' has been duplicated when a new game has been started. And when event is dispatched, multiple duplicants will be called.
 -   [x] Still need work on only allowing one facility to be hovered at a time
 -   [x] Sometimes event resolve does not have indication
+-   [ ] Shifting side in tutorial gives shows all display panel weirdly
 
 
 ## Special Thanks To:
