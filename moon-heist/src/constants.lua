@@ -23,10 +23,10 @@ ZERO_RESOURCES = {
     ['amenity'] = 0
 }
 
-GREY = table.pack(rgb(136, 134, 138))
-GREY_UI_BG = table.pack(rgb(78, 75, 83))
-GREY_UI_TEXT = table.pack(rgb(190, 163, 165))
 WHITE = table.pack(rgb(255, 255, 255))
+GREY = table.pack(rgb(136, 134, 138))
+GREY_UI_BG = table.pack(rgb(78, 75, 83, 0.8))
+GREY_UI_TEXT = table.pack(rgb(190, 163, 165))
 
 YELLOW = table.pack(rgb(255, 216, 0))
 YELLOW_BG = table.pack(rgb(195, 180, 126))
@@ -77,12 +77,12 @@ gColours = {
     }
 }
 
-DEBUG = false
+DEBUG = true
 DEBUG_FACILITY = false
-DEBUG_MOUSE = false
+DEBUG_MOUSE = true
 DEBUG_EVENTS = false
 DEBUG_STATES = false
 CHEAT_MODE = false
 
 EVENTS_MODE = true
-TUTORIAL = false
+TUTORIAL = true
