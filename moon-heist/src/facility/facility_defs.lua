@@ -24,8 +24,8 @@ FACILITY_DEFS = {
             scale = 2,
             initLevel = 1,
             mapX = 3,
-            mapY = 1,
-            renderLayer = 4,
+            mapY = 2,
+            renderLayer = 1,
             -- offsetX = VIRTUAL_WIDTH - 4.5 * FACILITY_SIZE,
             -- offsetY = VIRTUAL_HEIGHT / 5 * 3,
 
@@ -34,25 +34,25 @@ FACILITY_DEFS = {
                     ['money'] = ROW_ONE_BASE_COST[1],
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [1] = {
                     ['money'] = ROW_ONE_BASE_COST[2],
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [2] = {
                     ['money'] = ROW_ONE_BASE_COST[3],
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [3] = {
                     ['money'] = ROW_ONE_BASE_COST[4],
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 }
             },
 
@@ -61,25 +61,25 @@ FACILITY_DEFS = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [1] = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [2] = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [3] = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 }
             },
 
@@ -88,25 +88,25 @@ FACILITY_DEFS = {
                     ['money'] = 0,
                     ['food'] = ROW_ONE_REG_COST[1],
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [1] = {
                     ['money'] = 0,
                     ['food'] = ROW_ONE_REG_COST[2],
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [2] = {
                     ['money'] = 0,
                     ['food'] = ROW_ONE_REG_COST[3],
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [3] = {
                     ['money'] = 0,
                     ['food'] = ROW_ONE_REG_COST[4],
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 }
             },
 
@@ -115,31 +115,31 @@ FACILITY_DEFS = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = SPECIAL_EARN[1],
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [1] = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = SPECIAL_EARN[2],
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [2] = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = SPECIAL_EARN[3],
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [3] = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = SPECIAL_EARN[4],
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 }
             },
 
             animations = {
                 ['idle-0'] = {
-                    frames = {7},
+                    frames = {14},
                     interval = 0.2,
                     texture = 'yellow'
                 },
@@ -168,8 +168,8 @@ FACILITY_DEFS = {
             scale = 2,
             initLevel = 0,
             mapX = 2,
-            mapY = 1,
-            renderLayer = 5,
+            mapY = 2,
+            renderLayer = 2,
             -- offsetX = VIRTUAL_WIDTH - 4.5 * FACILITY_SIZE - 20,
             -- offsetY = VIRTUAL_HEIGHT / 5 * 3,
 
@@ -178,25 +178,25 @@ FACILITY_DEFS = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = ROW_ONE_BASE_COST[1]
+                    ['amenity'] = ROW_ONE_BASE_COST[1]
                 },
                 [1] = {
                     ['money'] =0,
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = ROW_ONE_BASE_COST[2]
+                    ['amenity'] = ROW_ONE_BASE_COST[2]
                 },
                 [2] = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = ROW_ONE_BASE_COST[3]
+                    ['amenity'] = ROW_ONE_BASE_COST[3]
                 },
                 [3] = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = ROW_ONE_BASE_COST[4]
+                    ['amenity'] = ROW_ONE_BASE_COST[4]
                 }
             },
 
@@ -205,25 +205,25 @@ FACILITY_DEFS = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [1] = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [2] = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [3] = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 }
             },
 
@@ -232,25 +232,25 @@ FACILITY_DEFS = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = ROW_ONE_REG_COST[1],
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [1] = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = ROW_ONE_REG_COST[2],
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [2] = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = ROW_ONE_REG_COST[3],
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [3] = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = ROW_ONE_REG_COST[4],
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 }
             },
 
@@ -259,31 +259,31 @@ FACILITY_DEFS = {
                     ['money'] = 0,
                     ['food'] = SPECIAL_EARN[1],
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [1] = {
                     ['money'] = 0,
                     ['food'] = SPECIAL_EARN[2],
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [2] = {
                     ['money'] = 0,
                     ['food'] = SPECIAL_EARN[3],
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [3] = {
                     ['money'] = 0,
                     ['food'] = SPECIAL_EARN[4],
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 }
             },
 
             animations = {
                 ['idle-0'] = {
-                    frames = {7},
+                    frames = {14},
                     interval = 0.2,
                     texture = 'yellow'
                 },
@@ -315,8 +315,8 @@ FACILITY_DEFS = {
             scale = 2,
             initLevel = 0,
             mapX = 1,
-            mapY = 1,
-            renderLayer = 6,
+            mapY = 2,
+            renderLayer = 3,
             -- offsetX = VIRTUAL_WIDTH - 4.5 * FACILITY_SIZE - 40,
             -- offsetY = VIRTUAL_HEIGHT / 5 * 3,
 
@@ -325,25 +325,25 @@ FACILITY_DEFS = {
                     ['money'] = ROW_ONE_BASE_COST[1],
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [1] = {
                     ['money'] = ROW_ONE_BASE_COST[2],
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [2] = {
                     ['money'] = ROW_ONE_BASE_COST[3],
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [3] = {
                     ['money'] = ROW_ONE_BASE_COST[4],
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 }
             },
 
@@ -352,25 +352,25 @@ FACILITY_DEFS = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [1] = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [2] = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [3] = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 }
             },
 
@@ -379,25 +379,25 @@ FACILITY_DEFS = {
                     ['money'] = 0,
                     ['food'] = ROW_ONE_REG_COST[1],
                     ['energy'] = ROW_ONE_REG_COST[1],
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [1] = {
                     ['money'] = 0,
                     ['food'] = ROW_ONE_REG_COST[2],
                     ['energy'] = ROW_ONE_REG_COST[2],
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [2] = {
                     ['money'] = 0,
                     ['food'] = ROW_ONE_REG_COST[3],
                     ['energy'] = ROW_ONE_REG_COST[3],
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [3] = {
                     ['money'] = 0,
                     ['food'] = ROW_ONE_REG_COST[4],
                     ['energy'] = ROW_ONE_REG_COST[4],
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 }
             },
 
@@ -406,31 +406,31 @@ FACILITY_DEFS = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = ROW_ONE_REG_EARN[1]
+                    ['amenity'] = ROW_ONE_REG_EARN[1]
                 },
                 [1] = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = ROW_ONE_REG_EARN[2]
+                    ['amenity'] = ROW_ONE_REG_EARN[2]
                 },
                 [2] = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = ROW_ONE_REG_EARN[3]
+                    ['amenity'] = ROW_ONE_REG_EARN[3]
                 },
                 [3] = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = ROW_ONE_REG_EARN[4]
+                    ['amenity'] = ROW_ONE_REG_EARN[4]
                 }
             },
 
             animations = {
                 ['idle-0'] = {
-                    frames = {7},
+                    frames = {14},
                     interval = 0.2,
                     texture = 'yellow'
                 },
@@ -461,8 +461,8 @@ FACILITY_DEFS = {
             scale = 2,
             initLevel = 0,
             mapX = 3,
-            mapY = 2,
-            renderLayer = 1,
+            mapY = 1,
+            renderLayer = 4,
             -- offsetX = VIRTUAL_WIDTH - 4.5 * FACILITY_SIZE - 30,
             -- offsetY = VIRTUAL_HEIGHT / 5 * 3 + 4,
 
@@ -471,25 +471,25 @@ FACILITY_DEFS = {
                     ['money'] = 0,
                     ['food'] = ROW_TWO_REG_COSTa[1],
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [1] = {
                     ['money'] = 0,
                     ['food'] = ROW_TWO_REG_COSTa[2],
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [2] = {
                     ['money'] = 0,
                     ['food'] = ROW_TWO_REG_COSTa[3],
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [3] = {
                     ['money'] = 0,
                     ['food'] = ROW_TWO_REG_COSTa[4],
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 }
             },
 
@@ -498,25 +498,25 @@ FACILITY_DEFS = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [1] = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [2] = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [3] = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 }
             },
 
@@ -525,25 +525,25 @@ FACILITY_DEFS = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = ROW_ONE_REG_COST[1],
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [1] = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = ROW_ONE_REG_COST[2],
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [2] = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = ROW_ONE_REG_COST[3],
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [3] = {
                     ['money'] = 0,
                     ['food'] = 00,
                     ['energy'] = ROW_ONE_REG_COST[4],
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 }
             },
 
@@ -552,31 +552,31 @@ FACILITY_DEFS = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = SPECIAL_EARN[1],
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [1] = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = SPECIAL_EARN[2],
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [2] = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = SPECIAL_EARN[3],
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [3] = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = SPECIAL_EARN[4],
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 }
             },
 
             animations = {
                 ['idle-0'] = {
-                    frames = {14},
+                    frames = {7},
                     interval = 0.2,
                     texture = 'yellow'
                 },
@@ -605,8 +605,8 @@ FACILITY_DEFS = {
             scale = 2,
             initLevel = 0,
             mapX = 2,
-            mapY = 2,
-            renderLayer = 2,
+            mapY = 1,
+            renderLayer = 5,
             -- offsetX = VIRTUAL_WIDTH - 4.5 * FACILITY_SIZE - 50,
             -- offsetY = VIRTUAL_HEIGHT / 5 * 3 + 4,
 
@@ -615,25 +615,25 @@ FACILITY_DEFS = {
                     ['money'] = ROW_TWO_BASE_COST[1],
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [1] = {
                     ['money'] = ROW_TWO_BASE_COST[2],
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [2] = {
                     ['money'] = ROW_TWO_BASE_COST[3],
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [3] = {
                     ['money'] = ROW_TWO_BASE_COST[4],
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 }
             },
 
@@ -642,25 +642,25 @@ FACILITY_DEFS = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [1] = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [2] = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [3] = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 }
             },
 
@@ -669,25 +669,25 @@ FACILITY_DEFS = {
                     ['money'] = 0,
                     ['food'] = ROW_TWO_REG_COSTa[1],
                     ['energy'] = ROW_TWO_REG_COSTb[1],
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [1] = {
                     ['money'] = 0,
                     ['food'] = ROW_TWO_REG_COSTa[2],
                     ['energy'] = ROW_TWO_REG_COSTb[2],
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [2] = {
                     ['money'] = 0,
                     ['food'] = ROW_TWO_REG_COSTa[3],
                     ['energy'] = ROW_TWO_REG_COSTb[3],
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [3] = {
                     ['money'] = 0,
                     ['food'] = ROW_TWO_REG_COSTa[4],
                     ['energy'] = ROW_TWO_REG_COSTb[4],
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 }
             },
 
@@ -696,31 +696,31 @@ FACILITY_DEFS = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = ROW_TWO_REG_EARN[1]
+                    ['amenity'] = ROW_TWO_REG_EARN[1]
                 },
                 [1] = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = ROW_TWO_REG_EARN[2]
+                    ['amenity'] = ROW_TWO_REG_EARN[2]
                 },
                 [2] = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = ROW_TWO_REG_EARN[3]
+                    ['amenity'] = ROW_TWO_REG_EARN[3]
                 },
                 [3] = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = ROW_TWO_REG_EARN[4]
+                    ['amenity'] = ROW_TWO_REG_EARN[4]
                 }
             },
 
             animations = {
                 ['idle-0'] = {
-                    frames = {14},
+                    frames = {7},
                     interval = 0.2,
                     texture = 'yellow'
                 },
@@ -749,8 +749,8 @@ FACILITY_DEFS = {
             scale = 2,
             initLevel = 0,
             mapX = 1,
-            mapY = 2,
-            renderLayer = 3,
+            mapY = 1,
+            renderLayer = 6,
             -- offsetX = VIRTUAL_WIDTH - 4.5 * FACILITY_SIZE - 70,
             -- offsetY = VIRTUAL_HEIGHT / 5 * 3 + 4,
 
@@ -759,25 +759,25 @@ FACILITY_DEFS = {
                     ['money'] = NO_SIX_BASE_COSTa[1],
                     ['food'] = NO_SIX_BASE_COSTb[1],
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [1] = {
                     ['money'] = NO_SIX_BASE_COSTa[2],
                     ['food'] = NO_SIX_BASE_COSTb[2],
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [2] = {
                     ['money'] = NO_SIX_BASE_COSTa[3],
                     ['food'] = NO_SIX_BASE_COSTb[3],
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [3] = {
                     ['money'] = NO_SIX_BASE_COSTa[4],
                     ['food'] = NO_SIX_BASE_COSTb[4],
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 }
             },
 
@@ -786,25 +786,25 @@ FACILITY_DEFS = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [1] = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [2] = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [3] = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 }
             },
 
@@ -813,25 +813,25 @@ FACILITY_DEFS = {
                     ['money'] = 0,
                     ['food'] = NO_SIX_REG_COSTa[1],
                     ['energy'] = NO_SIX_REG_COSTb[1],
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [1] = {
                     ['money'] = 0,
                     ['food'] = NO_SIX_REG_COSTa[2],
                     ['energy'] = NO_SIX_REG_COSTb[2],
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [2] = {
                     ['money'] = 0,
                     ['food'] = NO_SIX_REG_COSTa[3],
                     ['energy'] = NO_SIX_REG_COSTb[3],
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [3] = {
                     ['money'] = 0,
                     ['food'] = NO_SIX_REG_COSTa[4],
                     ['energy'] = NO_SIX_REG_COSTb[4],
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 }
             },
 
@@ -840,31 +840,31 @@ FACILITY_DEFS = {
                     ['money'] = NO_SIX_REG_EARN[1],
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [1] = {
                     ['money'] = NO_SIX_REG_EARN[2],
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [2] = {
                     ['money'] = NO_SIX_REG_EARN[3],
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [3] = {
                     ['money'] = NO_SIX_REG_EARN[4],
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 }
             },
 
             animations = {
                 ['idle-0'] = {
-                    frames = {14},
+                    frames = {7},
                     interval = 0.2,
                     texture = 'yellow'
                 },
@@ -894,8 +894,8 @@ FACILITY_DEFS = {
             scale = 1,
             initLevel = 1,
             mapX = 1,
-            mapY = 1,
-            renderLayer = 4,
+            mapY = 2,
+            renderLayer = 1,
             -- offsetX = 1 * FACILITY_SIZE,
             -- offsetY = VIRTUAL_HEIGHT / 5 * 3 - 30,
 
@@ -904,25 +904,25 @@ FACILITY_DEFS = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = ROW_ONE_BASE_COST[1],
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [1] = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = ROW_ONE_BASE_COST[2],
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [2] = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = ROW_ONE_BASE_COST[3],
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [3] = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = ROW_ONE_BASE_COST[4],
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 }
             },
 
@@ -931,25 +931,25 @@ FACILITY_DEFS = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [1] = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [2] = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [3] = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 }
             },
 
@@ -958,25 +958,25 @@ FACILITY_DEFS = {
                     ['money'] = 0,
                     ['food'] = ROW_ONE_REG_COST[1],
                     ['energy'] = ROW_ONE_REG_COST[1],
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [1] = {
                     ['money'] = 0,
                     ['food'] = ROW_ONE_REG_COST[2],
                     ['energy'] = ROW_ONE_REG_COST[2],
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [2] = {
                     ['money'] = 0,
                     ['food'] = ROW_ONE_REG_COST[3],
                     ['energy'] = ROW_ONE_REG_COST[3],
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [3] = {
                     ['money'] = 0,
                     ['food'] = ROW_ONE_REG_COST[4],
                     ['energy'] = ROW_ONE_REG_COST[4],
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 }
             },
 
@@ -985,25 +985,25 @@ FACILITY_DEFS = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = ROW_ONE_REG_EARN[1]
+                    ['amenity'] = ROW_ONE_REG_EARN[1]
                 },
                 [1] = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = ROW_ONE_REG_EARN[2]
+                    ['amenity'] = ROW_ONE_REG_EARN[2]
                 },
                 [2] = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = ROW_ONE_REG_EARN[3]
+                    ['amenity'] = ROW_ONE_REG_EARN[3]
                 },
                 [3] = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = ROW_ONE_REG_EARN[4]
+                    ['amenity'] = ROW_ONE_REG_EARN[4]
                 }
             },
 
@@ -1034,14 +1034,14 @@ FACILITY_DEFS = {
         },
 
         [2] = {
-            type = 'mine',
-            name = 'Lunar Mine',
+            type = 'drill',
+            name = 'Surface Drill',
             side = 'purple',
             scale = 1,
             initLevel = 0,
             mapX = 2,
-            mapY = 1,
-            renderLayer = 5,
+            mapY = 2,
+            renderLayer = 2,
             -- offsetX = 1 * FACILITY_SIZE + 48,
             -- offsetY = VIRTUAL_HEIGHT / 5 * 3 - 30,
 
@@ -1050,25 +1050,25 @@ FACILITY_DEFS = {
                     ['money'] = ROW_ONE_BASE_COST[1],
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [1] = {
                     ['money'] = ROW_ONE_BASE_COST[2],
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [2] = {
                     ['money'] = ROW_ONE_BASE_COST[3],
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [3] = {
                     ['money'] = ROW_ONE_BASE_COST[4],
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 }
             },
 
@@ -1077,25 +1077,25 @@ FACILITY_DEFS = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [1] = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [2] = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [3] = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 }
             },
 
@@ -1104,25 +1104,25 @@ FACILITY_DEFS = {
                     ['money'] = 0,
                     ['food'] = ROW_ONE_REG_COST[1],
                     ['energy'] = ROW_ONE_REG_COST[1],
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [1] = {
                     ['money'] = 0,
                     ['food'] = ROW_ONE_REG_COST[2],
                     ['energy'] = ROW_ONE_REG_COST[2],
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [2] = {
                     ['money'] = 0,
                     ['food'] = ROW_ONE_REG_COST[3],
                     ['energy'] = ROW_ONE_REG_COST[3],
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [3] = {
                     ['money'] = 0,
                     ['food'] = ROW_ONE_REG_COST[4],
                     ['energy'] = ROW_ONE_REG_COST[4],
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 }
             },
 
@@ -1131,25 +1131,25 @@ FACILITY_DEFS = {
                     ['money'] = ROW_ONE_REG_EARN[1],
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [1] = {
                     ['money'] = ROW_ONE_REG_EARN[2],
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [2] = {
                     ['money'] = ROW_ONE_REG_EARN[3],
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [3] = {
                     ['money'] = ROW_ONE_REG_EARN[4],
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 }
             },
 
@@ -1178,14 +1178,14 @@ FACILITY_DEFS = {
         },
 
         [3] = {
-            type = 'recycle-station',
-            name = 'Recycle Station',
+            type = 'vivarium-tank',
+            name = 'Vivarium Tank',
             side = 'purple',
             scale = 1,
             initLevel = 0,
             mapX = 3,
-            mapY = 1,
-            renderLayer = 6,
+            mapY = 2,
+            renderLayer = 3,
             -- offsetX = 1 * FACILITY_SIZE + 96,
             -- offsetY = VIRTUAL_HEIGHT / 5 * 3 - 30,
 
@@ -1194,25 +1194,25 @@ FACILITY_DEFS = {
                     ['money'] = ROW_ONE_BASE_COST[1],
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [1] = {
                     ['money'] = ROW_ONE_BASE_COST[2],
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [2] = {
                     ['money'] = ROW_ONE_BASE_COST[3],
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [3] = {
                     ['money'] = ROW_ONE_BASE_COST[4],
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 }
             },
 
@@ -1221,25 +1221,25 @@ FACILITY_DEFS = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [1] = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [2] = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [3] = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 }
             },
 
@@ -1248,25 +1248,25 @@ FACILITY_DEFS = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = ROW_ONE_REG_COST[1],
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [1] = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = ROW_ONE_REG_COST[2],
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [2] = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = ROW_ONE_REG_COST[3],
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [3] = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = ROW_ONE_REG_COST[4],
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 }
             },
 
@@ -1275,25 +1275,25 @@ FACILITY_DEFS = {
                     ['money'] = 0,
                     ['food'] = SPECIAL_EARN[1],
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [1] = {
                     ['money'] = 0,
                     ['food'] = SPECIAL_EARN[2],
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [2] = {
                     ['money'] = 0,
                     ['food'] = SPECIAL_EARN[3],
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [3] = {
                     ['money'] = 0,
                     ['food'] = SPECIAL_EARN[4],
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 }
             },
 
@@ -1328,8 +1328,8 @@ FACILITY_DEFS = {
             scale = 1,
             initLevel = 0,
             mapX = 1,
-            mapY = 2,
-            renderLayer = 1,
+            mapY = 1,
+            renderLayer = 4,
             -- offsetX = 1 * FACILITY_SIZE,
             -- offsetY = VIRTUAL_HEIGHT / 5 * 3 + 18,
 
@@ -1338,25 +1338,25 @@ FACILITY_DEFS = {
                     ['money'] = ROW_TWO_BASE_COST[1],
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [1] = {
                     ['money'] = ROW_TWO_BASE_COST[2],
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [2] = {
                     ['money'] = ROW_TWO_BASE_COST[3],
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [3] = {
                     ['money'] = ROW_TWO_BASE_COST[4],
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 }
             },
 
@@ -1365,25 +1365,25 @@ FACILITY_DEFS = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [1] = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [2] = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [3] = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 }
             },
 
@@ -1392,25 +1392,25 @@ FACILITY_DEFS = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = ROW_TWO_REG_COSTa[1],
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [1] = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = ROW_TWO_REG_COSTa[2],
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [2] = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = ROW_TWO_REG_COSTa[3],
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [3] = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = ROW_TWO_REG_COSTa[4],
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 }
             },
 
@@ -1419,25 +1419,25 @@ FACILITY_DEFS = {
                     ['money'] = 0,
                     ['food'] = ROW_TWO_REG_EARN[1],
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [1] = {
                     ['money'] = 0,
                     ['food'] = ROW_TWO_REG_EARN[2],
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [2] = {
                     ['money'] = 0,
                     ['food'] = ROW_TWO_REG_EARN[3],
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [3] = {
                     ['money'] = 0,
                     ['food'] = ROW_TWO_REG_EARN[4],
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 }
             },
 
@@ -1466,14 +1466,14 @@ FACILITY_DEFS = {
         },
 
         [5] = {
-            type = 'worm-hole',
-            name = 'Worm Hole Machine',
+            type = 'gravity-well',
+            name = 'Gravity Well',
             side = 'purple',
             scale = 1,
             initLevel = 0,
             mapX = 2,
-            mapY = 2,
-            renderLayer = 2,
+            mapY = 1,
+            renderLayer = 5,
             -- offsetX = 1 * FACILITY_SIZE + 48,
             -- offsetY = VIRTUAL_HEIGHT / 5 * 3 + 18,
 
@@ -1482,25 +1482,25 @@ FACILITY_DEFS = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = ROW_TWO_BASE_COST[1],
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [1] = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = ROW_TWO_BASE_COST[2],
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [2] = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = ROW_TWO_BASE_COST[3],
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [3] = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = ROW_TWO_BASE_COST[4],
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 }
             },
 
@@ -1509,25 +1509,25 @@ FACILITY_DEFS = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [1] = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [2] = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [3] = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 }
             },
 
@@ -1536,25 +1536,25 @@ FACILITY_DEFS = {
                     ['money'] = 0,
                     ['food'] = ROW_TWO_REG_COSTb[1],
                     ['energy'] = ROW_TWO_REG_COSTa[1],
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [1] = {
                     ['money'] = 0,
                     ['food'] = ROW_TWO_REG_COSTb[2],
                     ['energy'] = ROW_TWO_REG_COSTa[2],
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [2] = {
                     ['money'] = 0,
                     ['food'] = ROW_TWO_REG_COSTb[3],
                     ['energy'] = ROW_TWO_REG_COSTa[3],
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [3] = {
                     ['money'] = 0,
                     ['food'] = ROW_TWO_REG_COSTb[4],
                     ['energy'] = ROW_TWO_REG_COSTa[4],
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 }
             },
 
@@ -1563,25 +1563,25 @@ FACILITY_DEFS = {
                     ['money'] = ROW_TWO_REG_EARN[1],
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [1] = {
                     ['money'] = ROW_TWO_REG_EARN[2],
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [2] = {
                     ['money'] = ROW_TWO_REG_EARN[3],
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [3] = {
                     ['money'] = ROW_TWO_REG_EARN[4],
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 }
             },
 
@@ -1610,14 +1610,14 @@ FACILITY_DEFS = {
         },
 
         [6] = {
-            type = 'engine',
-            name = 'Moon Engine',
+            type = 'sail',
+            name = 'Photon Sail',
             side = 'purple',
             scale = 1,
             initLevel = 0,
             mapX = 3,
-            mapY = 2,
-            renderLayer = 3,
+            mapY = 1,
+            renderLayer = 6,
             -- offsetX = 1 * FACILITY_SIZE + 96,
             -- offsetY = VIRTUAL_HEIGHT / 5 * 3 + 18,
 
@@ -1626,25 +1626,25 @@ FACILITY_DEFS = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = NO_SIX_BASE_COSTb[1],
-                    ['perception'] = NO_SIX_BASE_COSTa[1]
+                    ['amenity'] = NO_SIX_BASE_COSTa[1]
                 },
                 [1] = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = NO_SIX_BASE_COSTb[2],
-                    ['perception'] = NO_SIX_BASE_COSTa[2]
+                    ['amenity'] = NO_SIX_BASE_COSTa[2]
                 },
                 [2] = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = NO_SIX_BASE_COSTb[3],
-                    ['perception'] = NO_SIX_BASE_COSTa[3]
+                    ['amenity'] = NO_SIX_BASE_COSTa[3]
                 },
                 [3] = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = NO_SIX_BASE_COSTb[4],
-                    ['perception'] = NO_SIX_BASE_COSTa[4]
+                    ['amenity'] = NO_SIX_BASE_COSTa[4]
                 }
             },
 
@@ -1653,25 +1653,25 @@ FACILITY_DEFS = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [1] = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [2] = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [3] = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 }
             },
 
@@ -1680,25 +1680,25 @@ FACILITY_DEFS = {
                     ['money'] = 0,
                     ['food'] = NO_SIX_REG_COSTb[1],
                     ['energy'] = NO_SIX_REG_COSTa[1],
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [1] = {
                     ['money'] = 0,
                     ['food'] = NO_SIX_REG_COSTb[2],
                     ['energy'] = NO_SIX_REG_COSTa[2],
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [2] = {
                     ['money'] = 0,
                     ['food'] = NO_SIX_REG_COSTb[3],
                     ['energy'] = NO_SIX_REG_COSTa[3],
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 },
                 [3] = {
                     ['money'] = 0,
                     ['food'] = NO_SIX_REG_COSTb[4],
                     ['energy'] = NO_SIX_REG_COSTa[4],
-                    ['perception'] = 0
+                    ['amenity'] = 0
                 }
             },
 
@@ -1707,25 +1707,25 @@ FACILITY_DEFS = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = NO_SIX_REG_EARN[1]
+                    ['amenity'] = NO_SIX_REG_EARN[1]
                 },
                 [1] = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = NO_SIX_REG_EARN[2]
+                    ['amenity'] = NO_SIX_REG_EARN[2]
                 },
                 [2] = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = NO_SIX_REG_EARN[3]
+                    ['amenity'] = NO_SIX_REG_EARN[3]
                 },
                 [3] = {
                     ['money'] = 0,
                     ['food'] = 0,
                     ['energy'] = 0,
-                    ['perception'] = NO_SIX_REG_EARN[4]
+                    ['amenity'] = NO_SIX_REG_EARN[4]
                 }
             },
 

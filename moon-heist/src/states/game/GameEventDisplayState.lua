@@ -11,5 +11,7 @@ end
 
 
 function GameEventDisplayState:render()
+    love.graphics.setColor(0, 0, 0, 0.5)
+    love.graphics.rectangle('fill', 0, 0, VIRTUAL_WIDTH, VIRTUAL_HEIGHT)
     self.gameEvent.stateMachine:render()
 end

@@ -14,7 +14,7 @@ function PlayState:init()
         ['money'] = 2000,
         ['food'] = 2000,
         ['energy'] = 2000,
-        ['perception'] = 2000
+        ['amenity'] = 2000
     }
 
     self.yellowSide = Side({
@@ -38,6 +38,12 @@ function PlayState:init()
 
     self.sides = {self.yellowSide, self.PurpleSide}
     self.currentSide = self.yellowSide
+    self.regTotal = {
+        ['money'] = 0,
+        ['food'] = 0,
+        ['energy'] = 0,
+        ['amenity'] = 0
+    }
 
     self.cameraX = 0
     self.cameraY = 0

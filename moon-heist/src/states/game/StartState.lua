@@ -63,9 +63,6 @@ function StartState:init()
 end
 
 function StartState:update(dt)
-    -- if love.keyboard.wasPressed('enter') or love.keyboard.wasPressed('return') or love.mouse.wasPressed(1) then
-    --     self:startGame()
-    -- end
     self.startMenu:update(dt)
 end
 
@@ -73,9 +70,9 @@ function StartState:render()
     love.graphics.push()
     love.graphics.clear(GREY_UI_BG)
 
-    love.graphics.setColor(GREY_UI_TEXT)
-    love.graphics.setFont(gFonts['large'])
-    love.graphics.printf('Moon Heist!', 0, VIRTUAL_HEIGHT / 2 - 72, VIRTUAL_WIDTH, 'center')
+    love.graphics.setColor(GREY)
+    love.graphics.setFont(gFonts['medium'])
+    love.graphics.printf('Moon Heist!', 0, VIRTUAL_HEIGHT / 2 - 82, VIRTUAL_WIDTH, 'center')
     love.graphics.setFont(gFonts['small'])
 
     love.graphics.setColor(GREY)

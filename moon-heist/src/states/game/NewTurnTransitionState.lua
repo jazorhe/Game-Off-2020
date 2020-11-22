@@ -11,6 +11,7 @@ function NewTurnTransitionState:init(def)
     self.x = VIRTUAL_WIDTH
     self.y = VIRTUAL_HEIGHT / 2 - 20
     -- self.time = time
+    self.exited = false
 
     Timer.tween(0.3, {
         [self] = {x = 150}
@@ -25,6 +26,7 @@ function NewTurnTransitionState:init(def)
             })
             :finish(function()
                 gStateStack:pop()
+                self.exited = true
             end)
         end)
     end)
@@ -39,22 +41,12 @@ function NewTurnTransitionState:render()
     love.graphics.rectangle('fill', self.x, self.y - 10, VIRTUAL_WIDTH - 200, 40)
     love.graphics.polygon('fill', self.x, self.y - 10, self.x, self.y + 30, self.x - 20, self.y + 10)
 
-    -- love.graphics.setColor(self.darkcolour)
-    -- love.graphics.polygon('fill', self.x + 10, self.y + 10, )
-    -- love.graphics.setColor(self.bgcolour)
-    -- love.graphics.polygon('fill', self.x, self.y, )
-    --
-    -- love.graphics.setColor(self.darkcolour)
-    -- love.graphics.polygon('fill', self.x + 10, self.y + 10, )
-    -- love.graphics.setColor(self.bgcolour)
-    -- love.graphics.polygon('fill', self.x, self.y, )
-
     love.graphics.setFont(gFonts['large'])
     love.graphics.setColor(self.textcolour)
     love.graphics.printf('Month ' .. tostring(self.turn), self.x, VIRTUAL_HEIGHT / 2 - gFonts['large']:getHeight() / 2 - 10, VIRTUAL_WIDTH - 200, 'center')
     love.graphics.setColor(WHITE)
 
-    if DEBUG then
+    if DEBUG and DEBUG_STATES then
         local alignment = 'left'
         local offsetX = 24
         local paddingY = 12
@@ -82,7 +74,7 @@ function NewTurnTransitionState:render()
             0, VIRTUAL_HEIGHT - bottomY - 3 * paddingY, VIRTUAL_WIDTH, 'center')
         love.graphics.printf('Energy: ' .. tostring(self.resources['energy']),
             0, VIRTUAL_HEIGHT - bottomY - 2 * paddingY, VIRTUAL_WIDTH, 'center')
-        love.graphics.printf('Perception: ' .. tostring(self.resources['perception']),
+        love.graphics.printf('Amenity: ' .. tostring(self.resources['amenity']),
             0, VIRTUAL_HEIGHT - bottomY - 1 * paddingY, VIRTUAL_WIDTH, 'center')
     end
 

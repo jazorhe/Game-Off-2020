@@ -26,6 +26,7 @@ require 'src/states/game/FadeInState'
 require 'src/states/game/FadeOutState'
 require 'src/states/game/PlayState'
 require 'src/states/game/DialogueState'
+require 'src/states/game/TutorialState'
 require 'src/states/game/GameEventDisplayState'
 require 'src/states/game/NewTurnTransitionState'
 require 'src/states/game/GameOverState'
@@ -34,20 +35,19 @@ require 'src/states/game/PurpleEndingState'
 require 'src/states/game/CreditsState'
 
 require 'src/Side'
+require 'src/Sky'
 require 'src/facility/Facility'
-require 'src/facility/facility_defs'
--- require 'src/states/facility/' -- TODO
--- require 'src/states/facility/' -- TODO
--- require 'src/states/facility/' -- TODO
-
 require 'src/entity/Entity'
+require 'src/game-event/GameEvent'
+
+require 'src/states/game/tutorial_defs'
+require 'src/facility/facility_defs'
 require 'src/entity/entity_defs'
+require 'src/game-event/gameevent_defs'
+
 require 'src/states/entity/EntityBaseState'
 require 'src/states/entity/EntityIdleState'
 require 'src/states/entity/EntityWalkState'
-
-require 'src/game-event/GameEvent'
-require 'src/game-event/gameevent_defs'
 require 'src/states/game-event/GameEventBaseState'
 require 'src/states/game-event/GameEventPlannedState'
 require 'src/states/game-event/GameEventEncounterState'
@@ -68,7 +68,8 @@ gTextures = {
     ['yellowbg'] = love.graphics.newImage('graphics/yellow-background.png'),
     ['purplebg'] = love.graphics.newImage('graphics/purple-background.png'),
     ['earth'] = love.graphics.newImage('graphics/earth.png'),
-    ['galaxy'] = love.graphics.newImage('graphics/galaxy.png')
+    ['galaxy'] = love.graphics.newImage('graphics/galaxy.png'),
+    ['particle'] = love.graphics.newImage('graphics/particle.png')
 }
 
 
@@ -104,5 +105,6 @@ gSounds = {
 gVolume = 0.8
 gMute = false
 love.audio.setVolume(gVolume)
+gSounds['blip']:setVolume(0.3)
 
 -- ['main-theme'] = love.audio.newSource('sounds/main-theme.wav', 'static'),

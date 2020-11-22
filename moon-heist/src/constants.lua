@@ -13,14 +13,14 @@ INITIAL_RESOURCES = {
     ['money'] = 2000,
     ['food'] = 2000,
     ['energy'] = 2000,
-    ['perception'] = 2000
+    ['amenity'] = 2000
 }
 
 ZERO_RESOURCES = {
     ['money'] = 0,
     ['food'] = 0,
     ['energy'] = 0,
-    ['perception'] = 0
+    ['amenity'] = 0
 }
 
 GREY = table.pack(rgb(136, 134, 138))
@@ -32,12 +32,14 @@ YELLOW = table.pack(rgb(255, 216, 0))
 YELLOW_BG = table.pack(rgb(195, 180, 126))
 YELLOW_UI_BG = table.pack(rgba(255, 216, 0, 0.8))
 YELLOW_TEXT = table.pack(rgb(252, 255, 197))
+YELLOW_TEXT_SEC = table.pack(rgb(235, 240, 140))
 YELLOW_DARK = table.pack(rgb(71, 60, 10))
 
 PURPLE = table.pack(rgb(168, 0, 255))
 PURPLE_BG = table.pack(rgb(185, 126, 195))
 PURPLE_UI_BG = table.pack(rgba(168, 0, 255, 0.8))
 PURPLE_TEXT = table.pack(rgb(213, 186, 218))
+PURPLE_TEXT_SEC = table.pack(rgb(185, 126, 195))
 PURPLE_DARK = table.pack(rgb(34, 7, 40))
 
 GENERAL = table.pack(rgb(255, 255, 255))
@@ -55,6 +57,7 @@ gColours = {
         bg = YELLOW_BG,
         ui_bg = YELLOW_UI_BG,
         ui_text = YELLOW_TEXT,
+        ui_text_light = YELLOW_TEXT_SEC,
         dark = YELLOW_DARK
     },
     ['purple'] = {
@@ -62,6 +65,7 @@ gColours = {
         bg = PURPLE_BG,
         ui_bg = PURPLE_UI_BG,
         ui_text = PURPLE_TEXT,
+        ui_text_light = PURPLE_TEXT_SEC,
         dark = PURPLE_DARK
     },
     ['general'] = {
@@ -74,7 +78,11 @@ gColours = {
 }
 
 DEBUG = false
+DEBUG_FACILITY = false
+DEBUG_MOUSE = false
 DEBUG_EVENTS = false
-DEBUG_STATES = true
-CHEAT_MODE = true
+DEBUG_STATES = false
+CHEAT_MODE = false
+
 EVENTS_MODE = true
+TUTORIAL = true

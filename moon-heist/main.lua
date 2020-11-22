@@ -53,13 +53,19 @@ end
 function love.draw()
     push:start()
     gStateStack:render()
+
     if DEBUG and DEBUG_STATES then
         love.graphics.setFont(gFonts['medium'])
         love.graphics.printf(tostring(#gStateStack.states), 5, 16, VIRTUAL_WIDTH, 'left')
         for k, state in pairs(gStateStack.states)do
             love.graphics.printf(tostring(state.statename), 5, 16 + k * 20, VIRTUAL_WIDTH, 'left')
         end
+    elseif DEBUG and DEBUG_MOUSE then
+        love.graphics.setFont(gFonts['small'])
+        love.graphics.setColor(WHITE)
+        love.graphics.printf("x: ".. tostring(mouseX) .. ", y: " .. tostring(mouseY), 5, 5, VIRTUAL_WIDTH, 'left')
     end
+
     push:finish()
 end
 

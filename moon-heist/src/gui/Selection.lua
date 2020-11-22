@@ -8,7 +8,7 @@ function Selection:init(def)
     self.height = def.height
     self.width = def.width
     self.font = def.font or gFonts['small']
-    self.colour = def.textcolour
+    self.textcolour = def.textcolour
 
     self.gapHeight = self.height / #self.items
 
@@ -16,8 +16,7 @@ function Selection:init(def)
 end
 
 function Selection:update(dt, gameEvent, callback)
-
-    if love.keyboard.wasPressed('return') or love.keyboard.wasPressed('enter') then
+    if love.keyboard.wasPressed('return') or love.keyboard.wasPressed('enter') or love.keyboard.wasPressed('kpenter') then
         self:selectionEvent(gameEvent, callback)
     end
 
@@ -27,7 +26,6 @@ function Selection:update(dt, gameEvent, callback)
         else
             self.currentSelection = self.currentSelection - 1
         end
-
         gSounds['blip']:stop()
         gSounds['blip']:play()
 
@@ -39,7 +37,6 @@ function Selection:update(dt, gameEvent, callback)
         end
         gSounds['blip']:stop()
         gSounds['blip']:play()
-
 
     elseif mouseX > self.x and mouseX < self.x + self.width and mouseY > self.y and mouseY < self.y + self.height then
 
@@ -64,15 +61,14 @@ function Selection:render()
     local currentY = self.y
 
     for i = 1, #self.items do
-        love.graphics.setColor(self.colour)
+        love.graphics.setColor(self.textcolour)
         love.graphics.setFont(gFonts['small'])
 
         local paddedY = currentY + (self.gapHeight / 2) - self.font:getHeight() / 2
 
         -- draw selection marker if we're at the right index
         if i == self.currentSelection then
-            -- love.graphics.setColor(PURPLE)
-            love.graphics.draw(gTextures['cursor'], self.x - 18, paddedY)
+            love.graphics.draw(gTextures['cursor'], self.x - 15, paddedY - self.font:getHeight() / 2)
         end
 
         love.graphics.printf(self.items[i].text, self.x + 8, paddedY, self.width, 'left')
@@ -87,7 +83,6 @@ function Selection:selectionEvent(gameEvent, callback)
     self.items[self.currentSelection].onSelect()
     gSounds['blip']:stop()
     gSounds['blip']:play()
-
     if gameEvent then
         callback(self.currentSelection)
     end

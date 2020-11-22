@@ -47,7 +47,7 @@ RANDOM_EVENTS = {
                         ['money'] = 0,
                         ['food'] = 0,
                         ['energy'] = 200,
-                        ['perception'] = 400
+                        ['amenity'] = 400
                     },
                     trust = 0,
                     side = 'yellow'
@@ -56,7 +56,7 @@ RANDOM_EVENTS = {
                         ['money'] = 0,
                         ['food'] = 0,
                         ['energy'] = -200,
-                        ['perception'] = -400
+                        ['amenity'] = -400
                     },
                     trust = 0,
                     side = 'yellow'
@@ -66,7 +66,7 @@ RANDOM_EVENTS = {
                         ['money'] = 1,
                         ['food'] = 1,
                         ['energy'] = 1,
-                        ['perception'] = 1
+                        ['amenity'] = 1
                     },
                     trust = 0,
                     side = 'yellow'
@@ -75,7 +75,7 @@ RANDOM_EVENTS = {
                         ['money'] = 0,
                         ['food'] = 0,
                         ['energy'] = 200,
-                        ['perception'] = 400
+                        ['amenity'] = 400
                     },
                     trust = 0,
                     side = 'yellow'
@@ -101,7 +101,7 @@ RANDOM_EVENTS = {
                     "The event is a placeholder for an early event, eventID 102"
                 },
                 [1] = {
-                    "You selected option 1 in event 102, there is a 66% chance you will lose 200 energy and 400 perception. 33% of gaining them."
+                    "You selected option 1 in event 102, there is a 66% chance you will lose 200 energy and 400 amenity. 33% of gaining them."
                 },
                 [2] = {
                     "You selected option 2 in event 102, there is 80% chance of no effect or 20% of losing 20% trust from yellow side."
@@ -133,7 +133,7 @@ RANDOM_EVENTS = {
                         ['money'] = 0,
                         ['food'] = 0,
                         ['energy'] = 200,
-                        ['perception'] = 400
+                        ['amenity'] = 400
                     },
                     trust = 0,
                     side = 'yellow'
@@ -142,7 +142,7 @@ RANDOM_EVENTS = {
                         ['money'] = 0,
                         ['food'] = 0,
                         ['energy'] = -200,
-                        ['perception'] = -400
+                        ['amenity'] = -400
                     },
                     trust = 0,
                     side = 'yellow'
@@ -152,7 +152,7 @@ RANDOM_EVENTS = {
                         ['money'] = 0,
                         ['food'] = 0,
                         ['energy'] = 0,
-                        ['perception'] = 0
+                        ['amenity'] = 0
                     },
                     trust = 0,
                     side = 'yellow'
@@ -161,7 +161,7 @@ RANDOM_EVENTS = {
                         ['money'] = 0,
                         ['food'] = 0,
                         ['energy'] = 0,
-                        ['perception'] = 0
+                        ['amenity'] = 0
                     },
                     trust = -20,
                     side = 'yellow'
@@ -187,7 +187,7 @@ RANDOM_EVENTS = {
                     "The event is a placeholder for an early event, eventID 103"
                 },
                 [1] = {
-                    "You selected option 1 in event 103, there is a 66% chance you will lose 200 energy and 400 perception. 33% of gaining them."
+                    "You selected option 1 in event 103, there is a 66% chance you will lose 200 energy and 400 amenity. 33% of gaining them."
                 },
                 [2] = {
                     "You selected option 2 in event 103, there is 80% chance of no effect or 20% of losing 20% trust from yellow side."
@@ -219,7 +219,7 @@ RANDOM_EVENTS = {
                         ['money'] = 0,
                         ['food'] = 0,
                         ['energy'] = 200,
-                        ['perception'] = 400
+                        ['amenity'] = 400
                     },
                     trust = 0,
                     side = 'yellow'
@@ -228,7 +228,7 @@ RANDOM_EVENTS = {
                         ['money'] = 0,
                         ['food'] = 0,
                         ['energy'] = -200,
-                        ['perception'] = -400
+                        ['amenity'] = -400
                     },
                     trust = 0,
                     side = 'yellow'
@@ -238,7 +238,7 @@ RANDOM_EVENTS = {
                         ['money'] = 0,
                         ['food'] = 0,
                         ['energy'] = 0,
-                        ['perception'] = 0
+                        ['amenity'] = 0
                     },
                     trust = 0,
                     side = 'yellow'
@@ -247,7 +247,7 @@ RANDOM_EVENTS = {
                         ['money'] = 0,
                         ['food'] = 0,
                         ['energy'] = 0,
-                        ['perception'] = 0
+                        ['amenity'] = 0
                     },
                     trust = -20,
                     side = 'yellow'
@@ -273,7 +273,7 @@ RANDOM_EVENTS = {
                     "The event is a placeholder for an early event, eventID 104"
                 },
                 [1] = {
-                    "You selected option 1 in event 104, there is a 66% chance you will lose 200 energy and 400 perception. 33% of gaining them."
+                    "You selected option 1 in event 104, there is a 66% chance you will lose 200 energy and 400 amenity. 33% of gaining them."
                 },
                 [2] = {
                     "You selected option 2 in event 104, there is 80% chance of no effect or 20% of losing 20% trust from yellow side."
@@ -305,7 +305,7 @@ RANDOM_EVENTS = {
                         ['money'] = 0,
                         ['food'] = 0,
                         ['energy'] = 200,
-                        ['perception'] = 400
+                        ['amenity'] = 400
                     },
                     trust = 0,
                     side = 'yellow'
@@ -314,7 +314,7 @@ RANDOM_EVENTS = {
                         ['money'] = 0,
                         ['food'] = 0,
                         ['energy'] = -200,
-                        ['perception'] = -400
+                        ['amenity'] = -400
                     },
                     trust = 0,
                     side = 'yellow'
@@ -324,7 +324,7 @@ RANDOM_EVENTS = {
                         ['money'] = 0,
                         ['food'] = 0,
                         ['energy'] = 0,
-                        ['perception'] = 0
+                        ['amenity'] = 0
                     },
                     trust = 0,
                     side = 'yellow'
@@ -333,7 +333,7 @@ RANDOM_EVENTS = {
                         ['money'] = 0,
                         ['food'] = 0,
                         ['energy'] = 0,
-                        ['perception'] = 0
+                        ['amenity'] = 0
                     },
                     trust = -20,
                     side = 'yellow'
@@ -359,7 +359,7 @@ RANDOM_EVENTS = {
                     "The event is a placeholder for an early event, eventID 105"
                 },
                 [1] = {
-                    "You selected option 1 in event 105, there is a 66% chance you will lose 200 energy and 400 perception. 33% of gaining them."
+                    "You selected option 1 in event 105, there is a 66% chance you will lose 200 energy and 400 amenity. 33% of gaining them."
                 },
                 [2] = {
                     "You selected option 2 in event 105, there is 80% chance of no effect or 20% of losing 20% trust from yellow side."
@@ -391,7 +391,7 @@ RANDOM_EVENTS = {
                         ['money'] = 0,
                         ['food'] = 0,
                         ['energy'] = 200,
-                        ['perception'] = 400
+                        ['amenity'] = 400
                     },
                     trust = 0,
                     side = 'yellow'
@@ -400,7 +400,7 @@ RANDOM_EVENTS = {
                         ['money'] = 0,
                         ['food'] = 0,
                         ['energy'] = -200,
-                        ['perception'] = -400
+                        ['amenity'] = -400
                     },
                     trust = 0,
                     side = 'yellow'
@@ -410,7 +410,7 @@ RANDOM_EVENTS = {
                         ['money'] = 0,
                         ['food'] = 0,
                         ['energy'] = 0,
-                        ['perception'] = 0
+                        ['amenity'] = 0
                     },
                     trust = 0,
                     side = 'yellow'
@@ -419,7 +419,7 @@ RANDOM_EVENTS = {
                         ['money'] = 0,
                         ['food'] = 0,
                         ['energy'] = 0,
-                        ['perception'] = 0
+                        ['amenity'] = 0
                     },
                     trust = -20,
                     side = 'yellow'
@@ -445,7 +445,7 @@ RANDOM_EVENTS = {
                     "The event is a placeholder for an early event, eventID 106"
                 },
                 [1] = {
-                    "You selected option 1 in event 106, there is a 66% chance you will lose 200 energy and 400 perception. 33% of gaining them."
+                    "You selected option 1 in event 106, there is a 66% chance you will lose 200 energy and 400 amenity. 33% of gaining them."
                 },
                 [2] = {
                     "You selected option 2 in event 106, there is 80% chance of no effect or 20% of losing 20% trust from yellow side."
@@ -477,7 +477,7 @@ RANDOM_EVENTS = {
                         ['money'] = 0,
                         ['food'] = 0,
                         ['energy'] = 200,
-                        ['perception'] = 400
+                        ['amenity'] = 400
                     },
                     trust = 0,
                     side = 'yellow'
@@ -486,7 +486,7 @@ RANDOM_EVENTS = {
                         ['money'] = 0,
                         ['food'] = 0,
                         ['energy'] = -200,
-                        ['perception'] = -400
+                        ['amenity'] = -400
                     },
                     trust = 0,
                     side = 'yellow'
@@ -496,7 +496,7 @@ RANDOM_EVENTS = {
                         ['money'] = 0,
                         ['food'] = 0,
                         ['energy'] = 0,
-                        ['perception'] = 0
+                        ['amenity'] = 0
                     },
                     trust = 0,
                     side = 'yellow'
@@ -505,7 +505,7 @@ RANDOM_EVENTS = {
                         ['money'] = 0,
                         ['food'] = 0,
                         ['energy'] = 0,
-                        ['perception'] = 0
+                        ['amenity'] = 0
                     },
                     trust = -20,
                     side = 'yellow'
@@ -565,7 +565,7 @@ RANDOM_EVENTS = {
                         ['money'] = 0,
                         ['food'] = 0,
                         ['energy'] = 200,
-                        ['perception'] = 400
+                        ['amenity'] = 400
                     },
                     trust = 0,
                     side = 'yellow'
@@ -574,7 +574,7 @@ RANDOM_EVENTS = {
                         ['money'] = 0,
                         ['food'] = 0,
                         ['energy'] = -200,
-                        ['perception'] = -400
+                        ['amenity'] = -400
                     },
                     trust = 0,
                     side = 'yellow'
@@ -584,7 +584,7 @@ RANDOM_EVENTS = {
                         ['money'] = 1,
                         ['food'] = 1,
                         ['energy'] = 1,
-                        ['perception'] = 1
+                        ['amenity'] = 1
                     },
                     trust = 0,
                     side = 'yellow'
@@ -593,7 +593,7 @@ RANDOM_EVENTS = {
                         ['money'] = 0,
                         ['food'] = 0,
                         ['energy'] = 200,
-                        ['perception'] = 400
+                        ['amenity'] = 400
                     },
                     trust = 0,
                     side = 'yellow'
@@ -619,7 +619,7 @@ RANDOM_EVENTS = {
                     "The event is a placeholder for an later event, eventID 202"
                 },
                 [1] = {
-                    "You selected option 1 in event 202, there is a 66% chance you will lose 200 energy and 400 perception. 33% of gaining them."
+                    "You selected option 1 in event 202, there is a 66% chance you will lose 200 energy and 400 amenity. 33% of gaining them."
                 },
                 [2] = {
                     "You selected option 2 in event 202, there is 80% chance of no effect or 20% of losing 20% trust from yellow side."
@@ -651,7 +651,7 @@ RANDOM_EVENTS = {
                         ['money'] = 0,
                         ['food'] = 0,
                         ['energy'] = 200,
-                        ['perception'] = 400
+                        ['amenity'] = 400
                     },
                     trust = 0,
                     side = 'yellow'
@@ -660,7 +660,7 @@ RANDOM_EVENTS = {
                         ['money'] = 0,
                         ['food'] = 0,
                         ['energy'] = -200,
-                        ['perception'] = -400
+                        ['amenity'] = -400
                     },
                     trust = 0,
                     side = 'yellow'
@@ -670,7 +670,7 @@ RANDOM_EVENTS = {
                         ['money'] = 0,
                         ['food'] = 0,
                         ['energy'] = 0,
-                        ['perception'] = 0
+                        ['amenity'] = 0
                     },
                     trust = 0,
                     side = 'yellow'
@@ -679,7 +679,7 @@ RANDOM_EVENTS = {
                         ['money'] = 0,
                         ['food'] = 0,
                         ['energy'] = 0,
-                        ['perception'] = 0
+                        ['amenity'] = 0
                     },
                     trust = -20,
                     side = 'yellow'
@@ -705,7 +705,7 @@ RANDOM_EVENTS = {
                     "The event is a placeholder for an later event, eventID 203"
                 },
                 [1] = {
-                    "You selected option 1 in event 203, there is a 66% chance you will lose 200 energy and 400 perception. 33% of gaining them."
+                    "You selected option 1 in event 203, there is a 66% chance you will lose 200 energy and 400 amenity. 33% of gaining them."
                 },
                 [2] = {
                     "You selected option 2 in event 203, there is 80% chance of no effect or 20% of losing 20% trust from yellow side."
@@ -737,7 +737,7 @@ RANDOM_EVENTS = {
                         ['money'] = 0,
                         ['food'] = 0,
                         ['energy'] = 200,
-                        ['perception'] = 400
+                        ['amenity'] = 400
                     },
                     trust = 0,
                     side = 'yellow'
@@ -746,7 +746,7 @@ RANDOM_EVENTS = {
                         ['money'] = 0,
                         ['food'] = 0,
                         ['energy'] = -200,
-                        ['perception'] = -400
+                        ['amenity'] = -400
                     },
                     trust = 0,
                     side = 'yellow'
@@ -756,7 +756,7 @@ RANDOM_EVENTS = {
                         ['money'] = 0,
                         ['food'] = 0,
                         ['energy'] = 0,
-                        ['perception'] = 0
+                        ['amenity'] = 0
                     },
                     trust = 0,
                     side = 'yellow'
@@ -765,7 +765,7 @@ RANDOM_EVENTS = {
                         ['money'] = 0,
                         ['food'] = 0,
                         ['energy'] = 0,
-                        ['perception'] = 0
+                        ['amenity'] = 0
                     },
                     trust = -20,
                     side = 'yellow'
@@ -791,7 +791,7 @@ RANDOM_EVENTS = {
                     "The event is a placeholder for an later event, eventID 204"
                 },
                 [1] = {
-                    "You selected option 1 in event 204, there is a 66% chance you will lose 200 energy and 400 perception. 33% of gaining them."
+                    "You selected option 1 in event 204, there is a 66% chance you will lose 200 energy and 400 amenity. 33% of gaining them."
                 },
                 [2] = {
                     "You selected option 2 in event 204, there is 80% chance of no effect or 20% of losing 20% trust from yellow side."
@@ -823,7 +823,7 @@ RANDOM_EVENTS = {
                         ['money'] = 0,
                         ['food'] = 0,
                         ['energy'] = 200,
-                        ['perception'] = 400
+                        ['amenity'] = 400
                     },
                     trust = 0,
                     side = 'yellow'
@@ -832,7 +832,7 @@ RANDOM_EVENTS = {
                         ['money'] = 0,
                         ['food'] = 0,
                         ['energy'] = -200,
-                        ['perception'] = -400
+                        ['amenity'] = -400
                     },
                     trust = 0,
                     side = 'yellow'
@@ -842,7 +842,7 @@ RANDOM_EVENTS = {
                         ['money'] = 0,
                         ['food'] = 0,
                         ['energy'] = 0,
-                        ['perception'] = 0
+                        ['amenity'] = 0
                     },
                     trust = 0,
                     side = 'yellow'
@@ -851,7 +851,7 @@ RANDOM_EVENTS = {
                         ['money'] = 0,
                         ['food'] = 0,
                         ['energy'] = 0,
-                        ['perception'] = 0
+                        ['amenity'] = 0
                     },
                     trust = -20,
                     side = 'yellow'
@@ -877,7 +877,7 @@ RANDOM_EVENTS = {
                     "The event is a placeholder for an later event, eventID 205"
                 },
                 [1] = {
-                    "You selected option 1 in event 205, there is a 66% chance you will lose 200 energy and 400 perception. 33% of gaining them."
+                    "You selected option 1 in event 205, there is a 66% chance you will lose 200 energy and 400 amenity. 33% of gaining them."
                 },
                 [2] = {
                     "You selected option 2 in event 205, there is 80% chance of no effect or 20% of losing 20% trust from yellow side."
@@ -909,7 +909,7 @@ RANDOM_EVENTS = {
                         ['money'] = 0,
                         ['food'] = 0,
                         ['energy'] = 200,
-                        ['perception'] = 400
+                        ['amenity'] = 400
                     },
                     trust = 0,
                     side = 'yellow'
@@ -918,7 +918,7 @@ RANDOM_EVENTS = {
                         ['money'] = 0,
                         ['food'] = 0,
                         ['energy'] = -200,
-                        ['perception'] = -400
+                        ['amenity'] = -400
                     },
                     trust = 0,
                     side = 'yellow'
@@ -928,7 +928,7 @@ RANDOM_EVENTS = {
                         ['money'] = 0,
                         ['food'] = 0,
                         ['energy'] = 0,
-                        ['perception'] = 0
+                        ['amenity'] = 0
                     },
                     trust = 0,
                     side = 'yellow'
@@ -937,7 +937,7 @@ RANDOM_EVENTS = {
                         ['money'] = 0,
                         ['food'] = 0,
                         ['energy'] = 0,
-                        ['perception'] = 0
+                        ['amenity'] = 0
                     },
                     trust = -20,
                     side = 'yellow'
@@ -963,7 +963,7 @@ RANDOM_EVENTS = {
                     "The event is a placeholder for an later event, eventID 206"
                 },
                 [1] = {
-                    "You selected option 1 in event 206, there is a 66% chance you will lose 200 energy and 400 perception. 33% of gaining them."
+                    "You selected option 1 in event 206, there is a 66% chance you will lose 200 energy and 400 amenity. 33% of gaining them."
                 },
                 [2] = {
                     "You selected option 2 in event 206, there is 80% chance of no effect or 20% of losing 20% trust from yellow side."
@@ -995,7 +995,7 @@ RANDOM_EVENTS = {
                         ['money'] = 0,
                         ['food'] = 0,
                         ['energy'] = 200,
-                        ['perception'] = 400
+                        ['amenity'] = 400
                     },
                     trust = 0,
                     side = 'yellow'
@@ -1004,7 +1004,7 @@ RANDOM_EVENTS = {
                         ['money'] = 0,
                         ['food'] = 0,
                         ['energy'] = -200,
-                        ['perception'] = -400
+                        ['amenity'] = -400
                     },
                     trust = 0,
                     side = 'yellow'
@@ -1014,7 +1014,7 @@ RANDOM_EVENTS = {
                         ['money'] = 0,
                         ['food'] = 0,
                         ['energy'] = 0,
-                        ['perception'] = 0
+                        ['amenity'] = 0
                     },
                     trust = 0,
                     side = 'yellow'
@@ -1023,7 +1023,7 @@ RANDOM_EVENTS = {
                         ['money'] = 0,
                         ['food'] = 0,
                         ['energy'] = 0,
-                        ['perception'] = 0
+                        ['amenity'] = 0
                     },
                     trust = -20,
                     side = 'yellow'
@@ -1041,7 +1041,6 @@ RANDOM_EVENTS = {
 
 
 --[[
-
 Game Event Types:
 -   Regular: planned events that will definitely happen at turns
 -   Random: a pool of events that will be randomly chosen at start game
@@ -1095,5 +1094,4 @@ I have decided to generate all events at start of turn 1, rather than at each tu
 -   Regular Events Purple Side
 
 Thus, When resolving or encountering events, random events always come before regular ones.
-
 --]]

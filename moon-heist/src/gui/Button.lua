@@ -36,7 +36,7 @@ function Button:render()
 
         love.graphics.setFont(self.font)
         love.graphics.setColor(self.textcolour)
-        love.graphics.printf(self.text, self.x, self.y + self.height / 2 - self.font:getHeight() / 2, self.width, 'center')
+        love.graphics.printf(self.text, self.x, self.y + self.height / 2 - self.font:getHeight() / 2, self.width + 2, 'center')
 
     elseif self.type == 'triangle' then
         if self.side == 'yellow' then

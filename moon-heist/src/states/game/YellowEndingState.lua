@@ -7,7 +7,7 @@ function YellowEndingState:init()
 end
 
 function YellowEndingState:update()
-    if love.keyboard.wasPressed('enter') or love.keyboard.wasPressed('return') or love.mouse.wasPressed(1) then
+    if love.keyboard.wasPressed('enter') or love.keyboard.wasPressed('kpenter') or love.keyboard.wasPressed('return') or love.mouse.wasPressed(1) then
         gFuncExitToStart()
     end
 end

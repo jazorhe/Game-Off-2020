@@ -2,7 +2,7 @@ DialogueState = Class{__includes = BaseState}
 
 function DialogueState:init(x, y, width, height, text, wrap, bgcolour, textcolour, callback)
     self.statename = 'DialogueState'
-    self.textbox = Textbox(x, y, width, height, text, wrap, gFonts['small'], 'dialogue', bgcolour, textcolour, 16, 3)
+    self.textbox = Textbox(x, y, width, height, text, wrap, gFonts['small'], 'dialogue', bgcolour, textcolour, 16, 4)
     self.callback = callback or function() end
 end
 
@@ -20,5 +20,7 @@ function DialogueState:update(dt)
 end
 
 function DialogueState:render()
+    -- love.graphics.setColor(0, 0, 0, 0.5)
+    -- love.graphics.rectangle('fill', 0, 0, VIRTUAL_WIDTH, VIRTUAL_HEIGHT)
     self.textbox:render()
 end

@@ -17,15 +17,6 @@ function Side:init(def)
     self.resources = INITIAL_RESOURCES
     self.currentTurn = 1
 
-    self.displayPanel = DisplayPanel {
-        side = self.name,
-        baseX = self.baseX,
-        currentTurn = self.currentTurn,
-        trust = self.trust,
-        resources = self.resources
-    }
-
-    -- self.test = def.entities[1].x
     for i = 1, #def.entities do
         table.insert(self.entities, Entity(def.entities[i]))
         self.entities[i].stateMachine = StateMachine {
@@ -39,26 +30,34 @@ function Side:init(def)
         table.insert(self.facilities, Facility(def.facilities[i]))
     end
 
-    Event.on('trust-management', function(params)
-        self:modifyTrust(params)
-    end)
+    self.sky = Sky({
+        baseX = self.baseX,
+        side = self.name,
+        starColour = self.colour
+    })
 
-    self.showingResourceChange = false
-    self.showingTrustChange = false
-
+    self.displayPanel = DisplayPanel {
+        side = self.name,
+        baseX = self.baseX,
+        currentTurn = self.currentTurn,
+        trust = self.trust,
+        resources = self.resources
+    }
 
     self.shiftSideButton = Button({
         side = self.name,
         type = 'triangle',
         x = self.baseX + (self.name == 'yellow' and VIRTUAL_WIDTH - 20 or 5),
-        y = VIRTUAL_HEIGHT / 2 - 15,
-        width = 15,
+        y = VIRTUAL_HEIGHT / 2 - 10,
+        width = 20,
         height = 50,
         bgcolour = self.uiBgColour,
         textcolour = self.uiTextColour,
         font = gFonts['small'],
         text = (self.name == 'yellow' and 'D' or 'A'),
         onSelect = function()
+            gSounds['blip']:stop()
+            gSounds['blip']:play()
             if self.name == 'yellow' then
                 Event.dispatch('shift-right')
             elseif self.name == 'purple' then
@@ -69,52 +68,43 @@ function Side:init(def)
 
     self.endTurnButton = Button({
         type = 'rectangle',
-        x = self.baseX + VIRTUAL_WIDTH / 2 - 20,
+        x = self.baseX + VIRTUAL_WIDTH / 2 - 30,
         y = VIRTUAL_HEIGHT - 30,
-        width = 40,
+        width = 60,
         height = 20,
         bgcolour = self.uiBgColour,
         textcolour = self.uiTextColour,
         font = gFonts['small'],
-        text = 'Next',
+        text = 'End Month',
         onSelect = function()
             Event.dispatch('next-turn')
         end
     })
 
-end
+    self.showingResourceChange = false
+    self.showingTrustChange = false
 
-function Side:createAnimations(animations)
-    local animationsReturned = {}
-
-    for k, animationDef in pairs(animations) do
-        animationsReturned[k] = Animation {
-            texture = animationDef.texture,
-            frames = animationDef.frames,
-            interval = animationDef.interval
-        }
-    end
-
-    return animationsReturned
-end
-
-function Side:changeState(name, params)
-    info = params or {}
-    self.stateMachine:change(name, info)
+    Event.on('trust-management', function(params)
+        self:modifyTrust(params)
+    end)
 end
 
 function Side:update(dt, params)
-    -- self.currentAnimation:update(dt)
-    -- self.stateMachine:update(dt)
-
     self.resources = params.resources
-    self.currentTurn = params.currentTurn
+    self.currentTurn = params.currentTurn == 0 and 1 or params.currentTurn
+    self.regTotal = params.regTotal
+    self.shifting = params.shifting
+
+    self.sky.baseX = self.baseX
+    self.endTurnButton.x = self.baseX + VIRTUAL_WIDTH / 2 - 30
+    self.shiftSideButton.x = self.baseX + (self.name == 'yellow' and VIRTUAL_WIDTH - 20 or 5)
 
     self.displayPanel:update(dt, {
         baseX = self.baseX,
         currentTurn = self.currentTurn,
         trust = self.trust,
         resources = self.resources,
+        regTotal = self.regTotal,
         showingTrustChange = self.showingTrustChange,
         showingResourceChange = self.showingResourceChange,
         trustChange = self.trustChange,
@@ -125,20 +115,24 @@ function Side:update(dt, params)
         entity:update(dt)
     end
 
+    self.upgrading = false
     for k, facility in pairs(self.facilities) do
         facility:update(dt, params)
+        if facility.displayUpgradeConfirm then
+            self.upgrading = true
+        end
     end
-    self:facilitiesPanelsHandle(params.shifting)
+    self:facilitiesPanelsHandle()
 
-    self.endTurnButton.x = self.baseX + VIRTUAL_WIDTH / 2 - 20
+    self.sky:update(dt)
     self.endTurnButton:update(dt)
-    self.shiftSideButton.x = self.baseX + (self.name == 'yellow' and VIRTUAL_WIDTH - 20 or 5)
     self.shiftSideButton:update(dt)
 end
 
 function Side:render()
     -- self.stateMachine:render()
     love.graphics.draw(self.background, self.baseX + (self.name == 'purple' and - 100 or 0))
+    self.sky:render()
     love.graphics.setColor(0, 0, 0, 0.2)
     love.graphics.rectangle('fill', self.baseX, 0, VIRTUAL_WIDTH + 200, VIRTUAL_HEIGHT)
     love.graphics.setColor(WHITE)
@@ -159,9 +153,9 @@ function Side:render()
     love.graphics.setColor(rgb(255, 255, 255))
 end
 
-function Side:facilitiesPanelsHandle(shifting)
+function Side:facilitiesPanelsHandle()
 
-    if shifting then
+    if self.shifting then
         return
     end
 
@@ -223,4 +217,23 @@ function Side:showTrustChange(params)
 
     if self.showTrustTimer then self.showTrustTimer:remove() end
     self.showTrustTimer = Timer.after(3, function () self.showingTrustChange = false end)
+end
+
+function Side:createAnimations(animations)
+    local animationsReturned = {}
+
+    for k, animationDef in pairs(animations) do
+        animationsReturned[k] = Animation {
+            texture = animationDef.texture,
+            frames = animationDef.frames,
+            interval = animationDef.interval
+        }
+    end
+
+    return animationsReturned
+end
+
+function Side:changeState(name, params)
+    info = params or {}
+    self.stateMachine:change(name, info)
 end

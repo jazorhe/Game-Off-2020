@@ -30,9 +30,9 @@ function Facility:init(def, params)
         or VIRTUAL_HEIGHT / 5 * 3 + (self.mapY - 1) * 4 - 20
     elseif self.side == 'purple' then
         self.offsetX = def.offsetX
-        or 1 * FACILITY_SIZE + (self.mapX - 1) * 30 + (self.mapY - 1) * 25
+        or 1.5 * FACILITY_SIZE + (self.mapX - 1) * 20 + (self.mapY - 1) * 30
         self.offsetY = def.offsetY
-        or VIRTUAL_HEIGHT / 5 * 3 + (self.mapY - 1) * 18
+        or VIRTUAL_HEIGHT / 5 * 3 + (self.mapY - 1) * 4 + 20
     end
 
     self.offsetX = math.floor(self.offsetX)
@@ -62,7 +62,7 @@ function Facility:init(def, params)
                 end
             },
             [2] = {
-                text = "Cancle",
+                text = "Cancel",
                 onSelect = function()
                     self.displayUpgradeConfirm = false
                     self.displayInfo = true
@@ -145,7 +145,7 @@ function Facility:update(dt, params)
             "M: " .. tostring(self.buildCost[self.currentLevel + 1]['money']) .. "\n" ..
             "F: " .. tostring(self.buildCost[self.currentLevel + 1]['food']) .. "\n" ..
             "E: " .. tostring(self.buildCost[self.currentLevel + 1]['energy']) .. "\n" ..
-            "P: " .. tostring(self.buildCost[self.currentLevel + 1]['perception']) .. "\n"
+            "A: " .. tostring(self.buildCost[self.currentLevel + 1]['amenity']) .. "\n"
         or "")
         })
     end
@@ -154,21 +154,22 @@ function Facility:update(dt, params)
         if self.type == 'harbour' then
             Event.dispatch('win-game', {side = self.side})
         end
-        if self.type == 'engine' then
+        if self.type == 'sail' then
             Event.dispatch('win-game', {side = self.side})
         end
     end
 
-    -- if love.keyboard.wasPressed('left') and self.mapY == 2 then
-    --     self.x = self.x - 1
-    -- elseif love.keyboard.wasPressed('right') and self.mapY == 2 then
-    --     self.x = self.x + 1
-    -- elseif love.keyboard.wasPressed('up') and self.mapY == 2 then
-    --     self.y = self.y - 1
-    -- elseif love.keyboard.wasPressed('down') and self.mapY == 2 then
-    --     self.y = self.y + 1
-    -- end
-
+    if DEBUG and DEBUG_FACILITY then
+        if love.keyboard.wasPressed('left') and self.mapY == 2 then
+            self.x = self.x - 1
+        elseif love.keyboard.wasPressed('right') and self.mapY == 2 then
+            self.x = self.x + 1
+        elseif love.keyboard.wasPressed('up') and self.mapY == 2 then
+            self.y = self.y - 1
+        elseif love.keyboard.wasPressed('down') and self.mapY == 2 then
+            self.y = self.y + 1
+        end
+    end
 end
 
 function Facility:render(baseX)
@@ -178,12 +179,11 @@ function Facility:render(baseX)
     love.graphics.setShader(self.whiteShader)
     self.whiteShader:send('WhiteFactor', self:isHovered() and 0.1 or 0)
 
+
     love.graphics.draw(gTextures[anim.texture], gFrames[anim.texture][anim:getCurrentFrame()], self.actualX + baseX, self.actualY + (self:isHovered() and -0 or 0), 0, self.scale, self.scale)
 
-    love.graphics.setShader()
 
-    -- love.graphics.setColor(self.colour)
-    -- love.graphics.print("Level " .. tostring(self.currentLevel), self.actualX + baseX + 5, self.actualY + (self:isHovered() and -0 or 0) + 3)
+    love.graphics.setShader()
 
     love.graphics.setColor(WHITE)
 
@@ -193,6 +193,23 @@ function Facility:render(baseX)
     elseif self.displayInfo then
         self.infoTextbox:render()
     end
+
+    if DEBUG and DEBUG_FACILITY then
+        love.graphics.setColor(self.colour)
+        love.graphics.setFont(gFonts['small'])
+        love.graphics.print("Level " .. tostring(self.currentLevel), self.actualX + baseX + 5, self.actualY + (self:isHovered() and -0 or 0) + 3)
+        love.graphics.setColor(rgb(0, 186, 255))
+
+        if self.type == 'harbour' then
+            love.graphics.rectangle('line', self.actualX + baseX - FACILITY_SIZE * 4, self.actualY - FACILITY_SIZE * 2, self.width * 6, self.height * 4)
+        elseif self.type == 'sail' then
+            love.graphics.rectangle('line', self.actualX + baseX, self.actualY - FACILITY_SIZE * 5, self.width * 4, self.height * 6)
+        else
+            love.graphics.rectangle('line', self.actualX + baseX, self.actualY, self.width * self.scale, self.height * self.scale)
+        end
+        love.graphics.setColor(WHITE)
+    end
+
 end
 
 function Facility:isHovered()
@@ -243,8 +260,8 @@ function Facility:showInfoPanel()
         "E: " .. tostring(self.regEarn[self.currentLevel]['energy'] + self.regCost[self.currentLevel]['energy']) .. " e.a." ..
         (self.currentLevel < 3 and "  ->  " .. tostring(self.regEarn[self.currentLevel + 1]['energy'] + self.regCost[self.currentLevel + 1]['energy']) .. " e.a." or "") .."\n" ..
 
-        "P: " .. tostring(self.regEarn[self.currentLevel]['perception'] + self.regCost[self.currentLevel]['perception']) .. " e.a." ..
-        (self.currentLevel < 3 and "  ->  " .. tostring(self.regEarn[self.currentLevel + 1]['perception'] + self.regCost[self.currentLevel + 1]['perception']) .. " e.a." or "")
+        "A: " .. tostring(self.regEarn[self.currentLevel]['amenity'] + self.regCost[self.currentLevel]['amenity']) .. " e.a." ..
+        (self.currentLevel < 3 and "  ->  " .. tostring(self.regEarn[self.currentLevel + 1]['amenity'] + self.regCost[self.currentLevel + 1]['amenity']) .. " e.a." or "")
     })
 end
 
@@ -266,9 +283,11 @@ function Facility:levelUp(n)
             Event.dispatch('resource-management', {
                 resourceTable = self.buildCost[(self.currentLevel == 3 and 0 or self.currentLevel + 1)]
             })
+            gSounds['blip']:stop()
             gSounds['levelup']:stop()
             gSounds['levelup']:play()
         else
+            gSounds['blip']:stop()
             gSounds['error']:stop()
             gSounds['error']:play()
             return false
@@ -287,10 +306,14 @@ end
 
 function Facility:checkResource(params)
 
+    if CHEAT_MODE then
+        return true
+    end
+
     if self.resources['money'] + params.resourceTable['money'] < 0
     or self.resources['food'] + params.resourceTable['food'] < 0
     or self.resources['energy'] + params.resourceTable['energy'] < 0
-    or self.resources['perception'] + params.resourceTable['perception'] < 0 then
+    or self.resources['amenity'] + params.resourceTable['amenity'] < 0 then
         return false
     end
     return true
