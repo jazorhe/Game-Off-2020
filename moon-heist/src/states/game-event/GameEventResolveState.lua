@@ -7,7 +7,7 @@ end
 
 function GameEventResolveState:enter()
     self.gameEvent.state = 'resolve'
-
+    self.gameEvent.gameEventFunctions.funcName(self.gameEvent.selected)
     self.resolveDialogue = Textbox(
         160, VIRTUAL_HEIGHT / 2 - 80, VIRTUAL_WIDTH - 320, 100,
         self.gameEvent.dialogues[self.gameEvent.selected],
@@ -27,19 +27,19 @@ function GameEventResolveState:update(dt)
     end
 
     if self.resolveDialogue:isClosed() then
-        if not self.resolved then
-            Event.dispatch('trust-management', {
-                trust = self.gameEvent.outcomes[self.gameEvent.selected].trust,
-                side = self.gameEvent.outcomes[self.gameEvent.selected].side
-            })
-            Event.dispatch('resource-management', {
-                resourceTable = self.gameEvent.outcomes[self.gameEvent.selected].resources
-            })
-            self.resolved = true
-        end
-
         self.closingDialogue:update(dt)
         if self.closingDialogue:isClosed() then
+            if not self.resolved then
+                Event.dispatch('trust-management', {
+                    trust = self.gameEvent.outcomes[self.gameEvent.selected].trust,
+                    side = self.gameEvent.outcomes[self.gameEvent.selected].side
+                })
+                Event.dispatch('resource-management', {
+                    resourceTable = self.gameEvent.outcomes[self.gameEvent.selected].resources
+                })
+                self.resolved = true
+            end
+
             self.gameEvent:changeState('passed')
             gStateStack:pop()
         end
@@ -54,7 +54,7 @@ end
 function GameEventResolveState:render()
     love.graphics.setFont(gFonts['medium'])
     love.graphics.setColor(gColours[self.gameEvent.side].main)
-    love.graphics.printf("Resolve!", 0, 60, VIRTUAL_WIDTH, 'center')
+    love.graphics.printf(self.gameEvent.name, 0, 60, VIRTUAL_WIDTH, 'center')
 
     self.resolveDialogue:render()
     if self.resolveDialogue:isClosed() then

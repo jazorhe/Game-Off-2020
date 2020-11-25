@@ -3,16 +3,19 @@ REGULAR_EVENTS = {}
 RANDOM_EVENTS = {
     ['early'] = {
         [1] = {
-            name = 'two-pills',
+            name = 'Two Pills',
             side = 'general',
             type = 'random',
             group = 'early',
             encounter = 3,
             resolve = 3,
             eventID = 101,
+            inPool = true,
             dialogues = {
                 [0] = {
-                    "There were two pills on your lunch plate today. \nYou were puzzled, and asked around if anyone knew where they might come from. \n\nNo one seemed to have any idea."
+                    "There were two pills on your lunch plate today. \n"..
+                    "You were puzzled, and asked around if anyone knew where they might come from. \n\n"..
+                    "No one seemed to have any idea."
                 },
                 [1] = {
                     "You felt that the Red Pill is burning inside your stomach. You could not help but to stop your work and head to bed. You woke up the next day, your bird was dead."
@@ -28,14 +31,14 @@ RANDOM_EVENTS = {
                 ['seleciton-prompt'] = "CHOOSE YOUR FATE:",
                 [1] = {
                     text = "Red Pill...",
-                    closing = "As you swallowed the Red Pill, you felt a presence haunting right behind you. You quickly turned around, but there was No ONE.",
+                    closing = "As you swallowed the Red Pill, you felt a presence haunting right behind you. You quickly turned around, but there was NO ONE.",
                     onSelect = function()
                         return 1
                     end
                 },
                 [2] = {
                     text = "Blue Pill!",
-                    closing = "You stared at the Blue Pill for a while. And suddenly, you reached out for it and took it down your throat, so quickly that you questioned yourself if it was your own decidsion.",
+                    closing = "You stared at the Blue Pill for a while. And suddenly, you reached out for it and took it down your throat, so quickly that you questioned yourself if it was your own decision.",
                     onSelect = function()
                         return 2
                     end
@@ -63,10 +66,10 @@ RANDOM_EVENTS = {
                 },
                 [2] = math.random(100) <= 80 and {
                     resources = {
-                        ['money'] = 1,
-                        ['food'] = 1,
-                        ['energy'] = 1,
-                        ['amenity'] = 1
+                        ['money'] = 0,
+                        ['food'] = 0,
+                        ['energy'] = 0,
+                        ['amenity'] = 0
                     },
                     trust = 0,
                     side = 'yellow'
@@ -89,72 +92,75 @@ RANDOM_EVENTS = {
             }
         },
         [2] = {
-            name = 'no-name',
+            name = 'Aliens I',
             side = 'general',
             type = 'random',
             group = 'early',
-            encounter = 6,
-            resolve = 6,
+            encounter = 3,
+            resolve = 3,
             eventID = 102,
+            inPool = true,
             dialogues = {
                 [0] = {
-                    "The event is a placeholder for an early event, eventID 102"
+                    "There had been reports about encountering unidentified creatures near a mysterious crater. You sent a small group to investigate the situation."
                 },
                 [1] = {
-                    "You selected option 1 in event 102, there is a 66% chance you will lose 200 energy and 400 amenity. 33% of gaining them."
+                    "Those faceless monsters chased the small team to a crater. They ran their truck into a rock and were stuck. No one lived to tell the story."
                 },
                 [2] = {
-                    "You selected option 2 in event 102, there is 80% chance of no effect or 20% of losing 20% trust from yellow side."
+                    "You shot the jaw off one of these monsters and saved the team from crushing their truck. You did not think it was enough, so you went down this crater with a dozen of your guys.\n"..
+                    "This had turned from rescuing to hunting, and you loved hunting."
                 },
                 [3] = {
-                    "Now, please continue with your duty."
+                    "Those creatures finally disappeared deep into the crater, like they had never existed. You could do nothing more than reporting it and keeping an eye out."
                 }
             },
             selections = {
-                ['seleciton-prompt'] = "EventID 102 selections: ",
+                ['seleciton-prompt'] = "\"We have been ATTACKED!\" You heard scientists screaming on the radio. You did not know what those creatures were. No one knows. \n"..
+                "What was your decision?",
                 [1] = {
-                    text = "1",
-                    closing = "You have selected option 1",
+                    text = "Let us retreat and leave them alone.",
+                    closing = "You have asked the team to retreat and retreat quickly.",
                     onSelect = function()
                         return 1
                     end
                 },
                 [2] = {
-                    text = "2",
-                    closing = "You have selected option 2",
+                    text = "We have the guns. We will destroy them!",
+                    closing = "The majority of the Moon base was out for rescuing the team by your order.",
                     onSelect = function()
                         return 2
                     end
                 },
             },
             outcomes = {
-                [1] = math.random(100) <= 33 and {
+                [1] = math.random(100) <= 100 and {
                     resources = {
                         ['money'] = 0,
                         ['food'] = 0,
-                        ['energy'] = 200,
-                        ['amenity'] = 400
+                        ['energy'] = 0,
+                        ['amenity'] = -300
                     },
-                    trust = 0,
+                    trust = -10,
                     side = 'yellow'
                 } or {
                     resources = {
                         ['money'] = 0,
                         ['food'] = 0,
-                        ['energy'] = -200,
-                        ['amenity'] = -400
+                        ['energy'] = 0,
+                        ['amenity'] = 0
                     },
                     trust = 0,
                     side = 'yellow'
                 },
-                [2] = math.random(100) <= 80 and {
+                [2] = math.random(100) <= 100 and {
                     resources = {
-                        ['money'] = 0,
-                        ['food'] = 0,
+                        ['money'] = 350,
+                        ['food'] = 200,
                         ['energy'] = 0,
                         ['amenity'] = 0
                     },
-                    trust = 0,
+                    trust = 10,
                     side = 'yellow'
                 } or {
                     resources = {
@@ -163,7 +169,7 @@ RANDOM_EVENTS = {
                         ['energy'] = 0,
                         ['amenity'] = 0
                     },
-                    trust = -20,
+                    trust = 0,
                     side = 'yellow'
                 }
             },
@@ -175,74 +181,52 @@ RANDOM_EVENTS = {
             }
         },
         [3] = {
-            name = 'no-name',
+            name = 'Protests Against Space Immigration',
             side = 'yellow',
             type = 'random',
             group = 'early',
-            encounter = 5,
-            resolve = 5,
-            eventID = 103,
+            encounter = 3,
+            resolve = 3,
+            eventID = 111,
+            inPool = true,
             dialogues = {
                 [0] = {
-                    "The event is a placeholder for an early event, eventID 103"
+                    "[*News Broadcasting*]\n"..
+                    "There have been protests all around the world recently against the new in-construction MoonBase and the plans for potential Space Immigration within the next decade.\n\n"..
+                    "Protesters argue that their taxation has been spent wrongly on something that they \"will never benefit from\", and that Space Immigration is nothing but an \"evil dream to start a new era of colonialism. They have demanded the UN to cut costs on this ambitious project.\""
                 },
                 [1] = {
-                    "You selected option 1 in event 103, there is a 66% chance you will lose 200 energy and 400 amenity. 33% of gaining them."
+                    "You received an official warning from the Root 67 association. In the letter they wrote: \"Watch your tongue!\""
                 },
                 [2] = {
-                    "You selected option 2 in event 103, there is 80% chance of no effect or 20% of losing 20% trust from yellow side."
+                    "The Root 67 association decided to cut the budget for this project, but they still demand you to deliver the result within the same amount of time."
                 },
                 [3] = {
                     "Now, please continue with your duty."
                 }
             },
             selections = {
-                ['seleciton-prompt'] = "EventID 103 selections: ",
+                ['seleciton-prompt'] = "[*News Broadcasting*]\n"..
+                "The responsible official from this project has, on a video call, responded to the protests this way:",
                 [1] = {
-                    text = "1",
-                    closing = "You have selected option 1",
+                    text = "\"We have a dream in common, let us make it come true regardless of its cost.\"",
+                    closing = "[*News Broadcasting*]\n"..
+                    "As said by the official. The voices of protesters continued to rise, the crowd were extremely disappointed and accused that \"a coldblooded dictatorship\".",
                     onSelect = function()
                         return 1
                     end
                 },
                 [2] = {
-                    text = "2",
-                    closing = "You have selected option 2",
+                    text = "\"We care about every soul on Earth, if building the MoonBase will make Earth suffer, we can slow this down.\"",
+                    closing = "[*News Broadcasting*]\n"..
+                    "As said by the official. Protester says that these are \"hopeless lies\" and would only consider the value of this project if they see \"actual benefits\" from it.",
                     onSelect = function()
                         return 2
                     end
                 },
             },
             outcomes = {
-                [1] = math.random(100) <= 33 and {
-                    resources = {
-                        ['money'] = 0,
-                        ['food'] = 0,
-                        ['energy'] = 200,
-                        ['amenity'] = 400
-                    },
-                    trust = 0,
-                    side = 'yellow'
-                } or {
-                    resources = {
-                        ['money'] = 0,
-                        ['food'] = 0,
-                        ['energy'] = -200,
-                        ['amenity'] = -400
-                    },
-                    trust = 0,
-                    side = 'yellow'
-                },
-                [2] = math.random(100) <= 80 and {
-                    resources = {
-                        ['money'] = 0,
-                        ['food'] = 0,
-                        ['energy'] = 0,
-                        ['amenity'] = 0
-                    },
-                    trust = 0,
-                    side = 'yellow'
-                } or {
+                [1] = math.random(100) <= 100 and {
                     resources = {
                         ['money'] = 0,
                         ['food'] = 0,
@@ -250,6 +234,34 @@ RANDOM_EVENTS = {
                         ['amenity'] = 0
                     },
                     trust = -20,
+                    side = 'yellow'
+                } or {
+                    resources = {
+                        ['money'] = 0,
+                        ['food'] = 0,
+                        ['energy'] = 0,
+                        ['amenity'] = 0
+                    },
+                    trust = 0,
+                    side = 'yellow'
+                },
+                [2] = math.random(100) <= 100 and {
+                    resources = {
+                        ['money'] = -300,
+                        ['food'] = 0,
+                        ['energy'] = 0,
+                        ['amenity'] = 0
+                    },
+                    trust = 10,
+                    side = 'yellow'
+                } or {
+                    resources = {
+                        ['money'] = 0,
+                        ['food'] = 0,
+                        ['energy'] = 0,
+                        ['amenity'] = 0
+                    },
+                    trust = 0,
                     side = 'yellow'
                 }
             },
@@ -261,51 +273,52 @@ RANDOM_EVENTS = {
             }
         },
         [4] = {
-            name = 'no-name',
+            name = 'Power Plant Investment',
             side = 'yellow',
             type = 'random',
             group = 'early',
-            encounter = 7,
-            resolve = 7,
-            eventID = 104,
+            encounter = 3,
+            resolve = 3,
+            eventID = 112,
+            inPool = true,
             dialogues = {
                 [0] = {
-                    "The event is a placeholder for an early event, eventID 104"
+                    "The Chief Engineer from the Nuclear Power Plant came to you and suggested that he might have found a way to produce a lot of energy at once."
                 },
                 [1] = {
-                    "You selected option 1 in event 104, there is a 66% chance you will lose 200 energy and 400 amenity. 33% of gaining them."
+                    "\"No risk, no gain.\" Someone once said."
                 },
                 [2] = {
-                    "You selected option 2 in event 104, there is 80% chance of no effect or 20% of losing 20% trust from yellow side."
+                    "\"No risk, no gain.\" Someone once said."
                 },
                 [3] = {
-                    "Now, please continue with your duty."
+                    "You should learn to trust your luck more."
                 }
             },
             selections = {
-                ['seleciton-prompt'] = "EventID 104 selections: ",
+                ['seleciton-prompt'] = "Did you want to invest for a one off earning?",
                 [1] = {
-                    text = "1",
-                    closing = "You have selected option 1",
+                    text = "I will give you 300 Energy. Spend them well.",
+                    closing = "\"Thank you, boss.\" The engineer left with excitement.",
                     onSelect = function()
                         return 1
                     end
                 },
                 [2] = {
-                    text = "2",
-                    closing = "You have selected option 2",
+                    text = "We will not risk it.",
+                    closing = "The engineer was disappointed.",
                     onSelect = function()
                         return 2
                     end
                 },
             },
             outcomes = {
-                [1] = math.random(100) <= 33 and {
+                [1] = math.random(100) <= 66 and {
                     resources = {
                         ['money'] = 0,
                         ['food'] = 0,
-                        ['energy'] = 200,
-                        ['amenity'] = 400
+                        ['energy'] = 900,
+                        ['amenity'] = 0
                     },
                     trust = 0,
                     side = 'yellow'
@@ -313,13 +326,13 @@ RANDOM_EVENTS = {
                     resources = {
                         ['money'] = 0,
                         ['food'] = 0,
-                        ['energy'] = -200,
-                        ['amenity'] = -400
+                        ['energy'] = 0,
+                        ['amenity'] = 0
                     },
                     trust = 0,
                     side = 'yellow'
                 },
-                [2] = math.random(100) <= 80 and {
+                [2] = math.random(100) <= 100 and {
                     resources = {
                         ['money'] = 0,
                         ['food'] = 0,
@@ -335,7 +348,7 @@ RANDOM_EVENTS = {
                         ['energy'] = 0,
                         ['amenity'] = 0
                     },
-                    trust = -20,
+                    trust = 0,
                     side = 'yellow'
                 }
             },
@@ -343,33 +356,45 @@ RANDOM_EVENTS = {
 
             },
             gameEventFunctions = {
-                funcName = function() end
+                funcName = function(selection)
+                    if selection == 1 then
+                        Event.dispatch('resource-management', {
+                            resourceTable = {
+                                ['money'] = 0,
+                                ['food'] = 0,
+                                ['energy'] = -300,
+                                ['amenity'] = 0
+                            }
+                        })
+                    end
+                end
             }
         },
         [5] = {
-            name = 'no-name',
+            name = 'Lunar Long Jump Competition',
             side = 'purple',
             type = 'random',
             group = 'early',
-            encounter = 5,
-            resolve = 5,
-            eventID = 105,
+            encounter = 3,
+            resolve = 3,
+            eventID = 121,
+            inPool = false,
             dialogues = {
                 [0] = {
-                    "The event is a placeholder for an early event, eventID 105"
+                    "The event is a placeholder for an early event, eventID 121"
                 },
                 [1] = {
-                    "You selected option 1 in event 105, there is a 66% chance you will lose 200 energy and 400 amenity. 33% of gaining them."
+                    "You selected option 1 in event 121, there is a 66% chance you will lose 200 energy and 400 amenity. 33% of gaining them."
                 },
                 [2] = {
-                    "You selected option 2 in event 105, there is 80% chance of no effect or 20% of losing 20% trust from yellow side."
+                    "You selected option 2 in event 121, there is 80% chance of no effect or 20% of losing 20% trust from yellow side."
                 },
                 [3] = {
                     "Now, please continue with your duty."
                 }
             },
             selections = {
-                ['seleciton-prompt'] = "EventID 105 selections: ",
+                ['seleciton-prompt'] = "EventID 121 selections: ",
                 [1] = {
                     text = "1",
                     closing = "You have selected option 1",
@@ -433,51 +458,52 @@ RANDOM_EVENTS = {
             }
         },
         [6] = {
-            name = 'no-name',
+            name = 'Dark Lab Investment',
             side = 'purple',
             type = 'random',
             group = 'early',
-            encounter = 7,
-            resolve = 7,
-            eventID = 106,
+            encounter = 3,
+            resolve = 3,
+            eventID = 122,
+            inPool = true,
             dialogues = {
                 [0] = {
-                    "The event is a placeholder for an early event, eventID 106"
+                    "A Senior Scientist from the Dark Lab came to you and suggested that he might have found a way to produce a lot of money at once."
                 },
                 [1] = {
-                    "You selected option 1 in event 106, there is a 66% chance you will lose 200 energy and 400 amenity. 33% of gaining them."
+                    "\"No risk, no gain.\" Someone once said."
                 },
                 [2] = {
-                    "You selected option 2 in event 106, there is 80% chance of no effect or 20% of losing 20% trust from yellow side."
+                    "\"No risk, no gain.\" Someone once said."
                 },
                 [3] = {
-                    "Now, please continue with your duty."
+                    "You should learn to trust your luck more."
                 }
             },
             selections = {
-                ['seleciton-prompt'] = "EventID 106 selections: ",
+                ['seleciton-prompt'] = "Did you want to invest for a one off earning?",
                 [1] = {
-                    text = "1",
-                    closing = "You have selected option 1",
+                    text = "I will give you 300 Money. Spend them well.",
+                    closing = "\"You will not regret it, boss.\" The scientist left with excitement.",
                     onSelect = function()
                         return 1
                     end
                 },
                 [2] = {
-                    text = "2",
-                    closing = "You have selected option 2",
+                    text = "I do not like risk.",
+                    closing = "The scientist left with hatred on his face.",
                     onSelect = function()
                         return 2
                     end
                 },
             },
             outcomes = {
-                [1] = math.random(100) <= 33 and {
+                [1] = math.random(100) <= 60 and {
                     resources = {
-                        ['money'] = 0,
+                        ['money'] = 900,
                         ['food'] = 0,
-                        ['energy'] = 200,
-                        ['amenity'] = 400
+                        ['energy'] = 0,
+                        ['amenity'] = 0
                     },
                     trust = 0,
                     side = 'yellow'
@@ -485,13 +511,13 @@ RANDOM_EVENTS = {
                     resources = {
                         ['money'] = 0,
                         ['food'] = 0,
-                        ['energy'] = -200,
-                        ['amenity'] = -400
+                        ['energy'] = 0,
+                        ['amenity'] = 0
                     },
                     trust = 0,
                     side = 'yellow'
                 },
-                [2] = math.random(100) <= 80 and {
+                [2] = math.random(100) <= 100 and {
                     resources = {
                         ['money'] = 0,
                         ['food'] = 0,
@@ -507,7 +533,7 @@ RANDOM_EVENTS = {
                         ['energy'] = 0,
                         ['amenity'] = 0
                     },
-                    trust = -20,
+                    trust = 0,
                     side = 'yellow'
                 }
             },
@@ -515,85 +541,99 @@ RANDOM_EVENTS = {
 
             },
             gameEventFunctions = {
-                funcName = function() end
+                funcName = function()
+                    funcName = function(selection)
+                        if selection == 1 then
+                            Event.dispatch('resource-management', {
+                                resourceTable = {
+                                    ['money'] = -300,
+                                    ['food'] = 0,
+                                    ['energy'] = 0,
+                                    ['amenity'] = 0
+                                }
+                            })
+                        end
+                    end
+                end
             }
         }
     },
     ['later'] = {
         [1] = {
-            name = 'no-name',
+            name = 'Aliens II',
             side = 'general',
             type = 'random',
             group = 'later',
-            encounter = 9,
-            resolve = 9,
+            encounter = 3,
+            resolve = 3,
             eventID = 201,
+            inPool = true,
             dialogues = {
                 [0] = {
-                    "There were two pills on your lunch plate today. \nYou were puzzled, and asked around if anyone knew where they might come from. \n\nNo one seemed to have any idea."
+                    "You have received reports with faceless monsters crawling out a giant crater not far north. They were moving quickly towards your Base. You knew that this day would come. "
                 },
                 [1] = {
-                    "You felt that the Red Pill is burning inside your stomach. You could not help but to stop your work and head to bed. You woke up the next day, your bird was dead."
+                    "Troops from earth arrived within an hour. They were sent into that crater, and fortunately, there were not many of these things. Before the troops left the Moon, they handed you some supplies from Root 67."
                 },
                 [2] = {
-                    "There seemed to be a moment of peace. The Blue Pill might afterall have no effect at all. You smiled wildly."
+                    "A war machine raised from the horizon. It drove into the mysterious crater, with swords and toxic gas bombs hanging off its 12 arms. Then there was the sound of splashing liquid, and then there was silence."
                 },
                 [3] = {
-                    "Now, please continue with your duty."
+                    "The fight ended up being a tough win, but you received supplies to cover some loss."
                 }
             },
             selections = {
-                ['seleciton-prompt'] = "CHOOSE YOUR FATE:",
+                ['seleciton-prompt'] = "\"There are too many of them! We need backup!\" You heard screams on the radio. You needed help.",
                 [1] = {
-                    text = "Red Pill...",
-                    closing = "As you swallowed the Red Pill, you felt a presence haunting right behind you. You quickly turned around, but there was No ONE.",
+                    text = "I went to Root 67 for help.",
+                    closing = "You put the number in your desk phone.",
                     onSelect = function()
                         return 1
                     end
                 },
                 [2] = {
-                    text = "Blue Pill!",
-                    closing = "You stared at the Blue Pill for a while. And suddenly, you reached out for it and took it down your throat, so quickly that you questioned yourself if it was your own decidsion.",
+                    text = "I went to Ong for help.",
+                    closing = "You pulled out that old pager.",
                     onSelect = function()
                         return 2
                     end
                 },
             },
             outcomes = {
-                [1] = math.random(100) <= 33 and {
+                [1] = math.random(100) <= 100 and {
                     resources = {
-                        ['money'] = 0,
-                        ['food'] = 0,
-                        ['energy'] = 200,
-                        ['amenity'] = 400
+                        ['money'] = 800,
+                        ['food'] = 800,
+                        ['energy'] = -400,
+                        ['amenity'] = -400
                     },
-                    trust = 0,
+                    trust = 10,
                     side = 'yellow'
                 } or {
                     resources = {
                         ['money'] = 0,
                         ['food'] = 0,
-                        ['energy'] = -200,
-                        ['amenity'] = -400
+                        ['energy'] = 0,
+                        ['amenity'] = 0
                     },
                     trust = 0,
                     side = 'yellow'
                 },
-                [2] = math.random(100) <= 80 and {
+                [2] = math.random(100) <= 100 and {
                     resources = {
-                        ['money'] = 1,
-                        ['food'] = 1,
-                        ['energy'] = 1,
-                        ['amenity'] = 1
+                        ['money'] = -400,
+                        ['food'] = -400,
+                        ['energy'] = 800,
+                        ['amenity'] = 800
                     },
-                    trust = 0,
-                    side = 'yellow'
+                    trust = 10,
+                    side = 'purple'
                 } or {
                     resources = {
                         ['money'] = 0,
                         ['food'] = 0,
-                        ['energy'] = 200,
-                        ['amenity'] = 400
+                        ['energy'] = 0,
+                        ['amenity'] = 0
                     },
                     trust = 0,
                     side = 'yellow'
@@ -607,72 +647,73 @@ RANDOM_EVENTS = {
             }
         },
         [2] = {
-            name = 'no-name',
+            name = 'Nobel Winner',
             side = 'general',
             type = 'random',
             group = 'later',
-            encounter = 14,
-            resolve = 14,
+            encounter = 3,
+            resolve = 3,
             eventID = 202,
+            inPool = true,
             dialogues = {
                 [0] = {
-                    "The event is a placeholder for an later event, eventID 202"
+                    "This years Nobel Peace Price Results had been announced. You were, unexpectedly the Winner. You had been awarded because of your ongoing contribution to the MoonBase project, and your incredible negotiation skills shown when working with Root 67. You were asked to give an Acceptance Speech."
                 },
                 [1] = {
-                    "You selected option 1 in event 202, there is a 66% chance you will lose 200 energy and 400 amenity. 33% of gaining them."
+                    "A new wave of Space Fever swept across the Earth. From young kids at school to dying men on bed, no one did not think about space. No one did not think about living on the Moon. This planet was dreaming."
                 },
                 [2] = {
-                    "You selected option 2 in event 202, there is 80% chance of no effect or 20% of losing 20% trust from yellow side."
+                    "You were right, this was an incredible engineering project, supported by hundreds of thousands of engineers and scientists. We did not achieve it with dreams, but maths and physics. Root 67 was glad that you pointed it out."
                 },
                 [3] = {
                     "Now, please continue with your duty."
                 }
             },
             selections = {
-                ['seleciton-prompt'] = "EventID 202 selections: ",
+                ['seleciton-prompt'] = "What did you say?",
                 [1] = {
-                    text = "1",
-                    closing = "You have selected option 1",
+                    text = "\"Space Immigration is the most ambitious dream ever since human history. I am glad to be the first person to do it.\"",
+                    closing = "You chose to express your sensibility.",
                     onSelect = function()
                         return 1
                     end
                 },
                 [2] = {
-                    text = "2",
-                    closing = "You have selected option 2",
+                    text = "\"There is nothing romantic under the curtain, but precise planning and hand in hand colaborations.\"",
+                    closing = "You chose to express your rationality.",
                     onSelect = function()
                         return 2
                     end
                 },
             },
             outcomes = {
-                [1] = math.random(100) <= 33 and {
+                [1] = math.random(100) <= 100 and {
                     resources = {
                         ['money'] = 0,
                         ['food'] = 0,
-                        ['energy'] = 200,
-                        ['amenity'] = 400
+                        ['energy'] = 0,
+                        ['amenity'] = 600
                     },
-                    trust = 0,
+                    trust = 5,
                     side = 'yellow'
                 } or {
                     resources = {
                         ['money'] = 0,
                         ['food'] = 0,
-                        ['energy'] = -200,
-                        ['amenity'] = -400
+                        ['energy'] = 0,
+                        ['amenity'] = 0
                     },
                     trust = 0,
                     side = 'yellow'
                 },
-                [2] = math.random(100) <= 80 and {
+                [2] = math.random(100) <= 100 and {
                     resources = {
                         ['money'] = 0,
                         ['food'] = 0,
                         ['energy'] = 0,
                         ['amenity'] = 0
                     },
-                    trust = 0,
+                    trust = 20,
                     side = 'yellow'
                 } or {
                     resources = {
@@ -681,7 +722,7 @@ RANDOM_EVENTS = {
                         ['energy'] = 0,
                         ['amenity'] = 0
                     },
-                    trust = -20,
+                    trust = 0,
                     side = 'yellow'
                 }
             },
@@ -693,13 +734,14 @@ RANDOM_EVENTS = {
             }
         },
         [3] = {
-            name = 'no-name',
-            side = 'yellow',
+            name = 'Untold Past',
+            side = 'Purple',
             type = 'random',
             group = 'later',
-            encounter = 11,
-            resolve = 11,
+            encounter = 3,
+            resolve = 3,
             eventID = 203,
+            inPool = false,
             dialogues = {
                 [0] = {
                     "The event is a placeholder for an later event, eventID 203"
@@ -779,69 +821,70 @@ RANDOM_EVENTS = {
             }
         },
         [4] = {
-            name = 'no-name',
+            name = 'What was on the Other Side?',
             side = 'yellow',
             type = 'random',
             group = 'later',
-            encounter = 15,
-            resolve = 15,
+            encounter = 3,
+            resolve = 3,
             eventID = 204,
+            inPool = true,
             dialogues = {
                 [0] = {
-                    "The event is a placeholder for an later event, eventID 204"
+                    "Root 67 had demanded a report on the back side of the Moon."
                 },
                 [1] = {
-                    "You selected option 1 in event 204, there is a 66% chance you will lose 200 energy and 400 amenity. 33% of gaining them."
+                    "Root 67 was not satisfied with your report, \"You should be working, not sipping on a coffee everyday.\""
                 },
                 [2] = {
-                    "You selected option 2 in event 204, there is 80% chance of no effect or 20% of losing 20% trust from yellow side."
+                    "Root 67 asked you to focus on the current MoonBase, and would support for more mining facilities after 18 months."
                 },
                 [3] = {
-                    "Now, please continue with your duty."
+                    "Hopy you knew what you were doing here."
                 }
             },
             selections = {
-                ['seleciton-prompt'] = "EventID 204 selections: ",
+                ['seleciton-prompt'] = "What did you discuss in this report?",
                 [1] = {
-                    text = "1",
-                    closing = "You have selected option 1",
+                    text = "There were craters after craters. Nothing interesting to see.",
+                    closing = "You tried to avoid the question.",
                     onSelect = function()
                         return 1
                     end
                 },
                 [2] = {
-                    text = "2",
-                    closing = "You have selected option 2",
+                    text = "There were possibilities of valuable materials on that side.",
+                    closing = "You gave them false information.",
                     onSelect = function()
                         return 2
                     end
                 },
             },
             outcomes = {
-                [1] = math.random(100) <= 33 and {
+                [1] = math.random(100) <= 100 and {
                     resources = {
                         ['money'] = 0,
                         ['food'] = 0,
-                        ['energy'] = 200,
-                        ['amenity'] = 400
+                        ['energy'] = 0,
+                        ['amenity'] = 0
                     },
-                    trust = 0,
+                    trust = -15,
                     side = 'yellow'
                 } or {
                     resources = {
                         ['money'] = 0,
                         ['food'] = 0,
-                        ['energy'] = -200,
-                        ['amenity'] = -400
+                        ['energy'] = 0,
+                        ['amenity'] = 0
                     },
                     trust = 0,
                     side = 'yellow'
                 },
-                [2] = math.random(100) <= 80 and {
+                [2] = math.random(100) <= 100 and {
                     resources = {
                         ['money'] = 0,
                         ['food'] = 0,
-                        ['energy'] = 0,
+                        ['energy'] = 200,
                         ['amenity'] = 0
                     },
                     trust = 0,
@@ -853,7 +896,7 @@ RANDOM_EVENTS = {
                         ['energy'] = 0,
                         ['amenity'] = 0
                     },
-                    trust = -20,
+                    trust = 0,
                     side = 'yellow'
                 }
             },
@@ -865,73 +908,76 @@ RANDOM_EVENTS = {
             }
         },
         [5] = {
-            name = 'no-name',
+            name = 'Steal This For Me!',
             side = 'purple',
             type = 'random',
             group = 'later',
-            encounter = 12,
-            resolve = 12,
+            encounter = 3,
+            resolve = 3,
             eventID = 205,
+            inPool = true,
             dialogues = {
                 [0] = {
-                    "The event is a placeholder for an later event, eventID 205"
+                    "(On a regular vedio conference with the Ong Boss)\n"..
+                    "We heard about the latest breakthrough in the Dark Matter territory. You would have received some blueprints for the next generation Dark Matter Detector.\n"..
+                    "I need you to send us a copy of everything about this facility."
                 },
                 [1] = {
-                    "You selected option 1 in event 205, there is a 66% chance you will lose 200 energy and 400 amenity. 33% of gaining them."
+                    ""
                 },
                 [2] = {
-                    "You selected option 2 in event 205, there is 80% chance of no effect or 20% of losing 20% trust from yellow side."
+                    "\"Hey, remind me why we hired you?\""
                 },
                 [3] = {
                     "Now, please continue with your duty."
                 }
             },
             selections = {
-                ['seleciton-prompt'] = "EventID 205 selections: ",
+                ['seleciton-prompt'] = "[*You thought carefully about how to respond this*]",
                 [1] = {
-                    text = "1",
-                    closing = "You have selected option 1",
+                    text = "\"You will have it tomorrow on your desk.\"",
+                    closing = "You promised your boss like it was a simple task.",
                     onSelect = function()
                         return 1
                     end
                 },
                 [2] = {
-                    text = "2",
-                    closing = "You have selected option 2",
+                    text = "\"This is rather difficult to do.\"",
+                    closing = "You were always careful about not exposing yourself.",
                     onSelect = function()
                         return 2
                     end
                 },
             },
             outcomes = {
-                [1] = math.random(100) <= 33 and {
+                [1] = math.random(100) <= 66 and {
                     resources = {
                         ['money'] = 0,
                         ['food'] = 0,
-                        ['energy'] = 200,
-                        ['amenity'] = 400
+                        ['energy'] = 0,
+                        ['amenity'] = 0
                     },
-                    trust = 0,
+                    trust = -25,
                     side = 'yellow'
                 } or {
                     resources = {
                         ['money'] = 0,
                         ['food'] = 0,
-                        ['energy'] = -200,
-                        ['amenity'] = -400
+                        ['energy'] = 0,
+                        ['amenity'] = 800
                     },
-                    trust = 0,
-                    side = 'yellow'
+                    trust = 10,
+                    side = 'purple'
                 },
-                [2] = math.random(100) <= 80 and {
+                [2] = math.random(100) <= 100 and {
                     resources = {
                         ['money'] = 0,
                         ['food'] = 0,
                         ['energy'] = 0,
                         ['amenity'] = 0
                     },
-                    trust = 0,
-                    side = 'yellow'
+                    trust = -25,
+                    side = 'purple'
                 } or {
                     resources = {
                         ['money'] = 0,
@@ -939,7 +985,7 @@ RANDOM_EVENTS = {
                         ['energy'] = 0,
                         ['amenity'] = 0
                     },
-                    trust = -20,
+                    trust = 0,
                     side = 'yellow'
                 }
             },
@@ -947,55 +993,62 @@ RANDOM_EVENTS = {
 
             },
             gameEventFunctions = {
-                funcName = function() end
+                funcName = function(selection)
+                    if selection == 1 and RANDOM_EVENTS['later'][5].outcomes[1].trust < 0 then
+                        RANDOM_EVENTS['later'][5].dialogues[1] = "You had been too good of a project manager lately, you almost forgot how to be a spy. You made a simple mistake while transfering the blueprints. You had to make up an excuse on the spot in a meeting with Root 67."
+                    elseif seleciton == 1 and RANDOM_EVENTS['later'][5].outcomes[1].trust == 0 then
+                        RANDOM_EVENTS['later'][5].dialogues[1] = "It was a swift heist. You deserved to be rewarded."
+                    end
+                end
             }
         },
         [6] = {
-            name = 'no-name',
+            name = 'We Need More Gold',
             side = 'purple',
             type = 'random',
             group = 'later',
-            encounter = 15,
-            resolve = 15,
+            encounter = 3,
+            resolve = 3,
             eventID = 206,
+            inPool = true,
             dialogues = {
                 [0] = {
-                    "The event is a placeholder for an later event, eventID 206"
+                    "It was meant to be a nice morning, until a handful of Ong staff rushed into your office."
                 },
                 [1] = {
-                    "You selected option 1 in event 206, there is a 66% chance you will lose 200 energy and 400 amenity. 33% of gaining them."
+                    "You managed to calm them, but the money had to come from somewhere."
                 },
                 [2] = {
-                    "You selected option 2 in event 206, there is 80% chance of no effect or 20% of losing 20% trust from yellow side."
+                    "You can shear a sheep a hundred times, but you can skin it only once."
                 },
                 [3] = {
                     "Now, please continue with your duty."
                 }
             },
             selections = {
-                ['seleciton-prompt'] = "EventID 206 selections: ",
+                ['seleciton-prompt'] = "They asked for an increase on their salary.",
                 [1] = {
-                    text = "1",
-                    closing = "You have selected option 1",
+                    text = "I approved it on the spot.",
+                    closing = "You decided to keep the staff happy. After all you knew well about the exploitation in this company.",
                     onSelect = function()
                         return 1
                     end
                 },
                 [2] = {
-                    text = "2",
-                    closing = "You have selected option 2",
+                    text = "I shook my head: \"Go back to work.\"",
+                    closing = "You kept your principle as well as your poker face.",
                     onSelect = function()
                         return 2
                     end
                 },
             },
             outcomes = {
-                [1] = math.random(100) <= 33 and {
+                [1] = math.random(100) <= 100 and {
                     resources = {
-                        ['money'] = 0,
+                        ['money'] = -400,
                         ['food'] = 0,
-                        ['energy'] = 200,
-                        ['amenity'] = 400
+                        ['energy'] = 0,
+                        ['amenity'] = 200
                     },
                     trust = 0,
                     side = 'yellow'
@@ -1003,21 +1056,21 @@ RANDOM_EVENTS = {
                     resources = {
                         ['money'] = 0,
                         ['food'] = 0,
-                        ['energy'] = -200,
-                        ['amenity'] = -400
+                        ['energy'] = 0,
+                        ['amenity'] = 0
                     },
                     trust = 0,
                     side = 'yellow'
                 },
-                [2] = math.random(100) <= 80 and {
+                [2] = math.random(100) <= 100 and {
                     resources = {
                         ['money'] = 0,
                         ['food'] = 0,
                         ['energy'] = 0,
-                        ['amenity'] = 0
+                        ['amenity'] = -600
                     },
-                    trust = 0,
-                    side = 'yellow'
+                    trust = 10,
+                    side = 'purple'
                 } or {
                     resources = {
                         ['money'] = 0,
@@ -1025,7 +1078,7 @@ RANDOM_EVENTS = {
                         ['energy'] = 0,
                         ['amenity'] = 0
                     },
-                    trust = -20,
+                    trust = 0,
                     side = 'yellow'
                 }
             },

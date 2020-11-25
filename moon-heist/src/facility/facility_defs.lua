@@ -751,6 +751,8 @@ FACILITY_DEFS = {
             mapX = 1,
             mapY = 1,
             renderLayer = 6,
+            width = 144,
+            height = 96,
             -- offsetX = VIRTUAL_WIDTH - 4.5 * FACILITY_SIZE - 70,
             -- offsetY = VIRTUAL_HEIGHT / 5 * 3 + 4,
 
@@ -864,24 +866,24 @@ FACILITY_DEFS = {
 
             animations = {
                 ['idle-0'] = {
-                    frames = {7},
+                    frames = {1, 2, 3, 4, 5, 6},
                     interval = 0.2,
-                    texture = 'yellow'
+                    texture = 'yellow6'
                 },
                 ['idle-1'] = {
-                    frames = {106, 107, 108, 109, 110, 111},
+                    frames = {1, 2, 3, 4, 5, 6},
                     interval = 0.2,
-                    texture = 'yellow'
+                    texture = 'yellow6'
                 },
                 ['idle-2'] = {
-                    frames = {113, 114, 115, 116, 117, 118},
+                    frames = {1, 2, 3, 4, 5, 6},
                     interval = 0.2,
-                    texture = 'yellow'
+                    texture = 'yellow6'
                 },
                 ['idle-3'] = {
-                    frames = {120, 121, 122, 123, 124, 125},
+                    frames = {1, 2, 3, 4, 5, 6},
                     interval = 0.2,
-                    texture = 'yellow'
+                    texture = 'yellow6'
                 }
             }
         }
@@ -889,9 +891,9 @@ FACILITY_DEFS = {
     ['purple'] = {
         [1] = {
             type = 'lab',
-            name = 'Moon Lab',
+            name = 'Dark Lab',
             side = 'purple',
-            scale = 1,
+            scale = 2,
             initLevel = 1,
             mapX = 1,
             mapY = 2,
@@ -1009,7 +1011,7 @@ FACILITY_DEFS = {
 
             animations = {
                 ['idle-0'] = {
-                    frames = {7},
+                    frames = {14},
                     interval = 0.2,
                     texture = 'purple'
                 },
@@ -1021,12 +1023,12 @@ FACILITY_DEFS = {
                     texture = 'purple'
                 },
                 ['idle-2'] = {
-                    frames = {8, 9, 10, 11, 12, 13},
+                    frames = {8},
                     interval = 0.2,
                     texture = 'purple'
                 },
                 ['idle-3'] = {
-                    frames = {15, 16, 17, 18, 19, 20},
+                    frames = {15},
                     interval = 0.2,
                     texture = 'purple'
                 }
@@ -1037,7 +1039,7 @@ FACILITY_DEFS = {
             type = 'drill',
             name = 'Surface Drill',
             side = 'purple',
-            scale = 1,
+            scale = 2,
             initLevel = 0,
             mapX = 2,
             mapY = 2,
@@ -1155,7 +1157,7 @@ FACILITY_DEFS = {
 
             animations = {
                 ['idle-0'] = {
-                    frames = {7},
+                    frames = {14},
                     interval = 0.2,
                     texture = 'purple'
                 },
@@ -1165,12 +1167,12 @@ FACILITY_DEFS = {
                     texture = 'purple'
                 },
                 ['idle-2'] = {
-                    frames = {29, 30, 31, 32, 33, 34},
+                    frames = {29},
                     interval = 0.2,
                     texture = 'purple'
                 },
                 ['idle-3'] = {
-                    frames = {36, 37, 38, 39, 40, 41},
+                    frames = {36},
                     interval = 0.2,
                     texture = 'purple'
                 }
@@ -1181,7 +1183,7 @@ FACILITY_DEFS = {
             type = 'vivarium-tank',
             name = 'Vivarium Tank',
             side = 'purple',
-            scale = 1,
+            scale = 2,
             initLevel = 0,
             mapX = 3,
             mapY = 2,
@@ -1299,22 +1301,22 @@ FACILITY_DEFS = {
 
             animations = {
                 ['idle-0'] = {
-                    frames = {7},
+                    frames = {14},
                     interval = 0.2,
                     texture = 'purple'
                 },
                 ['idle-1'] = {
-                    frames = {43, 44, 45, 46, 47, 48},
+                    frames = {43},
                     interval = 0.2,
                     texture = 'purple'
                 },
                 ['idle-2'] = {
-                    frames = {50, 51, 52, 53, 54, 55},
+                    frames = {50},
                     interval = 0.2,
                     texture = 'purple'
                 },
                 ['idle-3'] = {
-                    frames = {57, 58, 59, 60, 61, 62},
+                    frames = {57},
                     interval = 0.2,
                     texture = 'purple'
                 }
@@ -1322,10 +1324,10 @@ FACILITY_DEFS = {
         },
 
         [4] = {
-            type = 'dark-matter',
-            name = 'Dark Matter Detector',
+            type = 'photosynthesis-exchange',
+            name = 'Photosynthesis Exchange',
             side = 'purple',
-            scale = 1,
+            scale = 2,
             initLevel = 0,
             mapX = 1,
             mapY = 1,
@@ -1443,22 +1445,22 @@ FACILITY_DEFS = {
 
             animations = {
                 ['idle-0'] = {
-                    frames = {7},
+                    frames = {14},
                     interval = 0.2,
                     texture = 'purple'
                 },
                 ['idle-1'] = {
-                    frames = {64, 65, 66, 67, 68, 69},
+                    frames = {64},
                     interval = 0.2,
                     texture = 'purple'
                 },
                 ['idle-2'] = {
-                    frames = {71, 72, 73, 74, 75, 76},
+                    frames = {71},
                     interval = 0.2,
                     texture = 'purple'
                 },
                 ['idle-3'] = {
-                    frames = {78, 79, 80, 81, 82, 83},
+                    frames = {78},
                     interval = 0.2,
                     texture = 'purple'
                 }
@@ -1469,7 +1471,7 @@ FACILITY_DEFS = {
             type = 'gravity-well',
             name = 'Gravity Well',
             side = 'purple',
-            scale = 1,
+            scale = 2,
             initLevel = 0,
             mapX = 2,
             mapY = 1,
@@ -1587,22 +1589,22 @@ FACILITY_DEFS = {
 
             animations = {
                 ['idle-0'] = {
-                    frames = {7},
+                    frames = {14},
                     interval = 0.2,
                     texture = 'purple'
                 },
                 ['idle-1'] = {
-                    frames = {85, 86, 87, 88, 89, 90},
+                    frames = {85},
                     interval = 0.2,
                     texture = 'purple'
                 },
                 ['idle-2'] = {
-                    frames = {92, 93, 94, 95, 96, 97},
+                    frames = {92},
                     interval = 0.2,
                     texture = 'purple'
                 },
                 ['idle-3'] = {
-                    frames = {99, 100, 101, 102, 103, 104},
+                    frames = {99},
                     interval = 0.2,
                     texture = 'purple'
                 }
@@ -1731,7 +1733,7 @@ FACILITY_DEFS = {
 
             animations = {
                 ['idle-0'] = {
-                    frames = {7},
+                    frames = {14},
                     interval = 0.2,
                     texture = 'purple'
                 },

@@ -85,7 +85,7 @@ function GameEventEncounterState:render()
         text = 'Purple Event!'
     end
 
-    love.graphics.printf(text, 0, 60, VIRTUAL_WIDTH, 'center')
+    love.graphics.printf(self.gameEvent.name, 0, 60, VIRTUAL_WIDTH, 'center')
 
     self.encounterDialogue:render()
 

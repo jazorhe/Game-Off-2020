@@ -97,21 +97,15 @@ function DisplayPanel:render()
     end
 
     if self.showingTrustChange then
-
-        if self.trustChange > 0 then
-            love.graphics.setColor(GREEN)
-        elseif self.trustChange < 0 then
-            love.graphics.setColor(RED)
-        end
-
-        love.graphics.printf(tostring(self.trustChange) .. " %",
-            self.baseX + offsetX + changeoffsetX, VIRTUAL_HEIGHT - bottomY - 10 * paddingY, self.baseX + VIRTUAL_WIDTH, alignment)
+        love.graphics.setColor((self.trustChange >= 0 and GREEN or RED))
+        love.graphics.printf(tostring((self.trustChange > 0 and "+" or "")) ..
+            tostring((self.trustChange == 0 and "" or self.trustChange)).. " %",
+            self.baseX + offsetX + changeoffsetX, VIRTUAL_HEIGHT - bottomY - 9 * paddingY, self.baseX + VIRTUAL_WIDTH, alignment)
 
         love.graphics.setColor(WHITE)
     end
 
     if self.showingResourceChange then
-
         love.graphics.setColor((self.resourceChange['money'] >= 0 and GREEN or RED))
         love.graphics.printf(tostring((self.resourceChange['money'] > 0 and "+" or "")) ..
             tostring((self.resourceChange['money'] == 0 and "" or self.resourceChange['money'])),
@@ -131,7 +125,6 @@ function DisplayPanel:render()
         love.graphics.printf(tostring((self.resourceChange['amenity'] > 0 and "+" or "")) ..
             tostring((self.resourceChange['amenity'] == 0 and "" or self.resourceChange['amenity'])),
             self.baseX + offsetX + changeoffsetX, VIRTUAL_HEIGHT - bottomY - 2 * paddingY, self.baseX + VIRTUAL_WIDTH, alignment)
-
     end
 
     love.graphics.setColor(rgb(255, 255, 255))

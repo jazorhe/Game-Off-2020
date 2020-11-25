@@ -28,9 +28,15 @@ function Facility:init(def, params)
         or VIRTUAL_WIDTH - 4.5 * FACILITY_SIZE - (3 - self.mapX) * 20 - (self.mapY - 1) * 30
         self.offsetY = def.offsetY
         or VIRTUAL_HEIGHT / 5 * 3 + (self.mapY - 1) * 4 - 20
+
+        if self.type == 'harbour' then
+            self.offsetX = self.offsetX - FACILITY_SIZE * 4
+            self.offsetY = self.offsetY - FACILITY_SIZE * 2 + 24
+        end
+
     elseif self.side == 'purple' then
         self.offsetX = def.offsetX
-        or 1.5 * FACILITY_SIZE + (self.mapX - 1) * 20 + (self.mapY - 1) * 30
+        or 1.5 * FACILITY_SIZE + (self.mapX - 1) * 40 + (self.mapY - 1) * 30
         self.offsetY = def.offsetY
         or VIRTUAL_HEIGHT / 5 * 3 + (self.mapY - 1) * 4 + 20
     end
@@ -160,14 +166,14 @@ function Facility:update(dt, params)
     end
 
     if DEBUG and DEBUG_FACILITY then
-        if love.keyboard.wasPressed('left') and self.mapY == 2 then
-            self.x = self.x - 1
-        elseif love.keyboard.wasPressed('right') and self.mapY == 2 then
-            self.x = self.x + 1
-        elseif love.keyboard.wasPressed('up') and self.mapY == 2 then
-            self.y = self.y - 1
-        elseif love.keyboard.wasPressed('down') and self.mapY == 2 then
-            self.y = self.y + 1
+        if love.keyboard.wasPressed('left') and self.type == 'harbour' then
+            self.actualX = self.actualX - 1
+        elseif love.keyboard.wasPressed('right') and self.type == 'harbour' then
+            self.actualX = self.actualX + 1
+        elseif love.keyboard.wasPressed('up') and self.type == 'harbour' then
+            self.actualY = self.actualY - 1
+        elseif love.keyboard.wasPressed('down') and self.type == 'harbour' then
+            self.actualY = self.actualY + 1
         end
     end
 end
@@ -200,9 +206,9 @@ function Facility:render(baseX)
         love.graphics.print("Level " .. tostring(self.currentLevel), self.actualX + baseX + 5, self.actualY + (self:isHovered() and -0 or 0) + 3)
         love.graphics.setColor(rgb(0, 186, 255))
 
-        if self.type == 'harbour' then
-            love.graphics.rectangle('line', self.actualX + baseX - FACILITY_SIZE * 4, self.actualY - FACILITY_SIZE * 2, self.width * 6, self.height * 4)
-        elseif self.type == 'sail' then
+        -- if self.type == 'harbour' then
+        --     love.graphics.rectangle('line', self.actualX + baseX - FACILITY_SIZE * 4, self.actualY - FACILITY_SIZE * 2, self.width * 6, self.height * 4)
+        if self.type == 'sail' then
             love.graphics.rectangle('line', self.actualX + baseX, self.actualY - FACILITY_SIZE * 5, self.width * 4, self.height * 6)
         else
             love.graphics.rectangle('line', self.actualX + baseX, self.actualY, self.width * self.scale, self.height * self.scale)

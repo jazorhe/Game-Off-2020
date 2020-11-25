@@ -71,7 +71,7 @@ function Selection:render()
             love.graphics.draw(gTextures['cursor'], self.x - 15, paddedY - self.font:getHeight() / 2)
         end
 
-        love.graphics.printf(self.items[i].text, self.x + 8, paddedY, self.width, 'left')
+        love.graphics.printf(self.items[i].text, self.x + 8, paddedY, self.width - 3, 'left')
 
         currentY = currentY + self.gapHeight
     end

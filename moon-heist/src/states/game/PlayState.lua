@@ -396,7 +396,7 @@ function PlayState:generateGameEvents()
     while n <= #encounterTurns do
         local eventGroup = encounterTurns[n] <= seperation and 'early' or 'later'
 
-        while not randomEvent or checkEventExist(eventTable, randomEvent.eventID) do
+        while not randomEvent or checkEventExist(eventTable, randomEvent.eventID) or not randomEvent.inPool do
             randomEvent = RANDOM_EVENTS[eventGroup][math.random(#RANDOM_EVENTS[eventGroup])]
             attempCount = attempCount + 1
             if attempCount > 10 then break end
@@ -411,6 +411,10 @@ function PlayState:generateGameEvents()
         n = n + 1
     end
 
+    if DEBUG and DEBUG_TESTEVENT then
+        eventTable = {GameEvent(RANDOM_EVENTS['early'][4])}
+        encounterTurns = {3}
+    end
     return eventTable, encounterTurns
 end
 

@@ -13,7 +13,7 @@ function Side:init(def)
     self.uiTextColour = gColours[self.name].ui_text
     self.darkcolour = gColours[self.name].dark
 
-    self.trust = 80
+    self.trust = 70
     self.resources = INITIAL_RESOURCES
     self.currentTurn = 1
 
@@ -146,6 +146,10 @@ function Side:render()
         facility:render(self.baseX)
     end
 
+    if DEBUG and DEBUG_FACILITY then
+        love.graphics.printf(tostring(#self.facilities), 5, 5, VIRTUAL_WIDTH, 'left')
+    end
+
     self.displayPanel:render()
     self.endTurnButton:render()
     self.shiftSideButton:render()
@@ -204,7 +208,7 @@ function Side:showResourcesChange(params)
     self.resourceChange = params.resourceTable
 
     if self.showResourceTimer then self.showResourceTimer:remove() end
-    self.showResourceTimer = Timer.after(3, function () self.showingResourceChange = false end)
+    self.showResourceTimer = Timer.after(5, function () self.showingResourceChange = false end)
 end
 
 function Side:showTrustChange(params)
@@ -216,7 +220,7 @@ function Side:showTrustChange(params)
     self.trustChange = params.trust
 
     if self.showTrustTimer then self.showTrustTimer:remove() end
-    self.showTrustTimer = Timer.after(3, function () self.showingTrustChange = false end)
+    self.showTrustTimer = Timer.after(5, function () self.showingTrustChange = false end)
 end
 
 function Side:createAnimations(animations)
