@@ -99,7 +99,7 @@ function DisplayPanel:render()
     if self.showingTrustChange then
         love.graphics.setColor((self.trustChange >= 0 and GREEN or RED))
         love.graphics.printf(tostring((self.trustChange > 0 and "+" or "")) ..
-            tostring((self.trustChange == 0 and "" or self.trustChange)).. " %",
+            tostring((self.trustChange == 0 and " " or self.trustChange)).. " %",
             self.baseX + offsetX + changeoffsetX, VIRTUAL_HEIGHT - bottomY - 9 * paddingY, self.baseX + VIRTUAL_WIDTH, alignment)
 
         love.graphics.setColor(WHITE)
@@ -108,22 +108,22 @@ function DisplayPanel:render()
     if self.showingResourceChange then
         love.graphics.setColor((self.resourceChange['money'] >= 0 and GREEN or RED))
         love.graphics.printf(tostring((self.resourceChange['money'] > 0 and "+" or "")) ..
-            tostring((self.resourceChange['money'] == 0 and "" or self.resourceChange['money'])),
+            tostring((self.resourceChange['money'] == 0 and " " or self.resourceChange['money'])),
             self.baseX + offsetX + changeoffsetX, VIRTUAL_HEIGHT - bottomY - 8 * paddingY, self.baseX + VIRTUAL_WIDTH, alignment)
 
         love.graphics.setColor((self.resourceChange['food'] >= 0 and GREEN or RED))
         love.graphics.printf(tostring((self.resourceChange['food'] > 0 and "+" or "")) ..
-            tostring((self.resourceChange['food'] == 0 and "" or self.resourceChange['food'])),
+            tostring((self.resourceChange['food'] == 0 and " " or self.resourceChange['food'])),
             self.baseX + offsetX + changeoffsetX, VIRTUAL_HEIGHT - bottomY - 6 * paddingY, self.baseX + VIRTUAL_WIDTH, alignment)
 
         love.graphics.setColor((self.resourceChange['energy'] >= 0 and GREEN or RED))
         love.graphics.printf(tostring((self.resourceChange['energy'] > 0 and "+" or "")) ..
-            tostring((self.resourceChange['energy'] == 0 and "" or self.resourceChange['energy'])),
+            tostring((self.resourceChange['energy'] == 0 and " " or self.resourceChange['energy'])),
             self.baseX + offsetX + changeoffsetX, VIRTUAL_HEIGHT - bottomY - 4 * paddingY, self.baseX + VIRTUAL_WIDTH, alignment)
 
         love.graphics.setColor((self.resourceChange['amenity'] >= 0 and GREEN or RED))
         love.graphics.printf(tostring((self.resourceChange['amenity'] > 0 and "+" or "")) ..
-            tostring((self.resourceChange['amenity'] == 0 and "" or self.resourceChange['amenity'])),
+            tostring((self.resourceChange['amenity'] == 0 and " " or self.resourceChange['amenity'])),
             self.baseX + offsetX + changeoffsetX, VIRTUAL_HEIGHT - bottomY - 2 * paddingY, self.baseX + VIRTUAL_WIDTH, alignment)
     end
 

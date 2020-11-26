@@ -5,11 +5,12 @@ function FadeInState:init(color, time, onFadeComplete)
     self.r = color.r
     self.g = color.g
     self.b = color.b
+    self.maxOpacity = color.maxOpacity or 1
     self.opacity = 0
     self.time = time
 
     Timer.tween(self.time, {
-        [self] = {opacity = 1}
+        [self] = {opacity = self.maxOpacity}
     })
     :finish(function()
         gStateStack:pop()

@@ -85,15 +85,15 @@ end
 function gFuncExitToStart()
     gSounds['yellow-theme']:stop()
     gSounds['purple-theme']:stop()
-    gStateStack.states = {}
-    Event.handlers = {}
     gStateStack:push(FadeInState({
-        r = 255, g = 255, b = 255
+        r = 0, g = 0, b = 0
     }, 1,
     function()
+        gStateStack.states = {}
+        Event.handlers = {}
         gStateStack:push(StartState())
         gStateStack:push(FadeOutState({
-            r = 255, g = 255, b = 255
+            r = 0, g = 0, b = 0
         }, 1,
         function() end))
     end))

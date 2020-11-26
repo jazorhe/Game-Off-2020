@@ -2,10 +2,10 @@ FadeOutState = Class{__includes = BaseState}
 
 function FadeOutState:init(color, time, onFadeComplete)
     self.statename = 'FadeOutState'
-    self.opacity = 1
     self.r = color.r
     self.g = color.g
     self.b = color.b
+    self.opacity = color.maxOpacity or 1
     self.time = time
 
     Timer.tween(self.time, {

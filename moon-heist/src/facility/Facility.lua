@@ -177,10 +177,10 @@ function Facility:update(dt, params)
 
     if self.currentLevel == 3 then
         if self.type == 'harbour' then
-            Event.dispatch('win-game', {side = self.side})
+            Event.dispatch('win-ready', {side = self.side})
         end
         if self.type == 'sail' then
-            Event.dispatch('win-game', {side = self.side})
+            Event.dispatch('win-ready', {side = self.side})
         end
     end
 

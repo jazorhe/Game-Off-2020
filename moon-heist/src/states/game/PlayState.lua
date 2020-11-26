@@ -74,9 +74,19 @@ function PlayState:init()
         self:winGame(params)
     end)
 
+    Event.on('win-ready', function(params)
+        self.win = params.side
+    end)
+
     Event.on('next-turn', function(params)
         gSounds['blip']:stop()
         gSounds['blip']:play()
+
+        if self.win then
+            Event.dispatch('win-game', {side = self.win})
+            return
+        end
+
         self:endCurrentTurn()
         if self:evaluateEndTurn() then
             self:startNewTurn()
@@ -313,6 +323,7 @@ function PlayState:evaluateStartTurn()
         TUTORIAL_DEFS[-1].dialogueParams,
         TUTORIAL_DEFS[-1].stencilParams,
         function()
+            self.lost = true
             self:gameOver()
         end))
         return false
@@ -324,6 +335,7 @@ function PlayState:evaluateStartTurn()
         TUTORIAL_DEFS[-2].dialogueParams,
         TUTORIAL_DEFS[-2].stencilParams,
         function()
+            self.lost = true
             self:gameOver()
         end))
         return false
@@ -336,6 +348,7 @@ function PlayState:evaluateStartTurn()
             TUTORIAL_DEFS[-3].dialogueParams,
             TUTORIAL_DEFS[-3].stencilParams,
             function()
+                self.lost = true
                 self:gameOver()
             end))
             return false
@@ -352,6 +365,7 @@ function PlayState:evaluateEndTurn()
         TUTORIAL_DEFS[-1].dialogueParams,
         TUTORIAL_DEFS[-1].stencilParams,
         function()
+            self.lost = true
             self:gameOver()
         end))
         return false
@@ -363,6 +377,7 @@ function PlayState:evaluateEndTurn()
         TUTORIAL_DEFS[-2].dialogueParams,
         TUTORIAL_DEFS[-2].stencilParams,
         function()
+            self.lost = true
             self:gameOver()
         end))
         return false
@@ -375,6 +390,7 @@ function PlayState:evaluateEndTurn()
             TUTORIAL_DEFS[-3].dialogueParams,
             TUTORIAL_DEFS[-3].stencilParams,
             function()
+                self.lost = true
                 self:gameOver()
             end))
             return false
@@ -410,24 +426,30 @@ function PlayState:winGame(params)
     gSounds['yellow-theme']:stop()
     gSounds['purple-theme']:stop()
 
+    local r = 255
+    local g = 255
+    local b = 255
+
     if params.side == 'yellow' then
         winGameState = YellowEndingState()
     elseif params.side == 'purple' then
         winGameState = PurpleEndingState()
     end
 
-    gStateStack:push(FadeInState({
-        r = 255, g = 255, b = 255
-    }, 1,
-    function()
-        gStateStack:pop()
+    gStateStack:push(winGameState)
 
-        gStateStack:push(winGameState)
-        gStateStack:push(FadeOutState({
-            r = 255, g = 255, b = 255
-        }, 1,
-        function() end))
-    end))
+    -- gStateStack:push(FadeInState({
+    --     r = r, g = g, b = b, maxOpacity = 0.3
+    -- }, 1,
+    -- function()
+    --     -- gStateStack:pop()
+    --
+    --     gStateStack:push(winGameState)
+    --     gStateStack:push(FadeOutState({
+    --         r = r, g = g, b = b, maxOpacity = 0.3
+    --     }, 1,
+    --     function() end))
+    -- end))
 end
 
 function PlayState:generateGameEvents()

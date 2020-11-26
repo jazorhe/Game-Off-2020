@@ -175,7 +175,7 @@ function Side:facilitiesPanelsHandle()
     for k, facility in pairs(self.facilities) do
         if facility:isHovered() and canHover then
             facility:showInfoPanel()
-            if love.mouse.wasPressed(1) then
+            if love.mouse.wasPressed(1) and facility.currentLevel < 3 then
                 facility:toggleUpgradePanel()
             end
         else
