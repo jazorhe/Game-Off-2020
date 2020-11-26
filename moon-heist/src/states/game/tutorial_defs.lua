@@ -1,4 +1,47 @@
 TUTORIAL_DEFS = {
+    [99] = {
+        name = 'yellow-win',
+            dialogueParams = {
+            x = 180,
+            y = VIRTUAL_HEIGHT / 2 - 40,
+            width = VIRTUAL_WIDTH - 360,
+            height = 80,
+            text = "You ahd sucessfully built the level 3 Space Harbour. Root 67 planned to start the Earth-Moon Space Immigration very shortly. What lies in front was a brand new era of discovery.\n"..
+            "Ong did not get to fulfill their secret plan and transferred all their facilities to an underground base, seeking for any opportunity to steal the Moon again.",
+            wrap = 12,
+            bgcolour = YELLOW_UI_BG,
+            textcolour = YELLOW_TEXT,
+            callback = function() end
+        },
+        stencilParams = {
+            x = 0,
+            y = 0,
+            width = 0,
+            height = 0
+        },
+        callback = function() end
+    },
+    [98] = {
+        name = 'lost-trust',
+            dialogueParams = {
+            x = 180,
+            y = VIRTUAL_HEIGHT / 2 - 40,
+            width = VIRTUAL_WIDTH - 360,
+            height = 80,
+            text = "You had sucessfully built the level 3 Photon Sail. With the press of the LAUNCH button, the Moon slowly escaped the Earths grapple. The climate on Earth would change dramatically very soon, and people would start to notice that something is no longer in the sky anymore. What would the future of human beings look like? You though to yourself.",
+            wrap = 12,
+            bgcolour = PURPLE_UI_BG,
+            textcolour = PURPLE_TEXT,
+            callback = function() end
+        },
+        stencilParams = {
+            x = 0,
+            y = 0,
+            width = 0,
+            height = 0
+        },
+        callback = function() end
+    },
     [-3] = {
         name = 'lost-trust',
             dialogueParams = {
@@ -10,8 +53,8 @@ TUTORIAL_DEFS = {
             "What happens if you walked on a string for too long?\n"..
             "You fall.",
             wrap = 12,
-            bgcolour = GENERAL_UI_BG,
-            textcolour = GENERAL_TEXT,
+            bgcolour = PURPLE_UI_BG,
+            textcolour = PURPLE_TEXT,
             callback = function() end
         },
         stencilParams = {

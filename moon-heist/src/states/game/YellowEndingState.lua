@@ -1,9 +1,7 @@
 YellowEndingState = Class{__includes = BaseState}
 
-
 function YellowEndingState:init()
     self.statename = 'YellowEndingState'
-    gSounds['main-theme']:play()
     self.allowInput = false
 
     self.bgopacity = 0
@@ -15,6 +13,18 @@ function YellowEndingState:init()
     :finish(function()
         self.allowInput = true
     end)
+
+    gSounds['main-theme']:play()
+    gSounds['main-theme']:setVolume(0)
+    local startwith = 1
+    Timer.every(0.1, function()
+        startwith = startwith - 0.1
+        gSounds['yellow-theme']:setVolume(startwith)
+        gSounds['purple-theme']:setVolume(startwith)
+        gSounds['main-theme']:setVolume(1 - startwith)
+    end)
+    :limit(10)
+
 end
 
 function YellowEndingState:update()

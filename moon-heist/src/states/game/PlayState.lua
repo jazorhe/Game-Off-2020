@@ -423,33 +423,23 @@ end
 
 function PlayState:winGame(params)
 
-    gSounds['yellow-theme']:stop()
-    gSounds['purple-theme']:stop()
-
-    local r = 255
-    local g = 255
-    local b = 255
-
     if params.side == 'yellow' then
-        winGameState = YellowEndingState()
+        gStateStack:push(TutorialState(
+        TUTORIAL_DEFS[99].dialogueParams,
+        TUTORIAL_DEFS[99].stencilParams,
+        function()
+            winGameState = YellowEndingState()
+            gStateStack:push(winGameState)
+        end))
     elseif params.side == 'purple' then
-        winGameState = PurpleEndingState()
+        gStateStack:push(TutorialState(
+        TUTORIAL_DEFS[98].dialogueParams,
+        TUTORIAL_DEFS[98].stencilParams,
+        function()
+            winGameState = PurpleEndingState()
+            gStateStack:push(winGameState)
+        end))
     end
-
-    gStateStack:push(winGameState)
-
-    -- gStateStack:push(FadeInState({
-    --     r = r, g = g, b = b, maxOpacity = 0.3
-    -- }, 1,
-    -- function()
-    --     -- gStateStack:pop()
-    --
-    --     gStateStack:push(winGameState)
-    --     gStateStack:push(FadeOutState({
-    --         r = r, g = g, b = b, maxOpacity = 0.3
-    --     }, 1,
-    --     function() end))
-    -- end))
 end
 
 function PlayState:generateGameEvents()

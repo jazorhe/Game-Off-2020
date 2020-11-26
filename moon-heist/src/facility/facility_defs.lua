@@ -455,8 +455,8 @@ FACILITY_DEFS = {
         },
 
         [4] = {
-            type = 'tunnel',
-            name = 'Express Tunnel',
+            type = 'dark-matter',
+            name = 'Dark Matter Detector',
             side = 'yellow',
             scale = 2,
             initLevel = 0,

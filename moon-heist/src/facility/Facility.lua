@@ -82,6 +82,8 @@ function Facility:init(def, params)
                 text = "Upgrade",
                 onSelect = function()
                     self:levelUp(1)
+                    self.displayUpgradeConfirm = false
+                    self.displayInfo = true
                 end
             },
             [2] = {
