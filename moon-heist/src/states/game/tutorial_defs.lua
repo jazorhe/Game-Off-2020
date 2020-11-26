@@ -1,4 +1,73 @@
 TUTORIAL_DEFS = {
+    [-3] = {
+        name = 'lost-trust',
+            dialogueParams = {
+            x = 180,
+            y = VIRTUAL_HEIGHT / 2 - 40,
+            width = VIRTUAL_WIDTH - 360,
+            height = 80,
+            text = "Your trust level from Root 67 went below their expectations.\n"..
+            "What happens if you walked on a string for too long?\n"..
+            "You fall.",
+            wrap = 12,
+            bgcolour = GENERAL_UI_BG,
+            textcolour = GENERAL_TEXT,
+            callback = function() end
+        },
+        stencilParams = {
+            x = 0,
+            y = 0,
+            width = 0,
+            height = 0
+        },
+        callback = function() end
+    },
+    [-2] = {
+        name = 'lost-resources',
+            dialogueParams = {
+            x = 180,
+            y = VIRTUAL_HEIGHT / 2 - 40,
+            width = VIRTUAL_WIDTH - 360,
+            height = 80,
+            text = "You had exausted your resources. The exact same feeling when a kid walks into a candy shop:\n"..
+            "Display ONLY, no touching (or tasting).\n"..
+            "You were replaced with someone else, who at least knew what he was doing.",
+            wrap = 12,
+            bgcolour = GENERAL_UI_BG,
+            textcolour = GENERAL_TEXT,
+            callback = function() end
+        },
+        stencilParams = {
+            x = 0,
+            y = 0,
+            width = 0,
+            height = 0
+        },
+        callback = function() end
+    },
+    [-1] = {
+        name = 'lost-time',
+            dialogueParams = {
+            x = 180,
+            y = VIRTUAL_HEIGHT / 2 - 40,
+            width = VIRTUAL_WIDTH - 360,
+            height = 80,
+            text = "Time is a valuable resource. Unfortunately, you ran out of time.\n"..
+            "If you had no desire to do great things, at least let someone else do it instead.\n"..
+            "You were FIRED.",
+            wrap = 12,
+            bgcolour = GENERAL_UI_BG,
+            textcolour = GENERAL_TEXT,
+            callback = function() end
+        },
+        stencilParams = {
+            x = 0,
+            y = 0,
+            width = 0,
+            height = 0
+        },
+        callback = function() end
+    },
     [0] = {
         name = 'welcome-skip-tutorial',
             dialogueParams = {

@@ -136,7 +136,14 @@ Thus, When resolving or encountering events, random events always come before re
 
 -   [x] 事件生成
 -   [x] 事件概率
--   [ ] Stars
+-   [x] Stars
+-   [x] Lost Text
+-   [ ] Lost Evaluation
+-   [ ] Frame 7 for Facility 6
+-   [ ] More Events
+-   [ ] Win Game Animation?
+-   [x] Start Screen
+-   [ ] Credit Screen
 
 ## Known Issues
 -   [x] Love2d on Windows misbehaving
@@ -151,7 +158,7 @@ issue fixed: current turn confusion
 starting a new game multiple times will cause consusion to turns, reason being event 'next turn' has been duplicated when a new game has been started. And when event is dispatched, multiple duplicants will be called.
 -   [x] Still need work on only allowing one facility to be hovered at a time
 -   [x] Sometimes event resolve does not have indication
--   [ ] Shifting side in tutorial gives shows all display panel weirdly
+-   [x] Shifting side in tutorial shows all display panel weirdly
 
 
 ## Special Thanks To:

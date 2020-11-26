@@ -44,4 +44,5 @@ function TutorialState:render()
     love.graphics.setColor(0, 0, 0, 0.5)
     love.graphics.rectangle('fill', 0, 0, VIRTUAL_WIDTH, VIRTUAL_HEIGHT)
     love.graphics.setStencilTest()
+    love.graphics.setColor(WHITE)
 end

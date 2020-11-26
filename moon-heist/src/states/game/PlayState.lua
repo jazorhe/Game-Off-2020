@@ -78,8 +78,9 @@ function PlayState:init()
         gSounds['blip']:stop()
         gSounds['blip']:play()
         self:endCurrentTurn()
-        if self.currentTurn < MAX_TURN then
+        if self:evaluateEndTurn() then
             self:startNewTurn()
+        else
         end
     end)
 
@@ -277,25 +278,26 @@ function PlayState:startNewTurn()
         })
     end
 
-    self.newTurnTransition = NewTurnTransitionState({
-        turn = self.currentTurn,
-        bgcolour = self.currentSide.uiBgColour,
-        textcolour = self.currentSide.uiTextColour,
-        darkcolour = self.currentSide.darkcolour,
-        resources = self.resources
-    })
-
-    self.allowInput = false
-    gStateStack:push(self.newTurnTransition)
 
     if not self:evaluateStartTurn() then
-        self.lost = true
-    end
+        -- self.lost = true
+    else
+        self.newTurnTransition = NewTurnTransitionState({
+            turn = self.currentTurn,
+            bgcolour = self.currentSide.uiBgColour,
+            textcolour = self.currentSide.uiTextColour,
+            darkcolour = self.currentSide.darkcolour,
+            resources = self.resources
+        })
 
-    if self.currentTurn >= 1 then
-        Timer.after(2.5, function()
-            self.allowInput = true
-        end)
+        self.allowInput = false
+        gStateStack:push(self.newTurnTransition)
+
+        if self.currentTurn >= 1 then
+            Timer.after(2.5, function()
+                self.allowInput = true
+            end)
+        end
     end
 end
 
@@ -305,16 +307,81 @@ end
 
 
 function PlayState:evaluateStartTurn()
-    if not self:checkResource({resourceTable = ZERO_RESOURCES}) then
+    if self.currentTurn >= MAX_TURN then
+        -- self:gameOver()
+        gStateStack:push(TutorialState(
+        TUTORIAL_DEFS[-1].dialogueParams,
+        TUTORIAL_DEFS[-1].stencilParams,
+        function()
+            self:gameOver()
+        end))
         return false
     end
+
+    if not self:checkResource({resourceTable = ZERO_RESOURCES}) then
+        -- self:gameOver()
+        gStateStack:push(TutorialState(
+        TUTORIAL_DEFS[-2].dialogueParams,
+        TUTORIAL_DEFS[-2].stencilParams,
+        function()
+            self:gameOver()
+        end))
+        return false
+    end
+
+    for k, side in pairs(self.sides) do
+        if not side:checkTrust() and side.name == 'yellow' then
+            -- self:gameOver()
+            gStateStack:push(TutorialState(
+            TUTORIAL_DEFS[-3].dialogueParams,
+            TUTORIAL_DEFS[-3].stencilParams,
+            function()
+                self:gameOver()
+            end))
+            return false
+        end
+    end
+
     return true
 end
 
 function PlayState:evaluateEndTurn()
     if self.currentTurn >= MAX_TURN then
-        self:gameOver()
+        -- self:gameOver()
+        gStateStack:push(TutorialState(
+        TUTORIAL_DEFS[-1].dialogueParams,
+        TUTORIAL_DEFS[-1].stencilParams,
+        function()
+            self:gameOver()
+        end))
+        return false
     end
+
+    if not self:checkResource({resourceTable = ZERO_RESOURCES}) then
+        -- self:gameOver()
+        gStateStack:push(TutorialState(
+        TUTORIAL_DEFS[-2].dialogueParams,
+        TUTORIAL_DEFS[-2].stencilParams,
+        function()
+            self:gameOver()
+        end))
+        return false
+    end
+
+    for k, side in pairs(self.sides) do
+        if not side:checkTrust() and side.name == 'yellow' then
+            -- self:gameOver()
+            gStateStack:push(TutorialState(
+            TUTORIAL_DEFS[-3].dialogueParams,
+            TUTORIAL_DEFS[-3].stencilParams,
+            function()
+                self:gameOver()
+            end))
+            return false
+        end
+    end
+
+    return true
 end
 
 function PlayState:gameOver()

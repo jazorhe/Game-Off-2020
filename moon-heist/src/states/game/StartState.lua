@@ -13,7 +13,7 @@ function StartState:init()
     end
 
     self.spriteX = math.floor(VIRTUAL_WIDTH / 2 - 24)
-    self.spriteY = math.floor(VIRTUAL_HEIGHT / 2 - 24)
+    self.spriteY = math.floor(VIRTUAL_HEIGHT / 2 - 36)
 
     self.tween = Timer.every(3, function()
         Timer.tween(0.2, {
@@ -27,7 +27,7 @@ function StartState:init()
             end
 
             self.spriteX = VIRTUAL_WIDTH
-            self.spriteY = math.floor(VIRTUAL_HEIGHT / 2 - 24)
+            self.spriteY = math.floor(VIRTUAL_HEIGHT / 2 - 36)
 
             Timer.tween(0.2, {
                 [self] = {spriteX = math.floor(VIRTUAL_WIDTH / 2 - 24)}
@@ -43,7 +43,7 @@ function StartState:init()
         items = {
             [1] = {
                 text = "Start Game",
-                onSelect = function() self:startGame() end
+                onSelect = function() self.displayTutorialConfirmation = true end
             },
             [2] = {
                 text = "Credits",
@@ -60,19 +60,52 @@ function StartState:init()
         textcolour = gColours['general'].ui_text
     })
 
+    self.tutorialPrompt = Textbox(
+        160, VIRTUAL_HEIGHT / 2 - 80, VIRTUAL_WIDTH - 320, 40,
+        "Do you need a tutorial?",
+        12, gFonts['small'], 'dialogue', gColours['general'].ui_bg, gColours['general'].ui_text, 12, 3)
+
+    self.tutorialMenu = Menu({
+        x = VIRTUAL_WIDTH / 2 - 60,
+        y = VIRTUAL_HEIGHT / 2,
+        width = 120,
+        height = 80,
+        items = {
+            [1] = {
+                text = "Yes",
+                onSelect = function() self:startGame(true) end
+            },
+            [2] = {
+                text = "No",
+                onSelect = function() self:startGame(false) end
+            },
+            [3] = {
+                text = "Cancel",
+                onSelect = function() self.displayTutorialConfirmation = false end
+            }
+        },
+        bgcolour = gColours['general'].ui_bg,
+        textcolour = gColours['general'].ui_text
+    })
+    self.displayTutorialConfirmation = false
 end
 
 function StartState:update(dt)
-    self.startMenu:update(dt)
+    if self.displayTutorialConfirmation then
+        self.tutorialPrompt:update(dt)
+        self.tutorialMenu:update(dt)
+    else
+        self.startMenu:update(dt)
+    end
 end
 
 function StartState:render()
     love.graphics.push()
-    love.graphics.clear(GREY_UI_BG)
+    love.graphics.clear(rgb(34, 2, 26))
 
     love.graphics.setColor(GREY)
-    love.graphics.setFont(gFonts['medium'])
-    love.graphics.printf('Moon Heist!', 0, VIRTUAL_HEIGHT / 2 - 82, VIRTUAL_WIDTH, 'center')
+    love.graphics.setFont(gFonts['large'])
+    love.graphics.printf('Moon Heist!', 0, VIRTUAL_HEIGHT / 2 - 96, VIRTUAL_WIDTH, 'center')
     love.graphics.setFont(gFonts['small'])
 
     love.graphics.setColor(GREY)
@@ -82,11 +115,17 @@ function StartState:render()
     love.graphics.draw(gTextures[self.sprite], gFrames[self.sprite][self.frame], self.spriteX, self.spriteY)
 
     self.startMenu:render()
-
+    if self.displayTutorialConfirmation then
+        love.graphics.setColor(0, 0, 0, 0.5)
+        love.graphics.rectangle('fill', 0, 0, VIRTUAL_WIDTH, VIRTUAL_HEIGHT)
+        love.graphics.setColor(WHITE)
+        self.tutorialPrompt:render()
+        self.tutorialMenu:render()
+    end
     love.graphics.pop()
 end
 
-function StartState:startGame()
+function StartState:startGame(tutorialConfirmation)
     gStateStack:push(FadeInState({
         r = 255, g = 255, b = 255
     }, 1,
@@ -98,7 +137,7 @@ function StartState:startGame()
         local play = PlayState()
         gStateStack:push(play)
 
-        if not TUTORIAL then
+        if not tutorialConfirmation then
             gStateStack:push(TutorialState(
             TUTORIAL_DEFS[0].dialogueParams,
             TUTORIAL_DEFS[0].stencilParams,

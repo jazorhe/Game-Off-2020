@@ -866,7 +866,7 @@ FACILITY_DEFS = {
 
             animations = {
                 ['idle-0'] = {
-                    frames = {1, 2, 3, 4, 5, 6},
+                    frames = {7},
                     interval = 0.2,
                     texture = 'yellow6'
                 },
