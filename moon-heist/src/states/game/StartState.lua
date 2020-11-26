@@ -47,9 +47,7 @@ function StartState:init()
             },
             [2] = {
                 text = "Credits",
-                onSelect = function()
-
-                end
+                onSelect = function() self.displayCredits = true end
             },
             [3] = {
                 text = "Quit",
@@ -81,19 +79,27 @@ function StartState:init()
             },
             [3] = {
                 text = "Cancel",
-                onSelect = function() self.displayTutorialConfirmation = false end
+                onSelect = function()
+                    self.tutorialMenu.selection.currentSelection = 1
+                    self.displayTutorialConfirmation = false
+                end
             }
         },
         bgcolour = gColours['general'].ui_bg,
         textcolour = gColours['general'].ui_text
     })
     self.displayTutorialConfirmation = false
+    self.displayCredits = false
 end
 
 function StartState:update(dt)
     if self.displayTutorialConfirmation then
-        self.tutorialPrompt:update(dt)
+        -- self.tutorialPrompt:update(dt)
         self.tutorialMenu:update(dt)
+    elseif self.displayCredits then
+        if love.keyboard.wasPressed('enter') or love.keyboard.wasPressed('return') or love.keyboard.wasPressed('kpenter') or love.mouse.wasPressed(1) then
+            self.displayCredits = false
+        end
     else
         self.startMenu:update(dt)
     end
@@ -115,13 +121,34 @@ function StartState:render()
     love.graphics.draw(gTextures[self.sprite], gFrames[self.sprite][self.frame], self.spriteX, self.spriteY)
 
     self.startMenu:render()
+
     if self.displayTutorialConfirmation then
-        love.graphics.setColor(0, 0, 0, 0.5)
+        love.graphics.setColor(0, 0, 0, 0.8)
         love.graphics.rectangle('fill', 0, 0, VIRTUAL_WIDTH, VIRTUAL_HEIGHT)
         love.graphics.setColor(WHITE)
         self.tutorialPrompt:render()
         self.tutorialMenu:render()
     end
+
+    if self.displayCredits then
+        love.graphics.setColor(0, 0, 0, 0.8)
+        love.graphics.rectangle('fill', 0, 0, VIRTUAL_WIDTH, VIRTUAL_HEIGHT)
+        love.graphics.setColor(WHITE)
+        love.graphics.setFont(gFonts['large'])
+        love.graphics.printf('Credits', 0, 84, VIRTUAL_WIDTH, 'center')
+        love.graphics.setFont(gFonts['medium'])
+        love.graphics.printf('Art and Concepts:', 120, VIRTUAL_HEIGHT / 2 - 48, VIRTUAL_WIDTH - 240, 'left')
+        love.graphics.printf('Bonan Cypress Li', 120, VIRTUAL_HEIGHT / 2 - 48, VIRTUAL_WIDTH - 240, 'right')
+        love.graphics.printf('Art and Concepts:', 120, VIRTUAL_HEIGHT / 2 - 24, VIRTUAL_WIDTH - 240, 'left')
+        love.graphics.printf('Honglin Rhoda Du', 120, VIRTUAL_HEIGHT / 2 - 24, VIRTUAL_WIDTH - 240, 'right')
+        love.graphics.printf('Game Development:', 120, VIRTUAL_HEIGHT / 2, VIRTUAL_WIDTH - 240, 'left')
+        love.graphics.printf('Jiehao Jazor He', 120, VIRTUAL_HEIGHT / 2, VIRTUAL_WIDTH - 240, 'right')
+        love.graphics.printf('Music Composition:', 120, VIRTUAL_HEIGHT / 2 + 24, VIRTUAL_WIDTH - 240, 'left')
+        love.graphics.printf('Shi Adam Chen', 120, VIRTUAL_HEIGHT / 2 + 24, VIRTUAL_WIDTH - 240, 'right')
+        love.graphics.printf('Special Thanks To:', 120, VIRTUAL_HEIGHT / 2 + 48, VIRTUAL_WIDTH - 240, 'left')
+        love.graphics.printf('Chuyi Olivia Deng', 120, VIRTUAL_HEIGHT / 2 + 48, VIRTUAL_WIDTH - 240, 'right')
+    end
+
     love.graphics.pop()
 end
 

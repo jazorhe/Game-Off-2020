@@ -24,25 +24,25 @@ function Facility:init(def, params)
     self.y = (self.mapY - 1) * FACILITY_SIZE - self.height / 2
 
     if self.side == 'yellow' then
-        self.offsetX = def.offsetX
+        self.defaultOffsetX = def.offsetX
         or VIRTUAL_WIDTH - 4.5 * FACILITY_SIZE - (3 - self.mapX) * 20 - (self.mapY - 1) * 30
-        self.offsetY = def.offsetY
+        self.defaultOffsetY = def.offsetY
         or VIRTUAL_HEIGHT / 5 * 3 + (self.mapY - 1) * 4 - 20
 
         if self.type == 'harbour' then
-            self.offsetX = self.offsetX - FACILITY_SIZE * 4
-            self.offsetY = self.offsetY - FACILITY_SIZE * 2 + 24
+            self.defaultOffsetX = self.defaultOffsetX - FACILITY_SIZE * 4
+            self.defaultOffsetY = self.defaultOffsetY - FACILITY_SIZE * 2 + 24
         end
 
     elseif self.side == 'purple' then
-        self.offsetX = def.offsetX
+        self.defaultOffsetX = def.offsetX
         or 1.5 * FACILITY_SIZE + (self.mapX - 1) * 40 + (self.mapY - 1) * 30
-        self.offsetY = def.offsetY
+        self.defaultOffsetY = def.offsetY
         or VIRTUAL_HEIGHT / 5 * 3 + (self.mapY - 1) * 4 + 20
     end
 
-    self.offsetX = math.floor(self.offsetX)
-    self.offsetY = math.floor(self.offsetY)
+    self.offsetX = math.floor(self.defaultOffsetX)
+    self.offsetY = math.floor(self.defaultOffsetY)
 
     self.actualX = self.x + self.offsetX
     self.actualY = self.y + self.offsetY
@@ -54,8 +54,18 @@ function Facility:init(def, params)
     self.renderLayer = def.renderLayer
     self.canHover = true
 
+    self.panelOffsetX = 0
+    self.panelOffsetY = 0
+
+    if self.type == 'harbour' then
+        self.panelOffsetX = FACILITY_SIZE * 4
+        self.panelOffsetY = FACILITY_SIZE * 2
+    end
+
     self.infoTextbox = Textbox(
-        self.actualX - 15, self.actualY - 80, self.width * 2 + 30, 80,
+        self.actualX - 15 + self.panelOffsetX,
+        self.actualY - 80 + self.panelOffsetY,
+        FACILITY_SIZE * 2 + 30, 80,
         "", 12, gFonts['small'], 'info', self.uiBgColour,
         self.uiTextColour, 12)
 
@@ -75,16 +85,18 @@ function Facility:init(def, params)
                 end
             }
         },
-        x = self.actualX + 10,
-        y = self.actualY - 15,
-        width = self.width * 2 - 20,
+        x = self.actualX + 10 + self.panelOffsetX,
+        y = self.actualY - 15 + self.panelOffsetY,
+        width = FACILITY_SIZE * 2 - 20,
         height = 30,
         bgcolour = self.uiBgColour,
         textcolour = self.uiTextColour
     })
 
     self.upgradeInfo = Textbox(
-        self.actualX + 10, self.actualY - 85, self.width * 2 - 20, 65,
+        self.actualX + 10 + self.panelOffsetX,
+        self.actualY - 85 + self.panelOffsetY,
+        FACILITY_SIZE * 2 - 20, 65,
         "", 12, gFonts['small'], 'info', self.uiBgColour,
         self.uiTextColour, 12)
 
@@ -166,13 +178,13 @@ function Facility:update(dt, params)
     end
 
     if DEBUG and DEBUG_FACILITY then
-        if love.keyboard.wasPressed('left') and self.type == 'harbour' then
+        if love.keyboard.wasPressed('left') and self.side == 'purple' then
             self.actualX = self.actualX - 1
-        elseif love.keyboard.wasPressed('right') and self.type == 'harbour' then
+        elseif love.keyboard.wasPressed('right') and self.side == 'purple' then
             self.actualX = self.actualX + 1
-        elseif love.keyboard.wasPressed('up') and self.type == 'harbour' then
+        elseif love.keyboard.wasPressed('up') and self.side == 'purple' then
             self.actualY = self.actualY - 1
-        elseif love.keyboard.wasPressed('down') and self.type == 'harbour' then
+        elseif love.keyboard.wasPressed('down') and self.side == 'purple' then
             self.actualY = self.actualY + 1
         end
     end
@@ -219,28 +231,36 @@ function Facility:render(baseX)
 end
 
 function Facility:isHovered()
-
     -- This function has been achieved using very specific trigonometry for our prites. Our sprites are 30-60 degrees and when handling hover actions, because of the transparent space around the sprite, multiple sprites are thought to be selected. The hover action has been handled within the Facility class for decomposition purposes, thus I would not want to handle hovering in higher level classes with layering functions just to for this puposes. Thus I went with a more complex approach. Might not be the best to do.
-    if mouseX > self.x + self.offsetX and mouseX < self.x + self.offsetX + FACILITY_SIZE * 2 then
-        if mouseY > self.y + self.offsetY and mouseY < self.y + self.offsetY + FACILITY_SIZE * 2 then
+
+    local hoverShiftX = 0
+    local hoverShiftY = 0
+
+    if self.type == 'harbour' then
+        hoverShiftX = FACILITY_SIZE * 3 + 20
+        hoverShiftY = FACILITY_SIZE * 1 + 30
+    end
+
+    if mouseX > self.x + self.offsetX + hoverShiftX and mouseX < self.x + self.offsetX + hoverShiftX + FACILITY_SIZE * 2 then
+        if mouseY > self.y + self.offsetY + hoverShiftY and mouseY < self.y + self.offsetY + hoverShiftY + FACILITY_SIZE * 2 then
 
             -- exclude top left corner
-            if (mouseY - self.actualY) < - math.sqrt(3) * (mouseX - self.actualX) + math.sqrt(3) / (math.sqrt(3) + 1) * self.width * self.scale + 12 then
+            if (mouseY - self.actualY - hoverShiftY) < - math.sqrt(3) * (mouseX - self.actualX - hoverShiftX) + math.sqrt(3) / (math.sqrt(3) + 1) * self.width * self.scale + 12 then
                 return false
             end
 
             -- exclude top right corner
-            if (mouseY - self.actualY) < 1 / math.sqrt(3) * (mouseX - self.actualX) - 1 / (math.sqrt(3) + 3) * self.width * self.scale + 12 then
+            if (mouseY - self.actualY - hoverShiftY) < 1 / math.sqrt(3) * (mouseX - self.actualX - hoverShiftX) - 1 / (math.sqrt(3) + 3) * self.width * self.scale + 12 then
                 return false
             end
 
             -- exclude bottom left corner
-            if (mouseY - self.actualY) > 1 / math.sqrt(3) * (mouseX - self.actualX) + math.sqrt(3) / (math.sqrt(3) + 1) * self.width * self.scale - 12 then
+            if (mouseY - self.actualY - hoverShiftY) > 1 / math.sqrt(3) * (mouseX - self.actualX - hoverShiftX) + math.sqrt(3) / (math.sqrt(3) + 1) * self.width * self.scale - 12 then
                 return false
             end
 
             -- exclude bottom right corner
-            if (mouseY - self.actualY) > - math.sqrt(3) * (mouseX - self.actualX) + (math.sqrt(3) + 4) / (math.sqrt(3) + 1) * self.width * self.scale - 12 then
+            if (mouseY - self.actualY - hoverShiftY) > - math.sqrt(3) * (mouseX - self.actualX - hoverShiftX) + (math.sqrt(3) + 4) / (math.sqrt(3) + 1) * self.width * self.scale - 12 then
                 return false
             end
 

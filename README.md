@@ -137,13 +137,13 @@ Thus, When resolving or encountering events, random events always come before re
 -   [x] 事件生成
 -   [x] 事件概率
 -   [x] Stars
+-   [x] Start Screen
+-   [x Credit Screen
 -   [x] Lost Text
 -   [ ] Lost Evaluation
 -   [ ] Frame 7 for Facility 6
 -   [ ] More Events
 -   [ ] Win Game Animation?
--   [x] Start Screen
--   [ ] Credit Screen
 
 ## Known Issues
 -   [x] Love2d on Windows misbehaving
