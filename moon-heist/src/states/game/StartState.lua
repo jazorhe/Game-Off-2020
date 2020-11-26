@@ -107,7 +107,7 @@ end
 
 function StartState:render()
     love.graphics.push()
-    love.graphics.clear(rgb(34, 2, 26))
+    love.graphics.clear(rgb(22, 30, 59))
 
     love.graphics.setColor(GREY)
     love.graphics.setFont(gFonts['large'])

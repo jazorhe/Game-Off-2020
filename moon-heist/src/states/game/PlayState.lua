@@ -70,12 +70,12 @@ function PlayState:init()
         self:modifyResource(params)
     end)
 
-    Event.on('win-game', function(params)
-        self:winGame(params)
-    end)
-
     Event.on('win-ready', function(params)
         self.win = params.side
+    end)
+
+    Event.on('win-game', function(params)
+        self:winGame(params)
     end)
 
     Event.on('next-turn', function(params)
@@ -117,7 +117,7 @@ function PlayState:update(dt)
             end
         end
 
-        if love.keyboard.wasPressed('enter') or love.keyboard.wasPressed('kpenter') or love.keyboard.wasPressed('return') and not upgrading then
+        if (love.keyboard.wasPressed('enter') or love.keyboard.wasPressed('kpenter') or love.keyboard.wasPressed('return')) and not upgrading then
             Event.dispatch('next-turn')
         end
 
@@ -424,21 +424,47 @@ end
 function PlayState:winGame(params)
 
     if params.side == 'yellow' then
-        gStateStack:push(TutorialState(
-        TUTORIAL_DEFS[99].dialogueParams,
-        TUTORIAL_DEFS[99].stencilParams,
-        function()
-            winGameState = YellowEndingState()
-            gStateStack:push(winGameState)
-        end))
+        if self.currentSide.name ~= params.side then
+            self:shiftSide()
+            Timer.after(0.65, function()
+                gStateStack:push(TutorialState(
+                TUTORIAL_DEFS[99].dialogueParams,
+                TUTORIAL_DEFS[99].stencilParams,
+                function()
+                    winGameState = YellowEndingState()
+                    gStateStack:push(winGameState)
+                end))
+            end)
+        else
+            gStateStack:push(TutorialState(
+            TUTORIAL_DEFS[99].dialogueParams,
+            TUTORIAL_DEFS[99].stencilParams,
+            function()
+                winGameState = YellowEndingState()
+                gStateStack:push(winGameState)
+            end))
+        end
     elseif params.side == 'purple' then
-        gStateStack:push(TutorialState(
-        TUTORIAL_DEFS[98].dialogueParams,
-        TUTORIAL_DEFS[98].stencilParams,
-        function()
-            winGameState = PurpleEndingState()
-            gStateStack:push(winGameState)
-        end))
+        if self.currentSide.name ~= params.side then
+            self:shiftSide()
+            Timer.after(0.65, function()
+                gStateStack:push(TutorialState(
+                TUTORIAL_DEFS[98].dialogueParams,
+                TUTORIAL_DEFS[98].stencilParams,
+                function()
+                    winGameState = PurpleEndingState()
+                    gStateStack:push(winGameState)
+                end))
+            end)
+        else
+            gStateStack:push(TutorialState(
+            TUTORIAL_DEFS[98].dialogueParams,
+            TUTORIAL_DEFS[98].stencilParams,
+            function()
+                winGameState = PurpleEndingState()
+                gStateStack:push(winGameState)
+            end))
+        end
     end
 end
 

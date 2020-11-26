@@ -136,6 +136,10 @@ function Facility:init(def, params)
         self.displayUpgradeConfirm = false
     end)
 
+    Event.on('win-ready', function(params)
+        self.win = params.side
+    end)
+
 end
 
 function Facility:changeAnimation(name)
@@ -178,10 +182,10 @@ function Facility:update(dt, params)
     end
 
     if self.currentLevel == 3 then
-        if self.type == 'harbour' then
+        if self.type == 'harbour' and not self.win then
             Event.dispatch('win-ready', {side = self.side})
         end
-        if self.type == 'sail' then
+        if self.type == 'sail' and not self.win then
             Event.dispatch('win-ready', {side = self.side})
         end
     end

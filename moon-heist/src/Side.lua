@@ -87,6 +87,19 @@ function Side:init(def)
     Event.on('trust-management', function(params)
         self:modifyTrust(params)
     end)
+
+    Event.on('win-ready', function(params)
+        self.win = params.side
+        self.flashButton = true
+        self.falshButtonTimer = Timer.every(0.6, function()
+            self.flashButton = not self.flashButton
+        end)
+    end)
+
+    Event.on('win-game', function(params)
+        self.flashButton = false
+        self.falshButtonTimer:remove()
+    end)
 end
 
 function Side:update(dt, params)
@@ -154,7 +167,14 @@ function Side:render()
     self.endTurnButton:render()
     self.shiftSideButton:render()
 
-    love.graphics.setColor(rgb(255, 255, 255))
+    if self.win and self.flashButton then
+        love.graphics.setColor(WHITE)
+        love.graphics.setLineWidth(2)
+        love.graphics.rectangle('line', self.endTurnButton.x - 3, self.endTurnButton.y - 3, self.endTurnButton.width + 6, self.endTurnButton.height + 6)
+    end
+
+    love.graphics.setLineWidth(1)
+    love.graphics.setColor(WHITE)
 end
 
 function Side:facilitiesPanelsHandle()

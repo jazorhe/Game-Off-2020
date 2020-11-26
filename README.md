@@ -141,12 +141,12 @@ Thus, When resolving or encountering events, random events always come before re
 -   [x Credit Screen
 -   [x] Frame 7 for Facility 6
 -   [x] Lost Text
+-   [x] Win Game Animation
 -   [ ] Lost Evaluation
 -   [ ] More Events
 -   [ ] Purple Facilities Positons
 -   [ ] Purple Facilities Hovering
 -   [ ] Purple Facilities Panels
--   [ ] Win Game Animation?
 
 ## Known Issues
 -   [x] Love2d on Windows misbehaving
