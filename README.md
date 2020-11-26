@@ -139,10 +139,13 @@ Thus, When resolving or encountering events, random events always come before re
 -   [x] Stars
 -   [x] Start Screen
 -   [x Credit Screen
+-   [x] Frame 7 for Facility 6
 -   [x] Lost Text
 -   [ ] Lost Evaluation
--   [ ] Frame 7 for Facility 6
 -   [ ] More Events
+-   [ ] Purple Facilities Positons
+-   [ ] Purple Facilities Hovering
+-   [ ] Purple Facilities Panels
 -   [ ] Win Game Animation?
 
 ## Known Issues

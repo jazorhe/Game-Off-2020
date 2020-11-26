@@ -36,9 +36,16 @@ function Facility:init(def, params)
 
     elseif self.side == 'purple' then
         self.defaultOffsetX = def.offsetX
-        or 1.5 * FACILITY_SIZE + (self.mapX - 1) * 40 + (self.mapY - 1) * 30
+        or FACILITY_SIZE + (self.mapX - 1) * 48 + (self.mapY - 1) * 36 - 18
         self.defaultOffsetY = def.offsetY
-        or VIRTUAL_HEIGHT / 5 * 3 + (self.mapY - 1) * 4 + 20
+        or VIRTUAL_HEIGHT / 5 * 3 + (self.mapY - 1) * 24 - 24
+
+        if self.type == 'sail' then
+            self.defaultOffsetX = self.defaultOffsetX
+            self.defaultOffsetY = self.defaultOffsetY + FACILITY_SIZE
+        end
+
+
     end
 
     self.offsetX = math.floor(self.defaultOffsetX)

@@ -13,9 +13,9 @@ function GameOverState:update()
 end
 
 function GameOverState:render()
-    love.graphics.clear(rgb(102, 52, 43))
+    love.graphics.clear(rgb(56, 10, 1))
 
-    love.graphics.setColor(rgb(190, 163, 165))
+    love.graphics.setColor(rgb(191, 117, 117))
     love.graphics.setFont(gFonts['large'])
     love.graphics.printf('GAME OVER', 0, VIRTUAL_HEIGHT / 2 - 72, VIRTUAL_WIDTH, 'center')
     love.graphics.setFont(gFonts['medium'])

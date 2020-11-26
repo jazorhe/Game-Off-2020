@@ -193,7 +193,7 @@ RANDOM_EVENTS = {
                 [0] = {
                     "[*News Broadcasting*]\n"..
                     "There have been protests all around the world recently against the new in-construction MoonBase and the plans for potential Space Immigration within the next decade.\n\n"..
-                    "Protesters argue that their taxation has been spent wrongly on something that they \"will never benefit from\", and that Space Immigration is nothing but an \"evil dream to start a new era of colonialism. They have demanded the UN to cut costs on this ambitious project.\""
+                    "Protesters argued that their taxation has been spent wrongly on something that they \"will never benefit from\", and that Space Immigration is nothing but an \"evil dream to start a new era of colonialism. They have demanded the UN to cut costs on this ambitious project.\""
                 },
                 [1] = {
                     "You received an official warning from the Root 67 association. In the letter they wrote: \"Watch your tongue!\""
@@ -211,7 +211,7 @@ RANDOM_EVENTS = {
                 [1] = {
                     text = "\"We have a dream in common, let us make it come true regardless of its cost.\"",
                     closing = "[*News Broadcasting*]\n"..
-                    "As said by the official. The voices of protesters continued to rise, the crowd were extremely disappointed and accused that \"a coldblooded dictatorship\".",
+                    "As said by the official. The voice of protesters continued to rise, the crowd were extremely disappointed and accused that \"a coldblooded dictatorship\".",
                     onSelect = function()
                         return 1
                     end

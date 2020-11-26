@@ -77,12 +77,13 @@ gColours = {
     }
 }
 
-DEBUG = true
-DEBUG_FACILITY = true
-DEBUG_MOUSE = false
-DEBUG_EVENTS = false
-DEBUG_TESTEVENT = false
-DEBUG_STATES = false
+DEBUG = false
 CHEAT_MODE = false
 
-EVENTS_MODE = true
+DEBUG_MOUSE = false
+DEBUG_FACILITY = false
+DEBUG_STATES = false
+
+DEBUG_EVENTS = false
+DEBUG_TESTEVENT = false
+SKIP_EVENTS = false

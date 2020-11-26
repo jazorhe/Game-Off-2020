@@ -52,7 +52,7 @@ function PlayState:init()
 
     self.currentEvents = {}
 
-    if EVENTS_MODE then
+    if not SKIP_EVENTS then
         self.currentEvents, self.encounterTurns = self:generateGameEvents()
     end
 
@@ -392,14 +392,14 @@ function PlayState:gameOver()
     gSounds['yellow-theme']:stop()
     gSounds['purple-theme']:stop()
     gStateStack:push(FadeInState({
-        r = 255, g = 255, b = 255
+        r = 0, g = 0, b = 0
     }, 1,
     function()
         gStateStack:pop()
 
         gStateStack:push(GameOverState())
         gStateStack:push(FadeOutState({
-            r = 255, g = 255, b = 255
+            r = 0, g = 0, b = 0
         }, 1,
         function() end))
     end))
@@ -479,7 +479,7 @@ function PlayState:generateGameEvents()
     end
 
     if DEBUG and DEBUG_TESTEVENT then
-        eventTable = {GameEvent(RANDOM_EVENTS['early'][4])}
+        eventTable = {GameEvent(RANDOM_EVENTS['early'][3])}
         encounterTurns = {3}
     end
     return eventTable, encounterTurns

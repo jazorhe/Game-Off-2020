@@ -5,7 +5,6 @@ Timer = require 'lib/knife.timer'
 
 require 'src/Util'
 require 'src/Animation'
-
 require 'src/constants'
 
 require 'src/gui/Menu'
@@ -54,12 +53,6 @@ require 'src/states/game-event/GameEventEncounterState'
 require 'src/states/game-event/GameEventProgressingState'
 require 'src/states/game-event/GameEventResolveState'
 require 'src/states/game-event/GameEventPassedState'
-
--- require 'src/world/Level'
--- require 'src/world/tile_ids'
--- require 'src/world/Tile'
--- require 'src/world/TileMap'
-
 
 gTextures = {
     ['yellow'] = love.graphics.newImage('graphics/yellow.png'),
