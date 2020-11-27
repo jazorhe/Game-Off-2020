@@ -147,6 +147,9 @@ Thus, When resolving or encountering events, random events always come before re
 -   [ ] Purple Facilities Positons
 -   [ ] Purple Facilities Hovering
 -   [ ] Purple Facilities Panels
+-   [ ] Purple RGB
+-   [ ] Purple 6 Grid
+-   [ ] Purple Credit 640x360
 
 ## Known Issues
 -   [x] Love2d on Windows misbehaving

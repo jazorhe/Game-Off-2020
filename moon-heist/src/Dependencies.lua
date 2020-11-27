@@ -65,7 +65,10 @@ gTextures = {
     ['purplebg'] = love.graphics.newImage('graphics/purple-background.png'),
     ['earth'] = love.graphics.newImage('graphics/earth.png'),
     ['galaxy'] = love.graphics.newImage('graphics/galaxy.png'),
-    ['particle'] = love.graphics.newImage('graphics/particle.png')
+    ['particle'] = love.graphics.newImage('graphics/particle.png'),
+    ['credit-jazor'] = love.graphics.newImage('graphics/credit-jazorhe.png'),
+    ['credit-rhoda'] = love.graphics.newImage('graphics/credit-rhodadu.png'),
+    ['credit-tooth'] = love.graphics.newImage('graphics/credit-toothless.png')
 }
 
 gFrames = {

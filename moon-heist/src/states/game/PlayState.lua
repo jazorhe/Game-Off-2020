@@ -52,9 +52,9 @@ function PlayState:init()
 
     self.currentEvents = {}
 
-    if not SKIP_EVENTS then
+    -- if not SKIP_EVENTS then
         self.currentEvents, self.encounterTurns = self:generateGameEvents()
-    end
+    -- end
 
     -- self:startNewTurn()
 
@@ -515,6 +515,11 @@ function PlayState:generateGameEvents()
 end
 
 function PlayState:gameEventUpdateLoop(dt)
+
+    if SKIP_EVENTS then
+        return
+    end
+
     for k, gameEvent in pairs(self.currentEvents) do
         if gameEvent.state == 'progressing' then
             if gameEvent.resolveTurn == self.currentTurn then

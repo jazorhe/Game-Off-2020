@@ -19,10 +19,7 @@ function Side:init(def)
 
     for i = 1, #def.entities do
         table.insert(self.entities, Entity(def.entities[i]))
-        self.entities[i].stateMachine = StateMachine {
-            ['walk'] = function() return EntityWalkState(self.entities[i], self) end,
-            ['idle'] = function() return EntityIdleState(self.entities[i]) end
-        }
+        self.entities[i].stateMachine = StateMachine {['idle'] = function() return EntityIdleState(self.entities[i]) end}
         self.entities[i]:changeState('idle')
     end
 

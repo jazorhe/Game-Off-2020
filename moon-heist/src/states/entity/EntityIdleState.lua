@@ -14,5 +14,5 @@ function EntityIdleState:render(params)
     local anim = self.entity.currentAnimation
     love.graphics.setColor(WHITE)
     love.graphics.draw(gTextures[anim.texture], gFrames[anim.texture][anim:getCurrentFrame()],
-        math.floor(self.entity.x) + params.baseX, math.floor(self.entity.y), 0, self.entity.scale, self.entity.scale)
+        math.floor(self.entity.x) + (params.baseX or 0), math.floor(self.entity.y), 0, self.entity.scale, self.entity.scale)
 end

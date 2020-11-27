@@ -12,6 +12,9 @@ function StartState:init()
         self.frame = math.random(126)
     end
 
+    self.entities = {}
+    self:generateEntities()
+
     self.spriteX = math.floor(VIRTUAL_WIDTH / 2 - 24)
     self.spriteY = math.floor(VIRTUAL_HEIGHT / 2 - 36)
 
@@ -47,7 +50,7 @@ function StartState:init()
             },
             [2] = {
                 text = "Credits",
-                onSelect = function() self.displayCredits = true end
+                onSelect = function() gStateStack:push(CreditsState()) end
             },
             [3] = {
                 text = "Quit",
@@ -94,22 +97,25 @@ end
 
 function StartState:update(dt)
     if self.displayTutorialConfirmation then
-        -- self.tutorialPrompt:update(dt)
         self.tutorialMenu:update(dt)
-    elseif self.displayCredits then
-        if love.keyboard.wasPressed('enter') or love.keyboard.wasPressed('return') or love.keyboard.wasPressed('kpenter') or love.mouse.wasPressed(1) then
-            self.displayCredits = false
-        end
     else
         self.startMenu:update(dt)
+    end
+
+    for k, entity in pairs(self.entities) do
+        entity:update(dt)
     end
 end
 
 function StartState:render()
     love.graphics.push()
-    love.graphics.clear(rgb(22, 30, 59))
+    love.graphics.clear(rgb(35, 39, 56))
 
-    love.graphics.setColor(GREY)
+    for k, entity in pairs(self.entities) do
+        entity:render()
+    end
+
+    love.graphics.setColor(WHITE)
     love.graphics.setFont(gFonts['large'])
     love.graphics.printf('Moon Heist!', 0, VIRTUAL_HEIGHT / 2 - 96, VIRTUAL_WIDTH, 'center')
     love.graphics.setFont(gFonts['small'])
@@ -128,25 +134,6 @@ function StartState:render()
         love.graphics.setColor(WHITE)
         self.tutorialPrompt:render()
         self.tutorialMenu:render()
-    end
-
-    if self.displayCredits then
-        love.graphics.setColor(0, 0, 0, 0.8)
-        love.graphics.rectangle('fill', 0, 0, VIRTUAL_WIDTH, VIRTUAL_HEIGHT)
-        love.graphics.setColor(WHITE)
-        love.graphics.setFont(gFonts['large'])
-        love.graphics.printf('Credits', 0, 84, VIRTUAL_WIDTH, 'center')
-        love.graphics.setFont(gFonts['medium'])
-        love.graphics.printf('Art and Concepts:', 120, VIRTUAL_HEIGHT / 2 - 48, VIRTUAL_WIDTH - 240, 'left')
-        love.graphics.printf('Toothless Frostiana L.', 120, VIRTUAL_HEIGHT / 2 - 48, VIRTUAL_WIDTH - 240, 'right')
-        love.graphics.printf('Art and Concepts:', 120, VIRTUAL_HEIGHT / 2 - 24, VIRTUAL_WIDTH - 240, 'left')
-        love.graphics.printf('Rhoda Du', 120, VIRTUAL_HEIGHT / 2 - 24, VIRTUAL_WIDTH - 240, 'right')
-        love.graphics.printf('Game Development:', 120, VIRTUAL_HEIGHT / 2, VIRTUAL_WIDTH - 240, 'left')
-        love.graphics.printf('Jazor He', 120, VIRTUAL_HEIGHT / 2, VIRTUAL_WIDTH - 240, 'right')
-        love.graphics.printf('Music Composition:', 120, VIRTUAL_HEIGHT / 2 + 24, VIRTUAL_WIDTH - 240, 'left')
-        love.graphics.printf('Shi Adam Chen', 120, VIRTUAL_HEIGHT / 2 + 24, VIRTUAL_WIDTH - 240, 'right')
-        love.graphics.printf('Special Thanks To:', 120, VIRTUAL_HEIGHT / 2 + 48, VIRTUAL_WIDTH - 240, 'left')
-        love.graphics.printf('Chuyi Olivia Deng', 120, VIRTUAL_HEIGHT / 2 + 48, VIRTUAL_WIDTH - 240, 'right')
     end
 
     love.graphics.pop()
@@ -185,4 +172,30 @@ function StartState:startGame(tutorialConfirmation)
         }, 1,
         function() end))
     end))
+end
+
+function StartState:generateEntities()
+    table.insert(self.entities, Entity(ENTITY_DEFS['yellow'][1]))
+    self.entities[1].stateMachine = StateMachine {['idle'] = function() return EntityIdleState(self.entities[1]) end}
+    self.entities[1]:changeState('idle')
+
+    table.insert(self.entities, Entity(ENTITY_DEFS['purple'][1]))
+    self.entities[2].stateMachine = StateMachine {['idle'] = function() return EntityIdleState(self.entities[2]) end}
+    self.entities[2]:changeState('idle')
+
+    for k, entity in pairs(self.entities) do
+        entity.stateMachine = StateMachine {['idle'] = function() return EntityIdleState(entity) end}
+        entity:changeState('idle')
+
+        if k == 1 then
+            entity.scale = 2
+            entity.x = - entity.width
+            entity.y = 60
+        elseif k == 2 then
+            entity.scale = 4
+            entity.x = VIRTUAL_WIDTH - entity.width * 2 + 40
+            entity.y = -40
+        end
+
+    end
 end
