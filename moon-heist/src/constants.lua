@@ -86,3 +86,69 @@ DEBUG_STATES = false
 DEBUG_EVENTS = false
 DEBUG_TESTEVENT = false
 SKIP_EVENTS = false
+
+gDebugConstants = {
+    [1] = {
+        text = "Debug Mode: ",
+        value = DEBUG,
+        onSelect = function()
+            gDebugConstants[1].value = not gDebugConstants[1].value
+            DEBUG = not DEBUG
+        end
+    },
+    [2] = {
+        text = "Cheat Mode:",
+        value = CHEAT_MODE,
+        onSelect = function()
+            gDebugConstants[2].value = not gDebugConstants[2].value
+            CHEAT_MODE = not CHEAT_MODE
+        end
+    },
+    [3] = {
+        text = "Skip Events:",
+        value = SKIP_EVENTS,
+        onSelect = function()
+            gDebugConstants[3].value = not gDebugConstants[3].value
+            SKIP_EVENTS = not SKIP_EVENTS
+        end
+    },
+    [4] = {
+        text = "Debug Mouse:",
+        value = DEBUG_MOUSE,
+        onSelect = function()
+            gDebugConstants[4].value = not gDebugConstants[4].value
+            DEBUG_MOUSE = not DEBUG_MOUSE
+        end
+    },
+    [5] = {
+        text = "Debug Facility:",
+        value = DEBUG_FACILITY,
+        onSelect = function()
+            gDebugConstants[5].value = not gDebugConstants[5].value
+            DEBUG_FACILITY = not DEBUG_FACILITY
+        end
+    },
+    [6] = {
+        text = "Debug Events:",
+        value = DEBUG_EVENTS,
+        onSelect = function()
+            gDebugConstants[6].value = not gDebugConstants[6].value
+            DEBUG_EVENTS = not DEBUG_EVENTS
+        end
+    },
+    [7] = {
+        text = "Debug States:",
+        value = DEBUG_STATES,
+        onSelect = function()
+            gDebugConstants[7].value = not gDebugConstants[7].value
+            DEBUG_STATES = not DEBUG_STATES
+        end
+    },
+    [8] = {
+        text = "Cancel",
+        value = "",
+        onSelect = function()
+            gStateStack:pop()
+        end
+    }
+}

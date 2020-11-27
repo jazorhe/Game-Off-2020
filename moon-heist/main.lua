@@ -15,6 +15,10 @@ function love.load()
 
     love.keyboard.keysPressed = {}
     love.mouse.keysPressed = {}
+    love.keyboard.lastKeys = {}
+    Timer.every(1.5, function()
+        love.keyboard.lastKeys = {}
+    end)
 end
 
 function love.update(dt)
@@ -42,6 +46,22 @@ function love.update(dt)
         gMute = not gMute
     end
 
+    if love.keyboard.wasPressed('0') then
+        table.insert(love.keyboard.lastKeys, '0')
+    end
+
+    local dNum = 0
+    for k, key in pairs(love.keyboard.lastKeys) do
+        if key == '0' then
+            dNum = dNum + 1
+        end
+    end
+
+    if dNum > 4 then
+        gStateStack:push(DebugOptionsState())
+        love.keyboard.lastKeys = {}
+    end
+
     Timer.update(dt)
     gStateStack:update(dt)
 
@@ -61,9 +81,12 @@ function love.draw()
             love.graphics.printf(tostring(state.statename), 5, 16 + k * 20, VIRTUAL_WIDTH, 'left')
         end
     elseif DEBUG and DEBUG_MOUSE then
-        love.graphics.setFont(gFonts['small'])
         love.graphics.setColor(WHITE)
         love.graphics.printf("x: ".. tostring(mouseX) .. ", y: " .. tostring(mouseY), 5, 5, VIRTUAL_WIDTH, 'left')
+    end
+
+    if gDebugDisplay then
+        gDebugStatesRender()
     end
 
     push:finish()
@@ -78,9 +101,6 @@ function love.resize(w, h)
 end
 
 function love.keypressed(key)
-    -- if key == 'escape' then
-    --     love.event.quit()
-    -- end
     love.keyboard.keysPressed[key] = true
 end
 

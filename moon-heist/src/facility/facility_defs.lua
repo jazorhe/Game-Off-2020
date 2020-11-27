@@ -877,12 +877,14 @@ FACILITY_DEFS = {
                     texture = 'yellow6'
                 },
                 ['idle-2'] = {
-                    frames = {1, 2, 3, 4, 5, 6},
+                    frames = {8, 9, 10, 11, 12, 13, 13,
+                              13, 12, 11, 10, 9, 8, 8},
                     interval = 0.2,
                     texture = 'yellow6'
                 },
                 ['idle-3'] = {
-                    frames = {1, 2, 3, 4, 5, 6},
+                    frames = {15, 16, 17, 18, 19, 20, 20, 
+                              20, 19, 18, 17, 16, 15, 15},
                     interval = 0.2,
                     texture = 'yellow6'
                 }

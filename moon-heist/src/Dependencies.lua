@@ -32,6 +32,7 @@ require 'src/states/game/GameOverState'
 require 'src/states/game/YellowEndingState'
 require 'src/states/game/PurpleEndingState'
 require 'src/states/game/CreditsState'
+require 'src/states/game/DebugOptionsState'
 
 require 'src/Side'
 require 'src/Sky'
@@ -95,11 +96,10 @@ gSounds = {
     ['victory-music'] = love.audio.newSource('sounds/victory.wav', 'stream'),
     ['yellow-theme'] = love.audio.newSource('sounds/moon-gate.wav', 'stream'),
     ['purple-theme'] = love.audio.newSource('sounds/moon-gate-dark.mp3', 'stream'),
+    -- ['main-theme'] = love.audio.newSource('sounds/main-theme.wav', 'stream'),
     ['main-theme'] = love.audio.newSource('sounds/intro.mp3', 'stream')
 }
 gVolume = 0.8
 gMute = false
 love.audio.setVolume(gVolume)
 gSounds['blip']:setVolume(0.3)
-
--- ['main-theme'] = love.audio.newSource('sounds/main-theme.wav', 'static'),

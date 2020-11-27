@@ -409,19 +409,6 @@ function PlayState:gameOver()
     gSounds['purple-theme']:stop()
 
     gStateStack:push(GameOverState())
-    --
-    -- gStateStack:push(FadeInState({
-    --     r = 0, g = 0, b = 0
-    -- }, 1,
-    -- function()
-    --     gStateStack:pop()
-    --
-    --     gStateStack:push(GameOverState())
-    --     gStateStack:push(FadeOutState({
-    --         r = 0, g = 0, b = 0
-    --     }, 1,
-    --     function() end))
-    -- end))
 end
 
 function PlayState:winGame(params)
@@ -523,7 +510,7 @@ function PlayState:generateGameEvents()
         eventTable = {GameEvent(RANDOM_EVENTS['early'][3])}
         encounterTurns = {3}
     end
-    
+
     return eventTable, encounterTurns
 end
 
