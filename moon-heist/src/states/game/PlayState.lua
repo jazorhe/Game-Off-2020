@@ -407,18 +407,21 @@ function PlayState:gameOver()
 
     gSounds['yellow-theme']:stop()
     gSounds['purple-theme']:stop()
-    gStateStack:push(FadeInState({
-        r = 0, g = 0, b = 0
-    }, 1,
-    function()
-        gStateStack:pop()
 
-        gStateStack:push(GameOverState())
-        gStateStack:push(FadeOutState({
-            r = 0, g = 0, b = 0
-        }, 1,
-        function() end))
-    end))
+    gStateStack:push(GameOverState())
+    --
+    -- gStateStack:push(FadeInState({
+    --     r = 0, g = 0, b = 0
+    -- }, 1,
+    -- function()
+    --     gStateStack:pop()
+    --
+    --     gStateStack:push(GameOverState())
+    --     gStateStack:push(FadeOutState({
+    --         r = 0, g = 0, b = 0
+    --     }, 1,
+    --     function() end))
+    -- end))
 end
 
 function PlayState:winGame(params)

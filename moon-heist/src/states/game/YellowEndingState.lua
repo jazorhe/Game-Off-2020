@@ -8,7 +8,7 @@ function YellowEndingState:init()
     self.textopacity = 0
 
     Timer.tween(2, {
-        [self] = {bgopacity = 0.4, textopacity = 1}
+        [self] = {bgopacity = 0.6, textopacity = 1}
     })
     :finish(function()
         self.allowInput = true
