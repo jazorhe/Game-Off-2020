@@ -2,11 +2,18 @@ GameEventEncounterState = Class{}
 
 function GameEventEncounterState:init(gameEvent)
     self.gameEvent = gameEvent
+    self.allowInput = false
+
+    Timer.after(1.5, function()
+        self.allowInput = true
+    end)
 end
 
 
 function GameEventEncounterState:enter()
     self.gameEvent.state = 'encounter'
+    gSounds['bell']:stop()
+    gSounds['bell']:play()
 
     self.encounterDialogue = Textbox(
         160, VIRTUAL_HEIGHT / 2 - 80, VIRTUAL_WIDTH - 320, 100,
@@ -35,36 +42,38 @@ function GameEventEncounterState:enter()
 end
 
 function GameEventEncounterState:update(dt)
-    if love.keyboard.wasPressed('escape') or love.mouse.wasPressed(2) then
-        gStateStack:push(PauseState())
-    end
-
-    if self.encounterDialogue:isClosed() then
-
-        if self.closingDialogue then
-            self.selecting = false
-            self.closingDialogue:update(dt)
-            if self.closingDialogue:isClosed() then
-                self.gameEvent:changeState('progressing')
-                gStateStack:pop()
-            end
+    if self.allowInput then
+        if love.keyboard.wasPressed('escape') or love.mouse.wasPressed(2) then
+            gStateStack:push(PauseState())
         end
 
-        if not self.gameEvent.selected then
-            self.selecting = true
-            self.selectionMenu:update(dt, self.gameEvent, function(selection)
+        if self.encounterDialogue:isClosed() then
+
+            if self.closingDialogue then
+                self.selecting = false
+                self.closingDialogue:update(dt)
+                if self.closingDialogue:isClosed() then
+                    self.gameEvent:changeState('progressing')
+                    gStateStack:pop()
+                end
+            end
+
+            if not self.gameEvent.selected then
+                self.selecting = true
+                self.selectionMenu:update(dt, self.gameEvent, function(selection)
                     self.gameEvent.selected = selection
                     self.closingDialogue = Textbox(
-                        160, VIRTUAL_HEIGHT / 2 - 80, VIRTUAL_WIDTH - 320, 100,
-                        self.gameEvent.selections[self.gameEvent.selected].closing,
-                        12, gFonts['small'], 'dialogue', gColours[self.gameEvent.side].ui_bg,
-                        gColours[self.gameEvent.side].ui_text, 12, 7)
+                    160, VIRTUAL_HEIGHT / 2 - 80, VIRTUAL_WIDTH - 320, 100,
+                    self.gameEvent.selections[self.gameEvent.selected].closing,
+                    12, gFonts['small'], 'dialogue', gColours[self.gameEvent.side].ui_bg,
+                    gColours[self.gameEvent.side].ui_text, 12, 7)
                     self.selecting = false
                 end)
-        end
+            end
 
-    else
-        self.encounterDialogue:update(dt)
+        else
+            self.encounterDialogue:update(dt)
+        end
     end
 end
 

@@ -84,6 +84,7 @@ gFonts = {
 
 gSounds = {
     ['blip'] = love.audio.newSource('sounds/blip.wav', 'static'),
+    ['bell'] = love.audio.newSource('sounds/bell.wav', 'static'),
     ['powerup'] = love.audio.newSource('sounds/powerup.wav', 'static'),
     ['hit'] = love.audio.newSource('sounds/hit.wav', 'static'),
     ['run'] = love.audio.newSource('sounds/run.wav', 'static'),

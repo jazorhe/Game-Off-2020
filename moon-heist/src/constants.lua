@@ -47,7 +47,6 @@ GENERAL_BG = table.pack(rgb(136, 134, 138))
 GENERAL_UI_BG = table.pack(rgba(78, 75, 83, 0.8))
 GENERAL_TEXT = table.pack(rgb(213, 213, 213))
 GENERAL_DARK = table.pack(rgb(36, 31, 31))
-
 GREEN = table.pack(rgb(67, 167, 67))
 RED = table.pack(rgb(182, 36, 36))
 

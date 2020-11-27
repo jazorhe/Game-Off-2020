@@ -3,6 +3,12 @@ GameEventResolveState = Class{}
 function GameEventResolveState:init(gameEvent)
     self.gameEvent = gameEvent
     self.resolved = false
+
+    self.allowInput = false
+
+    Timer.after(1.5, function()
+        self.allowInput = true
+    end)
 end
 
 function GameEventResolveState:enter()
@@ -22,29 +28,31 @@ function GameEventResolveState:enter()
 end
 
 function GameEventResolveState:update(dt)
-    if love.keyboard.wasPressed('escape') or love.mouse.wasPressed(2) then
-        gStateStack:push(PauseState())
-    end
-
-    if self.resolveDialogue:isClosed() then
-        self.closingDialogue:update(dt)
-        if self.closingDialogue:isClosed() then
-            if not self.resolved then
-                Event.dispatch('trust-management', {
-                    trust = self.gameEvent.outcomes[self.gameEvent.selected].trust,
-                    side = self.gameEvent.outcomes[self.gameEvent.selected].side
-                })
-                Event.dispatch('resource-management', {
-                    resourceTable = self.gameEvent.outcomes[self.gameEvent.selected].resources
-                })
-                self.resolved = true
-            end
-
-            self.gameEvent:changeState('passed')
-            gStateStack:pop()
+    if self.allowInput then
+        if love.keyboard.wasPressed('escape') or love.mouse.wasPressed(2) then
+            gStateStack:push(PauseState())
         end
-    else
-        self.resolveDialogue:update(dt)
+
+        if self.resolveDialogue:isClosed() then
+            self.closingDialogue:update(dt)
+            if self.closingDialogue:isClosed() then
+                if not self.resolved then
+                    Event.dispatch('trust-management', {
+                        trust = self.gameEvent.outcomes[self.gameEvent.selected].trust,
+                        side = self.gameEvent.outcomes[self.gameEvent.selected].side
+                    })
+                    Event.dispatch('resource-management', {
+                        resourceTable = self.gameEvent.outcomes[self.gameEvent.selected].resources
+                    })
+                    self.resolved = true
+                end
+
+                self.gameEvent:changeState('passed')
+                gStateStack:pop()
+            end
+        else
+            self.resolveDialogue:update(dt)
+        end
     end
 end
 

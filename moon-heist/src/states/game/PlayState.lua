@@ -523,6 +523,7 @@ function PlayState:generateGameEvents()
         eventTable = {GameEvent(RANDOM_EVENTS['early'][3])}
         encounterTurns = {3}
     end
+    
     return eventTable, encounterTurns
 end
 
