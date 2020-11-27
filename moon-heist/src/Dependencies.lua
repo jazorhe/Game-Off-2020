@@ -59,6 +59,7 @@ gTextures = {
     ['yellow'] = love.graphics.newImage('graphics/yellow.png'),
     ['yellow6'] = love.graphics.newImage('graphics/yellow6.png'),
     ['purple'] = love.graphics.newImage('graphics/purple.png'),
+    ['purple6'] = love.graphics.newImage('graphics/purple6.png'),
     ['cursor'] = love.graphics.newImage('graphics/cursor.png'),
     ['yellowbg'] = love.graphics.newImage('graphics/yellow-background.png'),
     ['purplebg'] = love.graphics.newImage('graphics/purple-background.png'),
@@ -71,6 +72,7 @@ gFrames = {
     ['yellow'] = GenerateQuads(gTextures['yellow'], 48, 48),
     ['yellow6'] = GenerateQuads(gTextures['yellow6'], 144, 96),
     ['purple'] = GenerateQuads(gTextures['purple'], 48, 48),
+    ['purple6'] = GenerateQuads(gTextures['purple6'], 144, 96),
     ['earth'] = GenerateQuads(gTextures['earth'], 120, 120),
     ['galaxy'] = GenerateQuads(gTextures['galaxy'], 120, 120)
 }

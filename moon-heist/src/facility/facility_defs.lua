@@ -883,7 +883,7 @@ FACILITY_DEFS = {
                     texture = 'yellow6'
                 },
                 ['idle-3'] = {
-                    frames = {15, 16, 17, 18, 19, 20, 20, 
+                    frames = {15, 16, 17, 18, 19, 20, 20,
                               20, 19, 18, 17, 16, 15, 15},
                     interval = 0.2,
                     texture = 'yellow6'
@@ -1019,9 +1019,7 @@ FACILITY_DEFS = {
                     texture = 'purple'
                 },
                 ['idle-1'] = {
-                    frames = {1, 1, 1, 2, 2, 2, 1, 1, 1, 2, 2, 2, 3, 3, 3, 2, 2, 2, 3, 3, 3,
-                            4, 4, 4, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 6, 6, 5, 5, 5, 4, 4, 4,
-                            3, 3, 3, 2, 2, 2, 1, 1, 1},
+                    frames = {1},
                     interval = 0.2,
                     texture = 'purple'
                 },
@@ -1165,7 +1163,7 @@ FACILITY_DEFS = {
                     texture = 'purple'
                 },
                 ['idle-1'] = {
-                    frames = {22, 23, 24, 25, 26, 27},
+                    frames = {22},
                     interval = 0.2,
                     texture = 'purple'
                 },
@@ -1736,24 +1734,24 @@ FACILITY_DEFS = {
 
             animations = {
                 ['idle-0'] = {
-                    frames = {14},
+                    frames = {1},
                     interval = 0.2,
-                    texture = 'purple'
+                    texture = 'purple6'
                 },
                 ['idle-1'] = {
-                    frames = {106, 107, 108, 109, 110, 111},
+                    frames = {1},
                     interval = 0.2,
-                    texture = 'purple'
+                    texture = 'purple6'
                 },
                 ['idle-2'] = {
-                    frames = {113, 114, 115, 116, 117, 118},
+                    frames = {1},
                     interval = 0.2,
-                    texture = 'purple'
+                    texture = 'purple6'
                 },
                 ['idle-3'] = {
-                    frames = {120, 121, 122, 123, 124, 125},
+                    frames = {1},
                     interval = 0.2,
-                    texture = 'purple'
+                    texture = 'purple6'
                 }
             }
         }
