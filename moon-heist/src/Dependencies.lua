@@ -91,20 +91,13 @@ gFonts = {
 gSounds = {
     ['blip'] = love.audio.newSource('sounds/blip.wav', 'static'),
     ['bell'] = love.audio.newSource('sounds/bell.wav', 'static'),
-    ['powerup'] = love.audio.newSource('sounds/powerup.wav', 'static'),
-    ['hit'] = love.audio.newSource('sounds/hit.wav', 'static'),
-    ['run'] = love.audio.newSource('sounds/run.wav', 'static'),
-    ['heal'] = love.audio.newSource('sounds/heal.wav', 'static'),
-    ['exp'] = love.audio.newSource('sounds/exp.wav', 'static'),
     ['error'] = love.audio.newSource('sounds/error.wav', 'static'),
     ['levelup'] = love.audio.newSource('sounds/levelup.wav', 'static'),
-    ['victory-music'] = love.audio.newSource('sounds/victory.wav', 'stream'),
+    ['main-theme'] = love.audio.newSource('sounds/moon-theme.mp3', 'stream'),
     ['yellow-theme'] = love.audio.newSource('sounds/moon-gate.wav', 'stream'),
-    ['purple-theme'] = love.audio.newSource('sounds/moon-gate-dark.mp3', 'stream'),
-    -- ['main-theme'] = love.audio.newSource('sounds/main-theme.wav', 'stream'),
-    ['main-theme'] = love.audio.newSource('sounds/intro.mp3', 'stream')
+    ['purple-theme'] = love.audio.newSource('sounds/moon-gate-dark.mp3','stream')
 }
 gVolume = 0.8
 gMute = false
 love.audio.setVolume(gVolume)
-gSounds['blip']:setVolume(0.3)
+gSounds['blip']:setVolume(0.5)

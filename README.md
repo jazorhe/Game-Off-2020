@@ -149,7 +149,8 @@ Thus, When resolving or encountering events, random events always come before re
 -   [ ] Purple Facilities Panels
 -   [ ] Purple RGB
 -   [ ] Purple 6 Grid
--   [ ] Purple Credit 640x360
+-   [ ] Credit 1280x720
+-   [ ] Icon
 
 ## Known Issues
 -   [x] Love2d on Windows misbehaving

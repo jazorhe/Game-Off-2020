@@ -44,7 +44,7 @@ PURPLE_DARK = table.pack(rgb(34, 7, 40))
 
 GENERAL = table.pack(rgb(255, 255, 255))
 GENERAL_BG = table.pack(rgb(136, 134, 138))
-GENERAL_UI_BG = table.pack(rgba(78, 75, 83, 0.8))
+GENERAL_UI_BG = table.pack(rgba(94, 90, 99, 0.8))
 GENERAL_TEXT = table.pack(rgb(213, 213, 213))
 GENERAL_DARK = table.pack(rgb(36, 31, 31))
 GREEN = table.pack(rgb(67, 167, 67))
@@ -145,7 +145,7 @@ gDebugConstants = {
         end
     },
     [8] = {
-        text = "Cancel",
+        text = "Done",
         value = "",
         onSelect = function()
             gStateStack:pop()

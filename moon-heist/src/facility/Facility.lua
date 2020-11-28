@@ -191,13 +191,19 @@ function Facility:update(dt, params)
     end
 
     if DEBUG and DEBUG_FACILITY then
-        if love.keyboard.wasPressed('left') and self.side == 'purple' then
+        if self:isHovered() and love.mouse.wasPressed(3) then
+            self.debugSelected = true
+        elseif love.mouse.wasPressed(3) or love.mouse.wasPressed(1) then
+            self.debugSelected = false
+        end
+
+        if love.keyboard.wasPressed('left') and self.debugSelected then
             self.actualX = self.actualX - 1
-        elseif love.keyboard.wasPressed('right') and self.side == 'purple' then
+        elseif love.keyboard.wasPressed('right') and self.debugSelected then
             self.actualX = self.actualX + 1
-        elseif love.keyboard.wasPressed('up') and self.side == 'purple' then
+        elseif love.keyboard.wasPressed('up') and self.debugSelected then
             self.actualY = self.actualY - 1
-        elseif love.keyboard.wasPressed('down') and self.side == 'purple' then
+        elseif love.keyboard.wasPressed('down') and self.debugSelected then
             self.actualY = self.actualY + 1
         end
     end
@@ -230,6 +236,9 @@ function Facility:render(baseX)
         love.graphics.setFont(gFonts['small'])
         love.graphics.print("Level " .. tostring(self.currentLevel), self.actualX + baseX + 5, self.actualY + (self:isHovered() and -0 or 0) + 3)
         love.graphics.setColor(rgb(0, 186, 255))
+        if self.debugSelected then
+            love.graphics.setColor(rgb(58, 198, 24))
+        end
 
         -- if self.type == 'harbour' then
         --     love.graphics.rectangle('line', self.actualX + baseX - FACILITY_SIZE * 4, self.actualY - FACILITY_SIZE * 2, self.width * 6, self.height * 4)

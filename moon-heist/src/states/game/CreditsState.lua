@@ -9,7 +9,7 @@ function CreditsState:init()
                 YELLOW, gTextures['credit-rhoda']},
         [3] = {"Game Development:", "Jazor He",
                 table.pack(rgb(89, 136, 166)), gTextures['credit-jazor']},
-        [4] = {"Music Composition:", "Adam Chen",
+        [4] = {"Music Production:", "Adam Chen",
                 table.pack(rgb(63, 143, 87))},
         [5] = {"Special Thanks To:", "Olivia Deng",
                 table.pack(rgb(182, 20, 58))}

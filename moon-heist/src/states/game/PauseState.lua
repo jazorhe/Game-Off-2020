@@ -10,11 +10,11 @@ self.pauseMenu = Menu({
     height = 100,
     items = {
         [1] = {
-            text = "Resume",
+            text = "Resume Game",
             onSelect = function() gStateStack:pop() end
         },
         [2] = {
-            text = "Exit to Start Menu",
+            text = "Exit to Menu",
             onSelect = function()
                 gFuncExitToStart()
             end

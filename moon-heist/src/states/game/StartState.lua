@@ -2,21 +2,25 @@ StartState = Class{__includes = BaseState}
 
 function StartState:init()
     gSounds['main-theme']:play()
+    self.themeVol = 1
+    gSounds['main-theme']:setVolume(self.themeVol)
+    gSounds['main-theme']:setLooping(true)
 
     self.statename = 'StartState'
     self.sprites = {'yellow', 'purple'}
     self.sprite = self.sprites[math.random(2)]
 
-    self.frame = math.random(126)
+    self.frame = math.random(105)
     while self.frame % 7 ~= 1 do
-        self.frame = math.random(126)
+        self.frame = math.random(105)
     end
+    self.lastFrame = self.frame
 
     self.entities = {}
     self:generateEntities()
 
-    self.spriteX = math.floor(VIRTUAL_WIDTH / 2 - 24)
-    self.spriteY = math.floor(VIRTUAL_HEIGHT / 2 - 36)
+    self.spriteX = math.floor(VIRTUAL_WIDTH / 2 - 48)
+    self.spriteY = math.floor(VIRTUAL_HEIGHT / 2 - 60)
 
     self.tween = Timer.every(3, function()
         Timer.tween(0.2, {
@@ -24,16 +28,17 @@ function StartState:init()
         })
         :finish(function()
             self.sprite = self.sprites[math.random(2)]
-            self.frame = math.random(126)
-            while self.frame % 7 ~= 1 do
-                self.frame = math.random(126)
+            self.frame = math.random(105)
+            while self.frame % 7 ~= 1 or self.frame == self.lastFrame do
+                self.frame = math.random(105)
             end
+            self.lastFrame = self.frame
 
             self.spriteX = VIRTUAL_WIDTH
-            self.spriteY = math.floor(VIRTUAL_HEIGHT / 2 - 36)
+            self.spriteY = math.floor(VIRTUAL_HEIGHT / 2 - 60)
 
             Timer.tween(0.2, {
-                [self] = {spriteX = math.floor(VIRTUAL_WIDTH / 2 - 24)}
+                [self] = {spriteX = math.floor(VIRTUAL_WIDTH / 2 - 48)}
             })
         end)
     end)
@@ -109,7 +114,7 @@ end
 
 function StartState:render()
     love.graphics.push()
-    love.graphics.clear(rgb(35, 39, 56))
+    love.graphics.clear(rgb(36, 25, 51))
 
     for k, entity in pairs(self.entities) do
         entity:render()
@@ -117,14 +122,14 @@ function StartState:render()
 
     love.graphics.setColor(WHITE)
     love.graphics.setFont(gFonts['large'])
-    love.graphics.printf('Moon Heist!', 0, VIRTUAL_HEIGHT / 2 - 96, VIRTUAL_WIDTH, 'center')
+    love.graphics.printf('Moon Heist!', 0, VIRTUAL_HEIGHT / 2 - 108, VIRTUAL_WIDTH, 'center')
     love.graphics.setFont(gFonts['small'])
 
-    love.graphics.setColor(GREY)
-    love.graphics.circle('fill', VIRTUAL_WIDTH / 2, VIRTUAL_HEIGHT / 2, 45)
+    -- love.graphics.setColor(GENERAL_TEXT)
+    -- love.graphics.circle('fill', VIRTUAL_WIDTH / 2, VIRTUAL_HEIGHT / 2, 45)
 
     love.graphics.setColor(WHITE)
-    love.graphics.draw(gTextures[self.sprite], gFrames[self.sprite][self.frame], self.spriteX, self.spriteY)
+    love.graphics.draw(gTextures[self.sprite], gFrames[self.sprite][self.frame], self.spriteX, self.spriteY, 0, 2, 2)
 
     self.startMenu:render()
 
@@ -144,7 +149,16 @@ function StartState:startGame(tutorialConfirmation)
         r = 255, g = 255, b = 255
     }, 1,
     function()
-        gSounds['main-theme']:stop()
+        Timer.tween(1.2, {
+            [self] = {themeVol = 0}
+        }):finish(function()
+            gSounds['main-theme']:stop()
+        end)
+
+        Timer.every(0.1, function()
+            gSounds['main-theme']:setVolume(self.themeVol)
+        end)
+
         self.tween:remove()
 
         gStateStack:pop()
