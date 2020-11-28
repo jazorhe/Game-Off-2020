@@ -1,12 +1,14 @@
  PlayState = Class{__includes = BaseState}
 
 function PlayState:init()
-    gSounds['yellow-theme']:setLooping(true)
-    gSounds['purple-theme']:setLooping(true)
-    gSounds['yellow-theme']:setVolume(1)
-    gSounds['purple-theme']:setVolume(0)
-    gSounds['yellow-theme']:play()
-    gSounds['purple-theme']:play()
+    Timer.after(0.6, function()
+        gSounds['yellow-theme']:setLooping(true)
+        gSounds['purple-theme']:setLooping(true)
+        gSounds['yellow-theme']:setVolume(1)
+        gSounds['purple-theme']:setVolume(0)
+        gSounds['yellow-theme']:play()
+        gSounds['purple-theme']:play()
+    end)
 
     self.statename = 'PlayState'
     self.currentTurn = 0
@@ -290,7 +292,7 @@ function PlayState:startNewTurn()
 
 
     if not self:evaluateStartTurn() then
-        -- self.lost = true
+        self.lost = true
     else
         self.newTurnTransition = NewTurnTransitionState({
             turn = self.currentTurn,
@@ -405,8 +407,20 @@ function PlayState:gameOver()
         return
     end
 
-    gSounds['yellow-theme']:stop()
-    gSounds['purple-theme']:stop()
+    local startwith = 1
+    if self.currentSide.name == 'yellow' then
+        Timer.every(0.1, function()
+            startwith = startwith - 0.1
+            gSounds['yellow-theme']:setVolume(startwith)
+        end)
+        :limit(10)
+    elseif self.currentSide.name == 'purple' then
+        Timer.every(0.1, function()
+            startwith = startwith - 0.1
+            gSounds['purple-theme']:setVolume(startwith)
+        end)
+        :limit(10)
+    end
 
     gStateStack:push(GameOverState())
 end
@@ -517,6 +531,11 @@ end
 function PlayState:gameEventUpdateLoop(dt)
 
     if SKIP_EVENTS then
+        return
+    end
+
+    if self.lost then
+        self:gameOver()
         return
     end
 

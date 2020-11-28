@@ -40,14 +40,17 @@ function Button:render()
 
     elseif self.type == 'triangle' then
         if self.side == 'yellow' then
-            love.graphics.polygon('fill', self.x, self.y, self.x + self.width, self.y + self.height / 2, self.x, self.y + self.height)
+            love.graphics.polygon('fill', self.x - 5, self.y, self.x - 5 + self.width, self.y + self.height / 2, self.x - 5, self.y + self.height)
+            love.graphics.setFont(self.font)
+            love.graphics.setColor(self.textcolour)
+            love.graphics.printf(self.text, self.x + 4 - 5, self.y + self.height / 2 - self.font:getHeight() / 2, self.width / 2, 'center')
         elseif self.side == 'purple' then
             love.graphics.polygon('fill', self.x + self.width, self.y, self.x, self.y + self.height / 2, self.x + self.width, self.y + self.height)
+            love.graphics.setFont(self.font)
+            love.graphics.setColor(self.textcolour)
+            love.graphics.printf(self.text, self.x + 8, self.y + self.height / 2 - self.font:getHeight() / 2, self.width / 2, 'center')
         end
 
-        love.graphics.setFont(self.font)
-        love.graphics.setColor(self.textcolour)
-        love.graphics.printf(self.text, self.x, self.y + self.height / 2 - self.font:getHeight() / 2, self.width, 'center')
 
     elseif self.type == 'sprite' then
 

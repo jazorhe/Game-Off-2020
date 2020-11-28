@@ -1,10 +1,12 @@
 StartState = Class{__includes = BaseState}
 
 function StartState:init()
-    gSounds['main-theme']:play()
-    self.themeVol = 1
-    gSounds['main-theme']:setVolume(self.themeVol)
-    gSounds['main-theme']:setLooping(true)
+    Timer.after(0.6, function()
+        self.themeVol = 1
+        gSounds['main-theme']:setVolume(self.themeVol)
+        gSounds['main-theme']:play()
+        gSounds['main-theme']:setLooping(true)
+    end)
 
     self.statename = 'StartState'
     self.sprites = {'yellow', 'purple'}
@@ -149,15 +151,10 @@ function StartState:startGame(tutorialConfirmation)
         r = 255, g = 255, b = 255
     }, 1,
     function()
-        Timer.tween(1.2, {
-            [self] = {themeVol = 0}
-        }):finish(function()
-            gSounds['main-theme']:stop()
-        end)
-
         Timer.every(0.1, function()
+            self.themeVol = math.max(0, self.themeVol - 0.1)
             gSounds['main-theme']:setVolume(self.themeVol)
-        end)
+        end):limit(15)
 
         self.tween:remove()
 

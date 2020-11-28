@@ -8,26 +8,17 @@ function GameOverState:init()
     self.textopacity = 0
 
     Timer.tween(2, {
-        [self] = {bgopacity = 0.6, textopacity = 1}
+        [self] = {bgopacity = 0.3, textopacity = 1}
     })
     :finish(function()
         self.allowInput = true
     end)
 
-    gSounds['main-theme']:play()
-    gSounds['main-theme']:setVolume(0)
-    local startwith = 1
-    Timer.every(0.1, function()
-        startwith = startwith - 0.1
-        gSounds['yellow-theme']:setVolume(startwith)
-        gSounds['purple-theme']:setVolume(startwith)
-        gSounds['main-theme']:setVolume(1 - startwith)
-    end)
-    :limit(10)
 end
 
 function GameOverState:update()
     if love.keyboard.wasPressed('enter') or love.keyboard.wasPressed('kpenter') or love.keyboard.wasPressed('return') or love.mouse.wasPressed(1) then
+        gSounds['main-theme']:stop()
         gFuncExitToStart()
     end
 end
