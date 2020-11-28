@@ -3,9 +3,9 @@ CreditsState = Class{__includes = BaseState}
 function CreditsState:init()
     self.statename = "CreditsState"
     self.credits = {
-        [1] = {"Art and Concepts:", "Toothless Frostiana",
+        [1] = {"Art Production:", "Toothless Frostiana",
                 PURPLE, gTextures['credit-tooth']},
-        [2] = {"Art and Concepts:", "Rhoda Du",
+        [2] = {"Art Production:", "Rhoda Du",
                 YELLOW, gTextures['credit-rhoda']},
         [3] = {"Game Development:", "Jazor He",
                 table.pack(rgb(89, 136, 166)), gTextures['credit-jazor']},

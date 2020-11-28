@@ -53,12 +53,7 @@ function PlayState:init()
     self.allowInput = false
 
     self.currentEvents = {}
-
-    -- if not SKIP_EVENTS then
-        self.currentEvents, self.encounterTurns = self:generateGameEvents()
-    -- end
-
-    -- self:startNewTurn()
+    self.currentEvents, self.encounterTurns = self:generateGameEvents()
 
     Event.on('shift-right', function(params)
         self:beginShifting(self.PurpleSide, SHIFTING_WIDTH, 0, params)

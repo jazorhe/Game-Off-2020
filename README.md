@@ -5,36 +5,116 @@
 The theme for this year’s Game Off is **MOONSHOT**.
 
 Our team initially consists of 4 members:
--   **Adam Shi Chen**: Music Composing
--   **Rhoda Honglin Du**: Art Design
--   **Jazor Jiehao He**: Game Development
--   **Cypress Bolan Li**: Art Design
+-   Art Production: **Toothless Frostiana**
+-   Art Production: **Rhoda Du**
+-   Game Development: **Jazor He**
+-   Music Production: **Adam Chen**
+-   Special Thanks To: **Olivia Deng**
 
 
 ## Concept: Moon Heist
 
-The player is sent to the Moon and is in charge of the latest space project: ***The International Moon Base***, funded by the ***International Space association*** (transient name). The player is also secretly employed by a giant science/technology company ***Tesla***, which secretly demanded the player to construct a hidden secondary moon base, and its final attempt is to steal the moon for unknown reason.
+The player is sent to the Moon and is in charge of the latest space project: ***The International Moon Base***, funded by the ***International Space association*** (temp name).
 
+The player is also secretly employed by a giant science/technology company ***Tesla*** (temp name), which secretly demanded the player to construct a hidden secondary moon base, and its final attempt is to steal the moon for unknown reason.
+
+
+### Initial Concept Diagram
 
 <img src="Concepts/img/Moon Heist.png" width="700">
 
 
+### Core Gameplay
+The core gameplay of this concept consists the following:
+-   **Facilities Management:** There are 6 facilities on each side, all facilities are upgradable. Max level at level 3 for all facilities. The end goal of the game is to achieve level 3 for facility No.6 of either side of power. The player gets to choose which side he/her would desire to help.
+-   **Resource Management:** There are 4 types of resources in the game. Each term the facilities will earn/cost some resources. Player needs to maintain his/her resource level above 0 while also have enough to upgrade the goal facility.
+-   **Time Management:** Player needs to achieve the end goal for one side within a certain number of turns (18).
+-   **Trust Management:** There is also trust specifically for the *Government* side. The player needs to keep this value above 0. The current level of trust can effect the earning (or other things) in the game.
+-   **Random Events:** There are pools for random events in this game. Every few terms a random event will appear, asking the player to make a choice. These choices will resolve in resource changes, trust changes or possibly some other effects.
+
+
+### Asset List
+#### Art
+-   Left side facilities (6 facilities, 3 levels, multiple frames)
+-   Right side facilities (6 facilities, 3 levels, multiple frames)
+-   Background images
+-   UI boxes and icons
+-   Event images
+-   Start screen, Ending screens
+-   Cutscenes
+-   Game icon
+
+#### Music & Sound Effect
+-   Main theme
+-   Left side theme
+-   Right side theme
+-   Ending sound design
+-   Other sound effects
+
+
 ## Art Style
+We decided with yellow-purple as the theme colours.
 
-## Data Structure
+### Yellow (Rhoda)
+Yellow side art is achieved by using the following tools:
+-   Rhino: 3D modelling
+-   Grasshopper: Transformations and export png
+-   Pixelator: Pixelation
+-   Housemade Python Script: Adjusting pixel art to required size
+-   Photoshop: Adjustments and Animation frames
 
-## Balancing
+
+Yellow Side Models:
+
+<img src="Concepts/img/yellow-models.jpg" width="1000">
+<br>
+<br>
+
+Yellow Side Product:
+
+<img src="Concepts/img/yellow-1c4.png" width="500">
+
+
+
+### Purple (Toothless)
+Purple side art is achieved by using the following tools:
+-   reMarkable Paper Tablet: Drafting
+-   Serif Affinity Photo: Translate drafts into coloured hand drawings
+-   Serif Affinity Photo: Pixel art creation and Animation frames
+
+
+Purple Side Drafts:
+
+<img src="Concepts/img/purple-concepts.jpeg" width="700">
+
+
+Purple Side Model:
+
+<img src="Concepts/img/purple-1a1.jpeg" width="500">
+
+
+
+## Data Structure & Balancing
+[Numeric System Design Spreadsheet](https://docs.google.com/spreadsheets/d/1_NTowgmsGuZVGE5H6L1Hs_r6AtO24pWrbx5FGaMPeys/edit?usp=sharing)
 
 
 ## Dev Log:
-### Sprite Structure:
+### Contents
+-   Sprites
+-   Isometric Hovering
+-   Data Driven Design
+-   Game Events
+-   States
+-   Debugging
+
+### Sprites
 
 <img src="Concepts/img/yellow-numbered.png" width="300">
 <img src="Concepts/img/purple-numbered.png" width="300">
 
 <br>
 
-### "Isometric-like" tiles hovering:
+### Isometric Hovering
 
 ```lua
 function Facility:isHovered()
@@ -69,7 +149,9 @@ function Facility:isHovered()
 end
 ```
 
-### Game Events Design
+### Data Driven Design
+
+### Game Event Design
 Game Event Types:
 -   Regular: planned events that will definitely happen at turns
 -   Random: a pool of events that will be randomly chosen at start game
@@ -124,6 +206,8 @@ I have decided to generate all events at start of turn 1, rather than at each tu
 
 Thus, When resolving or encountering events, random events always come before regular ones.
 
+### States
+### Debugging
 
 
 ## Todo List
@@ -133,12 +217,11 @@ Thus, When resolving or encountering events, random events always come before re
     -   [x] 升级按钮及花费
     -   [x] 转场按钮
     -   [x] 回合按钮
-
 -   [x] 事件生成
 -   [x] 事件概率
 -   [x] Stars
 -   [x] Start Screen
--   [x Credit Screen
+-   [x] Credit Screen
 -   [x] Frame 7 for Facility 6
 -   [x] Lost Text
 -   [x] Win Game Animation
@@ -152,24 +235,16 @@ Thus, When resolving or encountering events, random events always come before re
 -   [ ] Credit 1280x720
 -   [ ] Icon
 
-## Known Issues
--   [x] Love2d on Windows misbehaving
-Sub-pixel rendering issue
 
+## Known Issues
+-   [x] Love2d on Windows misbehaving (Issue fixed: Sub-pixel rendering issue)
 -   [x] Shifting error
 -   [x] Mouse + keyboard
 -   [x] hovering is triggering other side
--   [x] Restart Game does not restart PlayState
-issue fixed: current turn confusion
-
-starting a new game multiple times will cause consusion to turns, reason being event 'next turn' has been duplicated when a new game has been started. And when event is dispatched, multiple duplicants will be called.
+-   [x] Restart Game does not restart PlayState (Issue fixed: current turn confusion, starting a new game multiple times will cause consusion to turns, reason being event 'next turn' has been duplicated when a new game has been started. And when event is dispatched, multiple duplicants will be called.)
 -   [x] Still need work on only allowing one facility to be hovered at a time
 -   [x] Sometimes event resolve does not have indication
 -   [x] Shifting side in tutorial shows all display panel weirdly
-
-
-## Special Thanks To:
--   Olivia Chuyi Deng
 
 
 ## Useful Links:

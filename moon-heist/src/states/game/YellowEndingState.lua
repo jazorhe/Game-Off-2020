@@ -27,7 +27,6 @@ function YellowEndingState:init()
         gSounds['main-theme']:setVolume(math.min(1, 0 - startwith))
     end)
     :limit(20)
-
 end
 
 function YellowEndingState:update()
