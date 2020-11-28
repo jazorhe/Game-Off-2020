@@ -8,11 +8,11 @@ function CreditsState:init()
         [2] = {"Art Production:", "Rhoda Du",
                 YELLOW, gTextures['credit-rhoda']},
         [3] = {"Game Development:", "Jazor He",
-                table.pack(rgb(89, 136, 166)), gTextures['credit-jazor']},
+                table.pack(rgb(91, 152, 188)), gTextures['credit-jazor']},
         [4] = {"Music Production:", "Adam Chen",
-                table.pack(rgb(63, 143, 87))},
+                table.pack(rgb(141, 150, 97))},
         [5] = {"Special Thanks To:", "Olivia Deng",
-                table.pack(rgb(182, 20, 58))}
+                table.pack(rgb(242, 216, 191))}
     }
     self.x = 120
     self.y = VIRTUAL_HEIGHT / 2 - 48

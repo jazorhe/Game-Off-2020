@@ -1163,17 +1163,20 @@ FACILITY_DEFS = {
                     texture = 'purple'
                 },
                 ['idle-1'] = {
-                    frames = {22},
+                    frames = {22, 23, 24, 25, 26, 27,
+                                26, 25, 24, 23},
                     interval = 0.2,
                     texture = 'purple'
                 },
                 ['idle-2'] = {
-                    frames = {29},
+                    frames = {29, 30, 31, 32, 33, 34,
+                                33, 32, 31, 30},
                     interval = 0.2,
                     texture = 'purple'
                 },
                 ['idle-3'] = {
-                    frames = {36},
+                    frames = {36, 37, 38, 39, 40, 41,
+                                40, 39, 38, 37, 36},
                     interval = 0.2,
                     texture = 'purple'
                 }
@@ -1307,17 +1310,20 @@ FACILITY_DEFS = {
                     texture = 'purple'
                 },
                 ['idle-1'] = {
-                    frames = {43},
+                    frames = {43, 44, 45, 46, 47, 48,
+                                47, 46, 45, 44},
                     interval = 0.2,
                     texture = 'purple'
                 },
                 ['idle-2'] = {
-                    frames = {50},
+                    frames = {50, 51, 52, 53, 54 ,55,
+                                54, 53, 52, 51},
                     interval = 0.2,
                     texture = 'purple'
                 },
                 ['idle-3'] = {
-                    frames = {57},
+                    frames = {57, 58, 59, 60, 61, 62,
+                                61, 60, 59, 58},
                     interval = 0.2,
                     texture = 'purple'
                 }
@@ -1621,6 +1627,8 @@ FACILITY_DEFS = {
             mapX = 3,
             mapY = 1,
             renderLayer = 6,
+            width = 192,
+            height = 288,
             -- offsetX = 1 * FACILITY_SIZE + 96,
             -- offsetY = VIRTUAL_HEIGHT / 5 * 3 + 18,
 

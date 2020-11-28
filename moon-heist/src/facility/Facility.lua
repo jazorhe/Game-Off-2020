@@ -38,11 +38,11 @@ function Facility:init(def, params)
         self.defaultOffsetX = def.offsetX
         or FACILITY_SIZE + (self.mapX - 1) * 48 + (self.mapY - 1) * 36 - 18
         self.defaultOffsetY = def.offsetY
-        or VIRTUAL_HEIGHT / 5 * 3 + (self.mapY - 1) * 24 - 24
+        or VIRTUAL_HEIGHT / 5 * 3 + (self.mapY - 1) * 18 - (self.mapX - 1) * 12 - 10
 
         if self.type == 'sail' then
             self.defaultOffsetX = self.defaultOffsetX
-            self.defaultOffsetY = self.defaultOffsetY + FACILITY_SIZE
+            self.defaultOffsetY = self.defaultOffsetY - FACILITY_SIZE * 2 + 24
         end
 
 
@@ -242,11 +242,11 @@ function Facility:render(baseX)
 
         -- if self.type == 'harbour' then
         --     love.graphics.rectangle('line', self.actualX + baseX - FACILITY_SIZE * 4, self.actualY - FACILITY_SIZE * 2, self.width * 6, self.height * 4)
-        if self.type == 'sail' then
-            love.graphics.rectangle('line', self.actualX + baseX, self.actualY - FACILITY_SIZE * 5, self.width * 4, self.height * 6)
-        else
-            love.graphics.rectangle('line', self.actualX + baseX, self.actualY, self.width * self.scale, self.height * self.scale)
-        end
+        -- if self.type == 'sail' then
+        --     love.graphics.rectangle('line', self.actualX + baseX, self.actualY - FACILITY_SIZE * 5, self.width * 4, self.height * 6)
+        -- else
+        love.graphics.rectangle('line', self.actualX + baseX, self.actualY, self.width * self.scale, self.height * self.scale)
+        -- end
         love.graphics.setColor(WHITE)
     end
 

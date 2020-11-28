@@ -381,30 +381,30 @@ RANDOM_EVENTS = {
             inPool = false,
             dialogues = {
                 [0] = {
-                    "The event is a placeholder for an early event, eventID 121"
+                    "Your staff decided to host a Lunar Long Jump Competition, gathering the best of the bests on the Moon. You were invited to participated in this compotition."
                 },
                 [1] = {
-                    "You selected option 1 in event 121, there is a 66% chance you will lose 200 energy and 400 amenity. 33% of gaining them."
+                    ""
                 },
                 [2] = {
-                    "You selected option 2 in event 121, there is 80% chance of no effect or 20% of losing 20% trust from yellow side."
+                    ""
                 },
                 [3] = {
                     "Now, please continue with your duty."
                 }
             },
             selections = {
-                ['seleciton-prompt'] = "EventID 121 selections: ",
+                ['seleciton-prompt'] = "What was your response?",
                 [1] = {
-                    text = "1",
-                    closing = "You have selected option 1",
+                    text = "I told him that I was already a champion",
+                    closing = "",
                     onSelect = function()
                         return 1
                     end
                 },
                 [2] = {
-                    text = "2",
-                    closing = "You have selected option 2",
+                    text = "",
+                    closing = "",
                     onSelect = function()
                         return 2
                     end
