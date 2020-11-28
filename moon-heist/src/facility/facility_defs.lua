@@ -1742,22 +1742,22 @@ FACILITY_DEFS = {
 
             animations = {
                 ['idle-0'] = {
-                    frames = {1},
+                    frames = {15},
                     interval = 0.2,
                     texture = 'purple6'
                 },
                 ['idle-1'] = {
-                    frames = {1},
+                    frames = {15},
                     interval = 0.2,
                     texture = 'purple6'
                 },
                 ['idle-2'] = {
-                    frames = {1},
+                    frames = {15},
                     interval = 0.2,
                     texture = 'purple6'
                 },
                 ['idle-3'] = {
-                    frames = {1},
+                    frames = {15},
                     interval = 0.2,
                     texture = 'purple6'
                 }

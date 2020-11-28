@@ -10,9 +10,9 @@ function CreditsState:init()
         [3] = {"Game Development:", "Jazor He",
                 table.pack(rgb(91, 152, 188)), gTextures['credit-jazor']},
         [4] = {"Music Production:", "Adam Chen",
-                table.pack(rgb(141, 150, 97))},
+                table.pack(rgb(141, 150, 97)), gTextures['credit-adam']},
         [5] = {"Special Thanks To:", "Olivia Deng",
-                table.pack(rgb(242, 216, 191))}
+                table.pack(rgb(242, 216, 191)), gTextures['credit-olivia']}
     }
     self.x = 120
     self.y = VIRTUAL_HEIGHT / 2 - 48
@@ -83,6 +83,6 @@ function CreditsState:render()
     love.graphics.setColor(WHITE)
 
     if self.displayImage and self.image then
-        love.graphics.draw(self.image, 0, 0)
+        love.graphics.draw(self.image, 0, 0, 0, 0.5, 0.5)
     end
 end
