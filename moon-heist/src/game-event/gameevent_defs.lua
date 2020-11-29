@@ -685,7 +685,7 @@ RANDOM_EVENTS = {
                     end
                 },
                 [2] = {
-                    text = "\"There is nothing romantic under the curtain, but precise planning and hand in hand colaborations.\"",
+                    text = "\"There is nothing romantic under the curtain, but precise planning and hand in hand collaborations.\"",
                     closing = "You chose to express your rationality.",
                     onSelect = function()
                         return 2
@@ -750,7 +750,7 @@ RANDOM_EVENTS = {
             inPool = true,
             dialogues = {
                 [0] = {
-                    "A researcher from the MoonBase tried to blackmail you, he calimed that he had just enough evidence to get you off your seat."
+                    "A researcher from the MoonBase tried to blackmail you, he claimed that he had just enough evidence to get you off your seat."
                 },
                 [1] = {
                     "It had been more than few years since you did this kind of physical work. You felt exausted coming to work the next day."
