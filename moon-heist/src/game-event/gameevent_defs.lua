@@ -14,11 +14,11 @@ RANDOM_EVENTS = {
             dialogues = {
                 [0] = {
                     "There were two pills on your lunch plate today. \n"..
-                    "You were puzzled, and asked around if anyone knew where they might come from. \n\n"..
+                    "You were puzzled, and asked around if anyone knew where they might be. \n\n"..
                     "No one seemed to have any idea."
                 },
                 [1] = {
-                    "You felt that the Red Pill is burning inside your stomach. You could not help but to stop your work and head to bed. You woke up the next day, your bird was dead."
+                    "You felt that the Red Pill was burning in your gut. You could not help but to stop your work and head to bed. You woke up the next day, your bird was dead."
                 },
                 [2] = {
                     "There seemed to be a moment of peace. The Blue Pill might afterall have no effect at all. You smiled wildly."
@@ -30,15 +30,15 @@ RANDOM_EVENTS = {
             selections = {
                 ['seleciton-prompt'] = "CHOOSE YOUR FATE:",
                 [1] = {
-                    text = "Red Pill...",
-                    closing = "As you swallowed the Red Pill, you felt a presence haunting right behind you. You quickly turned around, but there was NO ONE.",
+                    text = "I wanted the Red Pill...",
+                    closing = "As you swallowed the Red Pill, you felt a haunting presence right behind you. You quickly turned around, but there was NO ONE.",
                     onSelect = function()
                         return 1
                     end
                 },
                 [2] = {
-                    text = "Blue Pill!",
-                    closing = "You stared at the Blue Pill for a while. And suddenly, you reached out for it and took it down your throat, so quickly that you questioned yourself if it was your own decision.",
+                    text = "I liked the Blue Pill!",
+                    closing = "You stared at the Blue Pill for a while. And all of a sudden, you reached out for it and took it down your throat. It all happened so quickly that you questioned if it was your own decision.",
                     onSelect = function()
                         return 2
                     end
@@ -102,25 +102,25 @@ RANDOM_EVENTS = {
             inPool = true,
             dialogues = {
                 [0] = {
-                    "There had been reports about encountering unidentified creatures near a mysterious crater. You sent a small group to investigate the situation."
+                    "There had been reports of encountering unidentified creatures near a mysterious crater. You sent a squad to investigate the situation."
                 },
                 [1] = {
-                    "Those faceless monsters chased the small team to a crater. They ran their truck into a rock and were stuck. No one lived to tell the story."
+                    "Those faceless monsters chased the squad to a crater. Their truck ran into a rock and was stuck. No one lived to tell the story."
                 },
                 [2] = {
-                    "You shot the jaw off one of these monsters and saved the team from crushing their truck. You did not think it was enough, so you went down this crater with a dozen of your guys.\n"..
+                    "You shot the jaw off one of these monsters and saved the team from crushing their truck. You thought that it was not enough, so you went down this crater with a dozen of your guys.\n"..
                     "This had turned from rescuing to hunting, and you loved hunting."
                 },
                 [3] = {
-                    "Those creatures finally disappeared deep into the crater, like they had never existed. You could do nothing more than reporting it and keeping an eye out."
+                    "Those creatures finally vanished deep into the crater, like they had never existed. You could do nothing more than reporting it and keeping an eye out."
                 }
             },
             selections = {
-                ['seleciton-prompt'] = "\"We have been ATTACKED!\" You heard scientists screaming on the radio. You did not know what those creatures were. No one knows. \n"..
+                ['seleciton-prompt'] = "\"We have been ATTACKED!\" You heard scientists screaming over the radio. You had no idea what those creatures were. No one knew. \n"..
                 "What was your decision?",
                 [1] = {
                     text = "Let us retreat and leave them alone.",
-                    closing = "You have asked the team to retreat and retreat quickly.",
+                    closing = "You have asked the squad to retreat quickly.",
                     onSelect = function()
                         return 1
                     end
@@ -192,11 +192,11 @@ RANDOM_EVENTS = {
             dialogues = {
                 [0] = {
                     "[*News Broadcasting*]\n"..
-                    "There have been protests all around the world recently against the new in-construction MoonBase and the plans for potential Space Immigration within the next decade.\n\n"..
-                    "Protesters argued that their taxation has been spent wrongly on something that they \"will never benefit from\", and that Space Immigration is nothing but an \"evil dream to start a new era of colonialism. They have demanded the UN to cut costs on this ambitious project.\""
+                    "There have been protests recently all around the world against the new in-construction MoonBase and the plans for potential Space Immigration within the next decade.\n\n"..
+                    "Protesters argued that their taxation has been wasted on something that they \"will never benefit from\", and that Space Immigration is nothing but an \"evil practise of colonialism. They have demanded the UN to cut costs on this meaningless project.\""
                 },
                 [1] = {
-                    "You received an official warning from the Root 67 association. In the letter they wrote: \"Watch your tongue!\""
+                    "You received a written warning from the Root 67 association. In the letter they wrote: \"Watch your tongue!\""
                 },
                 [2] = {
                     "The Root 67 association decided to cut the budget for this project, but they still demand you to deliver the result within the same amount of time."
@@ -378,45 +378,45 @@ RANDOM_EVENTS = {
             encounter = 3,
             resolve = 3,
             eventID = 121,
-            inPool = false,
+            inPool = true,
             dialogues = {
                 [0] = {
-                    "Your staff decided to host a Lunar Long Jump Competition, gathering the best of the bests on the Moon. You were invited to participated in this compotition."
+                    "Your staff decided to host a Lunar Long Jump Competition, gathering the best of the bests on the Moon. You were invited to participated in this competition."
                 },
                 [1] = {
                     ""
                 },
                 [2] = {
-                    ""
+                    "The competition hosted sucessfully and everyone enjoyed the embient."
                 },
                 [3] = {
                     "Now, please continue with your duty."
                 }
             },
             selections = {
-                ['seleciton-prompt'] = "What was your response?",
+                ['seleciton-prompt'] = "How did you respond to this invitation?",
                 [1] = {
-                    text = "I told him that I was already a champion",
-                    closing = "",
+                    text = "\"The champion is standing right in front of you.\"",
+                    closing = "You have decided to join this competition.",
                     onSelect = function()
                         return 1
                     end
                 },
                 [2] = {
-                    text = "",
-                    closing = "",
+                    text = "\"I would rather be watching.\"",
+                    closing = "You refused to join the competion.",
                     onSelect = function()
                         return 2
                     end
                 },
             },
             outcomes = {
-                [1] = math.random(100) <= 33 and {
+                [1] = math.random(100) <= 66 and {
                     resources = {
-                        ['money'] = 0,
+                        ['money'] = 300,
                         ['food'] = 0,
-                        ['energy'] = 200,
-                        ['amenity'] = 400
+                        ['energy'] = 0,
+                        ['amenity'] = 300
                     },
                     trust = 0,
                     side = 'yellow'
@@ -425,12 +425,12 @@ RANDOM_EVENTS = {
                         ['money'] = 0,
                         ['food'] = 0,
                         ['energy'] = -200,
-                        ['amenity'] = -400
+                        ['amenity'] = 200
                     },
                     trust = 0,
                     side = 'yellow'
                 },
-                [2] = math.random(100) <= 80 and {
+                [2] = math.random(100) <= 0 and {
                     resources = {
                         ['money'] = 0,
                         ['food'] = 0,
@@ -446,7 +446,7 @@ RANDOM_EVENTS = {
                         ['energy'] = 0,
                         ['amenity'] = 0
                     },
-                    trust = -20,
+                    trust = 0,
                     side = 'yellow'
                 }
             },
@@ -454,7 +454,13 @@ RANDOM_EVENTS = {
 
             },
             gameEventFunctions = {
-                funcName = function() end
+                funcName = function()
+                    if selection == 1 and RANDOM_EVENTS['early'][5].outcomes[1].money > 0 then
+                        RANDOM_EVENTS['early'][5].dialogues[1] = "You had shown exemplary long jump skills and you had won the competition. There was a bit of money as an award."
+                    elseif seleciton == 1 and RANDOM_EVENTS['early'][5].outcomes[1].trust == 0 then
+                        RANDOM_EVENTS['later'][5].dialogues[1] = "You might have put too much power in your feet and you flew such a long way and landed ungracefully. That was not exemplary, however, people still cheered for your action."
+                    end
+                end
             }
         },
         [6] = {

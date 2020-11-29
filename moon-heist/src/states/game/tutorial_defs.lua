@@ -6,7 +6,7 @@ TUTORIAL_DEFS = {
             y = VIRTUAL_HEIGHT / 2 - 40,
             width = VIRTUAL_WIDTH - 360,
             height = 80,
-            text = "You ahd sucessfully built the level 3 Space Harbour. Root 67 planned to start the Earth-Moon Space Immigration very shortly. What lies in front was a brand new era of discovery.\n"..
+            text = "You had sucessfully built the level 3 Space Harbour. Root 67 planned to start the Earth-Moon Space Immigration very shortly. What lies in front was a brand new era of discovery.\n"..
             "Ong did not get to fulfill their secret plan and transferred all their facilities to an underground base, seeking for any opportunity to steal the Moon again.",
             wrap = 12,
             bgcolour = YELLOW_UI_BG,
