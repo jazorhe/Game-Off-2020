@@ -342,8 +342,8 @@ TUTORIAL_DEFS = {
             callback = function() end
         },
         stencilParams = {
-            x = 200,
-            y = 180,
+            x = 225,
+            y = 165,
             width = 90,
             height = 90
         },

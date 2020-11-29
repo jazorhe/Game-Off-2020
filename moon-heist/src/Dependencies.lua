@@ -79,7 +79,7 @@ gFrames = {
     ['yellow'] = GenerateQuads(gTextures['yellow'], 48, 48),
     ['yellow6'] = GenerateQuads(gTextures['yellow6'], 144, 96),
     ['purple'] = GenerateQuads(gTextures['purple'], 48, 48),
-    ['purple6'] = GenerateQuads(gTextures['purple6'], 182, 288),
+    ['purple6'] = GenerateQuads(gTextures['purple6'], 192, 288),
     ['earth'] = GenerateQuads(gTextures['earth'], 120, 120),
     ['galaxy'] = GenerateQuads(gTextures['galaxy'], 120, 120)
 }

@@ -17,7 +17,7 @@ function DisplayPanel:init(def)
     }
 
     self.logo = def.logo
-    self.panel = Panel ((self.side == 'yellow' and self.baseX + 10 or self.baseX + VIRTUAL_WIDTH - 150), 20, 140, VIRTUAL_HEIGHT - 40, self.colourTable.ui_bg)
+    self.panel = Panel ((self.side == 'yellow' and self.baseX + 10 or self.baseX + VIRTUAL_WIDTH - 150), 80, 140, VIRTUAL_HEIGHT - 100, self.colourTable.ui_bg)
 end
 
 function DisplayPanel:update(dt, params)

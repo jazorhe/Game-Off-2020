@@ -218,8 +218,12 @@ function Facility:render(baseX)
     love.graphics.setShader(self.whiteShader)
     self.whiteShader:send('WhiteFactor', self:isHovered() and 0.1 or 0)
 
+    local scale = self.scale
+    if self.currentLevel == 0 and self.side == 'purple' and self.type ~= 'sail' then
+        scale = 1
+    end
 
-    love.graphics.draw(gTextures[anim.texture], gFrames[anim.texture][anim:getCurrentFrame()], self.actualX + baseX, self.actualY + (self:isHovered() and -0 or 0), 0, self.scale, self.scale)
+    love.graphics.draw(gTextures[anim.texture], gFrames[anim.texture][anim:getCurrentFrame()], self.actualX + baseX, self.actualY + (self:isHovered() and -0 or 0), 0, scale, scale)
 
 
     love.graphics.setShader()

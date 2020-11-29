@@ -139,7 +139,7 @@ FACILITY_DEFS = {
 
             animations = {
                 ['idle-0'] = {
-                    frames = {14},
+                    frames = {7},
                     interval = 0.2,
                     texture = 'yellow'
                 },
@@ -283,7 +283,7 @@ FACILITY_DEFS = {
 
             animations = {
                 ['idle-0'] = {
-                    frames = {14},
+                    frames = {7},
                     interval = 0.2,
                     texture = 'yellow'
                 },
@@ -430,7 +430,7 @@ FACILITY_DEFS = {
 
             animations = {
                 ['idle-0'] = {
-                    frames = {14},
+                    frames = {7},
                     interval = 0.2,
                     texture = 'yellow'
                 },
@@ -1016,7 +1016,7 @@ FACILITY_DEFS = {
 
             animations = {
                 ['idle-0'] = {
-                    frames = {14},
+                    frames = {7},
                     interval = 0.2,
                     texture = 'purple'
                 },
@@ -1169,7 +1169,7 @@ FACILITY_DEFS = {
 
             animations = {
                 ['idle-0'] = {
-                    frames = {14},
+                    frames = {7},
                     interval = 0.2,
                     texture = 'purple'
                 },
@@ -1316,7 +1316,7 @@ FACILITY_DEFS = {
 
             animations = {
                 ['idle-0'] = {
-                    frames = {14},
+                    frames = {7},
                     interval = 0.2,
                     texture = 'purple'
                 },
@@ -1463,7 +1463,7 @@ FACILITY_DEFS = {
 
             animations = {
                 ['idle-0'] = {
-                    frames = {14},
+                    frames = {7},
                     interval = 0.2,
                     texture = 'purple'
                 },
@@ -1607,7 +1607,7 @@ FACILITY_DEFS = {
 
             animations = {
                 ['idle-0'] = {
-                    frames = {14},
+                    frames = {7},
                     interval = 0.2,
                     texture = 'purple'
                 },
@@ -1756,22 +1756,35 @@ FACILITY_DEFS = {
 
             animations = {
                 ['idle-0'] = {
-                    frames = {15},
+                    frames = {7},
                     interval = 0.2,
                     texture = 'purple6'
                 },
                 ['idle-1'] = {
-                    frames = {15},
+                    frames = {1, 1, 2, 2, 3, 3,
+                                4, 4, 5, 5, 6, 6,
+                                6, 6,
+                                5, 5, 4, 4, 3, 3,
+                                2, 2, 1, 1},
                     interval = 0.2,
                     texture = 'purple6'
                 },
                 ['idle-2'] = {
-                    frames = {15},
+                    frames = {8, 8, 9, 9, 10, 10,
+                                11, 11, 12, 12, 13, 13,
+                                13, 13,
+                                12, 12, 11, 11, 10, 10,
+                                9, 9, 8, 8},
                     interval = 0.2,
                     texture = 'purple6'
                 },
                 ['idle-3'] = {
-                    frames = {15},
+                    frames = {15, 16, 17, 18, 18, 18,
+                                19, 19, 20, 20, 20, 20,
+                                20, 20, 20, 18, 18, 18,
+                                19, 19, 20, 20, 20, 20,
+                                19, 19, 18, 18, 18, 17,
+                                16, 15, 15, 15, 15, 15},
                     interval = 0.2,
                     texture = 'purple6'
                 }
