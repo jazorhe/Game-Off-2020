@@ -423,6 +423,12 @@ end
 function PlayState:winGame(params)
 
     if params.side == 'yellow' then
+        local startwith = 1
+        Timer.every(0.1, function()
+            startwith = startwith - 0.05
+            gSounds['yellow-theme']:setVolume(math.max(0, startwith))
+        end):limit(20)
+
         if self.currentSide.name ~= params.side then
             self:shiftSide()
             Timer.after(0.65, function()
@@ -444,6 +450,12 @@ function PlayState:winGame(params)
             end))
         end
     elseif params.side == 'purple' then
+        local startwith = 1
+        Timer.every(0.1, function()
+            startwith = startwith - 0.05
+            gSounds['yellow-theme']:setVolume(math.max(0, startwith))
+        end):limit(20)
+
         if self.currentSide.name ~= params.side then
             self:shiftSide()
             Timer.after(0.65, function()
