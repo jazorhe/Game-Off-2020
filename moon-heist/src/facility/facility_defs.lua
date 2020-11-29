@@ -1021,17 +1021,26 @@ FACILITY_DEFS = {
                     texture = 'purple'
                 },
                 ['idle-1'] = {
-                    frames = {1, 2, 3, 4, 5, 6},
+                    frames = {1, 1, 2, 2, 3, 3,
+                    4, 4, 5, 5, 6, 6,
+                    5, 5, 4, 4, 3, 3,
+                    2, 2},
                     interval = 0.2,
                     texture = 'purple'
                 },
                 ['idle-2'] = {
-                    frames = {8, 9, 10, 11, 12, 13},
+                    frames = {8, 8, 9, 9, 10, 10,
+                    11, 11, 12, 12, 13, 13,
+                    12, 12, 11, 11, 10, 10,
+                    9, 9},
                     interval = 0.2,
                     texture = 'purple'
                 },
                 ['idle-3'] = {
-                    frames = {15, 16, 17, 18, 19, 20},
+                    frames = {15, 15, 16, 16, 17, 17,
+                    18, 18, 19, 19, 20, 20,
+                    19, 19, 18, 18, 17, 17,
+                    16, 16, },
                     interval = 0.2,
                     texture = 'purple'
                 }
@@ -1459,17 +1468,17 @@ FACILITY_DEFS = {
                     texture = 'purple'
                 },
                 ['idle-1'] = {
-                    frames = {64},
+                    frames = {64, 64, 65, 65, 66, 66, 67, 67, 68, 68 ,69, 69},
                     interval = 0.2,
                     texture = 'purple'
                 },
                 ['idle-2'] = {
-                    frames = {71},
+                    frames = {71, 71, 72, 72, 73, 73, 74, 74, 75, 75, 76, 76},
                     interval = 0.2,
                     texture = 'purple'
                 },
                 ['idle-3'] = {
-                    frames = {78},
+                    frames = {78, 78, 79, 79, 80, 80, 81, 81, 82, 82, 83, 83},
                     interval = 0.2,
                     texture = 'purple'
                 }

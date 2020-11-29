@@ -455,7 +455,7 @@ function PlayState:winGame(params)
         local startwith = 1
         Timer.every(0.1, function()
             startwith = startwith - 0.05
-            gSounds['yellow-theme']:setVolume(math.max(0, startwith))
+            gSounds['purple-theme']:setVolume(math.max(0, startwith))
         end):limit(20)
 
         if self.currentSide.name ~= params.side then

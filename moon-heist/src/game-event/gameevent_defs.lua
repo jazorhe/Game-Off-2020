@@ -454,7 +454,7 @@ RANDOM_EVENTS = {
 
             },
             gameEventFunctions = {
-                funcName = function()
+                funcName = function(selection)
                     if selection == 1 and RANDOM_EVENTS['early'][5].outcomes[1].money > 0 then
                         RANDOM_EVENTS['early'][5].dialogues[1] = "You had shown exemplary long jump skills and you had won the competition. There was a bit of money as an award."
                     elseif seleciton == 1 and RANDOM_EVENTS['early'][5].outcomes[1].trust == 0 then
@@ -924,7 +924,7 @@ RANDOM_EVENTS = {
             inPool = true,
             dialogues = {
                 [0] = {
-                    "(On a regular vedio conference with the Ong Boss)\n"..
+                    "(On a regular video conference with the Ong Boss)\n"..
                     "We heard about the latest breakthrough in the Dark Matter territory. You would have received some blueprints for the next generation Dark Matter Detector.\n"..
                     "I need you to send us a copy of everything about this facility."
                 },
@@ -1001,7 +1001,7 @@ RANDOM_EVENTS = {
             gameEventFunctions = {
                 funcName = function(selection)
                     if selection == 1 and RANDOM_EVENTS['later'][5].outcomes[1].trust < 0 then
-                        RANDOM_EVENTS['later'][5].dialogues[1] = "You had been too good of a project manager lately, you almost forgot how to be a spy. You made a simple mistake while transfering the blueprints. You had to make up an excuse on the spot in a meeting with Root 67."
+                        RANDOM_EVENTS['later'][5].dialogues[1] = "You had been too good of a project manager lately, you almost forgot how to be a spy. You made a simple mistake while transferring the blueprints. You had to make up an excuse on the spot in a meeting with Root 67."
                     elseif seleciton == 1 and RANDOM_EVENTS['later'][5].outcomes[1].trust == 0 then
                         RANDOM_EVENTS['later'][5].dialogues[1] = "It was a swift heist. You deserved to be rewarded."
                     end
