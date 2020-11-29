@@ -16,6 +16,7 @@ self.pauseMenu = Menu({
         [2] = {
             text = "Exit to Menu",
             onSelect = function()
+                gSounds['main-theme']:stop()
                 gFuncExitToStart()
             end
         },

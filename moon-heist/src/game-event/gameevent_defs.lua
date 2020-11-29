@@ -384,7 +384,7 @@ RANDOM_EVENTS = {
                     "Your staff decided to host a Lunar Long Jump Competition, gathering the best of the best on the Moon. You were invited to participate in this competition."
                 },
                 [1] = {
-                    ""
+                    "Something went wrong."
                 },
                 [2] = {
                     "The competition was hosted successfully and everyone enjoyed the atmosphere."
@@ -458,7 +458,7 @@ RANDOM_EVENTS = {
                     if selection == 1 and RANDOM_EVENTS['early'][5].outcomes[1].money > 0 then
                         RANDOM_EVENTS['early'][5].dialogues[1] = "You had shown exemplary long jump skills and you had won the competition. There was a bit of money as an award."
                     elseif seleciton == 1 and RANDOM_EVENTS['early'][5].outcomes[1].trust == 0 then
-                        RANDOM_EVENTS['later'][5].dialogues[1] = "You might have put too much power in your feet and you flew such a long way and landed ungracefully. That was not exemplary, however, people still cheered for your action."
+                        RANDOM_EVENTS['early'][5].dialogues[1] = "You might have put too much power in your feet and you flew such a long way and landed ungracefully. That was not exemplary, however, people still cheered for your action."
                     end
                 end
             }
@@ -929,7 +929,7 @@ RANDOM_EVENTS = {
                     "I need you to send us a copy of everything about this facility."
                 },
                 [1] = {
-                    ""
+                    "Something went wrong."
                 },
                 [2] = {
                     "\"Hey, remind me why we hired you?\""
