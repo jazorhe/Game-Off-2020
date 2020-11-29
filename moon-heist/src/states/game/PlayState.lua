@@ -25,6 +25,7 @@ function PlayState:init()
         background = gTextures['yellowbg'],
         entities = ENTITY_DEFS['yellow'],
         facilities = FACILITY_DEFS['yellow'],
+        logo = gTextures['yellow-logo'],
         baseX = 0
     })
 
@@ -34,6 +35,7 @@ function PlayState:init()
         background = gTextures['purplebg'],
         entities = ENTITY_DEFS['purple'],
         facilities = FACILITY_DEFS['purple'],
+        logo = gTextures['purple-logo'],
         baseX = SHIFTING_WIDTH
     })
 

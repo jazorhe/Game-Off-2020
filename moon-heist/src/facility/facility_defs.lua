@@ -1021,20 +1021,17 @@ FACILITY_DEFS = {
                     texture = 'purple'
                 },
                 ['idle-1'] = {
-                    frames = {1, 2, 3, 4, 5, 6,
-                                5, 4, 3, 2},
+                    frames = {1, 2, 3, 4, 5, 6},
                     interval = 0.2,
                     texture = 'purple'
                 },
                 ['idle-2'] = {
-                    frames = {8, 9, 10, 11, 12, 13,
-                                12, 11, 10, 9},
+                    frames = {8, 9, 10, 11, 12, 13},
                     interval = 0.2,
                     texture = 'purple'
                 },
                 ['idle-3'] = {
-                    frames = {15, 16, 17, 18, 19, 20,
-                                19, 18, 17, 16},
+                    frames = {15, 16, 17, 18, 19, 20},
                     interval = 0.2,
                     texture = 'purple'
                 }

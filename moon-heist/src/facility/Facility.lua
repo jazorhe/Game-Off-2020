@@ -67,6 +67,8 @@ function Facility:init(def, params)
     if self.type == 'harbour' then
         self.panelOffsetX = FACILITY_SIZE * 4
         self.panelOffsetY = FACILITY_SIZE * 2
+    elseif self.type == 'sail' then
+        self.panelOffsetY = FACILITY_SIZE * 4
     end
 
     self.infoTextbox = Textbox(
@@ -252,34 +254,36 @@ function Facility:isHovered()
 
     local hoverShiftX = 0
     local hoverShiftY = 0
-
+    local scale = self.scale
+    local edgeAdjustment = 12
     if self.type == 'harbour' then
         hoverShiftX = FACILITY_SIZE * 4
         hoverShiftY = FACILITY_SIZE * 2
     elseif self.type == 'sail' then
-        hoverShiftY = FACILITY_SIZE * 2
+        hoverShiftY = FACILITY_SIZE * 4
+        scale = 2
     end
 
-    if mouseX > self.x + self.offsetX + hoverShiftX and mouseX < self.x + self.offsetX + hoverShiftX + FACILITY_SIZE * 2 then
-        if mouseY > self.y + self.offsetY + hoverShiftY and mouseY < self.y + self.offsetY + hoverShiftY + FACILITY_SIZE * 2 then
+    if mouseX > self.actualX + hoverShiftX and mouseX < self.actualX + hoverShiftX + FACILITY_SIZE * 2 then
+        if mouseY > self.actualY + hoverShiftY and mouseY < self.actualY + hoverShiftY + FACILITY_SIZE * 2 then
 
             -- exclude top left corner
-            if (mouseY - self.actualY - hoverShiftY) < - math.sqrt(3) * (mouseX - self.actualX - hoverShiftX) + math.sqrt(3) / (math.sqrt(3) + 1) * FACILITY_SIZE * self.scale + 12 then
+            if (mouseY - self.actualY - hoverShiftY) < - math.sqrt(3) * (mouseX - self.actualX - hoverShiftX) + math.sqrt(3) / (math.sqrt(3) + 1) * FACILITY_SIZE * scale + edgeAdjustment then
                 return false
             end
 
             -- exclude top right corner
-            if (mouseY - self.actualY - hoverShiftY) < 1 / math.sqrt(3) * (mouseX - self.actualX - hoverShiftX) - 1 / (math.sqrt(3) + 3) * FACILITY_SIZE * self.scale + 12 then
+            if (mouseY - self.actualY - hoverShiftY) < 1 / math.sqrt(3) * (mouseX - self.actualX - hoverShiftX) - 1 / (math.sqrt(3) + 3) * FACILITY_SIZE * scale + edgeAdjustment then
                 return false
             end
 
             -- exclude bottom left corner
-            if (mouseY - self.actualY - hoverShiftY) > 1 / math.sqrt(3) * (mouseX - self.actualX - hoverShiftX) + math.sqrt(3) / (math.sqrt(3) + 1) * FACILITY_SIZE * self.scale - 12 then
+            if (mouseY - self.actualY - hoverShiftY) > 1 / math.sqrt(3) * (mouseX - self.actualX - hoverShiftX) + math.sqrt(3) / (math.sqrt(3) + 1) * FACILITY_SIZE * scale - edgeAdjustment then
                 return false
             end
 
             -- exclude bottom right corner
-            if (mouseY - self.actualY - hoverShiftY) > - math.sqrt(3) * (mouseX - self.actualX - hoverShiftX) + (math.sqrt(3) + 4) / (math.sqrt(3) + 1) * FACILITY_SIZE * self.scale - 12 then
+            if (mouseY - self.actualY - hoverShiftY) > - math.sqrt(3) * (mouseX - self.actualX - hoverShiftX) + (math.sqrt(3) + 4) / (math.sqrt(3) + 1) * FACILITY_SIZE * scale - edgeAdjustment then
                 return false
             end
 

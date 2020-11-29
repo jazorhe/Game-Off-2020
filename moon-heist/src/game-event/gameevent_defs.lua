@@ -474,7 +474,7 @@ RANDOM_EVENTS = {
             inPool = true,
             dialogues = {
                 [0] = {
-                    "A Senior Scientist from the Dark Lab came to you and suggested that he might have found a way to produce a lot of money at once."
+                    "A Senior Scientist from the Dark Lab came to you and suggested that he might have found a way to make a lot of money at once."
                 },
                 [1] = {
                     "\"No risk, no gain.\" Someone once said."

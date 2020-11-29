@@ -58,8 +58,10 @@ require 'src/states/game-event/GameEventPassedState'
 gTextures = {
     ['yellow'] = love.graphics.newImage('graphics/yellow.png'),
     ['yellow6'] = love.graphics.newImage('graphics/yellow6.png'),
+    ['yellow-logo'] = love.graphics.newImage('graphics/yellow-logo.png'),
     ['purple'] = love.graphics.newImage('graphics/purple.png'),
     ['purple6'] = love.graphics.newImage('graphics/purple6.png'),
+    ['purple-logo'] = love.graphics.newImage('graphics/purple-logo.png'),
     ['cursor'] = love.graphics.newImage('graphics/cursor.png'),
     ['yellowbg'] = love.graphics.newImage('graphics/yellow-background.png'),
     ['purplebg'] = love.graphics.newImage('graphics/purple-background.png'),
