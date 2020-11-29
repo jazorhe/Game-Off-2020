@@ -753,7 +753,7 @@ RANDOM_EVENTS = {
                     "A researcher from the MoonBase tried to blackmail you, he claimed that he had just enough evidence to get you off your seat."
                 },
                 [1] = {
-                    "It had been more than few years since you did this kind of physical work. You felt exausted coming to work the next day."
+                    "It had been more than a few years since you did this kind of physical work. You felt exhausted coming to work the next day."
                 },
                 [2] = {
                     "Money is a dirty thing but it does the job."
