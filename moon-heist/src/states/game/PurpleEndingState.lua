@@ -14,23 +14,23 @@ function PurpleEndingState:init()
         self.allowInput = true
     end)
 
-    gSounds['victory-theme']:stop()
-    gSounds['victory-theme']:setVolume(1)
+    gSounds['main-theme']:stop()
+    gSounds['main-theme']:setVolume(1)
     Timer.after(1.8, function()
-        gSounds['victory-theme']:play()
+        gSounds['main-theme']:play()
     end)
 end
 
 function PurpleEndingState:update()
     if self.allowInput and (love.keyboard.wasPressed('enter') or love.keyboard.wasPressed('kpenter') or love.keyboard.wasPressed('return') or love.mouse.wasPressed(1)) then
 
-        local startwith = 1
-        Timer.every(0.1, function()
-            startwith = startwith - 0.1
-            gSounds['victory-theme']:setVolume(math.max(0, startwith))
-        end)
-        :limit(10)
-        gSounds['main-theme']:stop()
+        -- local startwith = 1
+        -- Timer.every(0.1, function()
+        --     startwith = startwith - 0.1
+        --     gSounds['main-theme']:setVolume(math.max(0, startwith))
+        -- end)
+        -- :limit(10)
+        -- gSounds['main-theme']:stop()
 
         gFuncExitToStart()
     end

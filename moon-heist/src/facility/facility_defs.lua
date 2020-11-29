@@ -581,7 +581,8 @@ FACILITY_DEFS = {
                     texture = 'yellow'
                 },
                 ['idle-1'] = {
-                    frames = {64, 65, 66, 67, 68, 69},
+                    frames = {64, 64, 65, 65,
+                                66, 66, 67, 67, 68, 68},
                     interval = 0.2,
                     texture = 'yellow'
                 },
