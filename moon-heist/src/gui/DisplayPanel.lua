@@ -16,6 +16,7 @@ function DisplayPanel:init(def)
         ['amenity'] = 0
     }
 
+    self.logo = def.logo
     self.panel = Panel ((self.side == 'yellow' and self.baseX + 10 or self.baseX + VIRTUAL_WIDTH - 150), 20, 140, VIRTUAL_HEIGHT - 40, self.colourTable.ui_bg)
 end
 
@@ -39,8 +40,18 @@ end
 function DisplayPanel:render()
 
     self.panel:render()
-    love.graphics.setColor(self.colourTable.ui_text)
 
+    love.graphics.setColor(WHITE)
+    local logoOffX = 0
+    local logoOffY = 90
+    if self.side == 'yellow' then
+        logoOffX = 25
+    elseif self.side == 'purple' then
+        logoOffX = VIRTUAL_WIDTH - 125
+    end
+    love.graphics.draw(self.logo, self.baseX + logoOffX, logoOffY)
+
+    love.graphics.setColor(self.colourTable.ui_text)
     local alignment = 'left'
     local offsetX = 24
     local paddingY = 12
@@ -72,8 +83,6 @@ function DisplayPanel:render()
 
     love.graphics.printf('Amenity: ' .. tostring(self.resources['amenity']),
         self.baseX + offsetX, VIRTUAL_HEIGHT - bottomY - 2 * paddingY, self.baseX + VIRTUAL_WIDTH, alignment)
-
-
 
     love.graphics.setColor(self.colourTable.ui_text_light)
     love.graphics.printf('(' .. (self.regTotal['money'] == 0 and "No Change"

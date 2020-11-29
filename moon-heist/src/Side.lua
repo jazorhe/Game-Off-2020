@@ -12,6 +12,7 @@ function Side:init(def)
     self.uiBgColour = gColours[self.name].ui_bg
     self.uiTextColour = gColours[self.name].ui_text
     self.darkcolour = gColours[self.name].dark
+    self.logo = def.logo
 
     self.trust = 70
     self.resources = INITIAL_RESOURCES
@@ -36,6 +37,7 @@ function Side:init(def)
     self.displayPanel = DisplayPanel {
         side = self.name,
         baseX = self.baseX,
+        logo = self.logo,
         currentTurn = self.currentTurn,
         trust = self.trust,
         resources = self.resources

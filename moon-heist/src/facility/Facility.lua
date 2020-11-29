@@ -240,11 +240,6 @@ function Facility:render(baseX)
             love.graphics.setColor(rgb(58, 198, 24))
         end
 
-        -- if self.type == 'harbour' then
-        --     love.graphics.rectangle('line', self.actualX + baseX - FACILITY_SIZE * 4, self.actualY - FACILITY_SIZE * 2, self.width * 6, self.height * 4)
-        -- if self.type == 'sail' then
-        --     love.graphics.rectangle('line', self.actualX + baseX, self.actualY - FACILITY_SIZE * 5, self.width * 4, self.height * 6)
-        -- else
         love.graphics.rectangle('line', self.actualX + baseX, self.actualY, self.width * self.scale, self.height * self.scale)
         -- end
         love.graphics.setColor(WHITE)
@@ -259,30 +254,32 @@ function Facility:isHovered()
     local hoverShiftY = 0
 
     if self.type == 'harbour' then
-        hoverShiftX = FACILITY_SIZE * 3 + 20
-        hoverShiftY = FACILITY_SIZE * 1 + 30
+        hoverShiftX = FACILITY_SIZE * 4
+        hoverShiftY = FACILITY_SIZE * 2
+    elseif self.type == 'sail' then
+        hoverShiftY = FACILITY_SIZE * 2
     end
 
     if mouseX > self.x + self.offsetX + hoverShiftX and mouseX < self.x + self.offsetX + hoverShiftX + FACILITY_SIZE * 2 then
         if mouseY > self.y + self.offsetY + hoverShiftY and mouseY < self.y + self.offsetY + hoverShiftY + FACILITY_SIZE * 2 then
 
             -- exclude top left corner
-            if (mouseY - self.actualY - hoverShiftY) < - math.sqrt(3) * (mouseX - self.actualX - hoverShiftX) + math.sqrt(3) / (math.sqrt(3) + 1) * self.width * self.scale + 12 then
+            if (mouseY - self.actualY - hoverShiftY) < - math.sqrt(3) * (mouseX - self.actualX - hoverShiftX) + math.sqrt(3) / (math.sqrt(3) + 1) * FACILITY_SIZE * self.scale + 12 then
                 return false
             end
 
             -- exclude top right corner
-            if (mouseY - self.actualY - hoverShiftY) < 1 / math.sqrt(3) * (mouseX - self.actualX - hoverShiftX) - 1 / (math.sqrt(3) + 3) * self.width * self.scale + 12 then
+            if (mouseY - self.actualY - hoverShiftY) < 1 / math.sqrt(3) * (mouseX - self.actualX - hoverShiftX) - 1 / (math.sqrt(3) + 3) * FACILITY_SIZE * self.scale + 12 then
                 return false
             end
 
             -- exclude bottom left corner
-            if (mouseY - self.actualY - hoverShiftY) > 1 / math.sqrt(3) * (mouseX - self.actualX - hoverShiftX) + math.sqrt(3) / (math.sqrt(3) + 1) * self.width * self.scale - 12 then
+            if (mouseY - self.actualY - hoverShiftY) > 1 / math.sqrt(3) * (mouseX - self.actualX - hoverShiftX) + math.sqrt(3) / (math.sqrt(3) + 1) * FACILITY_SIZE * self.scale - 12 then
                 return false
             end
 
             -- exclude bottom right corner
-            if (mouseY - self.actualY - hoverShiftY) > - math.sqrt(3) * (mouseX - self.actualX - hoverShiftX) + (math.sqrt(3) + 4) / (math.sqrt(3) + 1) * self.width * self.scale - 12 then
+            if (mouseY - self.actualY - hoverShiftY) > - math.sqrt(3) * (mouseX - self.actualX - hoverShiftX) + (math.sqrt(3) + 4) / (math.sqrt(3) + 1) * FACILITY_SIZE * self.scale - 12 then
                 return false
             end
 
