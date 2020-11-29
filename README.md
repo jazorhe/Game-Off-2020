@@ -225,16 +225,7 @@ Thus, When resolving or encountering events, random events always come before re
 -   [x] Frame 7 for Facility 6
 -   [x] Lost Text
 -   [x] Win Game Animation
--   [ ] Lost Evaluation
 -   [ ] More Events
--   [x] Purple Facilities Hovering
--   [x] Purple Facilities Panels
--   [ ] Purple Facilities Positons
--   [ ] Purple Empty Space
--   [ ] Purple RGB
--   [ ] Purple 6 Grid
--   [ ] Credit 1280x720
--   [ ] Game icon
 
 
 ## Known Issues
