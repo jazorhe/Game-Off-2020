@@ -377,17 +377,17 @@ RANDOM_EVENTS = {
             group = 'early',
             encounter = 3,
             resolve = 3,
-            eventID = 121,
+            eventID = 113,
             inPool = true,
             dialogues = {
                 [0] = {
-                    "Your staff decided to host a Lunar Long Jump Competition, gathering the best of the bests on the Moon. You were invited to participated in this competition."
+                    "Your staff decided to host a Lunar Long Jump Competition, gathering the best of the best on the Moon. You were invited to participate in this competition."
                 },
                 [1] = {
                     ""
                 },
                 [2] = {
-                    "The competition hosted sucessfully and everyone enjoyed the embient."
+                    "The competition was hosted successfully and everyone enjoyed the atmosphere."
                 },
                 [3] = {
                     "Now, please continue with your duty."
@@ -740,70 +740,51 @@ RANDOM_EVENTS = {
             }
         },
         [3] = {
-            name = 'Untold Past',
-            side = 'Purple',
+            name = 'Blackmail',
+            side = 'Yellow',
             type = 'random',
             group = 'later',
             encounter = 3,
             resolve = 3,
-            eventID = 203,
-            inPool = false,
+            eventID = 211,
+            inPool = true,
             dialogues = {
                 [0] = {
-                    "The event is a placeholder for an later event, eventID 203"
+                    "A researcher from the MoonBase tried to blackmail you, he calimed that he had just enough evidence to get you off your seat."
                 },
                 [1] = {
-                    "You selected option 1 in event 203, there is a 66% chance you will lose 200 energy and 400 amenity. 33% of gaining them."
+                    "It had been more than few years since you did this kind of physical work. You felt exausted coming to work the next day."
                 },
                 [2] = {
-                    "You selected option 2 in event 203, there is 80% chance of no effect or 20% of losing 20% trust from yellow side."
+                    "Money is a dirty thing but it does the job."
                 },
                 [3] = {
                     "Now, please continue with your duty."
                 }
             },
             selections = {
-                ['seleciton-prompt'] = "EventID 203 selections: ",
+                ['seleciton-prompt'] = "You had decided to:",
                 [1] = {
-                    text = "1",
-                    closing = "You have selected option 1",
+                    text = "Bury him at the gravity well one night",
+                    closing = "What an excellent decision!",
                     onSelect = function()
                         return 1
                     end
                 },
                 [2] = {
-                    text = "2",
-                    closing = "You have selected option 2",
+                    text = "Pay to shut his mouth.",
+                    closing = "You were not very pleased but you had to pay up.",
                     onSelect = function()
                         return 2
                     end
                 },
             },
             outcomes = {
-                [1] = math.random(100) <= 33 and {
-                    resources = {
-                        ['money'] = 0,
-                        ['food'] = 0,
-                        ['energy'] = 200,
-                        ['amenity'] = 400
-                    },
-                    trust = 0,
-                    side = 'yellow'
-                } or {
+                [1] = math.random(100) <= 100 and {
                     resources = {
                         ['money'] = 0,
                         ['food'] = 0,
                         ['energy'] = -200,
-                        ['amenity'] = -400
-                    },
-                    trust = 0,
-                    side = 'yellow'
-                },
-                [2] = math.random(100) <= 80 and {
-                    resources = {
-                        ['money'] = 0,
-                        ['food'] = 0,
-                        ['energy'] = 0,
                         ['amenity'] = 0
                     },
                     trust = 0,
@@ -815,7 +796,26 @@ RANDOM_EVENTS = {
                         ['energy'] = 0,
                         ['amenity'] = 0
                     },
-                    trust = -20,
+                    trust = 0,
+                    side = 'yellow'
+                },
+                [2] = math.random(100) <= 100 and {
+                    resources = {
+                        ['money'] = -400,
+                        ['food'] = 0,
+                        ['energy'] = 0,
+                        ['amenity'] = 0
+                    },
+                    trust = 10,
+                    side = 'yellow'
+                } or {
+                    resources = {
+                        ['money'] = 0,
+                        ['food'] = 0,
+                        ['energy'] = 0,
+                        ['amenity'] = 0
+                    },
+                    trust = 0,
                     side = 'yellow'
                 }
             },
