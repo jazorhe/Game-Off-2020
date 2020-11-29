@@ -262,3 +262,7 @@ Thus, When resolving or encountering events, random events always come before re
     -   [Markdown Emoji Cheatsheet](https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md)
 -   Books and Materials:
     -   [How to Make an RPG](https://howtomakeanrpg.com/)
+
+## License:
+-   Code: MIT license (A short, permissive software license. Basically, you can do whatever you want as long as you include the original copyright and license notice in any copy of the software/source. There are many variations of this license in use. — tldrlegal.com)
+-   Assets: Creative Commons Attribution_nonCommercial_NoDerivatives v4.0 International (This license forbids adaptations of your work to be shared in any way, and also forbids commercial uses of your work. This is not a Free Culture License. — creativecommons.org)
