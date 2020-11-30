@@ -5,8 +5,8 @@
 The theme for this year’s Game Off is **MOONSHOT**.
 
 Our team initially consists of 4 members:
--   Art Production: **Toothless Frostiana**
--   Art Production: **Rhoda Du**
+-   Graphical Effects: **Toothless Frostiana** 
+-   Graphical Effects: **Rhoda Du**
 -   Game Development: **Jazor He**
 -   Music Production: **Adam Chen**
 -   Special Thanks To: **Olivia Deng**
@@ -66,11 +66,15 @@ Yellow side art is achieved by using the following tools:
 
 Yellow Side Models:
 
-<img src="Concepts/img/yellow-models.jpg" width="1000">
+<img src="Concepts/img/yellow-models1.png" width="1000">
 <br>
 <br>
 
 Yellow Side Product:
+<img src="Concepts/img/yellow-models.png" width="1000">
+<br>
+
+Detailed Product:
 
 <img src="Concepts/img/yellow-1c4.png" width="500">
 

@@ -223,7 +223,7 @@ TUTORIAL_DEFS = {
             y = VIRTUAL_HEIGHT / 2 - 90,
             width = VIRTUAL_WIDTH - 360,
             height = 80,
-            text = "Your end goal is to reach level 3 with the 6th facility (Space Harbour). So that we can start the Moon migration process, you will also then become the Mayer of the New Moon City.",
+            text = "Your end goal is to reach level 3 with the last facility (Space Harbour). So that we can start the Moon migration process, you will also then become the Mayer of the New Moon City.",
             wrap = 12,
             bgcolour = YELLOW_UI_BG,
             textcolour = YELLOW_TEXT,
@@ -307,7 +307,7 @@ TUTORIAL_DEFS = {
             height = 80,
             text = "[*Clearing throat*]\n" ..
             "Congratulations, you have found the other side of the Moon. And yes, agent, welcome to the best Technology company on Earth, now also on Moon. The 0Ng Group.\n" ..
-            "We hired you not because you are a brilliant SPY, but also your ambition to advance the human race.",
+            "We hired you not only because you are a brilliant SPY, but also your ambition to advance the human race.",
             wrap = 12,
             bgcolour = PURPLE_UI_BG,
             textcolour = PURPLE_TEXT,
@@ -333,7 +333,7 @@ TUTORIAL_DEFS = {
             y = VIRTUAL_HEIGHT / 2 - 90,
             width = VIRTUAL_WIDTH - 360,
             height = 80,
-            text = "Your mission, is to build the 6th facility for the 0Ng Group, the Photon Sail. Which will allow us to Steal The Moon away from the Earth, and develop our own order on this planet. Advance the human race to next level.\n" ..
+            text = "Your mission, is to build the last facility for the 0Ng Group, the Photon Sail. Which will allow us to Steal The Moon away from the Earth, and develop our own order on this planet. Advance the human race to next level.\n" ..
             "You will then become the Captain piloting our new Moon Ark. Do not let us dowm...\n" ..
             "Now, enough with the introduction, get your work done.",
             wrap = 12,
