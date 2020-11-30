@@ -86,6 +86,7 @@ function Facility:init(def, params)
                     self:levelUp(1)
                     self.displayUpgradeConfirm = false
                     self.displayInfo = true
+                    love.mouse.keysPressed = {}
                 end
             },
             [2] = {
@@ -93,6 +94,7 @@ function Facility:init(def, params)
                 onSelect = function()
                     self.displayUpgradeConfirm = false
                     self.displayInfo = true
+                    love.mouse.keysPressed = {}
                 end
             }
         },
