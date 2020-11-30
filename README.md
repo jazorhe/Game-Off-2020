@@ -5,7 +5,7 @@
 The theme for this year’s Game Off is **MOONSHOT**.
 
 Our team initially consists of 4 members:
--   Graphical Effects: **Toothless Frostiana** 
+-   Graphical Effects: **Toothless Frostiana**
 -   Graphical Effects: **Rhoda Du**
 -   Game Development: **Jazor He**
 -   Music Production: **Adam Chen**
@@ -213,6 +213,11 @@ Thus, When resolving or encountering events, random events always come before re
 ### States
 ### Debugging
 
+
+## Changelog
+-   Ver 1.0.1 Moon Heist
+    -   Typo in tutorial
+    -   Credit page titles changed from "Art Production" to "Graphical Effects"
 
 ## Todo List
 -   [x] 背景图设计
