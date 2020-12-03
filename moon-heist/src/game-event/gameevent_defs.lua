@@ -430,12 +430,12 @@ RANDOM_EVENTS = {
                     trust = 0,
                     side = 'yellow'
                 },
-                [2] = math.random(100) <= 0 and {
+                [2] = math.random(100) <= 100 and {
                     resources = {
                         ['money'] = 0,
                         ['food'] = 0,
                         ['energy'] = 0,
-                        ['amenity'] = 0
+                        ['amenity'] = 200
                     },
                     trust = 0,
                     side = 'yellow'
@@ -455,7 +455,7 @@ RANDOM_EVENTS = {
             },
             gameEventFunctions = {
                 funcName = function(selection)
-                    if selection == 1 and RANDOM_EVENTS['early'][5].outcomes[1].money > 0 then
+                    if selection == 1 and RANDOM_EVENTS['early'][5].outcomes[1].resources['money'] > 0 then
                         RANDOM_EVENTS['early'][5].dialogues[1] = "You had shown exemplary long jump skills and you had won the competition. There was a bit of money as an award."
                     elseif seleciton == 1 and RANDOM_EVENTS['early'][5].outcomes[1].trust == 0 then
                         RANDOM_EVENTS['early'][5].dialogues[1] = "You might have put too much power in your feet and you flew such a long way and landed ungracefully. That was not exemplary, however, people still cheered for your action."
@@ -741,7 +741,7 @@ RANDOM_EVENTS = {
         },
         [3] = {
             name = 'Blackmail',
-            side = 'Yellow',
+            side = 'yellow',
             type = 'random',
             group = 'later',
             encounter = 3,
@@ -846,7 +846,7 @@ RANDOM_EVENTS = {
                     "Root 67 asked you to focus on the current MoonBase, and would support for more mining facilities after 18 months."
                 },
                 [3] = {
-                    "Hopy you knew what you were doing here."
+                    "Hope you knew what you were doing here."
                 }
             },
             selections = {

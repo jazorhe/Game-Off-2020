@@ -97,10 +97,10 @@ gSounds = {
     ['bell'] = love.audio.newSource('sounds/bell.wav', 'static'),
     ['error'] = love.audio.newSource('sounds/error.wav', 'static'),
     ['levelup'] = love.audio.newSource('sounds/levelup.wav', 'static'),
-    ['main-theme'] = love.audio.newSource('sounds/moon-theme.mp3', 'stream'),
-    ['yellow-theme'] = love.audio.newSource('sounds/moon-gate.wav', 'stream'),
-    ['purple-theme'] = love.audio.newSource('sounds/moon-gate-dark.mp3','stream'),
-    ['victory-theme'] = love.audio.newSource('sounds/moon-victory.mp3','stream')
+    ['main-theme'] = love.audio.newSource('sounds/moon-theme.mp3', 'static'),
+    ['yellow-theme'] = love.audio.newSource('sounds/moon-gate.wav', 'static'),
+    ['purple-theme'] = love.audio.newSource('sounds/moon-gate-dark.mp3','static'),
+    ['victory-theme'] = love.audio.newSource('sounds/moon-victory.mp3','static')
 }
 gVolume = 0.8
 gMute = false

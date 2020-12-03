@@ -36,7 +36,7 @@ function YellowEndingState:render()
     love.graphics.setFont(gFonts['large'])
     love.graphics.printf('CONGRATS, MAYOR!', 0, VIRTUAL_HEIGHT / 2 - 72, VIRTUAL_WIDTH, 'center')
     love.graphics.setFont(gFonts['medium'])
-    love.graphics.printf('Press Enter or Click anywehere to restart the Game', 0, VIRTUAL_HEIGHT / 2 + 68, VIRTUAL_WIDTH, 'center')
+    love.graphics.printf('Press Enter or Click anywhere to restart the Game', 0, VIRTUAL_HEIGHT / 2 + 68, VIRTUAL_WIDTH, 'center')
     love.graphics.setFont(gFonts['small'])
     love.graphics.setColor(WHITE)
 end

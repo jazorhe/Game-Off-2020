@@ -253,7 +253,6 @@ Thus, When resolving or encountering events, random events always come before re
 -   [Lua Knife](https://github.com/airstruck/knife)
 -   [Push Module for Lua](https://github.com/Ulydev/push)
 -   [Fonts: Dafont.com](https://www.dafont.com/)
--   [Freely Available Game Assets: Open Game Art](https://opengameart.org/)
 -   [Sound Effects: Bfxr Sound Effect Generator](https://www.bfxr.net/)
 -   [Shader](https://www.shadertoy.com/)
 -   Markdown Guides:

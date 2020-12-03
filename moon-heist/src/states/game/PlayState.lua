@@ -482,7 +482,6 @@ function PlayState:winGame(params)
 end
 
 function PlayState:generateGameEvents()
-    -- table.insert(self.currentEvents, GameEvent(RANDOM_EVENTS['early'][1]))
     local seperation = 9
     local encounterTurns = {3}
     local i = 3
