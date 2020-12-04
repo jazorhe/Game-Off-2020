@@ -85,6 +85,8 @@ DEBUG_STATES = false
 
 DEBUG_EVENTS = false
 DEBUG_TESTEVENT = false
+TEST_EVENT_GROUP = 'early'
+TEST_EVENT_NUM = 1
 SKIP_EVENTS = false
 
 gDebugConstants = {
@@ -134,17 +136,32 @@ gDebugConstants = {
         onSelect = function()
             gDebugConstants[6].value = not gDebugConstants[6].value
             DEBUG_EVENTS = not DEBUG_EVENTS
+            DEBUG_TESTEVENT = not DEBUG_TESTEVENT
         end
     },
     [7] = {
-        text = "Debug States:",
-        value = DEBUG_STATES,
+        text = "Test This Event:",
+        value = tostring(TEST_EVENT_GROUP) .. " " .. tostring(TEST_EVENT_NUM),
         onSelect = function()
-            gDebugConstants[7].value = not gDebugConstants[7].value
-            DEBUG_STATES = not DEBUG_STATES
+            if TEST_EVENT_GROUP == 'early' then
+                TEST_EVENT_GROUP = (TEST_EVENT_NUM < #RANDOM_EVENTS['early'] and TEST_EVENT_GROUP or 'later')
+                TEST_EVENT_NUM = (TEST_EVENT_NUM < #RANDOM_EVENTS['early'] and TEST_EVENT_NUM + 1 or 1)
+            elseif TEST_EVENT_GROUP == 'later' then
+                TEST_EVENT_GROUP = (TEST_EVENT_NUM < #RANDOM_EVENTS['later'] and TEST_EVENT_GROUP or 'early')
+                TEST_EVENT_NUM = (TEST_EVENT_NUM < #RANDOM_EVENTS['later'] and TEST_EVENT_NUM + 1 or 1)
+            end
+            gDebugConstants[7].value = tostring(TEST_EVENT_GROUP) .. " " .. tostring(TEST_EVENT_NUM)
         end
     },
     [8] = {
+        text = "Debug States:",
+        value = DEBUG_STATES,
+        onSelect = function()
+            gDebugConstants[8].value = not gDebugConstants[8].value
+            DEBUG_STATES = not DEBUG_STATES
+        end
+    },
+    [9] = {
         text = "Done",
         value = "",
         onSelect = function()

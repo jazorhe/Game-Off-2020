@@ -529,7 +529,7 @@ function PlayState:generateGameEvents()
     end
 
     if DEBUG and DEBUG_TESTEVENT then
-        eventTable = {GameEvent(RANDOM_EVENTS['early'][3])}
+        eventTable = {GameEvent(RANDOM_EVENTS[TEST_EVENT_GROUP][TEST_EVENT_NUM])}
         encounterTurns = {3}
     end
 
