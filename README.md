@@ -21,7 +21,7 @@ The player is also secretly employed by a giant science/technology company ***Te
 
 ### Initial Concept Diagram
 
-<img src="Concepts/img/Moon Heist.png" width="700">
+<img src="docs/img/Moon Heist.png" width="700">
 
 
 ### Core Gameplay
@@ -66,17 +66,17 @@ Yellow side art is achieved by using the following tools:
 
 Yellow Side Models:
 
-<img src="Concepts/img/yellow-models1.png" width="1000">
+<img src="docs/img/yellow-models1.png" width="1000">
 <br>
 <br>
 
 Yellow Side Product:
-<img src="Concepts/img/yellow-models.png" width="1000">
+<img src="docs/img/yellow-models.png" width="1000">
 <br>
 
 Detailed Product:
 
-<img src="Concepts/img/yellow-1c4.png" width="500">
+<img src="docs/img/yellow-1c4.png" width="500">
 
 
 
@@ -89,12 +89,12 @@ Purple side art is achieved by using the following tools:
 
 Purple Side Drafts:
 
-<img src="Concepts/img/purple-concepts.jpeg" width="700">
+<img src="docs/img/purple-concepts.jpeg" width="700">
 
 
 Purple Side Model:
 
-<img src="Concepts/img/purple-1a1.jpeg" width="500">
+<img src="docs/img/purple-1a1.jpeg" width="500">
 
 
 
@@ -113,8 +113,8 @@ Purple Side Model:
 
 ### Sprites
 
-<img src="Concepts/img/yellow-numbered.png" width="300">
-<img src="Concepts/img/purple-numbered.png" width="300">
+<img src="docs/img/yellow-numbered.png" width="300">
+<img src="docs/img/purple-numbered.png" width="300">
 
 <br>
 
