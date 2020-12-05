@@ -334,7 +334,7 @@ TUTORIAL_DEFS = {
             width = VIRTUAL_WIDTH - 360,
             height = 80,
             text = "Your mission, is to build the last facility for the 0Ng Group, the Photon Sail. Which will allow us to Steal The Moon away from the Earth, and develop our own order on this planet. Advance the human race to next level.\n" ..
-            "You will then become the Captain piloting our new Moon Ark. Do not let us dowm...\n" ..
+            "You will then become the Captain piloting our new Moon Ark. Do not let us down...\n" ..
             "Now, enough with the introduction, get your work done.",
             wrap = 12,
             bgcolour = PURPLE_UI_BG,

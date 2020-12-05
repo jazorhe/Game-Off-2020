@@ -14,7 +14,7 @@ RANDOM_EVENTS = {
             dialogues = {
                 [0] = {
                     "There were two pills on your lunch plate today. \n"..
-                    "You were puzzled, and asked around if anyone knew where they might be. \n\n"..
+                    "You were puzzled, and asked around if anyone knew what they might be. \n\n"..
                     "No one seemed to have any idea."
                 },
                 [1] = {

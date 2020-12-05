@@ -64,8 +64,9 @@ function CreditsState:render()
     love.graphics.setColor(WHITE)
 
     love.graphics.setFont(gFonts['large'])
-    love.graphics.printf('Credits', 0, 84, VIRTUAL_WIDTH, 'center')
+    love.graphics.printf('Credits', 0, 72, VIRTUAL_WIDTH, 'center')
     love.graphics.setFont(gFonts['medium'])
+    love.graphics.printf('(click the names!)', 0, 108, VIRTUAL_WIDTH, 'center')
 
     for k, credit in pairs(self.credits) do
         if self.hover and k == self.hover then

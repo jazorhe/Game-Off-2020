@@ -524,25 +524,25 @@ FACILITY_DEFS = {
                 [0] = {
                     ['money'] = 0,
                     ['food'] = 0,
-                    ['energy'] = ROW_ONE_REG_COST[1],
+                    ['energy'] = 0,
                     ['amenity'] = 0
                 },
                 [1] = {
                     ['money'] = 0,
                     ['food'] = 0,
-                    ['energy'] = ROW_ONE_REG_COST[2],
+                    ['energy'] = 0,
                     ['amenity'] = 0
                 },
                 [2] = {
                     ['money'] = 0,
                     ['food'] = 0,
-                    ['energy'] = ROW_ONE_REG_COST[3],
+                    ['energy'] = 0,
                     ['amenity'] = 0
                 },
                 [3] = {
                     ['money'] = 0,
-                    ['food'] = 00,
-                    ['energy'] = ROW_ONE_REG_COST[4],
+                    ['food'] = 0,
+                    ['energy'] = 0,
                     ['amenity'] = 0
                 }
             },
