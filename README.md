@@ -34,7 +34,7 @@ See below [**Specification for GD50 Final Project**](https://github.com/jazorhe/
 -   [Art Style](https://github.com/jazorhe/Game-Off-2020#art-style)
     -   Yellow
     -   Purple
--   [Data[ Structure & Balancing](https://github.com/jazorhe/Game-Off-2020#data-structure--balancing)
+-   [Data Structure & Balancing](https://github.com/jazorhe/Game-Off-2020#data-structure--balancing)
 -   [Development](https://github.com/jazorhe/Game-Off-2020#development)
     -   Sprites
     -   Isometric Hovering
