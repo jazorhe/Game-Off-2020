@@ -24,7 +24,30 @@ See below [**Specification for GD50 Final Project**](https://github.com/jazorhe/
 
 
 ## Contents:
+-   [Basic Information](https://github.com/jazorhe/Game-Off-2020#basic-information)
+-   [Concept](https://github.com/jazorhe/Game-Off-2020#concept)
+-   [Core Gameplay](https://github.com/jazorhe/Game-Off-2020#core-gameplay)
+-   [Winning/Losing Conditions](https://github.com/jazorhe/Game-Off-2020#winninglosing-conditions)
+-   [Asset List](https://github.com/jazorhe/Game-Off-2020#asset-list)
+    -   Graphical
+    -   Audio
+-   [Art Style](https://github.com/jazorhe/Game-Off-2020#art-style)
+    -   Yellow
+    -   Purple
+-   [Data[ Structure & Balancing](https://github.com/jazorhe/Game-Off-2020#data-structure--balancing)
+-   [Development](https://github.com/jazorhe/Game-Off-2020#development)
+    -   Sprites
+    -   Isometric Hovering
+    -   Data Driven Design
+    -   Game Events
+    -   States
+    -   Debugging
 -   [Specification for GD50 Final Project](https://github.com/jazorhe/Game-Off-2020#specification-for-gd50-final-project)
+-   [Credits](https://github.com/jazorhe/Game-Off-2020#credits)
+-   [Licenses](https://github.com/jazorhe/Game-Off-2020#licenses)
+-   [Resources](https://github.com/jazorhe/Game-Off-2020#resources)
+-   [Change Logs](https://github.com/jazorhe/Game-Off-2020#change-log)
+
 
 ## Moon Heist
 ### Basic information:
@@ -33,7 +56,7 @@ See below [**Specification for GD50 Final Project**](https://github.com/jazorhe/
 -   **Time For Single Playthrough**: 5-10 minutes
 
 
-### Introduction:
+### Concept:
 The player is sent to the Moon and is in charge of the latest space project: ***The International Moon Base***, funded by the ***International Space association*** (temp name).
 
 The player is also secretly employed by a giant science/technology company ***Tesla*** (temp name), which secretly demanded the player to construct a hidden secondary moon base, and its final attempt is to steal the moon for unknown reason.
@@ -64,7 +87,7 @@ There are following losing conditions:
 -   Trust level on the yellow side drops below 0
 
 ### Asset List
-#### Art
+#### Graphical
 -   Left side facilities (6 facilities, 3 levels, multiple frames)
 -   Right side facilities (6 facilities, 3 levels, multiple frames)
 -   Background images
@@ -132,7 +155,7 @@ Purple Side Model:
 [Numeric System Design Spreadsheet](https://docs.google.com/spreadsheets/d/1_NTowgmsGuZVGE5H6L1Hs_r6AtO24pWrbx5FGaMPeys/edit?usp=sharing)
 
 
-## Dev Log:
+## Development:
 ### Contents
 -   Sprites
 -   Isometric Hovering
@@ -274,23 +297,57 @@ This game the following game states managed with a *StateStack*:
 
 4.  Your game can be most any genre you’d like, though there needs to be a definitive way of winning (or at least scoring indefinitely) and losing the game, be it against the computer or another player. This can take many forms; some loss conditions could be running out of time in a puzzle game, being slain by monsters in an RPG, and so on, while some winning conditions may be defeating a final boss in an RPG, making it to the end of a series of levels in a platformer, and tallying score in a puzzle game until it becomes impossible to do more.
 
-    **This game has 14 game states, refer to [Winning/Losing Conditions](https://github.com/jazorhe/Game-Off-2020#game-states).**
+    **This game has 14 game states, refer to [Winning/Losing Conditions](https://github.com/jazorhe/Game-Off-2020#winninglosing-conditions).**
 
 5.  You are allowed to use libraries and assets in either game development environment, but the bulk of your game’s logic must be handwritten (i.e., putting together an RPG in Unity while using a UI library would be considered valid, assuming the bulk of the game logic is also not implemented in a library, but recycling a near-complete game prototype from Unity’s asset store with slightly changed labels, materials, etc. would not be acceptable).
 
-    **This game was made with LÖVE**
+    **The bulk logic of this game has been handwritten**<br>
+    Library used for this game:
+    -   [Lua Knife](https://github.com/airstruck/knife)
+    -   [Push Module for Lua](https://github.com/Ulydev/push)
 
 6.  Your project must be at least as complex as (and distinct from!) the games you’ve implemented in this course, and should really be moreso. Submissions of low complexity may be rejected! You must explain your game in detail and why you believe it to meet the complexity and distinctiveness requirement in a README.md file at the root of your project.
 
-    **This game was made with LÖVE**
+    **This game is a lot more complex than any projects made in this course because of the following reasons:**
+
+    -   **Variables**: This game keeps track a large amount of Variables including 4 resources, 2 trust levels for 2 playable sides. Each has 6 facilities with 3 upgradable states.
+    -   **Turn (Time) System**: This game has a turn (time) system, for each turn, each facility on each side, depending on their levels, will gain different earnings for the player.
+    -   **Animations**: All Facilities have their animations for 3 different levels.
+    -   **Background**: There are images and other animations elements in the background.
+    -   **Game States**: This game has more than 14 game states.
+    -   **Random Events**: This game has a random event system, where there are 2 pools of random events, for the earlier part and the later part of the game, each play-through, a number of events will be picked from the pool and presented to the player.
+    -   **Mouse Control**: This game can be played with only a mouse. In one playable side, I needed to implement ***isometric hovering***.
+    -   **Data Driven Design**: This game has implemented data driven design described in course for all dialogues, all facilities, all game events, all misc entities, all colours used, and all debugging options.
+    -   **Shader**: This game uses similar shader effect as taught by the course, I made some slight adjustments.
+    -   **Tweening**: This game has a lot of tweening effects in state transitions, sound design, and UI elements.
+    -   **User Interface**: This game has a more complex UI representation compared to what has been taught in the course, and some UI elements need to be interactive (random events).
+    -   **Particle System**: This game has a particle system to generate stars at random positions but with regular blinking actions in the background with different colours for both sides.
+    -   **Sound Design**: This game has used soundtracks as part of the gameplay experience, when switching sides, the music switches smoothly (achieved with tweening using Knife).
+    -   **Events**: This game uses events to manage resources, trusts across different states and also to assist with evaluating winning/losing.
+    -   **Selections**: All random events and other selections in this game has *callback* functions that are organically combined with the data driven design, events and sound design and debugging.
+    -   **Transitions**: This game used more transition methods upon what has been taught in course.
+    -   **Debugging**: This game has a debug menu (hidden) that can assist the developer (myself) and improve efficiency.
+    -   **Distribution**: This game has been distributed for both Windows and HTML versions, third party tools were required to change icons, export html, and I also needed to made adjustments to the html and css codes to improve the look and stability.
+    -   **Collaboration**: This project requires working with others, I have gathered a team and together we planned, executed and published the game.
+    -   **Project Management**: The project's scale is not small for a one month Game Jam, there are a lot of assets (graphical, audio) to be created. A lot of adjustments were made upon the original scope along the way. I was handling project management myself and it has been a great challenge for closing off this year.
+
+    Overall, I have used everything been taught in the course to achieve this project while I have gone into more depth in each topic. I am very comfortable creating any genre of 2d games using LÖVE again.
 
 
-## Changelog
--   Ver 1.0.1 Moon Heist
-    -   Typo in tutorial
-    -   Credit page titles changed from "Art Production" to "Graphical Effects"
+## Credits
+Our team has 4 members:
+-   Graphical Effects: **Toothless Frostiana**
+-   Graphical Effects: **Rhoda Du**
+-   Game Development: **Jazor He**
+-   Music Production: **Adam Chen**
+-   Special Thanks To: **Olivia Deng**
 
-## Useful Links:
+## Licenses:
+-   Code: MIT license (A short, permissive software license. Basically, you can do whatever you want as long as you include the original copyright and license notice in any copy of the software/source. There are many variations of this license in use. — tldrlegal.com)
+-   Assets: Creative Commons Attribution_nonCommercial_NoDerivatives v4.0 International (This license forbids adaptations of your work to be shared in any way, and also forbids commercial uses of your work. This is not a Free Culture License. — creativecommons.org)
+
+
+## Resources:
 -   [LÖVE2d](https://love2d.org/wiki/love)
 -   [Lua Knife](https://github.com/airstruck/knife)
 -   [Push Module for Lua](https://github.com/Ulydev/push)
@@ -304,15 +361,60 @@ This game the following game states managed with a *StateStack*:
 -   Books and Materials:
     -   [How to Make an RPG](https://howtomakeanrpg.com/)
 
-
-# Credits
-Our team has 4 members:
--   Graphical Effects: **Toothless Frostiana**
--   Graphical Effects: **Rhoda Du**
--   Game Development: **Jazor He**
--   Music Production: **Adam Chen**
--   Special Thanks To: **Olivia Deng**
-
-## License:
--   Code: MIT license (A short, permissive software license. Basically, you can do whatever you want as long as you include the original copyright and license notice in any copy of the software/source. There are many variations of this license in use. — tldrlegal.com)
--   Assets: Creative Commons Attribution_nonCommercial_NoDerivatives v4.0 International (This license forbids adaptations of your work to be shared in any way, and also forbids commercial uses of your work. This is not a Free Culture License. — creativecommons.org)
+## Change Logs
+-   Ver 0.0.1
+-   Ver 0.0.2
+-   Ver 0.0.3
+-   Ver 0.0.4
+-   Ver 0.0.5
+-   Ver 0.0.6
+-   Ver 0.0.7
+-   Ver 0.0.8
+-   Ver 0.1.0
+-   Ver 0.1.1
+-   Ver 0.1.2
+-   Ver 0.1.3
+-   Ver 0.2.0
+-   Ver 0.2.1
+-   Ver 0.2.2
+-   Ver 0.2.3
+-   Ver 0.2.4
+-   Ver 0.2.5
+-   Ver 0.2.6
+-   Ver 0.2.7
+-   Ver 0.3.0
+-   Ver 0.3.1
+-   Ver 0.3.2
+-   Ver 0.3.3
+-   Ver 0.3.4
+-   Ver 0.3.5
+-   Ver 0.3.6
+-   Ver 0.4.0
+-   Ver 0.4.1
+-   Ver 0.4.2
+-   Ver 0.4.3
+-   Ver 0.4.4
+-   Ver 0.4.5
+-   Ver 0.4.6
+-   Ver 0.4.7
+-   Ver 0.4.8
+-   Ver 0.5.0
+-   Ver 0.5.1
+-   Ver 0.5.2
+-   Ver 0.5.3
+-   Ver 0.5.4
+-   Ver 0.5.5
+-   Ver 0.6.0
+-   Ver 0.6.0a
+-   Ver 0.6.1
+-   Ver 1.0.0
+-   Ver 1.0.1 Moon Heist
+    -   Typo in tutorial
+    -   Credit page titles changed from "Art Production" to "Graphical Effects"
+-   Ver 1.0.2
+-   Ver 1.0.3
+-   Ver 1.0.4
+-   Ver 1.0.5
+-   Ver 1.0.6
+-   Ver 1.0.7
+-   Ver 1.0.8
