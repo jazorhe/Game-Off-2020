@@ -120,9 +120,9 @@ function PlayState:update(dt)
             Event.dispatch('next-turn')
         end
 
-        if self.lost then
-            self:gameOver()
-        end
+        -- if self.lost then
+        --     self:gameOver()
+        -- end
     end
 
     self.regTotal = self:calculateRegTotal()
@@ -311,13 +311,14 @@ function PlayState:startNewTurn()
 end
 
 function PlayState:endCurrentTurn()
-    self:evaluateEndTurn()
+    if not self:evaluateEndTurn() then
+        self.lost = true
+    end
 end
 
 
 function PlayState:evaluateStartTurn()
     if self.currentTurn >= MAX_TURN then
-        -- self:gameOver()
         gStateStack:push(TutorialState(
         TUTORIAL_DEFS[-1].dialogueParams,
         TUTORIAL_DEFS[-1].stencilParams,
@@ -329,7 +330,6 @@ function PlayState:evaluateStartTurn()
     end
 
     if not self:checkResource({resourceTable = ZERO_RESOURCES}) then
-        -- self:gameOver()
         gStateStack:push(TutorialState(
         TUTORIAL_DEFS[-2].dialogueParams,
         TUTORIAL_DEFS[-2].stencilParams,
@@ -342,8 +342,7 @@ function PlayState:evaluateStartTurn()
 
     for k, side in pairs(self.sides) do
         if not side:checkTrust() and side.name == 'yellow' then
-            -- self:gameOver()
-            gStateStack:push(TutorialState(
+                gStateStack:push(TutorialState(
             TUTORIAL_DEFS[-3].dialogueParams,
             TUTORIAL_DEFS[-3].stencilParams,
             function()
@@ -359,7 +358,6 @@ end
 
 function PlayState:evaluateEndTurn()
     if self.currentTurn >= MAX_TURN then
-        -- self:gameOver()
         gStateStack:push(TutorialState(
         TUTORIAL_DEFS[-1].dialogueParams,
         TUTORIAL_DEFS[-1].stencilParams,
@@ -371,7 +369,6 @@ function PlayState:evaluateEndTurn()
     end
 
     if not self:checkResource({resourceTable = ZERO_RESOURCES}) then
-        -- self:gameOver()
         gStateStack:push(TutorialState(
         TUTORIAL_DEFS[-2].dialogueParams,
         TUTORIAL_DEFS[-2].stencilParams,
@@ -384,8 +381,7 @@ function PlayState:evaluateEndTurn()
 
     for k, side in pairs(self.sides) do
         if not side:checkTrust() and side.name == 'yellow' then
-            -- self:gameOver()
-            gStateStack:push(TutorialState(
+                gStateStack:push(TutorialState(
             TUTORIAL_DEFS[-3].dialogueParams,
             TUTORIAL_DEFS[-3].stencilParams,
             function()
@@ -543,7 +539,7 @@ function PlayState:gameEventUpdateLoop(dt)
     end
 
     if self.lost then
-        self:gameOver()
+        -- self:gameOver()
         return
     end
 
